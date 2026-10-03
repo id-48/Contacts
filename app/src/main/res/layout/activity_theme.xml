@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_4"
+        android:paddingEnd="@dimen/screen_padding">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="@dimen/icon_button"
+            android:layout_height="@dimen/icon_button"
+            android:background="@drawable/bg_round_ripple"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_chevron_left"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/themeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_4"
+            android:layout_weight="1"
+            android:accessibilityHeading="true"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:maxLines="1"
+            android:text="@string/theme"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            app:fontFamily="@font/roboto_bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/themeSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:lineSpacingExtra="2dp"
+        android:paddingStart="@dimen/screen_padding"
+        android:paddingEnd="@dimen/screen_padding"
+        android:paddingBottom="@dimen/space_16"
+        android:text="@string/theme_subtitle"
+        android:textColor="@color/text_muted"
+        android:textSize="15sp"
+        app:fontFamily="@font/roboto_regular" />
+
+    <FrameLayout
+        android:id="@+id/previewStage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/screen_padding"
+        android:layout_marginEnd="@dimen/screen_padding"
+        android:layout_weight="1"
+        android:background="@drawable/bg_theme_stage" />
+
+    <LinearLayout
+        android:id="@+id/optionRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screen_padding"
+        android:layout_marginTop="@dimen/space_20"
+        android:layout_marginEnd="@dimen/screen_padding"
+        android:layout_marginBottom="@dimen/space_20"
+        android:orientation="horizontal">
+
+        <include
+            android:id="@+id/optionSystem"
+            layout="@layout/view_theme_option" />
+
+        <Space
+            android:layout_width="@dimen/space_12"
+            android:layout_height="0dp" />
+
+        <include
+            android:id="@+id/optionLight"
+            layout="@layout/view_theme_option" />
+
+        <Space
+            android:layout_width="@dimen/space_12"
+            android:layout_height="0dp" />
+
+        <include
+            android:id="@+id/optionDark"
+            layout="@layout/view_theme_option" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/doneButton"
+        style="@style/Widget.App.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/onboarding_padding"
+        android:layout_marginEnd="@dimen/onboarding_padding"
+        android:layout_marginBottom="@dimen/space_16"
+        android:text="@string/done"
+        android:visibility="gone" />
+</LinearLayout>

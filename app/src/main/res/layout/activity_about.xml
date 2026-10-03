@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/include_top_bar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_padding"
+            android:paddingEnd="@dimen/screen_padding"
+            android:paddingBottom="@dimen/space_32">
+
+            <ImageView
+                android:id="@+id/appIcon"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="@dimen/space_24"
+                android:importantForAccessibility="no"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.App.Headline" />
+
+            <TextView
+                android:id="@+id/versionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:textAppearance="@style/TextAppearance.App.BodySecondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:gravity="center"
+                android:paddingStart="@dimen/space_16"
+                android:paddingEnd="@dimen/space_16"
+                android:text="@string/about_tagline"
+                android:textAppearance="@style/TextAppearance.App.Body" />
+
+            <LinearLayout
+                style="@style/Widget.App.SettingsGroup"
+                android:layout_marginTop="@dimen/space_24">
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowIcon="@drawable/ic_shield"
+                    app:rowSubtitle="@string/about_no_ads_body"
+                    app:rowTitle="@string/about_no_ads" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowIcon="@drawable/ic_lock"
+                    app:rowSubtitle="@string/about_on_device_body"
+                    app:rowTitle="@string/about_on_device" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Widget.App.SettingsGroup"
+                android:layout_marginTop="@dimen/space_16">
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/rateRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowIcon="@drawable/ic_thumb_up"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/rate_us" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/shareRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowIcon="@drawable/ic_share"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/share_app" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/privacyRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowIcon="@drawable/ic_shield"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/privacy_policy" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

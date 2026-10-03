@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_blue">#FF3D7EF7</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <color name="primary">#FF3D7EF7</color>
+    <color name="on_primary">#FFFFFFFF</color>
+    <color name="primary_container">#FFEAF1FE</color>
+    <color name="on_primary_container">#FF2A64D6</color>
+
+    <color name="background">#FFFFFFFF</color>
+    <color name="surface_elevated">#FFFFFFFF</color>
+    <color name="card">#FFF4F5F7</color>
+    <color name="segment_thumb">#FFFFFFFF</color>
+    <color name="card_strong">#FFEBEDF1</color>
+    <color name="key">#FFF1F2F4</color>
+    <color name="nav_background">#FFFFFFFF</color>
+    <color name="nav_stroke">#FFECEEF2</color>
+
+    <color name="text_primary">#FF16181D</color>
+    <color name="text_secondary">#FF6B7080</color>
+    <color name="text_tertiary">#FFA0A4AE</color>
+    <color name="divider">#FFE6E8EC</color>
+    <color name="splash_track">#FFB4B6BC</color>
+    <color name="text_muted">#FF4F5258</color>
+    <color name="theme_label_bg">#FFEAF1FE</color>
+    <color name="illustration_blob">#FFEDF1F9</color>
+    <color name="illustration_sparkle">#FFD3DCEC</color>
+    <color name="illustration_surface">#FFFFFFFF</color>
+    <color name="illustration_shadow">#FFDDE4F1</color>
+    <color name="illustration_line">#FFC9D2E3</color>
+    <color name="illustration_glare">#FFEEF1F7</color>
+
+    <color name="success">#FF1FA855</color>
+    <color name="warning">#FFF2A516</color>
+    <color name="error">#FFE5383B</color>
+    <color name="error_container">#FFFDECEC</color>
+    <color name="widget_icon_background">#FFDDE7FC</color>
+    <color name="favorite_star">#FFF5A623</color>
+
+    <color name="call_incoming">#FF1FA855</color>
+    <color name="call_outgoing">#FF3D7EF7</color>
+    <color name="call_missed">#FFE5383B</color>
+    <color name="call_rejected">#FF8A8F99</color>
+
+    <color name="call_answer">#FF1FA855</color>
+    <color name="call_decline">#FFE5383B</color>
+    <color name="control_active">#FF16181D</color>
+    <color name="on_control_active">#FFFFFFFF</color>
+
+    <color name="preview_light_bg">#FFFFFFFF</color>
+    <color name="preview_light_card">#FFF1F2F4</color>
+    <color name="preview_dark_bg">#FF0B0B0D</color>
+    <color name="preview_dark_card">#FF222328</color>
+</resources>

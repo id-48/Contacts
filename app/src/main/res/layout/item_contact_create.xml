@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/createRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_8"
+    android:layout_marginTop="@dimen/space_4"
+    android:layout_marginEnd="@dimen/space_8"
+    android:background="@drawable/bg_row"
+    android:contentDescription="@string/create_contact"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/row_min_height"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/space_12"
+    android:paddingTop="@dimen/space_8"
+    android:paddingEnd="@dimen/space_8"
+    android:paddingBottom="@dimen/space_8">
+
+    <ImageView
+        android:layout_width="@dimen/avatar_medium"
+        android:layout_height="@dimen/avatar_medium"
+        android:background="@drawable/bg_circle_tint"
+        android:importantForAccessibility="no"
+        android:padding="12dp"
+        android:src="@drawable/ic_person_add"
+        app:tint="@color/primary" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_16"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
+        android:importantForAccessibility="no"
+        android:maxLines="1"
+        android:text="@string/create_contact"
+        android:textColor="@color/primary"
+        android:textSize="15sp"
+        app:fontFamily="@font/roboto_medium" />
+</LinearLayout>

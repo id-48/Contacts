@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/responseRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="60dp"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_20"
+        android:paddingEnd="@dimen/space_20">
+
+        <TextView
+            android:id="@+id/responseText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_regular"
+            android:lineSpacingExtra="2dp"
+            android:paddingTop="@dimen/space_16"
+            android:paddingBottom="@dimen/space_16"
+            android:textColor="@color/text_secondary"
+            android:textSize="17sp"
+            app:fontFamily="@font/roboto_regular" />
+
+        <ImageButton
+            android:id="@+id/responseDelete"
+            android:layout_width="@dimen/icon_button"
+            android:layout_height="@dimen/icon_button"
+            android:layout_marginStart="@dimen/space_8"
+            android:background="@drawable/bg_round_ripple"
+            android:src="@drawable/ic_delete"
+            android:visibility="gone"
+            app:tint="@color/text_tertiary"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/responseDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginEnd="@dimen/space_20"
+        android:background="@color/divider" />
+</LinearLayout>

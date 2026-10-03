@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_4"
+        android:paddingEnd="@dimen/space_4">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="@dimen/icon_button"
+            android:layout_height="@dimen/icon_button"
+            android:background="@drawable/bg_round_ripple"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/topTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_8"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/details"
+            android:textAppearance="@style/TextAppearance.App.Title"
+            android:textSize="22sp" />
+
+        <ImageButton
+            android:id="@+id/editButton"
+            android:layout_width="@dimen/icon_button"
+            android:layout_height="@dimen/icon_button"
+            android:background="@drawable/bg_round_ripple"
+            android:contentDescription="@string/edit"
+            android:src="@drawable/ic_edit"
+            app:tint="@color/text_primary" />
+
+        <ImageButton
+            android:id="@+id/moreButton"
+            android:layout_width="@dimen/icon_button"
+            android:layout_height="@dimen/icon_button"
+            android:background="@drawable/bg_round_ripple"
+            android:contentDescription="@string/more_options"
+            android:src="@drawable/ic_more_vert"
+            app:tint="@color/text_primary" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/space_24">
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ContactAvatarView
+                    android:id="@+id/detailsAvatar"
+                    android:layout_width="@dimen/avatar_hero"
+                    android:layout_height="@dimen/avatar_hero"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/space_8" />
+
+                <TextView
+                    android:id="@+id/detailsName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:textAppearance="@style/TextAppearance.App.Headline"
+                    android:textIsSelectable="true" />
+
+                <TextView
+                    android:id="@+id/detailsSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:textAppearance="@style/TextAppearance.App.BodySecondary"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/quickActions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/space_12"
+                    android:paddingEnd="@dimen/space_12">
+
+                    <include
+                        android:id="@+id/quickCall"
+                        layout="@layout/include_quick_action" />
+
+                    <include
+                        android:id="@+id/quickMessage"
+                        layout="@layout/include_quick_action" />
+
+                    <include
+                        android:id="@+id/quickVideo"
+                        layout="@layout/include_quick_action" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/infoTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_24"
+                    android:accessibilityHeading="true"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:text="@string/contact_info"
+                    android:textAppearance="@style/TextAppearance.App.Section"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/infoCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screen_padding"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:layout_marginEnd="@dimen/screen_padding"
+                    android:background="@drawable/bg_card_large"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/space_4"
+                    android:paddingBottom="@dimen/space_4" />
+
+                <LinearLayout
+                    android:id="@+id/activityHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/space_4"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:accessibilityHeading="true"
+                        android:text="@string/recent_activity"
+                        android:textAppearance="@style/TextAppearance.App.Section"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/showMoreButton"
+                        style="@style/Widget.App.Button.Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/show_more"
+                        android:textColor="@color/primary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/activityCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.EmptyStateView
+            android:id="@+id/emptyState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@drawable/bg_bottom_bar"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_8"
+        android:paddingEnd="@dimen/space_8"
+        android:visibility="invisible">
+
+        <include
+            android:id="@+id/actionFavorite"
+            layout="@layout/include_bottom_action" />
+
+        <include
+            android:id="@+id/actionBlock"
+            layout="@layout/include_bottom_action" />
+
+        <include
+            android:id="@+id/actionDelete"
+            layout="@layout/include_bottom_action" />
+    </LinearLayout>
+</LinearLayout>

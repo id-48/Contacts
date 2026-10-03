@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Контакты</string>
+
+    <string name="back">Назад</string>
+    <string name="close">Закрыть</string>
+    <string name="cancel">Отмена</string>
+    <string name="done">Готово</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Изменить</string>
+    <string name="add">Добавить</string>
+    <string name="remove">Убрать</string>
+    <string name="clear">Очистить</string>
+    <string name="paste">Вставить</string>
+    <string name="more">Ещё</string>
+    <string name="more_options">Другие параметры</string>
+    <string name="dismiss">Скрыть</string>
+    <string name="discard">Не сохранять</string>
+    <string name="allow">Разрешить</string>
+    <string name="allow_named">Разрешить: %1$s</string>
+    <string name="allow_access">Разрешить доступ</string>
+    <string name="not_now">Не сейчас</string>
+    <string name="continue_label">Продолжить</string>
+    <string name="selected">Выбрано</string>
+    <string name="search">Поиск</string>
+    <string name="search_hint">Поиск контактов и номеров</string>
+    <string name="copied">Скопировано</string>
+    <string name="action_failed">Что-то пошло не так. Повторите попытку.</string>
+    <string name="no_app_found">Не найдено приложение для выполнения этого действия</string>
+    <string name="error_empty_message">Введите текст</string>
+    <string name="alphabet_index">Алфавитный указатель</string>
+
+    <string name="tab_recent">Недавние</string>
+    <string name="tab_contacts">Контакты</string>
+    <string name="tab_favorites">Избранное</string>
+    <string name="settings">Настройки</string>
+    <string name="open_dialpad">Открыть клавиатуру</string>
+    <string name="filter_all">Все</string>
+    <string name="filter_missed">Пропущенные</string>
+
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="just_now">Только что</string>
+
+    <string name="call">Позвонить</string>
+    <string name="call_name">Позвонить: %1$s</string>
+    <string name="call_named">Позвонить: %1$s</string>
+    <string name="call_again">Позвонить ещё раз</string>
+    <string name="call_back">Перезвонить</string>
+    <string name="call_history">Журнал звонков</string>
+    <string name="call_failed">Не удалось совершить звонок</string>
+    <string name="call_incoming">Входящий</string>
+    <string name="call_outgoing">Исходящий</string>
+    <string name="call_missed">Пропущенный</string>
+    <string name="call_rejected">Отклонённый</string>
+    <string name="call_blocked">Заблокированный</string>
+    <string name="call_voicemail">Голосовая почта</string>
+    <string name="private_number">Скрытый номер</string>
+    <string name="sim_choose">Позвонить с</string>
+    <string name="video">Видео</string>
+    <string name="video_call">Видеозвонок</string>
+    <string name="message">Сообщение</string>
+    <string name="messages">Сообщение</string>
+    <string name="send_message">Отправить сообщение</string>
+    <string name="details">Подробности</string>
+    <string name="contact_info">Сведения о контакте</string>
+    <string name="add_contact">Добавить контакт</string>
+    <string name="add_to_contacts">Добавить в контакты</string>
+    <string name="create_contact">Создать контакт</string>
+    <string name="copy_number">Копировать номер</string>
+    <string name="number_copied">Номер скопирован</string>
+    <string name="block_number">Заблокировать номер</string>
+    <string name="block_number_title">Заблокировать %1$s?</string>
+    <string name="block_number_body">Вы не будете получать звонки с этого номера. Заблокированные номера синхронизируются с системным списком блокировки телефона.</string>
+    <string name="number_blocked">Номер заблокирован</string>
+    <string name="number_unblocked">Номер разблокирован</string>
+    <string name="block_failed">Не удалось заблокировать номер. Убедитесь, что это приложение используется для звонков по умолчанию.</string>
+    <string name="unblock_failed">Не удалось разблокировать номер</string>
+    <string name="delete_from_history">Удалить из журнала звонков</string>
+    <string name="delete_entry_title">Удалить этот звонок?</string>
+    <string name="delete_history_title">Очистить журнал звонков?</string>
+    <string name="history_deleted">Журнал звонков очищен</string>
+    <string name="delete_failed">Не удалось удалить. Повторите попытку.</string>
+    <string name="history_empty_title">Звонков пока нет</string>
+    <string name="history_empty_body">Здесь появятся звонки с этим номером.</string>
+
+    <string name="banner_default_title">Сделайте приложением для звонков по умолчанию</string>
+    <string name="banner_default_body">Звоните, смотрите имена абонентов и блокируйте номера прямо в этом приложении.</string>
+    <string name="banner_contacts_title">Показывать имена контактов</string>
+    <string name="banner_contacts_body">Разрешите доступ к контактам, чтобы видеть имена и фото в журнале звонков.</string>
+    <string name="set_as_default">Использовать по умолчанию</string>
+
+    <string name="empty_recent_title">Нет недавних звонков</string>
+    <string name="empty_recent_body">Здесь появятся ваши входящие и исходящие звонки.</string>
+    <string name="empty_recent_permission">Разрешите доступ к журналу звонков, чтобы видеть недавние звонки.</string>
+    <string name="empty_missed_title">Нет пропущенных звонков</string>
+    <string name="empty_missed_body">Вы ничего не пропустили.</string>
+    <string name="empty_contacts_title">Контактов пока нет</string>
+    <string name="empty_contacts_body">Создайте контакт, чтобы нужные люди всегда были под рукой.</string>
+    <string name="empty_contacts_permission">Разрешите доступ к контактам, чтобы просматривать их и управлять ими.</string>
+    <string name="empty_favorites_title">В избранном пока пусто</string>
+    <string name="empty_favorites_body">Отметьте звёздочкой тех, кому звоните чаще всего, чтобы связываться с ними одним нажатием.</string>
+    <string name="browse_contacts">Открыть контакты</string>
+    <string name="favorites">Избранное</string>
+    <string name="favorite">Избранное</string>
+    <string name="unfavorite">Избранное</string>
+    <string name="add_favorite">Добавить в избранное</string>
+    <string name="remove_favorite">Удалить из избранного</string>
+    <string name="added_favorite">Добавлено в избранное</string>
+    <string name="removed_favorite">Удалено из избранного</string>
+
+    <string name="section_recent">Недавние</string>
+    <string name="section_contacts">Контакты</string>
+    <string name="search_empty_title">Ничего не найдено</string>
+    <string name="search_empty_body">Попробуйте другое имя или номер.</string>
+    <string name="search_hint_title">Находите кого угодно мгновенно</string>
+    <string name="search_hint_body">Ищите по имени, номеру или инициалам. Нажмите на результат, чтобы открыть подробности или сразу позвонить.</string>
+    <string name="search_no_access_title">Для поиска нужен доступ</string>
+    <string name="search_no_access_body">Разрешите доступ к контактам и журналу звонков, чтобы искать людей и звонки.</string>
+
+    <string name="enter_number">Введите номер</string>
+    <string name="backspace">Стереть</string>
+    <string name="invalid_number">Введите действительный номер телефона</string>
+    <string name="invalid_email">Введите правильный адрес эл. почты</string>
+
+    <string name="contact_not_found_title">Контакт не найден</string>
+    <string name="contact_not_found_body">Возможно, этот контакт был удалён.</string>
+    <string name="recent_activity">Недавние действия</string>
+    <string name="show_more">Показать больше</string>
+    <string name="create_shortcut">Добавить на главный экран</string>
+    <string name="shortcut_failed">Ваш лаунчер не поддерживает ярлыки</string>
+    <string name="share_contact">Поделиться контактом</string>
+    <string name="block">Заблокировать</string>
+    <string name="unblock">Разблокировать</string>
+    <string name="block_contact_title">Заблокировать этот контакт?</string>
+    <string name="block_contact_body">Вы не будете получать звонки с номеров этого контакта.</string>
+    <string name="unblock_contact_title">Разблокировать этот контакт?</string>
+    <string name="unblock_contact_body">Вы снова будете получать звонки от этого контакта.</string>
+    <string name="delete_contact_title">Удалить контакт?</string>
+    <string name="delete_contact_body">Контакт %1$s будет безвозвратно удалён с этого устройства и из синхронизированных аккаунтов.</string>
+    <string name="contact_deleted">Контакт удалён</string>
+    <string name="choose_number">Выберите номер</string>
+
+    <string name="edit_contact">Изменить контакт</string>
+    <string name="contact_saved">Контакт сохранён</string>
+    <string name="save_failed">Не удалось сохранить контакт</string>
+    <string name="save_to">Сохранить в: %1$s</string>
+    <string name="save_to_title">Где сохранить контакт</string>
+    <string name="device_account">Устройство</string>
+    <string name="save_contact">Сохранить контакт</string>
+    <string name="set_photo">Фото контакта</string>
+    <string name="take_photo">Сделать фото</string>
+    <string name="choose_photo">Выбрать фото</string>
+    <string name="remove_photo">Удалить фото</string>
+    <string name="camera_unavailable">Нет доступного приложения камеры</string>
+    <string name="photo_failed">Не удалось загрузить фото</string>
+    <string name="crop_photo">Обрезать фото</string>
+    <string name="rotate">Повернуть</string>
+    <string name="first_name">Имя</string>
+    <string name="middle_name">Отчество</string>
+    <string name="surname">Фамилия</string>
+    <string name="prefix">Префикс имени</string>
+    <string name="suffix">Суффикс имени</string>
+    <string name="more_name_fields">Показать больше полей имени</string>
+    <string name="fewer_name_fields">Показать меньше полей имени</string>
+    <string name="company">Компания</string>
+    <string name="job_title">Должность</string>
+    <string name="phone">Телефон</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="email">Эл. почта</string>
+    <string name="add_number">Добавить телефон</string>
+    <string name="add_email">Добавить эл. почту</string>
+    <string name="add_address">Добавить адрес</string>
+    <string name="add_birthday">Добавить день рождения</string>
+    <string name="address">Адрес</string>
+    <string name="birthday">День рождения</string>
+    <string name="nickname">Псевдоним</string>
+    <string name="notes">Заметки</string>
+    <string name="label_type">Тип: %1$s</string>
+    <string name="type_mobile">Мобильный</string>
+    <string name="type_home">Домашний</string>
+    <string name="type_work">Рабочий</string>
+    <string name="type_main">Основной</string>
+    <string name="type_other">Другой</string>
+    <string name="discard_changes_title">Отменить изменения?</string>
+    <string name="discard_changes_body">Изменения в этом контакте не сохранены.</string>
+    <string name="keep_editing">Продолжить</string>
+
+    <string name="incoming_call">Входящий звонок</string>
+    <string name="calling">Вызов…</string>
+    <string name="on_hold">На удержании</string>
+    <string name="on_hold_with">На удержании · %1$s</string>
+    <string name="call_ended">Звонок завершён</string>
+    <string name="conference">Конференц-связь</string>
+    <string name="notification_ongoing">Текущий звонок</string>
+    <string name="answer">Ответить</string>
+    <string name="decline">Отклонить</string>
+    <string name="end_call">Завершить</string>
+    <string name="mute">Без звука</string>
+    <string name="keypad">Клавиатура</string>
+    <string name="speaker">Динамик</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="hold">Удержать</string>
+    <string name="resume">Продолжить</string>
+    <string name="add_call">Добавить звонок</string>
+    <string name="swap">Переключить</string>
+    <string name="merge">Объединить</string>
+    <string name="audio_output">Вывод звука</string>
+    <string name="audio_phone">Телефон</string>
+    <string name="reply_with_message">Ответить сообщением</string>
+    <string name="custom_message">Свой вариант…</string>
+    <string name="message_hint">Сообщение</string>
+    <string name="view_contact">Открыть контакт</string>
+
+    <string name="channel_incoming">Входящие звонки</string>
+    <string name="channel_ongoing">Текущие звонки</string>
+    <string name="channel_missed">Пропущенные звонки</string>
+
+    <string name="language">Язык</string>
+    <string name="choose_language">Выберите язык</string>
+    <string name="language_subtitle">Выберите язык интерфейса. Его можно изменить в любое время в настройках.</string>
+    <string name="language_system">Как в системе</string>
+
+    <string name="welcome_title">Добро пожаловать в %1$s!</string>
+    <string name="welcome_subtitle">Предоставьте доступ, чтобы удобно управлять контактами и звонками.</string>
+    <string name="welcome_terms">Продолжая, вы принимаете условия документа «%1$s».</string>
+    <string name="agree_continue">Принять и продолжить</string>
+    <string name="feature_call_access_title">Доступ к звонкам</string>
+    <string name="feature_call_access_body">Предоставьте разрешения, чтобы отправлять быстрые ответы после каждого входящего звонка.</string>
+    <string name="feature_blocking_title">Блокировка звонков</string>
+    <string name="feature_blocking_body">Легко блокируйте нежелательные номера и избегайте лишних помех.</string>
+    <string name="feature_after_call_title">Экран после звонка</string>
+    <string name="feature_after_call_body">Быстро просматривайте сведения о звонке и выбирайте следующее действие после каждого разговора.</string>
+
+    <string name="theme">Тема</string>
+    <string name="theme_mode">Режим темы</string>
+    <string name="theme_subtitle">Выберите оформление приложения. Вариант «Системная» следует настройкам устройства.</string>
+    <string name="theme_system">Системная</string>
+    <string name="theme_light">Светлая тема</string>
+    <string name="theme_dark">Тёмная тема</string>
+
+    <string name="default_phone_title">Сделайте приложением для звонков по умолчанию</string>
+    <string name="default_phone_body">Чтобы совершать и принимать звонки, видеть имена абонентов и блокировать номера, выберите это приложение для звонков по умолчанию.</string>
+    <string name="default_phone_app">Приложение для звонков по умолчанию</string>
+    <string name="default_phone_set">Это приложение используется для звонков по умолчанию</string>
+    <string name="default_phone_not_set">Нажмите, чтобы использовать его для звонков по умолчанию</string>
+    <string name="default_phone_unavailable">На вашем устройстве нельзя изменить приложение для звонков по умолчанию</string>
+    <string name="default_phone_permission_body">Нужно для обработки звонков, показа экрана вызова и блокировки номеров.</string>
+    <string name="status_on">Вкл.</string>
+    <string name="status_off">Выкл.</string>
+
+    <string name="permissions">Разрешения</string>
+    <string name="permissions_subtitle">Все данные остаются на вашем устройстве. Эти настройки можно изменить в любое время.</string>
+    <string name="permissions_app">Разрешения приложения</string>
+    <string name="permissions_sheet_body">Чтобы показывать ваши контакты и звонки, приложению нужны некоторые разрешения. Ваши данные остаются на этом устройстве.</string>
+    <string name="permission_allowed">Разрешено</string>
+    <string name="perm_denied_forever">Доступ запрещён. Включите его в настройках системы.</string>
+    <string name="open_system_settings">Открыть настройки системы</string>
+    <string name="perm_contacts_title">Контакты</string>
+    <string name="perm_contacts_body">Просмотр, создание и изменение контактов.</string>
+    <string name="perm_call_log_title">Журнал звонков</string>
+    <string name="perm_call_log_body">Показ недавних и пропущенных звонков.</string>
+    <string name="perm_phone_title">Телефон</string>
+    <string name="perm_phone_body">Совершение звонков и выбор SIM-карты.</string>
+    <string name="perm_notifications_title">Уведомления</string>
+    <string name="perm_notifications_body">Оповещения о входящих и пропущенных звонках.</string>
+
+    <string name="settings_appearance">Внешний вид</string>
+    <string name="settings_calls">Звонки</string>
+    <string name="settings_general">Общие</string>
+    <string name="settings_others">Другое</string>
+    <string name="after_call_screen">Экран после звонка</string>
+    <string name="after_call_subtitle">Показывать сводку с быстрыми действиями после завершения звонка</string>
+    <string name="smart_notifications">Умные уведомления</string>
+    <string name="smart_notifications_subtitle">Оповещения о пропущенных звонках с кнопками «Перезвонить» и «Сообщение»</string>
+    <string name="blocked_numbers">Заблокированные номера</string>
+    <string name="quick_response">Быстрые ответы</string>
+    <string name="widget">Виджет</string>
+    <string name="widget_manual_hint">Нажмите и удерживайте главный экран, выберите «Виджеты» и добавьте виджет «Быстрые действия».</string>
+    <string name="share_app">Поделиться приложением</string>
+    <string name="share_app_text">Я пользуюсь этим простым приложением для звонков и контактов без рекламы: %1$s</string>
+    <string name="rate_us">Оцените нас</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="about">О приложении</string>
+
+    <string name="block_unknown">Блокировать неизвестные номера</string>
+    <string name="block_unknown_subtitle">Вы не будете получать звонки с номеров, которых нет в ваших контактах.</string>
+    <string name="add_a_number">Добавить номер</string>
+    <string name="unblock_number_title">Разблокировать этот номер?</string>
+    <string name="unblock_number_body">Номер будет удалён из списка заблокированных.</string>
+    <string name="unblock_named">Разблокировать %1$s</string>
+    <string name="empty_blocked_title">Нет заблокированных номеров</string>
+    <string name="empty_blocked_body">Заблокированные номера не смогут вам дозвониться.</string>
+    <string name="blocking_requires_default_title">Нужно приложение для звонков по умолчанию</string>
+    <string name="blocking_requires_default_body">Android разрешает управлять заблокированными номерами только приложению для звонков по умолчанию.</string>
+
+    <string name="quick_response_subtitle">Отправьте один из этих ответов, когда отклоняете звонок.</string>
+    <string name="add_response">Добавить ответ</string>
+    <string name="edit_response">Изменить ответ</string>
+    <string name="delete_response_title">Удалить этот ответ?</string>
+    <string name="delete_named">Удалить %1$s</string>
+    <string name="quick_response_limit">Максимальное количество ответов: %1$d</string>
+    <string name="empty_quick_title">Нет быстрых ответов</string>
+    <string name="empty_quick_body">Добавьте сообщение, которое можно отправить, когда вы не можете ответить.</string>
+    <string name="quick_my_responses">Мои ответы</string>
+    <string name="quick_response_hint">Введите сообщение</string>
+    <string name="quick_response_exists">Такой ответ уже есть</string>
+
+    <string name="widget_name">Быстрые действия</string>
+    <string name="widget_description">Открывайте недавние вызовы, клавиатуру и контакты одним нажатием</string>
+    <string name="widget_dialpad">Клавиатура</string>
+
+    <string name="version_format">Версия %1$s</string>
+    <string name="about_tagline">Простой, быстрый и конфиденциальный способ звонить и управлять контактами.</string>
+    <string name="splash_tagline">Управляйте контактами без усилий</string>
+    <string name="theme_intro_subtitle">Настройте приложение под себя со светлой и тёмной темой в любое время.</string>
+    <string name="theme_light_short">Светлая</string>
+    <string name="theme_dark_short">Тёмная</string>
+    <string name="outgoing_call">Исходящий звонок</string>
+    <string name="missed_call">Пропущенный звонок</string>
+    <string name="default_app_title">Приложение контактов по умолчанию</string>
+    <string name="default_app_body">Выберите его по умолчанию, чтобы открыть расширенные функции звонков и контактов.</string>
+    <string name="default_required_title">Требуется приложение по умолчанию</string>
+    <string name="default_required_body">Чтобы продолжить, выберите это приложение для звонков по умолчанию. Звонки, контакты и блокировка звонков работают, только когда оно используется по умолчанию.</string>
+    <string name="default_required_settings_body">Откройте «Настройки», перейдите в раздел «Приложения по умолчанию» &gt; «Звонки» и выберите это приложение, чтобы продолжить.</string>
+    <string name="perm_sheet_call_history_title">Журнал звонков</string>
+    <string name="perm_sheet_call_history_body">Основные данные о звонках нужны для показа журнала и удобного управления звонками.</string>
+    <string name="perm_sheet_contacts_title">Доступ к контактам</string>
+    <string name="perm_sheet_contacts_body">Доступ к контактам нужен для избранного и быстрых звонков. Конфиденциальность данных сохраняется.</string>
+    <string name="perm_sheet_overlay_title">Показ поверх окон</string>
+    <string name="perm_sheet_overlay_body">Включите разрешение на показ поверх других приложений, чтобы все функции работали правильно.</string>
+    <string name="perm_required_title">Требуется разрешение</string>
+    <string name="perm_required_settings_body">Для работы приложения требуется разрешение «%1$s». Откройте «Настройки», нажмите «Разрешения» и предоставьте доступ, чтобы продолжить.</string>
+    <string name="perm_required_overlay_body">Чтобы продолжить, включите для этого приложения параметр «Поверх других приложений». Это необходимо для правильной работы функций звонков.</string>
+    <string name="open_settings">Открыть настройки</string>
+    <string name="about_no_ads">Без рекламы</string>
+    <string name="about_no_ads_body">Без рекламы, трекеров и аналитики.</string>
+    <string name="about_on_device">Только на устройстве</string>
+    <string name="about_on_device_body">У приложения нет доступа к интернету. Ваши данные никогда не покидают телефон.</string>
+
+    <string name="privacy_intro">Ваша конфиденциальность важна для нас. В этой политике описано, к каким данным приложение получает доступ и зачем. Кратко: всё остаётся на вашем устройстве.</string>
+    <string-array name="privacy_titles">
+        <item>К каким данным мы получаем доступ</item>
+        <item>Как используются ваши данные</item>
+        <item>Без интернета и рекламы</item>
+        <item>Заблокированные номера</item>
+        <item>Ваш выбор</item>
+        <item>Изменения</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>С вашего разрешения приложение читает и изменяет ваши контакты и журнал звонков, совершает звонки и показывает уведомления. Фото, которые вы выбираете для контакта, используются только как изображение этого контакта.</item>
+        <item>Ваши данные используются только для показа контактов, звонков и имён абонентов в приложении. Они обрабатываются на вашем устройстве и никогда не загружаются, не продаются и не передаются третьим лицам.</item>
+        <item>Приложение не запрашивает доступ к интернету, не содержит рекламы и не использует инструменты аналитики или отслеживания.</item>
+        <item>Заблокированные номера хранятся в системном списке блокировки Android, поэтому они работают и с другими функциями телефона.</item>
+        <item>Вы можете отозвать любое разрешение в любое время в настройках телефона. Параметры, выбранные в приложении, хранятся только на этом устройстве и удаляются при удалении приложения.</item>
+        <item>Если эта политика изменится, обновлённая версия будет включена в обновление приложения.</item>
+    </string-array>
+
+    <string-array name="default_quick_responses">
+        <item>Не могу сейчас говорить.</item>
+        <item>Перезвоню позже.</item>
+        <item>Я уже в пути.</item>
+        <item>Не могу говорить. Перезвоните позже?</item>
+    </string-array>
+
+    <plurals name="contacts_count">
+        <item quantity="one">%1$d контакт</item>
+        <item quantity="few">%1$d контакта</item>
+        <item quantity="many">%1$d контактов</item>
+        <item quantity="other">%1$d контакта</item>
+    </plurals>
+
+    <plurals name="missed_calls_count">
+        <item quantity="one">%1$d пропущенный звонок</item>
+        <item quantity="few">%1$d пропущенных звонка</item>
+        <item quantity="many">%1$d пропущенных звонков</item>
+        <item quantity="other">%1$d пропущенного звонка</item>
+    </plurals>
+    <plurals name="delete_calls_body">
+        <item quantity="one">%1$d звонок будет удалён из журнала звонков.</item>
+        <item quantity="few">%1$d звонка будут удалены из журнала звонков.</item>
+        <item quantity="many">%1$d звонков будут удалены из журнала звонков.</item>
+        <item quantity="other">%1$d звонка будут удалены из журнала звонков.</item>
+    </plurals>
+    <string name="add_blocked_number">Добавить заблокированный номер</string>
+    <string name="block_enter_number">Введите номер</string>
+    <string name="whatsapp_not_installed">WhatsApp не установлен</string>
+    <string name="whatsapp_video_hint">Нажмите значок видео в WhatsApp, чтобы начать звонок</string>
+    <string name="hide_keypad">Скрыть</string>
+    <string name="after_call_tab_contact">Контакт</string>
+    <string name="after_call_recent">Недавние звонки</string>
+    <string name="after_call_contacts">Список контактов</string>
+    <string name="after_call_duration">Длительность %1$s</string>
+    <string name="after_call_personal_message">Написать сообщение</string>
+    <string name="after_call_messages">Сообщения</string>
+    <string name="send_mail">Отправить письмо</string>
+    <string name="calendar">Календарь</string>
+    <string name="web">Веб</string>
+    <string name="reminders">Напоминания</string>
+    <string name="reminder_empty">Создайте напоминание, чтобы не забыть.</string>
+    <string name="add_reminder">Добавить напоминание</string>
+    <string name="reminder_in_minutes">Через %1$d мин</string>
+    <string name="reminder_in_hour">Через 1 час</string>
+    <string name="reminder_pick_time">Выбрать время</string>
+    <string name="reminder_set">Напоминание на %1$s</string>
+    <string name="reminder_title">Перезвонить: %1$s</string>
+    <string name="reminder_body">Пора перезвонить</string>
+    <string name="channel_reminders">Напоминания о звонках</string>
+    <string name="calendar_event_title">Звонок: %1$s</string>
+    <string name="send">Отправить</string>
+</resources>

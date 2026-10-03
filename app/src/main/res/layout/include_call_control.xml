@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/controlRoot"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageButton
+        tools:ignore="ContentDescription"
+        android:id="@+id/controlButton"
+        android:layout_width="@dimen/control_button_size"
+        android:layout_height="@dimen/control_button_size"
+        android:background="@drawable/bg_control"
+        android:scaleType="center"
+        android:stateListAnimator="@animator/press_scale"
+        app:tint="@color/selector_control_icon" />
+
+    <TextView
+        android:id="@+id/controlLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:ellipsize="end"
+        android:importantForAccessibility="no"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.App.BodySmall"
+        android:textColor="@color/text_primary"
+        android:textSize="15sp" />
+</LinearLayout>

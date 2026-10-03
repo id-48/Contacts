@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingRowView">
+        <attr name="rowIcon" format="reference" />
+        <attr name="rowTitle" format="string" />
+        <attr name="rowSubtitle" format="string" />
+        <attr name="rowValue" format="string" />
+        <attr name="rowShowSwitch" format="boolean" />
+        <attr name="rowShowChevron" format="boolean" />
+        <attr name="rowIconTint" format="color" />
+    </declare-styleable>
+</resources>

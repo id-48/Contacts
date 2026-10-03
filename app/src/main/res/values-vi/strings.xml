@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Danh bạ</string>
+
+    <string name="back">Quay lại</string>
+    <string name="close">Đóng</string>
+    <string name="cancel">Hủy</string>
+    <string name="done">Xong</string>
+    <string name="save">Lưu</string>
+    <string name="delete">Xóa</string>
+    <string name="edit">Sửa</string>
+    <string name="add">Thêm</string>
+    <string name="remove">Gỡ bỏ</string>
+    <string name="clear">Xóa hết</string>
+    <string name="paste">Dán</string>
+    <string name="more">Thêm</string>
+    <string name="more_options">Tùy chọn khác</string>
+    <string name="dismiss">Bỏ qua</string>
+    <string name="discard">Hủy bỏ</string>
+    <string name="allow">Cho phép</string>
+    <string name="allow_named">Cho phép %1$s</string>
+    <string name="allow_access">Cho phép truy cập</string>
+    <string name="not_now">Để sau</string>
+    <string name="continue_label">Tiếp tục</string>
+    <string name="selected">Đã chọn</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="search_hint">Tìm danh bạ và số điện thoại</string>
+    <string name="copied">Đã sao chép</string>
+    <string name="action_failed">Đã xảy ra lỗi. Vui lòng thử lại.</string>
+    <string name="no_app_found">Không tìm thấy ứng dụng để thực hiện thao tác này</string>
+    <string name="error_empty_message">Vui lòng nhập nội dung</string>
+    <string name="alphabet_index">Chỉ mục chữ cái</string>
+
+    <string name="tab_recent">Gần đây</string>
+    <string name="tab_contacts">Danh bạ</string>
+    <string name="tab_favorites">Yêu thích</string>
+    <string name="settings">Cài đặt</string>
+    <string name="open_dialpad">Mở bàn phím số</string>
+    <string name="filter_all">Tất cả</string>
+    <string name="filter_missed">Nhỡ</string>
+
+    <string name="today">Hôm nay</string>
+    <string name="yesterday">Hôm qua</string>
+    <string name="just_now">Vừa xong</string>
+
+    <string name="call">Gọi</string>
+    <string name="call_name">Gọi %1$s</string>
+    <string name="call_named">Gọi %1$s</string>
+    <string name="call_again">Gọi lại</string>
+    <string name="call_back">Gọi lại</string>
+    <string name="call_history">Lịch sử cuộc gọi</string>
+    <string name="call_failed">Không thể thực hiện cuộc gọi</string>
+    <string name="call_incoming">Cuộc gọi đến</string>
+    <string name="call_outgoing">Cuộc gọi đi</string>
+    <string name="call_missed">Cuộc gọi nhỡ</string>
+    <string name="call_rejected">Đã từ chối</string>
+    <string name="call_blocked">Đã chặn</string>
+    <string name="call_voicemail">Thư thoại</string>
+    <string name="private_number">Số riêng tư</string>
+    <string name="sim_choose">Gọi bằng</string>
+    <string name="video">Video</string>
+    <string name="video_call">Gọi video</string>
+    <string name="message">Nhắn tin</string>
+    <string name="messages">Nhắn tin</string>
+    <string name="send_message">Gửi tin nhắn</string>
+    <string name="details">Chi tiết</string>
+    <string name="contact_info">Thông tin liên hệ</string>
+    <string name="add_contact">Thêm liên hệ</string>
+    <string name="add_to_contacts">Thêm vào danh bạ</string>
+    <string name="create_contact">Tạo liên hệ</string>
+    <string name="copy_number">Sao chép số</string>
+    <string name="number_copied">Đã sao chép số</string>
+    <string name="block_number">Chặn số</string>
+    <string name="block_number_title">Chặn %1$s?</string>
+    <string name="block_number_body">Bạn sẽ không nhận được cuộc gọi từ số này. Các số bị chặn được dùng chung với danh sách chặn của hệ thống trên điện thoại.</string>
+    <string name="number_blocked">Đã chặn số</string>
+    <string name="number_unblocked">Đã bỏ chặn số</string>
+    <string name="block_failed">Không thể chặn số này. Hãy đảm bảo ứng dụng này là ứng dụng điện thoại mặc định.</string>
+    <string name="unblock_failed">Không thể bỏ chặn số này</string>
+    <string name="delete_from_history">Xóa khỏi lịch sử cuộc gọi</string>
+    <string name="delete_entry_title">Xóa cuộc gọi này?</string>
+    <string name="delete_history_title">Xóa lịch sử cuộc gọi?</string>
+    <string name="history_deleted">Đã xóa lịch sử cuộc gọi</string>
+    <string name="delete_failed">Không thể xóa. Vui lòng thử lại.</string>
+    <string name="history_empty_title">Chưa có cuộc gọi nào</string>
+    <string name="history_empty_body">Các cuộc gọi với số này sẽ xuất hiện ở đây.</string>
+
+    <string name="banner_default_title">Đặt làm ứng dụng điện thoại mặc định</string>
+    <string name="banner_default_body">Gọi điện, xem tên người gọi và chặn số ngay trong ứng dụng này.</string>
+    <string name="banner_contacts_title">Hiển thị tên liên hệ</string>
+    <string name="banner_contacts_body">Cho phép truy cập danh bạ để xem tên và ảnh trong lịch sử cuộc gọi.</string>
+    <string name="set_as_default">Đặt làm mặc định</string>
+
+    <string name="empty_recent_title">Không có cuộc gọi gần đây</string>
+    <string name="empty_recent_body">Các cuộc gọi bạn thực hiện và nhận sẽ xuất hiện ở đây.</string>
+    <string name="empty_recent_permission">Cho phép truy cập nhật ký cuộc gọi để xem các cuộc gọi gần đây.</string>
+    <string name="empty_missed_title">Không có cuộc gọi nhỡ</string>
+    <string name="empty_missed_body">Bạn đã xem hết rồi.</string>
+    <string name="empty_contacts_title">Chưa có liên hệ nào</string>
+    <string name="empty_contacts_body">Tạo liên hệ để luôn có sẵn những người bạn hay gọi.</string>
+    <string name="empty_contacts_permission">Cho phép truy cập danh bạ để xem và quản lý liên hệ của bạn.</string>
+    <string name="empty_favorites_title">Chưa có mục yêu thích</string>
+    <string name="empty_favorites_body">Gắn sao cho những người bạn gọi nhiều nhất để liên lạc chỉ với một lần chạm.</string>
+    <string name="browse_contacts">Duyệt danh bạ</string>
+    <string name="favorites">Yêu thích</string>
+    <string name="favorite">Yêu thích</string>
+    <string name="unfavorite">Yêu thích</string>
+    <string name="add_favorite">Thêm vào yêu thích</string>
+    <string name="remove_favorite">Xóa khỏi yêu thích</string>
+    <string name="added_favorite">Đã thêm vào yêu thích</string>
+    <string name="removed_favorite">Đã xóa khỏi yêu thích</string>
+
+    <string name="section_recent">Gần đây</string>
+    <string name="section_contacts">Danh bạ</string>
+    <string name="search_empty_title">Không có kết quả</string>
+    <string name="search_empty_body">Hãy thử tên hoặc số khác.</string>
+    <string name="search_hint_title">Tìm bất kỳ ai ngay lập tức</string>
+    <string name="search_hint_body">Tìm theo tên, số điện thoại hoặc chữ cái đầu. Chạm vào kết quả để xem chi tiết hoặc gọi ngay.</string>
+    <string name="search_no_access_title">Cần quyền truy cập để tìm kiếm</string>
+    <string name="search_no_access_body">Cho phép truy cập danh bạ và nhật ký cuộc gọi để tìm kiếm liên hệ và cuộc gọi.</string>
+
+    <string name="enter_number">Nhập số điện thoại</string>
+    <string name="backspace">Xóa lùi</string>
+    <string name="invalid_number">Vui lòng nhập số điện thoại hợp lệ</string>
+    <string name="invalid_email">Vui lòng nhập địa chỉ email hợp lệ</string>
+
+    <string name="contact_not_found_title">Không tìm thấy liên hệ</string>
+    <string name="contact_not_found_body">Liên hệ này có thể đã bị xóa.</string>
+    <string name="recent_activity">Hoạt động gần đây</string>
+    <string name="show_more">Xem thêm</string>
+    <string name="create_shortcut">Thêm vào màn hình chính</string>
+    <string name="shortcut_failed">Trình khởi chạy của bạn không hỗ trợ lối tắt</string>
+    <string name="share_contact">Chia sẻ liên hệ</string>
+    <string name="block">Chặn</string>
+    <string name="unblock">Bỏ chặn</string>
+    <string name="block_contact_title">Chặn liên hệ này?</string>
+    <string name="block_contact_body">Bạn sẽ không nhận được cuộc gọi từ các số của liên hệ này.</string>
+    <string name="unblock_contact_title">Bỏ chặn liên hệ này?</string>
+    <string name="unblock_contact_body">Bạn sẽ bắt đầu nhận lại cuộc gọi từ liên hệ này.</string>
+    <string name="delete_contact_title">Xóa liên hệ?</string>
+    <string name="delete_contact_body">%1$s sẽ bị xóa vĩnh viễn khỏi thiết bị này và các tài khoản đã đồng bộ.</string>
+    <string name="contact_deleted">Đã xóa liên hệ</string>
+    <string name="choose_number">Chọn một số</string>
+
+    <string name="edit_contact">Sửa liên hệ</string>
+    <string name="contact_saved">Đã lưu liên hệ</string>
+    <string name="save_failed">Không thể lưu liên hệ</string>
+    <string name="save_to">Lưu vào %1$s</string>
+    <string name="save_to_title">Lưu liên hệ vào</string>
+    <string name="device_account">Thiết bị</string>
+    <string name="save_contact">Lưu liên hệ</string>
+    <string name="set_photo">Ảnh liên hệ</string>
+    <string name="take_photo">Chụp ảnh</string>
+    <string name="choose_photo">Chọn ảnh</string>
+    <string name="remove_photo">Xóa ảnh</string>
+    <string name="camera_unavailable">Không có ứng dụng máy ảnh</string>
+    <string name="photo_failed">Không thể tải ảnh này</string>
+    <string name="crop_photo">Cắt ảnh</string>
+    <string name="rotate">Xoay</string>
+    <string name="first_name">Tên</string>
+    <string name="middle_name">Tên đệm</string>
+    <string name="surname">Họ</string>
+    <string name="prefix">Danh xưng</string>
+    <string name="suffix">Hậu tố tên</string>
+    <string name="more_name_fields">Hiện thêm trường tên</string>
+    <string name="fewer_name_fields">Ẩn bớt trường tên</string>
+    <string name="company">Công ty</string>
+    <string name="job_title">Chức danh</string>
+    <string name="phone">Điện thoại</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="email">Email</string>
+    <string name="add_number">Thêm số điện thoại</string>
+    <string name="add_email">Thêm email</string>
+    <string name="add_address">Thêm địa chỉ</string>
+    <string name="add_birthday">Thêm ngày sinh</string>
+    <string name="address">Địa chỉ</string>
+    <string name="birthday">Ngày sinh</string>
+    <string name="nickname">Biệt danh</string>
+    <string name="notes">Ghi chú</string>
+    <string name="label_type">Nhãn: %1$s</string>
+    <string name="type_mobile">Di động</string>
+    <string name="type_home">Nhà riêng</string>
+    <string name="type_work">Cơ quan</string>
+    <string name="type_main">Chính</string>
+    <string name="type_other">Khác</string>
+    <string name="discard_changes_title">Hủy các thay đổi?</string>
+    <string name="discard_changes_body">Các thay đổi của bạn đối với liên hệ này chưa được lưu.</string>
+    <string name="keep_editing">Tiếp tục chỉnh sửa</string>
+
+    <string name="incoming_call">Cuộc gọi đến</string>
+    <string name="calling">Đang gọi…</string>
+    <string name="on_hold">Đang giữ máy</string>
+    <string name="on_hold_with">Đang giữ máy · %1$s</string>
+    <string name="call_ended">Cuộc gọi đã kết thúc</string>
+    <string name="conference">Cuộc gọi hội nghị</string>
+    <string name="notification_ongoing">Cuộc gọi đang diễn ra</string>
+    <string name="answer">Trả lời</string>
+    <string name="decline">Từ chối</string>
+    <string name="end_call">Kết thúc</string>
+    <string name="mute">Tắt tiếng</string>
+    <string name="keypad">Bàn phím</string>
+    <string name="speaker">Loa ngoài</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="hold">Giữ máy</string>
+    <string name="resume">Tiếp tục</string>
+    <string name="add_call">Thêm cuộc gọi</string>
+    <string name="swap">Chuyển đổi</string>
+    <string name="merge">Hợp nhất</string>
+    <string name="audio_output">Đầu ra âm thanh</string>
+    <string name="audio_phone">Điện thoại</string>
+    <string name="reply_with_message">Trả lời bằng tin nhắn</string>
+    <string name="custom_message">Tự soạn tin…</string>
+    <string name="message_hint">Tin nhắn</string>
+    <string name="view_contact">Xem liên hệ</string>
+
+    <string name="channel_incoming">Cuộc gọi đến</string>
+    <string name="channel_ongoing">Cuộc gọi đang diễn ra</string>
+    <string name="channel_missed">Cuộc gọi nhỡ</string>
+
+    <string name="language">Ngôn ngữ</string>
+    <string name="choose_language">Chọn ngôn ngữ</string>
+    <string name="language_subtitle">Chọn ngôn ngữ bạn muốn sử dụng. Bạn có thể thay đổi bất cứ lúc nào trong Cài đặt.</string>
+    <string name="language_system">Mặc định của hệ thống</string>
+
+    <string name="welcome_title">Chào mừng bạn đến với %1$s!</string>
+    <string name="welcome_subtitle">Cấp quyền truy cập để dễ dàng quản lý danh bạ và cuộc gọi.</string>
+    <string name="welcome_terms">Khi tiếp tục, bạn đồng ý với %1$s của chúng tôi.</string>
+    <string name="agree_continue">Đồng ý &amp; Tiếp tục</string>
+    <string name="feature_call_access_title">Quyền gọi điện</string>
+    <string name="feature_call_access_body">Cấp quyền để gửi trả lời nhanh sau mỗi cuộc gọi đến.</string>
+    <string name="feature_blocking_title">Chặn cuộc gọi</string>
+    <string name="feature_blocking_body">Dễ dàng chặn các số không mong muốn và tránh bị làm phiền.</string>
+    <string name="feature_after_call_title">Màn hình sau cuộc gọi</string>
+    <string name="feature_after_call_body">Xem nhanh chi tiết cuộc gọi và thực hiện thao tác tiếp theo sau mỗi cuộc gọi.</string>
+
+    <string name="theme">Giao diện</string>
+    <string name="theme_mode">Chế độ giao diện</string>
+    <string name="theme_subtitle">Chọn giao diện cho ứng dụng. Tùy chọn Hệ thống sẽ theo cài đặt của thiết bị.</string>
+    <string name="theme_system">Hệ thống</string>
+    <string name="theme_light">Chế độ sáng</string>
+    <string name="theme_dark">Chế độ tối</string>
+
+    <string name="default_phone_title">Đặt làm ứng dụng điện thoại mặc định</string>
+    <string name="default_phone_body">Để gọi và nhận cuộc gọi, hiển thị tên người gọi và chặn số, hãy đặt ứng dụng này làm ứng dụng điện thoại mặc định.</string>
+    <string name="default_phone_app">Ứng dụng điện thoại mặc định</string>
+    <string name="default_phone_set">Ứng dụng này là ứng dụng điện thoại mặc định</string>
+    <string name="default_phone_not_set">Chạm để đặt làm ứng dụng điện thoại mặc định</string>
+    <string name="default_phone_unavailable">Thiết bị của bạn không cho phép thay đổi ứng dụng điện thoại mặc định</string>
+    <string name="default_phone_permission_body">Cần thiết để xử lý cuộc gọi, hiển thị màn hình cuộc gọi và chặn số.</string>
+    <string name="status_on">Bật</string>
+    <string name="status_off">Tắt</string>
+
+    <string name="permissions">Quyền</string>
+    <string name="permissions_subtitle">Mọi dữ liệu đều nằm trên thiết bị của bạn. Bạn có thể thay đổi các quyền này bất cứ lúc nào.</string>
+    <string name="permissions_app">Quyền của ứng dụng</string>
+    <string name="permissions_sheet_body">Để hiển thị danh bạ và cuộc gọi, ứng dụng cần một vài quyền. Dữ liệu của bạn vẫn nằm trên thiết bị này.</string>
+    <string name="permission_allowed">Đã cho phép</string>
+    <string name="perm_denied_forever">Quyền đã bị từ chối. Hãy bật quyền trong cài đặt hệ thống.</string>
+    <string name="open_system_settings">Mở cài đặt hệ thống</string>
+    <string name="perm_contacts_title">Danh bạ</string>
+    <string name="perm_contacts_body">Hiển thị, tạo và chỉnh sửa danh bạ của bạn.</string>
+    <string name="perm_call_log_title">Lịch sử cuộc gọi</string>
+    <string name="perm_call_log_body">Hiển thị các cuộc gọi gần đây và cuộc gọi nhỡ.</string>
+    <string name="perm_phone_title">Điện thoại</string>
+    <string name="perm_phone_body">Gọi điện và chọn SIM.</string>
+    <string name="perm_notifications_title">Thông báo</string>
+    <string name="perm_notifications_body">Hiển thị thông báo cuộc gọi đến và cuộc gọi nhỡ.</string>
+
+    <string name="settings_appearance">Hiển thị</string>
+    <string name="settings_calls">Cuộc gọi</string>
+    <string name="settings_general">Chung</string>
+    <string name="settings_others">Khác</string>
+    <string name="after_call_screen">Màn hình sau cuộc gọi</string>
+    <string name="after_call_subtitle">Hiển thị tóm tắt kèm thao tác nhanh khi cuộc gọi kết thúc</string>
+    <string name="smart_notifications">Thông báo thông minh</string>
+    <string name="smart_notifications_subtitle">Thông báo cuộc gọi nhỡ kèm thao tác gọi lại và nhắn tin</string>
+    <string name="blocked_numbers">Số bị chặn</string>
+    <string name="quick_response">Trả lời nhanh</string>
+    <string name="widget">Tiện ích</string>
+    <string name="widget_manual_hint">Nhấn giữ màn hình chính, chạm vào Tiện ích và thêm tiện ích Tác vụ nhanh.</string>
+    <string name="share_app">Chia sẻ ứng dụng</string>
+    <string name="share_app_text">Mình đang dùng ứng dụng điện thoại và danh bạ đơn giản, không quảng cáo này: %1$s</string>
+    <string name="rate_us">Đánh giá ứng dụng</string>
+    <string name="privacy_policy">Chính sách quyền riêng tư</string>
+    <string name="about">Giới thiệu</string>
+
+    <string name="block_unknown">Chặn người gọi không xác định</string>
+    <string name="block_unknown_subtitle">Bạn sẽ không nhận được cuộc gọi từ các số không có trong danh bạ.</string>
+    <string name="add_a_number">Thêm số</string>
+    <string name="unblock_number_title">Bỏ chặn số này?</string>
+    <string name="unblock_number_body">Số này sẽ bị xóa khỏi danh sách chặn của bạn.</string>
+    <string name="unblock_named">Bỏ chặn %1$s</string>
+    <string name="empty_blocked_title">Không có số bị chặn</string>
+    <string name="empty_blocked_body">Các số bạn chặn sẽ không thể gọi cho bạn.</string>
+    <string name="blocking_requires_default_title">Cần ứng dụng điện thoại mặc định</string>
+    <string name="blocking_requires_default_body">Android chỉ cho phép ứng dụng điện thoại mặc định quản lý các số bị chặn.</string>
+
+    <string name="quick_response_subtitle">Gửi một trong các tin nhắn này khi bạn từ chối cuộc gọi.</string>
+    <string name="add_response">Thêm câu trả lời</string>
+    <string name="edit_response">Sửa câu trả lời</string>
+    <string name="delete_response_title">Xóa câu trả lời này?</string>
+    <string name="delete_named">Xóa %1$s</string>
+    <string name="quick_response_limit">Bạn có thể lưu tối đa %1$d câu trả lời</string>
+    <string name="empty_quick_title">Không có câu trả lời nhanh</string>
+    <string name="empty_quick_body">Thêm tin nhắn để gửi khi bạn không thể trả lời cuộc gọi.</string>
+    <string name="quick_my_responses">Phản hồi của tôi</string>
+    <string name="quick_response_hint">Nhập tin nhắn của bạn</string>
+    <string name="quick_response_exists">Phản hồi này đã tồn tại</string>
+
+    <string name="widget_name">Tác vụ nhanh</string>
+    <string name="widget_description">Mở cuộc gọi gần đây, bàn phím số và danh bạ chỉ với một lần chạm</string>
+    <string name="widget_dialpad">Bàn phím số</string>
+
+    <string name="version_format">Phiên bản %1$s</string>
+    <string name="about_tagline">Cách đơn giản, nhanh chóng và riêng tư để gọi điện và quản lý danh bạ.</string>
+    <string name="splash_tagline">Quản lý danh bạ thật dễ dàng</string>
+    <string name="theme_intro_subtitle">Tùy chỉnh ứng dụng với giao diện sáng và tối bất cứ lúc nào.</string>
+    <string name="theme_light_short">Sáng</string>
+    <string name="theme_dark_short">Tối</string>
+    <string name="outgoing_call">Cuộc gọi đi</string>
+    <string name="missed_call">Cuộc gọi nhỡ</string>
+    <string name="default_app_title">Đặt ứng dụng danh bạ mặc định</string>
+    <string name="default_app_body">Đặt làm mặc định để mở khóa các tính năng gọi điện và danh bạ nâng cao.</string>
+    <string name="default_required_title">Cần đặt làm ứng dụng mặc định</string>
+    <string name="default_required_body">Đặt ứng dụng này làm ứng dụng điện thoại mặc định để tiếp tục. Cuộc gọi, danh bạ và chặn cuộc gọi chỉ hoạt động khi ứng dụng là mặc định.</string>
+    <string name="default_required_settings_body">Mở Cài đặt, đi tới Ứng dụng mặc định &gt; Ứng dụng điện thoại và chọn ứng dụng này để tiếp tục.</string>
+    <string name="perm_sheet_call_history_title">Lịch sử cuộc gọi</string>
+    <string name="perm_sheet_call_history_body">Dữ liệu cuộc gọi cần thiết giúp hiển thị lịch sử và quản lý cuộc gọi hiệu quả.</string>
+    <string name="perm_sheet_contacts_title">Truy cập danh bạ</string>
+    <string name="perm_sheet_contacts_body">Truy cập danh bạ để hỗ trợ mục yêu thích và gọi nhanh, đồng thời bảo vệ quyền riêng tư dữ liệu.</string>
+    <string name="perm_sheet_overlay_title">Hiển thị nổi</string>
+    <string name="perm_sheet_overlay_body">Bật quyền hiển thị trên ứng dụng khác để các tính năng hoạt động chính xác.</string>
+    <string name="perm_required_title">Cần cấp quyền</string>
+    <string name="perm_required_settings_body">Ứng dụng cần quyền %1$s để hoạt động. Mở Cài đặt, chạm vào Quyền và cho phép để tiếp tục.</string>
+    <string name="perm_required_overlay_body">Cho phép \"Hiển thị trên ứng dụng khác\" cho ứng dụng này để tiếp tục. Quyền này cần thiết để các tính năng cuộc gọi hoạt động chính xác.</string>
+    <string name="open_settings">Mở cài đặt</string>
+    <string name="about_no_ads">Không quảng cáo</string>
+    <string name="about_no_ads_body">Không quảng cáo, không theo dõi, không phân tích.</string>
+    <string name="about_on_device">Chỉ trên thiết bị</string>
+    <string name="about_on_device_body">Ứng dụng không truy cập Internet. Dữ liệu của bạn không bao giờ rời khỏi điện thoại.</string>
+
+    <string name="privacy_intro">Quyền riêng tư của bạn rất quan trọng. Chính sách này giải thích ứng dụng truy cập những gì và vì sao. Tóm lại: mọi thứ đều nằm trên thiết bị của bạn.</string>
+    <string-array name="privacy_titles">
+        <item>Dữ liệu chúng tôi truy cập</item>
+        <item>Cách sử dụng dữ liệu của bạn</item>
+        <item>Không Internet, không quảng cáo</item>
+        <item>Số bị chặn</item>
+        <item>Lựa chọn của bạn</item>
+        <item>Thay đổi</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Khi được bạn cho phép, ứng dụng sẽ đọc và chỉnh sửa danh bạ, lịch sử cuộc gọi, thực hiện cuộc gọi và hiển thị thông báo. Ảnh bạn chọn cho một liên hệ chỉ được dùng để đặt ảnh cho liên hệ đó.</item>
+        <item>Dữ liệu của bạn chỉ được dùng để hiển thị danh bạ, cuộc gọi và tên người gọi trong ứng dụng. Dữ liệu được xử lý trên thiết bị và không bao giờ được tải lên, bán hay chia sẻ.</item>
+        <item>Ứng dụng không yêu cầu quyền truy cập Internet, không chứa quảng cáo và không sử dụng công cụ phân tích hay theo dõi nào.</item>
+        <item>Các số bị chặn được lưu trong danh sách chặn của hệ thống Android để vẫn hoạt động với các tính năng khác của điện thoại.</item>
+        <item>Bạn có thể thu hồi bất kỳ quyền nào vào bất cứ lúc nào trong cài đặt điện thoại. Các cài đặt bạn chọn trong ứng dụng chỉ được lưu trên thiết bị này và sẽ bị xóa khi bạn gỡ cài đặt ứng dụng.</item>
+        <item>Nếu chính sách này thay đổi, phiên bản cập nhật sẽ được đưa vào bản cập nhật ứng dụng.</item>
+    </string-array>
+
+    <string-array name="default_quick_responses">
+        <item>Giờ mình không nói chuyện được.</item>
+        <item>Mình sẽ gọi lại sau.</item>
+        <item>Mình đang đến.</item>
+        <item>Giờ mình không nghe được. Gọi lại sau nhé?</item>
+    </string-array>
+
+    <plurals name="contacts_count">
+        <item quantity="other">%1$d liên hệ</item>
+    </plurals>
+
+    <plurals name="missed_calls_count">
+        <item quantity="other">%1$d cuộc gọi nhỡ</item>
+    </plurals>
+    <plurals name="delete_calls_body">
+        <item quantity="other">%1$d cuộc gọi sẽ bị xóa khỏi lịch sử cuộc gọi của bạn.</item>
+    </plurals>
+    <string name="add_blocked_number">Thêm số bị chặn</string>
+    <string name="block_enter_number">Nhập số</string>
+    <string name="whatsapp_not_installed">WhatsApp chưa được cài đặt</string>
+    <string name="whatsapp_video_hint">Nhấn vào biểu tượng video trong WhatsApp để bắt đầu cuộc gọi</string>
+    <string name="hide_keypad">Ẩn</string>
+    <string name="after_call_tab_contact">Liên hệ</string>
+    <string name="after_call_recent">Cuộc gọi gần đây</string>
+    <string name="after_call_contacts">Danh sách liên hệ</string>
+    <string name="after_call_duration">Thời lượng %1$s</string>
+    <string name="after_call_personal_message">Viết tin nhắn riêng</string>
+    <string name="after_call_messages">Tin nhắn</string>
+    <string name="send_mail">Gửi thư</string>
+    <string name="calendar">Lịch</string>
+    <string name="web">Web</string>
+    <string name="reminders">Lời nhắc</string>
+    <string name="reminder_empty">Đặt lời nhắc để không bỏ lỡ.</string>
+    <string name="add_reminder">Thêm lời nhắc</string>
+    <string name="reminder_in_minutes">Sau %1$d phút</string>
+    <string name="reminder_in_hour">Sau 1 giờ</string>
+    <string name="reminder_pick_time">Chọn giờ</string>
+    <string name="reminder_set">Đã đặt lời nhắc lúc %1$s</string>
+    <string name="reminder_title">Gọi lại cho %1$s</string>
+    <string name="reminder_body">Đã đến lúc gọi lại</string>
+    <string name="channel_reminders">Lời nhắc cuộc gọi</string>
+    <string name="calendar_event_title">Cuộc gọi với %1$s</string>
+    <string name="send">Gửi</string>
+</resources>

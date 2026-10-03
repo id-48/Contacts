@@ -1,0 +1,38 @@
+# Gradle
+.gradle/
+build/
+/captures
+.externalNativeBuild
+.cxx
+
+# Local configuration
+local.properties
+
+# Android Studio / IntelliJ
+*.iml
+/.idea/
+.navigation/
+
+# Signing keys
+*.jks
+*.keystore
+keystore.properties
+
+# Generated / release output
+*.apk
+*.aab
+*.ap_
+*.dex
+/app/release/
+/app/debug/
+output-metadata.json
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local backups
+/icon_backup_custom/

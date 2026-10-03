@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contactCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_8"
+    android:layout_marginTop="2dp"
+    android:layout_marginEnd="@dimen/space_8"
+    android:layout_marginBottom="2dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/contactRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_row"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/row_min_height"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_12"
+        android:paddingTop="@dimen/space_8"
+        android:paddingEnd="@dimen/space_8"
+        android:paddingBottom="@dimen/space_8">
+
+        <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ContactAvatarView
+            android:id="@+id/contactAvatar"
+            android:layout_width="@dimen/avatar_medium"
+            android:layout_height="@dimen/avatar_medium" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/contactName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="6dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_medium"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                app:fontFamily="@font/roboto_medium" />
+
+            <TextView
+                android:id="@+id/contactSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_regular"
+                android:maxLines="1"
+                android:textColor="@color/text_muted"
+                android:textDirection="ltr"
+                android:textAlignment="viewStart"
+                android:textSize="14sp"
+                app:fontFamily="@font/roboto_regular" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/contactCall"
+            android:layout_width="@dimen/icon_button"
+            android:layout_height="@dimen/icon_button"
+            android:background="@drawable/bg_round_ripple"
+            android:src="@drawable/ic_call"
+            app:tint="@color/text_primary"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contactActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_4"
+        android:paddingEnd="@dimen/space_4"
+        android:paddingBottom="@dimen/space_8"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/actionFirst"
+            layout="@layout/include_row_action" />
+
+        <include
+            android:id="@+id/actionSecond"
+            layout="@layout/include_row_action" />
+
+        <include
+            android:id="@+id/actionThird"
+            layout="@layout/include_row_action" />
+    </LinearLayout>
+</LinearLayout>

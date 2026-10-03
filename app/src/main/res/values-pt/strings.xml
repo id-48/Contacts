@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contatos</string>
+
+    <string name="back">Voltar</string>
+    <string name="close">Fechar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="done">Concluído</string>
+    <string name="save">Salvar</string>
+    <string name="delete">Excluir</string>
+    <string name="edit">Editar</string>
+    <string name="add">Adicionar</string>
+    <string name="remove">Remover</string>
+    <string name="clear">Limpar</string>
+    <string name="paste">Colar</string>
+    <string name="more">Mais</string>
+    <string name="more_options">Mais opções</string>
+    <string name="dismiss">Dispensar</string>
+    <string name="discard">Descartar</string>
+    <string name="allow">Permitir</string>
+    <string name="allow_named">Permitir %1$s</string>
+    <string name="allow_access">Permitir acesso</string>
+    <string name="not_now">Agora não</string>
+    <string name="continue_label">Continuar</string>
+    <string name="selected">Selecionado</string>
+    <string name="search">Pesquisar</string>
+    <string name="search_hint">Pesquisar contatos e números</string>
+    <string name="copied">Copiado</string>
+    <string name="action_failed">Algo deu errado. Tente novamente.</string>
+    <string name="no_app_found">Nenhum app encontrado para concluir esta ação</string>
+    <string name="error_empty_message">Digite um texto</string>
+    <string name="alphabet_index">Índice alfabético</string>
+
+    <string name="tab_recent">Recentes</string>
+    <string name="tab_contacts">Contatos</string>
+    <string name="tab_favorites">Favoritos</string>
+    <string name="settings">Configurações</string>
+    <string name="open_dialpad">Abrir teclado</string>
+    <string name="filter_all">Todas</string>
+    <string name="filter_missed">Perdidas</string>
+
+    <string name="today">Hoje</string>
+    <string name="yesterday">Ontem</string>
+    <string name="just_now">Agora mesmo</string>
+
+    <string name="call">Ligar</string>
+    <string name="call_name">Ligar para %1$s</string>
+    <string name="call_named">Ligar para %1$s</string>
+    <string name="call_again">Ligar novamente</string>
+    <string name="call_back">Retornar ligação</string>
+    <string name="call_history">Histórico de chamadas</string>
+    <string name="call_failed">Não foi possível fazer a chamada</string>
+    <string name="call_incoming">Recebida</string>
+    <string name="call_outgoing">Realizada</string>
+    <string name="call_missed">Perdida</string>
+    <string name="call_rejected">Recusada</string>
+    <string name="call_blocked">Bloqueada</string>
+    <string name="call_voicemail">Correio de voz</string>
+    <string name="private_number">Número privado</string>
+    <string name="sim_choose">Ligar com</string>
+    <string name="video">Vídeo</string>
+    <string name="video_call">Videochamada</string>
+    <string name="message">Mensagem</string>
+    <string name="messages">Mensagem</string>
+    <string name="send_message">Enviar mensagem</string>
+    <string name="details">Detalhes</string>
+    <string name="contact_info">Informações do contato</string>
+    <string name="add_contact">Adicionar contato</string>
+    <string name="add_to_contacts">Adicionar aos contatos</string>
+    <string name="create_contact">Criar contato</string>
+    <string name="copy_number">Copiar número</string>
+    <string name="number_copied">Número copiado</string>
+    <string name="block_number">Bloquear número</string>
+    <string name="block_number_title">Bloquear %1$s?</string>
+    <string name="block_number_body">Você não receberá chamadas deste número. Os números bloqueados são compartilhados com a lista de bloqueio do sistema do seu telefone.</string>
+    <string name="number_blocked">Número bloqueado</string>
+    <string name="number_unblocked">Número desbloqueado</string>
+    <string name="block_failed">Não foi possível bloquear este número. Verifique se este app é o seu app de telefone padrão.</string>
+    <string name="unblock_failed">Não foi possível desbloquear este número</string>
+    <string name="delete_from_history">Excluir do histórico de chamadas</string>
+    <string name="delete_entry_title">Excluir esta chamada?</string>
+    <string name="delete_history_title">Excluir histórico de chamadas?</string>
+    <string name="history_deleted">Histórico de chamadas excluído</string>
+    <string name="delete_failed">Não foi possível excluir. Tente novamente.</string>
+    <string name="history_empty_title">Nenhuma chamada ainda</string>
+    <string name="history_empty_body">As chamadas com este número aparecerão aqui.</string>
+
+    <string name="banner_default_title">Definir como app de telefone padrão</string>
+    <string name="banner_default_body">Faça chamadas, veja o nome de quem liga e bloqueie números direto deste app.</string>
+    <string name="banner_contacts_title">Mostrar nomes dos contatos</string>
+    <string name="banner_contacts_body">Permita o acesso aos contatos para ver nomes e fotos no histórico de chamadas.</string>
+    <string name="set_as_default">Definir como padrão</string>
+
+    <string name="empty_recent_title">Nenhuma chamada recente</string>
+    <string name="empty_recent_body">As chamadas que você fizer e receber aparecerão aqui.</string>
+    <string name="empty_recent_permission">Permita o acesso ao registro de chamadas para ver suas chamadas recentes.</string>
+    <string name="empty_missed_title">Nenhuma chamada perdida</string>
+    <string name="empty_missed_body">Tudo em dia por aqui.</string>
+    <string name="empty_contacts_title">Nenhum contato ainda</string>
+    <string name="empty_contacts_body">Crie um contato para manter as pessoas para quem você liga sempre à mão.</string>
+    <string name="empty_contacts_permission">Permita o acesso aos contatos para ver e gerenciar seus contatos.</string>
+    <string name="empty_favorites_title">Nenhum favorito ainda</string>
+    <string name="empty_favorites_body">Marque com estrela as pessoas para quem você mais liga e fale com elas em um toque.</string>
+    <string name="browse_contacts">Ver contatos</string>
+    <string name="favorites">Favoritos</string>
+    <string name="favorite">Favorito</string>
+    <string name="unfavorite">Favorito</string>
+    <string name="add_favorite">Adicionar aos favoritos</string>
+    <string name="remove_favorite">Remover dos favoritos</string>
+    <string name="added_favorite">Adicionado aos favoritos</string>
+    <string name="removed_favorite">Removido dos favoritos</string>
+
+    <string name="section_recent">Recentes</string>
+    <string name="section_contacts">Contatos</string>
+    <string name="search_empty_title">Nenhum resultado</string>
+    <string name="search_empty_body">Tente outro nome ou número.</string>
+    <string name="search_hint_title">Encontre qualquer pessoa na hora</string>
+    <string name="search_hint_body">Pesquise por nome, número ou iniciais. Toque em um resultado para ver os detalhes ou ligar na hora.</string>
+    <string name="search_no_access_title">A pesquisa precisa de acesso</string>
+    <string name="search_no_access_body">Permita o acesso aos contatos e ao registro de chamadas para pesquisar pessoas e chamadas.</string>
+
+    <string name="enter_number">Digite um número</string>
+    <string name="backspace">Apagar</string>
+    <string name="invalid_number">Digite um número de telefone válido</string>
+    <string name="invalid_email">Insira um endereço de e-mail válido</string>
+
+    <string name="contact_not_found_title">Contato não encontrado</string>
+    <string name="contact_not_found_body">Este contato pode ter sido excluído.</string>
+    <string name="recent_activity">Atividade recente</string>
+    <string name="show_more">Mostrar mais</string>
+    <string name="create_shortcut">Adicionar à tela inicial</string>
+    <string name="shortcut_failed">Seu launcher não oferece suporte a atalhos</string>
+    <string name="share_contact">Compartilhar contato</string>
+    <string name="block">Bloquear</string>
+    <string name="unblock">Desbloquear</string>
+    <string name="block_contact_title">Bloquear este contato?</string>
+    <string name="block_contact_body">Você não receberá chamadas dos números deste contato.</string>
+    <string name="unblock_contact_title">Desbloquear este contato?</string>
+    <string name="unblock_contact_body">Você voltará a receber chamadas deste contato.</string>
+    <string name="delete_contact_title">Excluir contato?</string>
+    <string name="delete_contact_body">%1$s será removido permanentemente deste dispositivo e das contas sincronizadas.</string>
+    <string name="contact_deleted">Contato excluído</string>
+    <string name="choose_number">Escolha um número</string>
+
+    <string name="edit_contact">Editar contato</string>
+    <string name="contact_saved">Contato salvo</string>
+    <string name="save_failed">Não foi possível salvar o contato</string>
+    <string name="save_to">Salvar em %1$s</string>
+    <string name="save_to_title">Salvar contato em</string>
+    <string name="device_account">Dispositivo</string>
+    <string name="save_contact">Salvar contato</string>
+    <string name="set_photo">Foto do contato</string>
+    <string name="take_photo">Tirar foto</string>
+    <string name="choose_photo">Escolher foto</string>
+    <string name="remove_photo">Remover foto</string>
+    <string name="camera_unavailable">Nenhum app de câmera disponível</string>
+    <string name="photo_failed">Não foi possível carregar esta foto</string>
+    <string name="crop_photo">Cortar foto</string>
+    <string name="rotate">Girar</string>
+    <string name="first_name">Nome</string>
+    <string name="middle_name">Nome do meio</string>
+    <string name="surname">Sobrenome</string>
+    <string name="prefix">Prefixo do nome</string>
+    <string name="suffix">Sufixo do nome</string>
+    <string name="more_name_fields">Mostrar mais campos de nome</string>
+    <string name="fewer_name_fields">Mostrar menos campos de nome</string>
+    <string name="company">Empresa</string>
+    <string name="job_title">Cargo</string>
+    <string name="phone">Telefone</string>
+    <string name="phone_number">Número de telefone</string>
+    <string name="email">E-mail</string>
+    <string name="add_number">Adicionar telefone</string>
+    <string name="add_email">Adicionar e-mail</string>
+    <string name="add_address">Adicionar endereço</string>
+    <string name="add_birthday">Adicionar aniversário</string>
+    <string name="address">Endereço</string>
+    <string name="birthday">Aniversário</string>
+    <string name="nickname">Apelido</string>
+    <string name="notes">Observações</string>
+    <string name="label_type">Rótulo: %1$s</string>
+    <string name="type_mobile">Celular</string>
+    <string name="type_home">Casa</string>
+    <string name="type_work">Trabalho</string>
+    <string name="type_main">Principal</string>
+    <string name="type_other">Outro</string>
+    <string name="discard_changes_title">Descartar alterações?</string>
+    <string name="discard_changes_body">As alterações feitas neste contato não foram salvas.</string>
+    <string name="keep_editing">Continuar editando</string>
+
+    <string name="incoming_call">Chamada recebida</string>
+    <string name="calling">Ligando…</string>
+    <string name="on_hold">Em espera</string>
+    <string name="on_hold_with">Em espera · %1$s</string>
+    <string name="call_ended">Chamada encerrada</string>
+    <string name="conference">Chamada em conferência</string>
+    <string name="notification_ongoing">Chamada em andamento</string>
+    <string name="answer">Atender</string>
+    <string name="decline">Recusar</string>
+    <string name="end_call">Encerrar chamada</string>
+    <string name="mute">Silenciar</string>
+    <string name="keypad">Teclado</string>
+    <string name="speaker">Alto-falante</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="hold">Espera</string>
+    <string name="resume">Retomar</string>
+    <string name="add_call">Adicionar chamada</string>
+    <string name="swap">Alternar</string>
+    <string name="merge">Mesclar</string>
+    <string name="audio_output">Saída de áudio</string>
+    <string name="audio_phone">Telefone</string>
+    <string name="reply_with_message">Responder com uma mensagem</string>
+    <string name="custom_message">Escrever a sua…</string>
+    <string name="message_hint">Mensagem</string>
+    <string name="view_contact">Ver contato</string>
+
+    <string name="channel_incoming">Chamadas recebidas</string>
+    <string name="channel_ongoing">Chamadas em andamento</string>
+    <string name="channel_missed">Chamadas perdidas</string>
+
+    <string name="language">Idioma</string>
+    <string name="choose_language">Escolher idioma</string>
+    <string name="language_subtitle">Escolha o idioma que você quer usar. Você pode alterá-lo a qualquer momento nas Configurações.</string>
+    <string name="language_system">Padrão do sistema</string>
+
+    <string name="welcome_title">Boas-vindas ao app %1$s!</string>
+    <string name="welcome_subtitle">Conceda acesso para gerenciar contatos e chamadas com facilidade.</string>
+    <string name="welcome_terms">Ao continuar, você aceita nossa %1$s.</string>
+    <string name="agree_continue">Aceitar e continuar</string>
+    <string name="feature_call_access_title">Acesso a chamadas</string>
+    <string name="feature_call_access_body">Conceda as permissões para enviar respostas rápidas após cada chamada recebida.</string>
+    <string name="feature_blocking_title">Bloqueio de chamadas</string>
+    <string name="feature_blocking_body">Bloqueie números indesejados com facilidade e evite interrupções.</string>
+    <string name="feature_after_call_title">Tela pós-chamada</string>
+    <string name="feature_after_call_body">Revise rapidamente os detalhes da chamada e tome a próxima ação após cada ligação.</string>
+
+    <string name="theme">Tema</string>
+    <string name="theme_mode">Modo do tema</string>
+    <string name="theme_subtitle">Escolha a aparência do app. A opção Sistema segue a configuração do dispositivo.</string>
+    <string name="theme_system">Sistema</string>
+    <string name="theme_light">Modo claro</string>
+    <string name="theme_dark">Modo escuro</string>
+
+    <string name="default_phone_title">Defina como seu app de telefone padrão</string>
+    <string name="default_phone_body">Para fazer e receber chamadas, mostrar o nome de quem liga e bloquear números, defina este app como seu app de telefone padrão.</string>
+    <string name="default_phone_app">App de telefone padrão</string>
+    <string name="default_phone_set">Este app é o seu app de telefone padrão</string>
+    <string name="default_phone_not_set">Toque para torná-lo seu app de telefone padrão</string>
+    <string name="default_phone_unavailable">Seu dispositivo não permite alterar o app de telefone padrão</string>
+    <string name="default_phone_permission_body">Necessário para gerenciar chamadas, mostrar a tela de chamada e bloquear números.</string>
+    <string name="status_on">Ativado</string>
+    <string name="status_off">Desativado</string>
+
+    <string name="permissions">Permissões</string>
+    <string name="permissions_subtitle">Tudo fica no seu dispositivo. Você pode alterar isso a qualquer momento.</string>
+    <string name="permissions_app">Permissões do app</string>
+    <string name="permissions_sheet_body">Para mostrar seus contatos e chamadas, o app precisa de algumas permissões. Seus dados ficam neste dispositivo.</string>
+    <string name="permission_allowed">Permitido</string>
+    <string name="perm_denied_forever">Permissão negada. Ative-a nas configurações do sistema.</string>
+    <string name="open_system_settings">Abrir configurações do sistema</string>
+    <string name="perm_contacts_title">Contatos</string>
+    <string name="perm_contacts_body">Mostrar, criar e editar seus contatos.</string>
+    <string name="perm_call_log_title">Histórico de chamadas</string>
+    <string name="perm_call_log_body">Mostrar suas chamadas recentes e perdidas.</string>
+    <string name="perm_phone_title">Telefone</string>
+    <string name="perm_phone_body">Fazer chamadas e escolher um chip.</string>
+    <string name="perm_notifications_title">Notificações</string>
+    <string name="perm_notifications_body">Mostrar alertas de chamadas recebidas e perdidas.</string>
+
+    <string name="settings_appearance">Aparência</string>
+    <string name="settings_calls">Chamadas</string>
+    <string name="settings_general">Geral</string>
+    <string name="settings_others">Outros</string>
+    <string name="after_call_screen">Tela pós-chamada</string>
+    <string name="after_call_subtitle">Mostrar um resumo com ações rápidas quando uma chamada terminar</string>
+    <string name="smart_notifications">Notificações inteligentes</string>
+    <string name="smart_notifications_subtitle">Alertas de chamadas perdidas com opções para retornar a ligação e enviar mensagem</string>
+    <string name="blocked_numbers">Números bloqueados</string>
+    <string name="quick_response">Resposta rápida</string>
+    <string name="widget">Widget</string>
+    <string name="widget_manual_hint">Toque e segure a tela inicial, toque em Widgets e adicione o widget Ações rápidas.</string>
+    <string name="share_app">Compartilhar app</string>
+    <string name="share_app_text">Estou usando este app de telefone e contatos simples e sem anúncios: %1$s</string>
+    <string name="rate_us">Avalie-nos</string>
+    <string name="privacy_policy">Política de Privacidade</string>
+    <string name="about">Sobre</string>
+
+    <string name="block_unknown">Bloquear chamadas desconhecidas</string>
+    <string name="block_unknown_subtitle">Você não receberá chamadas de números que não estão nos seus contatos.</string>
+    <string name="add_a_number">Adicionar um número</string>
+    <string name="unblock_number_title">Desbloquear este número?</string>
+    <string name="unblock_number_body">Este número será removido da sua lista de bloqueados.</string>
+    <string name="unblock_named">Desbloquear %1$s</string>
+    <string name="empty_blocked_title">Nenhum número bloqueado</string>
+    <string name="empty_blocked_body">Os números que você bloquear não poderão ligar para você.</string>
+    <string name="blocking_requires_default_title">É necessário ser o app de telefone padrão</string>
+    <string name="blocking_requires_default_body">O Android só permite que o app de telefone padrão gerencie números bloqueados.</string>
+
+    <string name="quick_response_subtitle">Envie uma destas mensagens ao recusar uma chamada.</string>
+    <string name="add_response">Adicionar resposta</string>
+    <string name="edit_response">Editar resposta</string>
+    <string name="delete_response_title">Excluir esta resposta?</string>
+    <string name="delete_named">Excluir %1$s</string>
+    <string name="quick_response_limit">Você pode salvar até %1$d respostas</string>
+    <string name="empty_quick_title">Nenhuma resposta rápida</string>
+    <string name="empty_quick_body">Adicione uma mensagem para enviar quando não puder atender.</string>
+    <string name="quick_my_responses">Minhas respostas</string>
+    <string name="quick_response_hint">Digite sua mensagem</string>
+    <string name="quick_response_exists">Esta resposta já existe</string>
+
+    <string name="widget_name">Ações rápidas</string>
+    <string name="widget_description">Abra chamadas recentes, teclado e contatos com um toque</string>
+    <string name="widget_dialpad">Teclado</string>
+
+    <string name="version_format">Versão %1$s</string>
+    <string name="about_tagline">Uma forma simples, rápida e privada de ligar e gerenciar seus contatos.</string>
+    <string name="splash_tagline">Gerencie seus contatos sem esforço</string>
+    <string name="theme_intro_subtitle">Personalize o app com os temas claro e escuro quando quiser.</string>
+    <string name="theme_light_short">Claro</string>
+    <string name="theme_dark_short">Escuro</string>
+    <string name="outgoing_call">Chamada realizada</string>
+    <string name="missed_call">Chamada perdida</string>
+    <string name="default_app_title">Definir app de contatos padrão</string>
+    <string name="default_app_body">Defina como padrão para desbloquear recursos avançados de chamadas e contatos.</string>
+    <string name="default_required_title">App padrão necessário</string>
+    <string name="default_required_body">Defina este app como seu app de telefone padrão para continuar. Chamadas, contatos e bloqueio de chamadas só funcionam quando ele é o padrão.</string>
+    <string name="default_required_settings_body">Abra as Configurações, acesse Apps padrão &gt; App de telefone e escolha este app para continuar.</string>
+    <string name="perm_sheet_call_history_title">Histórico de chamadas</string>
+    <string name="perm_sheet_call_history_body">Dados essenciais de chamadas ajudam a exibir o histórico e gerenciar chamadas com eficiência.</string>
+    <string name="perm_sheet_contacts_title">Acesso aos contatos</string>
+    <string name="perm_sheet_contacts_body">Acesse os contatos para usar favoritos e chamadas rápidas, mantendo a privacidade dos seus dados.</string>
+    <string name="perm_sheet_overlay_title">Acesso flutuante</string>
+    <string name="perm_sheet_overlay_body">Ative a permissão de sobreposição a outros apps para garantir o funcionamento correto dos recursos.</string>
+    <string name="perm_required_title">Permissão necessária</string>
+    <string name="perm_required_settings_body">A permissão %1$s é necessária para o app funcionar. Abra as Configurações, toque em Permissões e permita o acesso para continuar.</string>
+    <string name="perm_required_overlay_body">Permita \"Sobrepor a outros apps\" para este app para continuar. Isso é necessário para que os recursos de chamada funcionem corretamente.</string>
+    <string name="open_settings">Abrir configurações</string>
+    <string name="about_no_ads">Sem anúncios</string>
+    <string name="about_no_ads_body">Sem anúncios, sem rastreadores, sem análises.</string>
+    <string name="about_on_device">Somente no dispositivo</string>
+    <string name="about_on_device_body">O app não tem acesso à internet. Seus dados nunca saem do seu telefone.</string>
+
+    <string name="privacy_intro">Sua privacidade é importante. Esta política explica o que o app acessa e por quê. Resumindo: tudo fica no seu dispositivo.</string>
+    <string-array name="privacy_titles">
+        <item>Dados que acessamos</item>
+        <item>Como seus dados são usados</item>
+        <item>Sem internet, sem anúncios</item>
+        <item>Números bloqueados</item>
+        <item>Suas escolhas</item>
+        <item>Alterações</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>Com a sua permissão, o app lê e edita seus contatos e o histórico de chamadas, faz chamadas e mostra notificações. As fotos que você escolhe para um contato são usadas apenas como a foto desse contato.</item>
+        <item>Seus dados são usados apenas para mostrar seus contatos, chamadas e nomes de quem liga dentro do app. Eles são processados no seu dispositivo e nunca são enviados, vendidos ou compartilhados.</item>
+        <item>O app não solicita acesso à internet, não contém anúncios e não usa ferramentas de análise ou rastreamento.</item>
+        <item>Os números bloqueados são armazenados na lista de bloqueio do sistema Android para continuarem funcionando com os outros recursos do seu telefone.</item>
+        <item>Você pode revogar qualquer permissão a qualquer momento nas configurações do telefone. As configurações que você escolhe no app são armazenadas apenas neste dispositivo e são removidas quando você o desinstala.</item>
+        <item>Se esta política mudar, a versão atualizada será incluída em uma atualização do app.</item>
+    </string-array>
+
+    <string-array name="default_quick_responses">
+        <item>Não posso falar agora.</item>
+        <item>Ligo para você mais tarde.</item>
+        <item>Estou a caminho.</item>
+        <item>Não posso falar agora. Pode me ligar mais tarde?</item>
+    </string-array>
+
+    <plurals name="contacts_count">
+        <item quantity="one">%1$d contato</item>
+        <item quantity="other">%1$d contatos</item>
+    </plurals>
+
+    <plurals name="missed_calls_count">
+        <item quantity="one">%1$d chamada perdida</item>
+        <item quantity="many">%1$d chamadas perdidas</item>
+        <item quantity="other">%1$d chamadas perdidas</item>
+    </plurals>
+    <plurals name="delete_calls_body">
+        <item quantity="one">%1$d chamada será removida do seu histórico de chamadas.</item>
+        <item quantity="many">%1$d chamadas serão removidas do seu histórico de chamadas.</item>
+        <item quantity="other">%1$d chamadas serão removidas do seu histórico de chamadas.</item>
+    </plurals>
+    <string name="add_blocked_number">Adicionar número bloqueado</string>
+    <string name="block_enter_number">Digite o número</string>
+    <string name="whatsapp_not_installed">O WhatsApp não está instalado</string>
+    <string name="whatsapp_video_hint">Toque no ícone de vídeo no WhatsApp para iniciar a chamada</string>
+    <string name="hide_keypad">Ocultar</string>
+    <string name="after_call_tab_contact">Contato</string>
+    <string name="after_call_recent">Chamadas recentes</string>
+    <string name="after_call_contacts">Lista de contatos</string>
+    <string name="after_call_duration">Duração %1$s</string>
+    <string name="after_call_personal_message">Escreva uma mensagem pessoal</string>
+    <string name="after_call_messages">Mensagens</string>
+    <string name="send_mail">Enviar e-mail</string>
+    <string name="calendar">Agenda</string>
+    <string name="web">Web</string>
+    <string name="reminders">Lembretes</string>
+    <string name="reminder_empty">Defina um lembrete para não esquecer.</string>
+    <string name="add_reminder">Adicionar lembrete</string>
+    <string name="reminder_in_minutes">Em %1$d minutos</string>
+    <string name="reminder_in_hour">Em 1 hora</string>
+    <string name="reminder_pick_time">Escolher horário</string>
+    <string name="reminder_set">Lembrete definido para %1$s</string>
+    <string name="reminder_title">Retornar ligação para %1$s</string>
+    <string name="reminder_body">Hora de retornar esta ligação</string>
+    <string name="channel_reminders">Lembretes de chamadas</string>
+    <string name="calendar_event_title">Chamada com %1$s</string>
+    <string name="send">Enviar</string>
+</resources>

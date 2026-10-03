@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/optionRoot"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageButton
+        tools:ignore="ContentDescription"
+        android:id="@+id/optionButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_call_option"
+        android:scaleType="center"
+        android:stateListAnimator="@animator/press_scale"
+        app:tint="@color/selector_call_option_icon" />
+
+    <TextView
+        android:id="@+id/optionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
+        android:importantForAccessibility="no"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp" />
+</LinearLayout>

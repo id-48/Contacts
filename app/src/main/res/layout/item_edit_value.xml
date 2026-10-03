@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/valueDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="56dp"
+        android:background="@color/divider"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="56dp"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_16"
+        android:paddingEnd="@dimen/space_4">
+
+        <ImageView
+            android:id="@+id/valueIcon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:importantForAccessibility="no"
+            app:tint="@color/text_primary" />
+
+        <EditText
+            android:id="@+id/valueField"
+            style="@style/Widget.App.FormInput"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_weight="1"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/valueType"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_row"
+            android:drawablePadding="2dp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/space_8"
+            android:paddingEnd="@dimen/space_4"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            app:drawableEndCompat="@drawable/ic_expand_more"
+            app:drawableTint="@color/text_primary" />
+
+        <ImageButton
+            android:id="@+id/valueRemove"
+            android:layout_width="@dimen/icon_button"
+            android:layout_height="@dimen/icon_button"
+            android:background="@drawable/bg_round_ripple"
+            android:contentDescription="@string/remove"
+            android:src="@drawable/ic_do_not_disturb_on"
+            app:tint="@color/error" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FF4C8BFF</color>
+    <color name="on_primary">#FFFFFFFF</color>
+    <color name="primary_container">#FF1A2740</color>
+    <color name="on_primary_container">#FF8DB4FF</color>
+
+    <color name="background">#FF000000</color>
+    <color name="surface_elevated">#FF1C1D21</color>
+    <color name="card">#FF1C1D21</color>
+    <color name="segment_thumb">#FF34373E</color>
+    <color name="card_strong">#FF26282D</color>
+    <color name="key">#FF1F2024</color>
+    <color name="nav_background">#FF1C1D21</color>
+    <color name="nav_stroke">#FF2A2C31</color>
+
+    <color name="text_primary">#FFF2F3F5</color>
+    <color name="text_secondary">#FF9A9EAA</color>
+    <color name="text_tertiary">#FF6A6E78</color>
+    <color name="divider">#FF2A2C31</color>
+    <color name="splash_track">#FF3A3C42</color>
+    <color name="text_muted">#FFB4B7BE</color>
+    <color name="illustration_blob">#FF141A26</color>
+    <color name="illustration_sparkle">#FF2C3547</color>
+    <color name="illustration_surface">#FF1F2228</color>
+    <color name="illustration_shadow">#FF2B303B</color>
+    <color name="illustration_line">#FF464D5C</color>
+    <color name="illustration_glare">#FF282C34</color>
+
+    <color name="error_container">#FF3A1C1D</color>
+    <color name="widget_icon_background">#FF233452</color>
+
+    <color name="call_outgoing">#FF4C8BFF</color>
+    <color name="call_missed">#FFFF5A5D</color>
+    <color name="call_rejected">#FF8E929C</color>
+
+    <color name="control_active">#FFF2F3F5</color>
+    <color name="on_control_active">#FF000000</color>
+</resources>

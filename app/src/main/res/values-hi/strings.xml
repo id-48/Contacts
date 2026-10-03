@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">संपर्क</string>
+
+    <string name="back">वापस</string>
+    <string name="close">बंद करें</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="done">हो गया</string>
+    <string name="save">सेव करें</string>
+    <string name="delete">हटाएं</string>
+    <string name="edit">बदलें</string>
+    <string name="add">जोड़ें</string>
+    <string name="remove">हटाएं</string>
+    <string name="clear">साफ़ करें</string>
+    <string name="paste">चिपकाएं</string>
+    <string name="more">और</string>
+    <string name="more_options">और विकल्प</string>
+    <string name="dismiss">खारिज करें</string>
+    <string name="discard">छोड़ें</string>
+    <string name="allow">अनुमति दें</string>
+    <string name="allow_named">%1$s की अनुमति दें</string>
+    <string name="allow_access">ऐक्सेस की अनुमति दें</string>
+    <string name="not_now">अभी नहीं</string>
+    <string name="continue_label">जारी रखें</string>
+    <string name="selected">चुना गया</string>
+    <string name="search">खोजें</string>
+    <string name="search_hint">संपर्क और नंबर खोजें</string>
+    <string name="copied">कॉपी किया गया</string>
+    <string name="action_failed">कुछ गलत हो गया. कृपया फिर से कोशिश करें.</string>
+    <string name="no_app_found">यह काम करने के लिए कोई ऐप नहीं मिला</string>
+    <string name="error_empty_message">कृपया कुछ टेक्स्ट लिखें</string>
+    <string name="alphabet_index">वर्णमाला सूची</string>
+
+    <string name="tab_recent">हाल के</string>
+    <string name="tab_contacts">संपर्क</string>
+    <string name="tab_favorites">पसंदीदा</string>
+    <string name="settings">सेटिंग</string>
+    <string name="open_dialpad">डायल पैड खोलें</string>
+    <string name="filter_all">सभी</string>
+    <string name="filter_missed">मिस्ड</string>
+
+    <string name="today">आज</string>
+    <string name="yesterday">कल</string>
+    <string name="just_now">अभी-अभी</string>
+
+    <string name="call">कॉल करें</string>
+    <string name="call_name">%1$s को कॉल करें</string>
+    <string name="call_named">%1$s को कॉल करें</string>
+    <string name="call_again">फिर से कॉल करें</string>
+    <string name="call_back">वापस कॉल करें</string>
+    <string name="call_history">कॉल हिस्ट्री</string>
+    <string name="call_failed">कॉल नहीं हो सका</string>
+    <string name="call_incoming">इनकमिंग</string>
+    <string name="call_outgoing">आउटगोइंग</string>
+    <string name="call_missed">मिस्ड</string>
+    <string name="call_rejected">अस्वीकार किया गया</string>
+    <string name="call_blocked">ब्लॉक किया गया</string>
+    <string name="call_voicemail">वॉइसमेल</string>
+    <string name="private_number">निजी नंबर</string>
+    <string name="sim_choose">इससे कॉल करें</string>
+    <string name="video">वीडियो</string>
+    <string name="video_call">वीडियो कॉल</string>
+    <string name="message">मैसेज</string>
+    <string name="messages">मैसेज</string>
+    <string name="send_message">मैसेज भेजें</string>
+    <string name="details">विवरण</string>
+    <string name="contact_info">संपर्क जानकारी</string>
+    <string name="add_contact">संपर्क जोड़ें</string>
+    <string name="add_to_contacts">संपर्कों में जोड़ें</string>
+    <string name="create_contact">संपर्क बनाएं</string>
+    <string name="copy_number">नंबर कॉपी करें</string>
+    <string name="number_copied">नंबर कॉपी किया गया</string>
+    <string name="block_number">नंबर ब्लॉक करें</string>
+    <string name="block_number_title">%1$s को ब्लॉक करें?</string>
+    <string name="block_number_body">आपको इस नंबर से कॉल नहीं आएंगे. ब्लॉक किए गए नंबर फ़ोन की सिस्टम ब्लॉक सूची में भी जुड़ जाते हैं.</string>
+    <string name="number_blocked">नंबर ब्लॉक किया गया</string>
+    <string name="number_unblocked">नंबर अनब्लॉक किया गया</string>
+    <string name="block_failed">यह नंबर ब्लॉक नहीं हो सका. पक्का करें कि यह ऐप आपका डिफ़ॉल्ट फ़ोन ऐप है.</string>
+    <string name="unblock_failed">यह नंबर अनब्लॉक नहीं हो सका</string>
+    <string name="delete_from_history">कॉल हिस्ट्री से हटाएं</string>
+    <string name="delete_entry_title">यह कॉल हटाएं?</string>
+    <string name="delete_history_title">कॉल हिस्ट्री हटाएं?</string>
+    <string name="history_deleted">कॉल हिस्ट्री हटा दी गई</string>
+    <string name="delete_failed">हटाया नहीं जा सका. कृपया फिर से कोशिश करें.</string>
+    <string name="history_empty_title">अभी तक कोई कॉल नहीं</string>
+    <string name="history_empty_body">इस नंबर के कॉल यहां दिखेंगे.</string>
+
+    <string name="banner_default_title">डिफ़ॉल्ट फ़ोन ऐप बनाएं</string>
+    <string name="banner_default_body">इसी ऐप से कॉल करें, कॉल करने वाले का नाम देखें और नंबर ब्लॉक करें.</string>
+    <string name="banner_contacts_title">संपर्क के नाम दिखाएं</string>
+    <string name="banner_contacts_body">कॉल हिस्ट्री में नाम और फ़ोटो देखने के लिए संपर्क ऐक्सेस की अनुमति दें.</string>
+    <string name="set_as_default">डिफ़ॉल्ट बनाएं</string>
+
+    <string name="empty_recent_title">कोई हाल का कॉल नहीं</string>
+    <string name="empty_recent_body">आपके किए और आए कॉल यहां दिखेंगे.</string>
+    <string name="empty_recent_permission">हाल के कॉल देखने के लिए कॉल लॉग ऐक्सेस की अनुमति दें.</string>
+    <string name="empty_missed_title">कोई मिस्ड कॉल नहीं</string>
+    <string name="empty_missed_body">सब कुछ देख लिया गया है.</string>
+    <string name="empty_contacts_title">अभी तक कोई संपर्क नहीं</string>
+    <string name="empty_contacts_body">जिन्हें आप कॉल करते हैं, उन्हें पास रखने के लिए संपर्क बनाएं.</string>
+    <string name="empty_contacts_permission">संपर्क देखने और मैनेज करने के लिए संपर्क ऐक्सेस की अनुमति दें.</string>
+    <string name="empty_favorites_title">अभी तक कोई पसंदीदा नहीं</string>
+    <string name="empty_favorites_body">जिन्हें आप सबसे ज़्यादा कॉल करते हैं, उन्हें स्टार करें.</string>
+    <string name="browse_contacts">संपर्क देखें</string>
+    <string name="favorites">पसंदीदा</string>
+    <string name="favorite">पसंदीदा</string>
+    <string name="unfavorite">पसंदीदा</string>
+    <string name="add_favorite">पसंदीदा में जोड़ें</string>
+    <string name="remove_favorite">पसंदीदा से हटाएं</string>
+    <string name="added_favorite">पसंदीदा में जोड़ा गया</string>
+    <string name="removed_favorite">पसंदीदा से हटाया गया</string>
+
+    <string name="section_recent">हाल के</string>
+    <string name="section_contacts">संपर्क</string>
+    <string name="search_empty_title">कोई नतीजा नहीं</string>
+    <string name="search_empty_body">कोई दूसरा नाम या नंबर आज़माएं.</string>
+    <string name="search_hint_title">किसी को भी तुरंत खोजें</string>
+    <string name="search_hint_body">नाम, नंबर या शुरुआती अक्षरों से खोजें. विवरण देखने या तुरंत कॉल करने के लिए परिणाम पर टैप करें.</string>
+    <string name="search_no_access_title">खोज के लिए ऐक्सेस चाहिए</string>
+    <string name="search_no_access_body">खोजने के लिए संपर्क और कॉल लॉग ऐक्सेस की अनुमति दें.</string>
+
+    <string name="enter_number">नंबर डालें</string>
+    <string name="backspace">बैकस्पेस</string>
+    <string name="invalid_number">कृपया सही फ़ोन नंबर डालें</string>
+    <string name="invalid_email">कृपया सही ईमेल पता दर्ज करें</string>
+
+    <string name="contact_not_found_title">संपर्क नहीं मिला</string>
+    <string name="contact_not_found_body">हो सकता है यह संपर्क हटा दिया गया हो.</string>
+    <string name="recent_activity">हाल की गतिविधि</string>
+    <string name="show_more">और देखें</string>
+    <string name="create_shortcut">होम स्क्रीन पर जोड़ें</string>
+    <string name="shortcut_failed">आपका लॉन्चर शॉर्टकट सपोर्ट नहीं करता</string>
+    <string name="share_contact">संपर्क शेयर करें</string>
+    <string name="block">ब्लॉक करें</string>
+    <string name="unblock">अनब्लॉक करें</string>
+    <string name="block_contact_title">इस संपर्क को ब्लॉक करें?</string>
+    <string name="block_contact_body">आपको इस संपर्क के नंबरों से कॉल नहीं आएंगे.</string>
+    <string name="unblock_contact_title">इस संपर्क को अनब्लॉक करें?</string>
+    <string name="unblock_contact_body">आपको इस संपर्क से फिर से कॉल आने लगेंगे.</string>
+    <string name="delete_contact_title">संपर्क हटाएं?</string>
+    <string name="delete_contact_body">%1$s को इस डिवाइस और सिंक किए गए खातों से हमेशा के लिए हटा दिया जाएगा.</string>
+    <string name="contact_deleted">संपर्क हटाया गया</string>
+    <string name="choose_number">नंबर चुनें</string>
+
+    <string name="edit_contact">संपर्क बदलें</string>
+    <string name="contact_saved">संपर्क सेव किया गया</string>
+    <string name="save_failed">संपर्क सेव नहीं हो सका</string>
+    <string name="save_to">%1$s में सेव करें</string>
+    <string name="save_to_title">संपर्क यहां सेव करें</string>
+    <string name="device_account">डिवाइस</string>
+    <string name="save_contact">संपर्क सेव करें</string>
+    <string name="set_photo">संपर्क फ़ोटो</string>
+    <string name="take_photo">फ़ोटो लें</string>
+    <string name="choose_photo">फ़ोटो चुनें</string>
+    <string name="remove_photo">फ़ोटो हटाएं</string>
+    <string name="camera_unavailable">कोई कैमरा ऐप उपलब्ध नहीं है</string>
+    <string name="photo_failed">यह फ़ोटो लोड नहीं हो सकी</string>
+    <string name="crop_photo">फ़ोटो काटें</string>
+    <string name="rotate">घुमाएं</string>
+    <string name="first_name">पहला नाम</string>
+    <string name="middle_name">बीच का नाम</string>
+    <string name="surname">उपनाम</string>
+    <string name="prefix">नाम से पहले</string>
+    <string name="suffix">नाम के बाद</string>
+    <string name="more_name_fields">नाम के और फ़ील्ड दिखाएं</string>
+    <string name="fewer_name_fields">नाम के कम फ़ील्ड दिखाएं</string>
+    <string name="company">कंपनी</string>
+    <string name="job_title">पद</string>
+    <string name="phone">फ़ोन</string>
+    <string name="phone_number">फ़ोन नंबर</string>
+    <string name="email">ईमेल</string>
+    <string name="add_number">फ़ोन जोड़ें</string>
+    <string name="add_email">ईमेल जोड़ें</string>
+    <string name="add_address">पता जोड़ें</string>
+    <string name="add_birthday">जन्मदिन जोड़ें</string>
+    <string name="address">पता</string>
+    <string name="birthday">जन्मदिन</string>
+    <string name="nickname">उपनाम (निकनेम)</string>
+    <string name="notes">नोट</string>
+    <string name="label_type">लेबल: %1$s</string>
+    <string name="type_mobile">मोबाइल</string>
+    <string name="type_home">घर</string>
+    <string name="type_work">ऑफ़िस</string>
+    <string name="type_main">मुख्य</string>
+    <string name="type_other">अन्य</string>
+    <string name="discard_changes_title">बदलाव छोड़ें?</string>
+    <string name="discard_changes_body">इस संपर्क में किए गए बदलाव सेव नहीं हुए हैं.</string>
+    <string name="keep_editing">संपादन जारी रखें</string>
+
+    <string name="incoming_call">इनकमिंग कॉल</string>
+    <string name="calling">कॉल किया जा रहा है…</string>
+    <string name="on_hold">होल्ड पर</string>
+    <string name="on_hold_with">होल्ड पर · %1$s</string>
+    <string name="call_ended">कॉल खत्म हुआ</string>
+    <string name="conference">कॉन्फ़्रेंस कॉल</string>
+    <string name="notification_ongoing">कॉल चालू है</string>
+    <string name="answer">जवाब दें</string>
+    <string name="decline">अस्वीकार करें</string>
+    <string name="end_call">कॉल खत्म करें</string>
+    <string name="mute">म्यूट</string>
+    <string name="keypad">कीपैड</string>
+    <string name="speaker">स्पीकर</string>
+    <string name="bluetooth">ब्लूटूथ</string>
+    <string name="hold">होल्ड</string>
+    <string name="resume">फिर शुरू करें</string>
+    <string name="add_call">कॉल जोड़ें</string>
+    <string name="swap">बदलें</string>
+    <string name="merge">मर्ज करें</string>
+    <string name="audio_output">ऑडियो आउटपुट</string>
+    <string name="audio_phone">फ़ोन</string>
+    <string name="reply_with_message">मैसेज से जवाब दें</string>
+    <string name="custom_message">अपना मैसेज लिखें…</string>
+    <string name="message_hint">मैसेज</string>
+    <string name="view_contact">संपर्क देखें</string>
+
+    <string name="channel_incoming">इनकमिंग कॉल</string>
+    <string name="channel_ongoing">चालू कॉल</string>
+    <string name="channel_missed">मिस्ड कॉल</string>
+
+    <string name="language">भाषा</string>
+    <string name="choose_language">भाषा चुनें</string>
+    <string name="language_subtitle">अपनी भाषा चुनें. आप इसे कभी भी सेटिंग में बदल सकते हैं.</string>
+    <string name="language_system">सिस्टम डिफ़ॉल्ट</string>
+
+    <string name="welcome_title">%1$s में आपका स्वागत है!</string>
+    <string name="welcome_subtitle">संपर्क और कॉल आसानी से मैनेज करने के लिए एक्सेस दें.</string>
+    <string name="welcome_terms">जारी रखकर आप हमारी %1$s स्वीकार करते हैं.</string>
+    <string name="agree_continue">सहमत हैं और जारी रखें</string>
+    <string name="feature_call_access_title">कॉल एक्सेस</string>
+    <string name="feature_call_access_body">हर इनकमिंग कॉल के बाद झटपट जवाब भेजने के लिए अनुमति दें.</string>
+    <string name="feature_blocking_title">कॉल ब्लॉकिंग</string>
+    <string name="feature_blocking_body">अनचाहे नंबर आसानी से ब्लॉक करें और रुकावटों से बचें.</string>
+    <string name="feature_after_call_title">कॉल के बाद स्क्रीन</string>
+    <string name="feature_after_call_body">हर कॉल के बाद कॉल की जानकारी जल्दी देखें और अगला कदम उठाएं.</string>
+
+    <string name="theme">थीम</string>
+    <string name="theme_mode">थीम मोड</string>
+    <string name="theme_subtitle">चुनें कि ऐप कैसा दिखे. सिस्टम आपके डिवाइस की सेटिंग के हिसाब से चलता है.</string>
+    <string name="theme_system">सिस्टम</string>
+    <string name="theme_light">लाइट मोड</string>
+    <string name="theme_dark">डार्क मोड</string>
+
+    <string name="default_phone_title">इसे अपना डिफ़ॉल्ट फ़ोन ऐप बनाएं</string>
+    <string name="default_phone_body">कॉल करने और पाने, कॉल करने वाले का नाम दिखाने और नंबर ब्लॉक करने के लिए इस ऐप को डिफ़ॉल्ट फ़ोन ऐप बनाएं.</string>
+    <string name="default_phone_app">डिफ़ॉल्ट फ़ोन ऐप</string>
+    <string name="default_phone_set">यह ऐप आपका डिफ़ॉल्ट फ़ोन ऐप है</string>
+    <string name="default_phone_not_set">इसे डिफ़ॉल्ट बनाने के लिए टैप करें</string>
+    <string name="default_phone_unavailable">आपका डिवाइस डिफ़ॉल्ट फ़ोन ऐप बदलने की अनुमति नहीं देता</string>
+    <string name="default_phone_permission_body">कॉल संभालने, कॉल स्क्रीन दिखाने और नंबर ब्लॉक करने के लिए ज़रूरी है.</string>
+    <string name="status_on">चालू</string>
+    <string name="status_off">बंद</string>
+
+    <string name="permissions">अनुमतियां</string>
+    <string name="permissions_subtitle">सब कुछ आपके डिवाइस पर रहता है. आप इन्हें कभी भी बदल सकते हैं.</string>
+    <string name="permissions_app">ऐप की अनुमतियां</string>
+    <string name="permissions_sheet_body">आपके संपर्क और कॉल दिखाने के लिए ऐप को कुछ अनुमतियां चाहिए. आपका डेटा इसी डिवाइस पर रहता है.</string>
+    <string name="permission_allowed">अनुमति है</string>
+    <string name="perm_denied_forever">अनुमति नहीं दी गई. इसे सिस्टम सेटिंग में चालू करें.</string>
+    <string name="open_system_settings">सिस्टम सेटिंग खोलें</string>
+    <string name="perm_contacts_title">संपर्क</string>
+    <string name="perm_contacts_body">अपने संपर्क देखें, बनाएं और बदलें.</string>
+    <string name="perm_call_log_title">कॉल हिस्ट्री</string>
+    <string name="perm_call_log_body">हाल के और मिस्ड कॉल देखें.</string>
+    <string name="perm_phone_title">फ़ोन</string>
+    <string name="perm_phone_body">कॉल करें और सिम चुनें.</string>
+    <string name="perm_notifications_title">सूचनाएं</string>
+    <string name="perm_notifications_body">इनकमिंग और मिस्ड कॉल की सूचना दिखाएं.</string>
+
+    <string name="settings_appearance">रूप-रंग</string>
+    <string name="settings_calls">कॉल</string>
+    <string name="settings_general">सामान्य</string>
+    <string name="settings_others">अन्य</string>
+    <string name="after_call_screen">कॉल के बाद की स्क्रीन</string>
+    <string name="after_call_subtitle">कॉल खत्म होने पर झटपट कार्रवाइयों के साथ सारांश दिखाएं</string>
+    <string name="smart_notifications">स्मार्ट सूचनाएं</string>
+    <string name="smart_notifications_subtitle">वापस कॉल और मैसेज विकल्पों के साथ मिस्ड कॉल अलर्ट</string>
+    <string name="blocked_numbers">ब्लॉक किए गए नंबर</string>
+    <string name="quick_response">झटपट जवाब</string>
+    <string name="widget">विजेट</string>
+    <string name="widget_manual_hint">होम स्क्रीन को दबाकर रखें, विजेट पर टैप करें और क्विक एक्शन विजेट जोड़ें।</string>
+    <string name="share_app">ऐप शेयर करें</string>
+    <string name="share_app_text">मैं यह आसान, बिना विज्ञापन वाला फ़ोन और संपर्क ऐप इस्तेमाल कर रहा हूं: %1$s</string>
+    <string name="rate_us">हमें रेट करें</string>
+    <string name="privacy_policy">निजता नीति</string>
+    <string name="about">ऐप के बारे में</string>
+
+    <string name="block_unknown">अनजान कॉलर ब्लॉक करें</string>
+    <string name="block_unknown_subtitle">जो नंबर आपके संपर्कों में नहीं हैं, उनसे कॉल नहीं आएंगे.</string>
+    <string name="add_a_number">नंबर जोड़ें</string>
+    <string name="unblock_number_title">इस नंबर को अनब्लॉक करें?</string>
+    <string name="unblock_number_body">यह नंबर आपकी ब्लॉक सूची से हटा दिया जाएगा.</string>
+    <string name="unblock_named">%1$s को अनब्लॉक करें</string>
+    <string name="empty_blocked_title">कोई ब्लॉक किया गया नंबर नहीं</string>
+    <string name="empty_blocked_body">जिन नंबरों को आप ब्लॉक करेंगे, वे आपको कॉल नहीं कर पाएंगे.</string>
+    <string name="blocking_requires_default_title">डिफ़ॉल्ट फ़ोन ऐप ज़रूरी है</string>
+    <string name="blocking_requires_default_body">Android सिर्फ़ डिफ़ॉल्ट फ़ोन ऐप को ब्लॉक किए गए नंबर मैनेज करने देता है.</string>
+
+    <string name="quick_response_subtitle">कॉल अस्वीकार करते समय इनमें से कोई मैसेज भेजें.</string>
+    <string name="add_response">जवाब जोड़ें</string>
+    <string name="edit_response">जवाब बदलें</string>
+    <string name="delete_response_title">यह जवाब हटाएं?</string>
+    <string name="delete_named">%1$s हटाएं</string>
+    <string name="quick_response_limit">आप ज़्यादा से ज़्यादा %1$d जवाब सेव कर सकते हैं</string>
+    <string name="empty_quick_title">कोई झटपट जवाब नहीं</string>
+    <string name="empty_quick_body">जवाब न दे पाने पर भेजने के लिए कोई मैसेज जोड़ें.</string>
+    <string name="quick_my_responses">मेरे जवाब</string>
+    <string name="quick_response_hint">अपना संदेश लिखें</string>
+    <string name="quick_response_exists">यह जवाब पहले से मौजूद है</string>
+
+    <string name="widget_name">क्विक एक्शन</string>
+    <string name="widget_description">हाल की कॉल, डायलपैड और संपर्क एक टैप में खोलें</string>
+    <string name="widget_dialpad">डायलपैड</string>
+
+    <string name="version_format">वर्शन %1$s</string>
+    <string name="about_tagline">कॉल करने और संपर्क मैनेज करने का आसान, तेज़ और निजी तरीका.</string>
+    <string name="splash_tagline">संपर्क आसानी से मैनेज करें</string>
+    <string name="theme_intro_subtitle">लाइट और डार्क थीम से अपने ऐप को कभी भी कस्टमाइज़ करें.</string>
+    <string name="theme_light_short">लाइट</string>
+    <string name="theme_dark_short">डार्क</string>
+    <string name="outgoing_call">आउटगोइंग कॉल</string>
+    <string name="missed_call">मिस्ड कॉल</string>
+    <string name="default_app_title">डिफ़ॉल्ट संपर्क ऐप सेट करें</string>
+    <string name="default_app_body">एडवांस कॉलिंग और संपर्क फ़ीचर पाने के लिए डिफ़ॉल्ट सेट करें.</string>
+    <string name="default_required_title">डिफ़ॉल्ट ऐप ज़रूरी है</string>
+    <string name="default_required_body">आगे बढ़ने के लिए इस ऐप को अपना डिफ़ॉल्ट फ़ोन ऐप बनाएं. कॉल, संपर्क और कॉल ब्लॉकिंग तभी काम करते हैं जब यह डिफ़ॉल्ट हो.</string>
+    <string name="default_required_settings_body">सेटिंग्स खोलें, डिफ़ॉल्ट ऐप &gt; फ़ोन ऐप में जाएं और आगे बढ़ने के लिए यह ऐप चुनें.</string>
+    <string name="perm_sheet_call_history_title">कॉल हिस्ट्री</string>
+    <string name="perm_sheet_call_history_body">ज़रूरी कॉल डेटा से हिस्ट्री दिखाने और कॉल को बेहतर तरीके से मैनेज करने में मदद मिलती है.</string>
+    <string name="perm_sheet_contacts_title">संपर्क एक्सेस</string>
+    <string name="perm_sheet_contacts_body">डेटा की निजता बनाए रखते हुए पसंदीदा और झटपट कॉल के लिए संपर्क एक्सेस करें.</string>
+    <string name="perm_sheet_overlay_title">फ़्लोटिंग एक्सेस</string>
+    <string name="perm_sheet_overlay_body">फ़ीचर सही से काम करें, इसके लिए दूसरे ऐप के ऊपर दिखाने की अनुमति दें.</string>
+    <string name="perm_required_title">अनुमति ज़रूरी है</string>
+    <string name="perm_required_settings_body">ऐप चलाने के लिए %1$s अनुमति ज़रूरी है. सेटिंग्स खोलें, अनुमतियां पर टैप करें और इसे अनुमति दें.</string>
+    <string name="perm_required_overlay_body">आगे बढ़ने के लिए इस ऐप को \"ऊपर दिखाएं\" की अनुमति दें. कॉल फ़ीचर सही से चलने के लिए यह ज़रूरी है.</string>
+    <string name="open_settings">सेटिंग्स खोलें</string>
+    <string name="about_no_ads">कोई विज्ञापन नहीं</string>
+    <string name="about_no_ads_body">न विज्ञापन, न ट्रैकर, न एनालिटिक्स.</string>
+    <string name="about_on_device">सिर्फ़ डिवाइस पर</string>
+    <string name="about_on_device_body">ऐप के पास इंटरनेट ऐक्सेस नहीं है. आपका डेटा कभी आपके फ़ोन से बाहर नहीं जाता.</string>
+
+    <string name="privacy_intro">आपकी निजता मायने रखती है. यह नीति बताती है कि ऐप किस चीज़ को ऐक्सेस करता है और क्यों. संक्षेप में: सब कुछ आपके डिवाइस पर रहता है.</string>
+    <string-array name="privacy_titles">
+        <item>हम किस डेटा को ऐक्सेस करते हैं</item>
+        <item>आपके डेटा का इस्तेमाल कैसे होता है</item>
+        <item>न इंटरनेट, न विज्ञापन</item>
+        <item>ब्लॉक किए गए नंबर</item>
+        <item>आपके विकल्प</item>
+        <item>बदलाव</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>आपकी अनुमति से ऐप आपके संपर्क और कॉल हिस्ट्री पढ़ता और बदलता है, कॉल करता है और सूचनाएं दिखाता है. किसी संपर्क के लिए चुनी गई फ़ोटो सिर्फ़ उसकी तस्वीर के रूप में इस्तेमाल होती है.</item>
+        <item>आपके डेटा का इस्तेमाल सिर्फ़ ऐप में संपर्क, कॉल और कॉल करने वालों के नाम दिखाने के लिए होता है. इसे आपके डिवाइस पर ही प्रोसेस किया जाता है और कभी अपलोड, बेचा या शेयर नहीं किया जाता.</item>
+        <item>ऐप इंटरनेट ऐक्सेस नहीं मांगता, इसमें कोई विज्ञापन नहीं है और यह किसी एनालिटिक्स या ट्रैकिंग टूल का इस्तेमाल नहीं करता.</item>
+        <item>ब्लॉक किए गए नंबर Android की सिस्टम ब्लॉक सूची में सेव होते हैं, ताकि वे आपके फ़ोन की दूसरी सुविधाओं के साथ भी काम करें.</item>
+        <item>आप फ़ोन की सेटिंग में कभी भी कोई भी अनुमति वापस ले सकते हैं. ऐप की सेटिंग सिर्फ़ इसी डिवाइस पर सेव होती हैं और ऐप हटाने पर मिट जाती हैं.</item>
+        <item>अगर यह नीति बदलती है, तो नया वर्शन ऐप अपडेट में शामिल किया जाएगा.</item>
+    </string-array>
+
+    <string-array name="default_quick_responses">
+        <item>अभी बात नहीं कर सकता.</item>
+        <item>मैं आपको बाद में कॉल करूंगा.</item>
+        <item>मैं रास्ते में हूं.</item>
+        <item>अभी बात नहीं हो सकती. बाद में कॉल करें?</item>
+    </string-array>
+
+    <plurals name="contacts_count">
+        <item quantity="one">%1$d संपर्क</item>
+        <item quantity="other">%1$d संपर्क</item>
+    </plurals>
+
+    <plurals name="missed_calls_count">
+        <item quantity="one">%1$d मिस्ड कॉल</item>
+        <item quantity="other">%1$d मिस्ड कॉल</item>
+    </plurals>
+    <plurals name="delete_calls_body">
+        <item quantity="one">%1$d कॉल आपकी कॉल हिस्ट्री से हटा दिया जाएगा.</item>
+        <item quantity="other">%1$d कॉल आपकी कॉल हिस्ट्री से हटा दिए जाएंगे.</item>
+    </plurals>
+    <string name="add_blocked_number">ब्लॉक नंबर जोड़ें</string>
+    <string name="block_enter_number">नंबर दर्ज करें</string>
+    <string name="whatsapp_not_installed">WhatsApp इंस्टॉल नहीं है</string>
+    <string name="whatsapp_video_hint">कॉल शुरू करने के लिए WhatsApp में वीडियो आइकन पर टैप करें</string>
+    <string name="hide_keypad">छिपाएं</string>
+    <string name="after_call_tab_contact">संपर्क</string>
+    <string name="after_call_recent">हाल की कॉल</string>
+    <string name="after_call_contacts">संपर्क सूची</string>
+    <string name="after_call_duration">अवधि %1$s</string>
+    <string name="after_call_personal_message">अपना संदेश लिखें</string>
+    <string name="after_call_messages">संदेश</string>
+    <string name="send_mail">मेल भेजें</string>
+    <string name="calendar">कैलेंडर</string>
+    <string name="web">वेब</string>
+    <string name="reminders">रिमाइंडर</string>
+    <string name="reminder_empty">रिमाइंडर सेट करें ताकि आप भूलें नहीं.</string>
+    <string name="add_reminder">रिमाइंडर जोड़ें</string>
+    <string name="reminder_in_minutes">%1$d मिनट में</string>
+    <string name="reminder_in_hour">1 घंटे में</string>
+    <string name="reminder_pick_time">समय चुनें</string>
+    <string name="reminder_set">%1$s के लिए रिमाइंडर सेट हुआ</string>
+    <string name="reminder_title">%1$s को वापस कॉल करें</string>
+    <string name="reminder_body">इस कॉल का जवाब देने का समय हो गया</string>
+    <string name="channel_reminders">कॉल रिमाइंडर</string>
+    <string name="calendar_event_title">%1$s के साथ कॉल</string>
+    <string name="send">भेजें</string>
+</resources>

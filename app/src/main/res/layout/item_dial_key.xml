@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dial_key_size"
+    android:layout_height="@dimen/dial_key_size"
+    android:background="@drawable/bg_dial_key"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:stateListAnimator="@animator/press_scale">
+
+    <TextView
+        android:id="@+id/keyDigit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:includeFontPadding="false"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_dial_digit" />
+
+    <TextView
+        android:id="@+id/keyLetters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/roboto_medium"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.12"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp" />
+</LinearLayout>

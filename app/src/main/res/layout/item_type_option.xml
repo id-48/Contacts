@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/typeOption"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:background="@drawable/bg_type_menu_item"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/space_20"
+    android:paddingEnd="@dimen/space_16">
+
+    <TextView
+        android:id="@+id/typeOptionLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:duplicateParentState="true"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
+        android:maxLines="1"
+        android:textColor="@color/selector_type_option"
+        android:textSize="17sp"
+        app:fontFamily="@font/roboto_medium" />
+
+    <ImageView
+        android:id="@+id/typeOptionCheck"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="@dimen/space_12"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_check"
+        android:visibility="invisible"
+        app:tint="@color/primary" />
+</LinearLayout>

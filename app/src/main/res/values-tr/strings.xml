@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kişiler</string>
+
+    <string name="back">Geri</string>
+    <string name="close">Kapat</string>
+    <string name="cancel">İptal</string>
+    <string name="done">Bitti</string>
+    <string name="save">Kaydet</string>
+    <string name="delete">Sil</string>
+    <string name="edit">Düzenle</string>
+    <string name="add">Ekle</string>
+    <string name="remove">Kaldır</string>
+    <string name="clear">Temizle</string>
+    <string name="paste">Yapıştır</string>
+    <string name="more">Daha fazla</string>
+    <string name="more_options">Diğer seçenekler</string>
+    <string name="dismiss">Kapat</string>
+    <string name="discard">Vazgeç</string>
+    <string name="allow">İzin ver</string>
+    <string name="allow_named">%1$s için izin ver</string>
+    <string name="allow_access">Erişime izin ver</string>
+    <string name="not_now">Şimdi değil</string>
+    <string name="continue_label">Devam</string>
+    <string name="selected">Seçildi</string>
+    <string name="search">Ara</string>
+    <string name="search_hint">Kişi ve numara ara</string>
+    <string name="copied">Kopyalandı</string>
+    <string name="action_failed">Bir sorun oluştu. Lütfen tekrar deneyin.</string>
+    <string name="no_app_found">Bu işlemi tamamlayacak uygulama bulunamadı</string>
+    <string name="error_empty_message">Lütfen bir metin girin</string>
+    <string name="alphabet_index">Alfabe dizini</string>
+
+    <string name="tab_recent">Son aramalar</string>
+    <string name="tab_contacts">Kişiler</string>
+    <string name="tab_favorites">Favoriler</string>
+    <string name="settings">Ayarlar</string>
+    <string name="open_dialpad">Tuş takımını aç</string>
+    <string name="filter_all">Tümü</string>
+    <string name="filter_missed">Cevapsız</string>
+
+    <string name="today">Bugün</string>
+    <string name="yesterday">Dün</string>
+    <string name="just_now">Az önce</string>
+
+    <string name="call">Ara</string>
+    <string name="call_name">Ara: %1$s</string>
+    <string name="call_named">Ara: %1$s</string>
+    <string name="call_again">Tekrar ara</string>
+    <string name="call_back">Geri ara</string>
+    <string name="call_history">Arama geçmişi</string>
+    <string name="call_failed">Arama yapılamadı</string>
+    <string name="call_incoming">Gelen</string>
+    <string name="call_outgoing">Giden</string>
+    <string name="call_missed">Cevapsız</string>
+    <string name="call_rejected">Reddedildi</string>
+    <string name="call_blocked">Engellendi</string>
+    <string name="call_voicemail">Sesli mesaj</string>
+    <string name="private_number">Gizli numara</string>
+    <string name="sim_choose">Şununla ara</string>
+    <string name="video">Video</string>
+    <string name="video_call">Görüntülü arama</string>
+    <string name="message">Mesaj</string>
+    <string name="messages">Mesaj</string>
+    <string name="send_message">Mesaj gönder</string>
+    <string name="details">Ayrıntılar</string>
+    <string name="contact_info">Kişi bilgileri</string>
+    <string name="add_contact">Kişi ekle</string>
+    <string name="add_to_contacts">Kişilere ekle</string>
+    <string name="create_contact">Kişi oluştur</string>
+    <string name="copy_number">Numarayı kopyala</string>
+    <string name="number_copied">Numara kopyalandı</string>
+    <string name="block_number">Numarayı engelle</string>
+    <string name="block_number_title">%1$s engellensin mi?</string>
+    <string name="block_number_body">Bu numaradan arama almayacaksınız. Engellenen numaralar telefonunuzun sistem engelleme listesiyle paylaşılır.</string>
+    <string name="number_blocked">Numara engellendi</string>
+    <string name="number_unblocked">Numaranın engeli kaldırıldı</string>
+    <string name="block_failed">Bu numara engellenemedi. Bu uygulamanın varsayılan telefon uygulamanız olduğundan emin olun.</string>
+    <string name="unblock_failed">Bu numaranın engeli kaldırılamadı</string>
+    <string name="delete_from_history">Arama geçmişinden sil</string>
+    <string name="delete_entry_title">Bu arama silinsin mi?</string>
+    <string name="delete_history_title">Arama geçmişi silinsin mi?</string>
+    <string name="history_deleted">Arama geçmişi silindi</string>
+    <string name="delete_failed">Silinemedi. Lütfen tekrar deneyin.</string>
+    <string name="history_empty_title">Henüz arama yok</string>
+    <string name="history_empty_body">Bu numarayla yapılan aramalar burada görünür.</string>
+
+    <string name="banner_default_title">Varsayılan telefon uygulaması yap</string>
+    <string name="banner_default_body">Arama yapın, arayanların adlarını görün ve numaraları doğrudan bu uygulamadan engelleyin.</string>
+    <string name="banner_contacts_title">Kişi adlarını göster</string>
+    <string name="banner_contacts_body">Arama geçmişinizde ad ve fotoğrafları görmek için kişilere erişime izin verin.</string>
+    <string name="set_as_default">Varsayılan yap</string>
+
+    <string name="empty_recent_title">Son arama yok</string>
+    <string name="empty_recent_body">Yaptığınız ve aldığınız aramalar burada görünür.</string>
+    <string name="empty_recent_permission">Son aramalarınızı görmek için arama kaydına erişime izin verin.</string>
+    <string name="empty_missed_title">Cevapsız arama yok</string>
+    <string name="empty_missed_body">Kaçırdığınız bir şey yok.</string>
+    <string name="empty_contacts_title">Henüz kişi yok</string>
+    <string name="empty_contacts_body">Sık aradığınız kişileri el altında tutmak için bir kişi oluşturun.</string>
+    <string name="empty_contacts_permission">Kişilerinizi görmek ve yönetmek için kişilere erişime izin verin.</string>
+    <string name="empty_favorites_title">Henüz favori yok</string>
+    <string name="empty_favorites_body">En çok aradığınız kişilere tek dokunuşla ulaşmak için onları yıldızlayın.</string>
+    <string name="browse_contacts">Kişilere göz at</string>
+    <string name="favorites">Favoriler</string>
+    <string name="favorite">Favori</string>
+    <string name="unfavorite">Favori</string>
+    <string name="add_favorite">Favorilere ekle</string>
+    <string name="remove_favorite">Favorilerden kaldır</string>
+    <string name="added_favorite">Favorilere eklendi</string>
+    <string name="removed_favorite">Favorilerden kaldırıldı</string>
+
+    <string name="section_recent">Son aramalar</string>
+    <string name="section_contacts">Kişiler</string>
+    <string name="search_empty_title">Sonuç yok</string>
+    <string name="search_empty_body">Farklı bir ad veya numara deneyin.</string>
+    <string name="search_hint_title">Herkesi anında bulun</string>
+    <string name="search_hint_body">Ad, numara veya baş harflerle arayın. Ayrıntıları görmek veya hemen aramak için bir sonuca dokunun.</string>
+    <string name="search_no_access_title">Arama için erişim gerekli</string>
+    <string name="search_no_access_body">Kişilerinizde ve aramalarınızda arama yapmak için kişilere ve arama kaydına erişime izin verin.</string>
+
+    <string name="enter_number">Numara girin</string>
+    <string name="backspace">Geri sil</string>
+    <string name="invalid_number">Lütfen geçerli bir telefon numarası girin</string>
+    <string name="invalid_email">Lütfen geçerli bir e-posta adresi girin</string>
+
+    <string name="contact_not_found_title">Kişi bulunamadı</string>
+    <string name="contact_not_found_body">Bu kişi silinmiş olabilir.</string>
+    <string name="recent_activity">Son etkinlik</string>
+    <string name="show_more">Daha fazla göster</string>
+    <string name="create_shortcut">Ana ekrana ekle</string>
+    <string name="shortcut_failed">Başlatıcınız kısayolları desteklemiyor</string>
+    <string name="share_contact">Kişiyi paylaş</string>
+    <string name="block">Engelle</string>
+    <string name="unblock">Engeli kaldır</string>
+    <string name="block_contact_title">Bu kişi engellensin mi?</string>
+    <string name="block_contact_body">Bu kişinin numaralarından arama almayacaksınız.</string>
+    <string name="unblock_contact_title">Bu kişinin engeli kaldırılsın mı?</string>
+    <string name="unblock_contact_body">Bu kişiden yeniden arama almaya başlayacaksınız.</string>
+    <string name="delete_contact_title">Kişi silinsin mi?</string>
+    <string name="delete_contact_body">%1$s bu cihazdan ve senkronize edilen hesaplardan kalıcı olarak kaldırılacak.</string>
+    <string name="contact_deleted">Kişi silindi</string>
+    <string name="choose_number">Bir numara seçin</string>
+
+    <string name="edit_contact">Kişiyi düzenle</string>
+    <string name="contact_saved">Kişi kaydedildi</string>
+    <string name="save_failed">Kişi kaydedilemedi</string>
+    <string name="save_to">%1$s hesabına kaydet</string>
+    <string name="save_to_title">Kişiyi şuraya kaydet</string>
+    <string name="device_account">Cihaz</string>
+    <string name="save_contact">Kişiyi kaydet</string>
+    <string name="set_photo">Kişi fotoğrafı</string>
+    <string name="take_photo">Fotoğraf çek</string>
+    <string name="choose_photo">Fotoğraf seç</string>
+    <string name="remove_photo">Fotoğrafı kaldır</string>
+    <string name="camera_unavailable">Kamera uygulaması bulunamadı</string>
+    <string name="photo_failed">Bu fotoğraf yüklenemedi</string>
+    <string name="crop_photo">Fotoğrafı kırp</string>
+    <string name="rotate">Döndür</string>
+    <string name="first_name">Ad</string>
+    <string name="middle_name">İkinci ad</string>
+    <string name="surname">Soyadı</string>
+    <string name="prefix">Ad öneki</string>
+    <string name="suffix">Ad soneki</string>
+    <string name="more_name_fields">Daha fazla ad alanı göster</string>
+    <string name="fewer_name_fields">Daha az ad alanı göster</string>
+    <string name="company">Şirket</string>
+    <string name="job_title">Unvan</string>
+    <string name="phone">Telefon</string>
+    <string name="phone_number">Telefon numarası</string>
+    <string name="email">E-posta</string>
+    <string name="add_number">Telefon ekle</string>
+    <string name="add_email">E-posta ekle</string>
+    <string name="add_address">Adres ekle</string>
+    <string name="add_birthday">Doğum günü ekle</string>
+    <string name="address">Adres</string>
+    <string name="birthday">Doğum günü</string>
+    <string name="nickname">Takma ad</string>
+    <string name="notes">Notlar</string>
+    <string name="label_type">Etiket: %1$s</string>
+    <string name="type_mobile">Mobil</string>
+    <string name="type_home">Ev</string>
+    <string name="type_work">İş</string>
+    <string name="type_main">Ana</string>
+    <string name="type_other">Diğer</string>
+    <string name="discard_changes_title">Değişikliklerden vazgeçilsin mi?</string>
+    <string name="discard_changes_body">Bu kişide yaptığınız değişiklikler kaydedilmedi.</string>
+    <string name="keep_editing">Düzenlemeye devam et</string>
+
+    <string name="incoming_call">Gelen arama</string>
+    <string name="calling">Aranıyor…</string>
+    <string name="on_hold">Beklemede</string>
+    <string name="on_hold_with">Beklemede · %1$s</string>
+    <string name="call_ended">Arama sona erdi</string>
+    <string name="conference">Konferans araması</string>
+    <string name="notification_ongoing">Devam eden arama</string>
+    <string name="answer">Cevapla</string>
+    <string name="decline">Reddet</string>
+    <string name="end_call">Aramayı sonlandır</string>
+    <string name="mute">Sessiz</string>
+    <string name="keypad">Tuş takımı</string>
+    <string name="speaker">Hoparlör</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="hold">Beklet</string>
+    <string name="resume">Devam et</string>
+    <string name="add_call">Arama ekle</string>
+    <string name="swap">Değiştir</string>
+    <string name="merge">Birleştir</string>
+    <string name="audio_output">Ses çıkışı</string>
+    <string name="audio_phone">Telefon</string>
+    <string name="reply_with_message">Mesajla yanıtla</string>
+    <string name="custom_message">Kendi mesajınızı yazın…</string>
+    <string name="message_hint">Mesaj</string>
+    <string name="view_contact">Kişiyi görüntüle</string>
+
+    <string name="channel_incoming">Gelen aramalar</string>
+    <string name="channel_ongoing">Devam eden aramalar</string>
+    <string name="channel_missed">Cevapsız aramalar</string>
+
+    <string name="language">Dil</string>
+    <string name="choose_language">Dil seçin</string>
+    <string name="language_subtitle">Kullanmak istediğiniz dili seçin. İstediğiniz zaman Ayarlar bölümünden değiştirebilirsiniz.</string>
+    <string name="language_system">Sistem varsayılanı</string>
+
+    <string name="welcome_title">%1$s uygulamasına hoş geldiniz!</string>
+    <string name="welcome_subtitle">Kişileri ve aramaları kolayca yönetmek için erişim izni verin.</string>
+    <string name="welcome_terms">Devam ederek şunu kabul etmiş olursunuz: %1$s.</string>
+    <string name="agree_continue">Kabul Et ve Devam Et</string>
+    <string name="feature_call_access_title">Arama Erişimi</string>
+    <string name="feature_call_access_body">Her gelen aramadan sonra hızlı yanıt gönderebilmek için izin verin.</string>
+    <string name="feature_blocking_title">Arama Engelleme</string>
+    <string name="feature_blocking_body">İstenmeyen numaraları kolayca engelleyin ve rahatsız edilmeyin.</string>
+    <string name="feature_after_call_title">Arama Sonrası Ekranı</string>
+    <string name="feature_after_call_body">Her aramadan sonra arama ayrıntılarını hızlıca inceleyin ve sonraki adımı atın.</string>
+
+    <string name="theme">Tema</string>
+    <string name="theme_mode">Tema modu</string>
+    <string name="theme_subtitle">Uygulamanın görünümünü seçin. Sistem seçeneği cihaz ayarınızı izler.</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">Açık mod</string>
+    <string name="theme_dark">Koyu mod</string>
+
+    <string name="default_phone_title">Varsayılan telefon uygulamanız yapın</string>
+    <string name="default_phone_body">Arama yapmak ve almak, arayan adlarını göstermek ve numaraları engellemek için bu uygulamayı varsayılan telefon uygulamanız yapın.</string>
+    <string name="default_phone_app">Varsayılan telefon uygulaması</string>
+    <string name="default_phone_set">Bu uygulama varsayılan telefon uygulamanız</string>
+    <string name="default_phone_not_set">Varsayılan telefon uygulamanız yapmak için dokunun</string>
+    <string name="default_phone_unavailable">Cihazınız varsayılan telefon uygulamasının değiştirilmesine izin vermiyor</string>
+    <string name="default_phone_permission_body">Aramaları yönetmek, arama ekranını göstermek ve numaraları engellemek için gereklidir.</string>
+    <string name="status_on">Açık</string>
+    <string name="status_off">Kapalı</string>
+
+    <string name="permissions">İzinler</string>
+    <string name="permissions_subtitle">Her şey cihazınızda kalır. Bunları istediğiniz zaman değiştirebilirsiniz.</string>
+    <string name="permissions_app">Uygulama izinleri</string>
+    <string name="permissions_sheet_body">Kişilerinizi ve aramalarınızı göstermek için uygulamanın birkaç izne ihtiyacı var. Verileriniz bu cihazda kalır.</string>
+    <string name="permission_allowed">İzin verildi</string>
+    <string name="perm_denied_forever">İzin reddedildi. Sistem ayarlarından etkinleştirin.</string>
+    <string name="open_system_settings">Sistem ayarlarını aç</string>
+    <string name="perm_contacts_title">Kişiler</string>
+    <string name="perm_contacts_body">Kişilerinizi gösterme, oluşturma ve düzenleme.</string>
+    <string name="perm_call_log_title">Arama geçmişi</string>
+    <string name="perm_call_log_body">Son ve cevapsız aramalarınızı gösterme.</string>
+    <string name="perm_phone_title">Telefon</string>
+    <string name="perm_phone_body">Arama yapma ve SIM seçme.</string>
+    <string name="perm_notifications_title">Bildirimler</string>
+    <string name="perm_notifications_body">Gelen ve cevapsız arama uyarılarını gösterme.</string>
+
+    <string name="settings_appearance">Görünüm</string>
+    <string name="settings_calls">Aramalar</string>
+    <string name="settings_general">Genel</string>
+    <string name="settings_others">Diğer</string>
+    <string name="after_call_screen">Arama sonrası ekranı</string>
+    <string name="after_call_subtitle">Arama bittiğinde hızlı işlemlerle birlikte bir özet göster</string>
+    <string name="smart_notifications">Akıllı bildirimler</string>
+    <string name="smart_notifications_subtitle">Geri arama ve mesaj işlemleri içeren cevapsız arama uyarıları</string>
+    <string name="blocked_numbers">Engellenen numaralar</string>
+    <string name="quick_response">Hızlı yanıt</string>
+    <string name="widget">Widget</string>
+    <string name="widget_manual_hint">Ana ekranınıza uzun basın, Widget\'lar\'a dokunun ve Hızlı işlemler widget\'ını ekleyin.</string>
+    <string name="share_app">Uygulamayı paylaş</string>
+    <string name="share_app_text">Bu basit, reklamsız telefon ve kişiler uygulamasını kullanıyorum: %1$s</string>
+    <string name="rate_us">Bizi değerlendirin</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="about">Hakkında</string>
+
+    <string name="block_unknown">Bilinmeyen arayanları engelle</string>
+    <string name="block_unknown_subtitle">Kişilerinizde kayıtlı olmayan numaralardan arama almayacaksınız.</string>
+    <string name="add_a_number">Numara ekle</string>
+    <string name="unblock_number_title">Bu numaranın engeli kaldırılsın mı?</string>
+    <string name="unblock_number_body">Bu numara engellenenler listenizden kaldırılacak.</string>
+    <string name="unblock_named">Engeli kaldır: %1$s</string>
+    <string name="empty_blocked_title">Engellenen numara yok</string>
+    <string name="empty_blocked_body">Engellediğiniz numaralar sizi arayamaz.</string>
+    <string name="blocking_requires_default_title">Varsayılan telefon uygulaması gerekli</string>
+    <string name="blocking_requires_default_body">Android, engellenen numaraları yalnızca varsayılan telefon uygulamasının yönetmesine izin verir.</string>
+
+    <string name="quick_response_subtitle">Bir aramayı reddettiğinizde bunlardan birini gönderin.</string>
+    <string name="add_response">Yanıt ekle</string>
+    <string name="edit_response">Yanıtı düzenle</string>
+    <string name="delete_response_title">Bu yanıt silinsin mi?</string>
+    <string name="delete_named">Sil: %1$s</string>
+    <string name="quick_response_limit">En fazla %1$d yanıt kaydedebilirsiniz</string>
+    <string name="empty_quick_title">Hızlı yanıt yok</string>
+    <string name="empty_quick_body">Cevap veremediğinizde gönderebileceğiniz bir mesaj ekleyin.</string>
+    <string name="quick_my_responses">Yanıtlarım</string>
+    <string name="quick_response_hint">Mesajınızı yazın</string>
+    <string name="quick_response_exists">Bu yanıt zaten var</string>
+
+    <string name="widget_name">Hızlı işlemler</string>
+    <string name="widget_description">Son aramaları, tuş takımını ve kişileri tek dokunuşla açın</string>
+    <string name="widget_dialpad">Tuş takımı</string>
+
+    <string name="version_format">Sürüm %1$s</string>
+    <string name="about_tagline">Arama yapmanın ve kişilerinizi yönetmenin basit, hızlı ve gizli yolu.</string>
+    <string name="splash_tagline">Kişileri Zahmetsizce Yönetin</string>
+    <string name="theme_intro_subtitle">Uygulamanızı istediğiniz zaman açık ve koyu temalarla özelleştirin.</string>
+    <string name="theme_light_short">Açık</string>
+    <string name="theme_dark_short">Koyu</string>
+    <string name="outgoing_call">Giden arama</string>
+    <string name="missed_call">Cevapsız arama</string>
+    <string name="default_app_title">Varsayılan Kişiler Uygulamasını Ayarlayın</string>
+    <string name="default_app_body">Gelişmiş arama ve kişi özelliklerinin kilidini açmak için varsayılan olarak ayarlayın.</string>
+    <string name="default_required_title">Varsayılan uygulama gerekli</string>
+    <string name="default_required_body">Devam etmek için bu uygulamayı varsayılan telefon uygulamanız olarak ayarlayın. Aramalar, kişiler ve arama engelleme yalnızca uygulama varsayılan olduğunda çalışır.</string>
+    <string name="default_required_settings_body">Ayarlar\'ı açın, Varsayılan uygulamalar &gt; Telefon uygulaması bölümüne gidin ve devam etmek için bu uygulamayı seçin.</string>
+    <string name="perm_sheet_call_history_title">Arama Geçmişi</string>
+    <string name="perm_sheet_call_history_body">Temel arama verileri, geçmişi görüntülemeye ve aramaları verimli şekilde yönetmeye yardımcı olur.</string>
+    <string name="perm_sheet_contacts_title">Kişi Erişimi</string>
+    <string name="perm_sheet_contacts_body">Veri gizliliğini koruyarak favorileri ve hızlı aramaları desteklemek için kişilere erişin.</string>
+    <string name="perm_sheet_overlay_title">Üstte Görüntüleme</string>
+    <string name="perm_sheet_overlay_body">Özelliklerin doğru çalışması için diğer uygulamaların üzerinde gösterme iznini etkinleştirin.</string>
+    <string name="perm_required_title">İzin gerekli</string>
+    <string name="perm_required_settings_body">Uygulamanın çalışması için %1$s izni gereklidir. Ayarlar\'ı açın, İzinler\'e dokunun ve devam etmek için izin verin.</string>
+    <string name="perm_required_overlay_body">Devam etmek için bu uygulamaya \"Diğer uygulamaların üzerinde göster\" izni verin. Arama özelliklerinin doğru çalışması için gereklidir.</string>
+    <string name="open_settings">Ayarları aç</string>
+    <string name="about_no_ads">Reklam yok</string>
+    <string name="about_no_ads_body">Reklam yok, izleyici yok, analiz yok.</string>
+    <string name="about_on_device">Yalnızca cihazda</string>
+    <string name="about_on_device_body">Uygulamanın internet erişimi yok. Verileriniz telefonunuzdan asla çıkmaz.</string>
+
+    <string name="privacy_intro">Gizliliğiniz önemlidir. Bu politika, uygulamanın nelere ve neden eriştiğini açıklar. Kısacası: her şey cihazınızda kalır.</string>
+    <string-array name="privacy_titles">
+        <item>Eriştiğimiz veriler</item>
+        <item>Verilerinizin kullanımı</item>
+        <item>İnternet yok, reklam yok</item>
+        <item>Engellenen numaralar</item>
+        <item>Seçimleriniz</item>
+        <item>Değişiklikler</item>
+    </string-array>
+    <string-array name="privacy_bodies">
+        <item>İzninizle uygulama, kişilerinizi ve arama geçmişinizi okur ve düzenler, arama yapar ve bildirim gösterir. Bir kişi için seçtiğiniz fotoğraflar yalnızca o kişinin resmini ayarlamak için kullanılır.</item>
+        <item>Verileriniz yalnızca kişilerinizi, aramalarınızı ve arayan adlarını uygulama içinde göstermek için kullanılır. Cihazınızda işlenir ve asla yüklenmez, satılmaz veya paylaşılmaz.</item>
+        <item>Uygulama internet erişimi istemez, reklam içermez ve hiçbir analiz veya izleme aracı kullanmaz.</item>
+        <item>Engellenen numaralar, telefonunuzun diğer özellikleriyle çalışmaya devam etmeleri için Android\'in sistem engelleme listesinde saklanır.</item>
+        <item>Herhangi bir izni istediğiniz zaman telefonunuzun ayarlarından iptal edebilirsiniz. Uygulamada seçtiğiniz ayarlar yalnızca bu cihazda saklanır ve uygulamayı kaldırdığınızda silinir.</item>
+        <item>Bu politika değişirse güncellenmiş sürüm bir uygulama güncellemesine dahil edilecektir.</item>
+    </string-array>
+
+    <string-array name="default_quick_responses">
+        <item>Şu anda konuşamıyorum.</item>
+        <item>Seni daha sonra arayacağım.</item>
+        <item>Yoldayım.</item>
+        <item>Şimdi konuşamıyorum. Sonra arar mısın?</item>
+    </string-array>
+
+    <plurals name="contacts_count">
+        <item quantity="one">%1$d kişi</item>
+        <item quantity="other">%1$d kişi</item>
+    </plurals>
+
+    <plurals name="missed_calls_count">
+        <item quantity="one">%1$d cevapsız arama</item>
+        <item quantity="other">%1$d cevapsız arama</item>
+    </plurals>
+    <plurals name="delete_calls_body">
+        <item quantity="one">%1$d arama, arama geçmişinizden kaldırılacak.</item>
+        <item quantity="other">%1$d arama, arama geçmişinizden kaldırılacak.</item>
+    </plurals>
+    <string name="add_blocked_number">Engellenen Numara Ekle</string>
+    <string name="block_enter_number">Numara girin</string>
+    <string name="whatsapp_not_installed">WhatsApp yüklü değil</string>
+    <string name="whatsapp_video_hint">Aramayı başlatmak için WhatsApp\'ta video simgesine dokunun</string>
+    <string name="hide_keypad">Gizle</string>
+    <string name="after_call_tab_contact">Kişi</string>
+    <string name="after_call_recent">Son aramalar</string>
+    <string name="after_call_contacts">Kişi listesi</string>
+    <string name="after_call_duration">Süre %1$s</string>
+    <string name="after_call_personal_message">Kişisel mesaj yaz</string>
+    <string name="after_call_messages">Mesajlar</string>
+    <string name="send_mail">E-posta gönder</string>
+    <string name="calendar">Takvim</string>
+    <string name="web">Web</string>
+    <string name="reminders">Hatırlatıcılar</string>
+    <string name="reminder_empty">Unutmamak için hatırlatıcı kurun.</string>
+    <string name="add_reminder">Hatırlatıcı ekle</string>
+    <string name="reminder_in_minutes">%1$d dakika içinde</string>
+    <string name="reminder_in_hour">1 saat içinde</string>
+    <string name="reminder_pick_time">Saat seç</string>
+    <string name="reminder_set">Hatırlatıcı %1$s için kuruldu</string>
+    <string name="reminder_title">%1$s kişisini geri ara</string>
+    <string name="reminder_body">Bu aramaya dönme zamanı</string>
+    <string name="channel_reminders">Arama hatırlatıcıları</string>
+    <string name="calendar_event_title">%1$s ile arama</string>
+    <string name="send">Gönder</string>
+</resources>
