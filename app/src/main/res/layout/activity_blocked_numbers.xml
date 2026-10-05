@@ -180,4 +180,10 @@
             android:indeterminate="true"
             android:visibility="gone" />
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/nativeSmallContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </LinearLayout>

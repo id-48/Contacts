@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivitySettingsBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
@@ -26,15 +28,21 @@ public class SettingsActivity extends BaseActivity {
         applyInsets(binding.root);
         binding.topBar.topTitle.setText(R.string.settings);
         setupBack(binding.topBar.backButton);
+        setupBackAd(AdScreens.SETTINGS_BACK);
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.SETTINGS);
 
-        binding.languageRow.setOnClickListener(v -> startActivity(LanguageActivity.intent(this, false)));
-        binding.themeRow.setOnClickListener(v -> startActivity(ThemeActivity.intent(this, false)));
-        binding.blockedRow.setOnClickListener(v -> startActivity(new Intent(this, BlockedNumbersActivity.class)));
-        binding.quickResponseRow.setOnClickListener(v -> startActivity(new Intent(this, QuickResponseActivity.class)));
-        binding.widgetRow.setOnClickListener(v -> pinWidget());
+        binding.languageRow.setOnClickListener(v -> showFullscreen(AdScreens.SETTINGS_LANGUAGE,
+                () -> startActivity(LanguageActivity.intent(this, false))));
+        binding.themeRow.setOnClickListener(v -> showFullscreen(AdScreens.SETTINGS_THEME,
+                () -> startActivity(ThemeActivity.intent(this, false))));
+        binding.blockedRow.setOnClickListener(v -> showFullscreen(AdScreens.SETTINGS_BLOCKED,
+                () -> startActivity(new Intent(this, BlockedNumbersActivity.class))));
+        binding.quickResponseRow.setOnClickListener(v -> showFullscreen(AdScreens.SETTINGS_QUICK_RESPONSE,
+                () -> startActivity(new Intent(this, QuickResponseActivity.class))));
+        binding.widgetRow.setOnClickListener(v -> showFullscreen(AdScreens.SETTINGS_WIDGET, this::pinWidget));
         binding.shareRow.setOnClickListener(v -> IntentUtils.shareApp(this));
         binding.rateRow.setOnClickListener(v -> IntentUtils.rateApp(this));
-        binding.privacyRow.setOnClickListener(v -> startActivity(new Intent(this, PrivacyPolicyActivity.class)));
+        binding.privacyRow.setOnClickListener(v -> PrivacyPolicyActivity.open(this));
     }
 
     @Override

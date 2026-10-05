@@ -42,6 +42,10 @@ public final class PhoneService {
         return telecom != null && context.getPackageName().equals(telecom.getDefaultDialerPackage());
     }
 
+    public static boolean isDefaultDialerSatisfied(Context context) {
+        return isDefaultDialer(context) || createDefaultDialerIntent(context) == null;
+    }
+
     public static Intent createDefaultDialerIntent(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             RoleManager roleManager = context.getSystemService(RoleManager.class);

@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.annotation.DrawableRes;
 
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemSheetOptionBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.SheetOptionsBinding;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -63,6 +64,7 @@ public final class AppBottomSheet {
         dialog.setContentView(binding.getRoot());
         dialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
         dialog.getBehavior().setSkipCollapsed(true);
+        Analytics.trackDialog(dialog, "options_sheet");
         dialog.show();
         return dialog;
     }

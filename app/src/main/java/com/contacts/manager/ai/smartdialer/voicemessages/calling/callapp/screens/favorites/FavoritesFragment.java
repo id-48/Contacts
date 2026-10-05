@@ -27,6 +27,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppBottomSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.PermissionRequester;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.PersonRowAdapter;
@@ -183,6 +186,14 @@ public class FavoritesFragment extends Fragment implements MainActivity.Tab, Fav
 
     @Override
     public void onAddFavorite() {
+        AdsManager.showFullscreen(requireActivity(), AdScreens.FAVORITES_ADD, () -> {
+            if (binding != null && isAdded()) {
+                pickFavorite();
+            }
+        });
+    }
+
+    private void pickFavorite() {
         Context app = requireContext().getApplicationContext();
         AppExecutors.io(() -> {
             List<ContactModel> candidates = new ArrayList<>();
@@ -288,6 +299,7 @@ public class FavoritesFragment extends Fragment implements MainActivity.Tab, Fav
         }
         dialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
         dialog.getBehavior().setSkipCollapsed(true);
+        Analytics.trackDialog(dialog, "pick_favorite_sheet");
         dialog.show();
     }
 

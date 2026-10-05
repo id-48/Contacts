@@ -1,6 +1,5 @@
 package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.onboarding;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -14,18 +13,26 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityWelcomeBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemWelcomeFeatureBinding;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.ForceUpdateHelper;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.OnboardingFlow;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfig;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.settings.PrivacyPolicyActivity;
 
 public class WelcomeActivity extends BaseActivity {
 
     private ActivityWelcomeBinding binding;
+    private final OnboardingPermissions permissions = new OnboardingPermissions(this, false, this::next);
+    private boolean continuing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (ForceUpdateHelper.blockIfRequired(this)) return;
+        permissions.restore(savedInstanceState);
         binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         applyInsets(binding.root);
@@ -51,7 +58,23 @@ public class WelcomeActivity extends BaseActivity {
         addFeature(R.drawable.ic_layers, R.string.feature_after_call_title, R.string.feature_after_call_body, 2);
 
         setupPrivacyText();
-        binding.agreeButton.setOnClickListener(v -> next());
+        binding.agreeButton.setOnClickListener(v -> permissions.start());
+
+        AdsManager.showNativeBig(this, binding.nativeBigContainer, RemoteConfig.SCREEN_WELCOME);
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, RemoteConfig.SCREEN_WELCOME);
+        AdsManager.showBanner(this, binding.bannerContainer, RemoteConfig.SCREEN_WELCOME);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        permissions.onResume();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        permissions.save(outState);
     }
 
     private void addFeature(int icon, int title, int body, int index) {
@@ -75,7 +98,7 @@ public class WelcomeActivity extends BaseActivity {
             span.setSpan(new ClickableSpan() {
                 @Override
                 public void onClick(@NonNull View widget) {
-                    startActivity(new Intent(WelcomeActivity.this, PrivacyPolicyActivity.class));
+                    PrivacyPolicyActivity.open(WelcomeActivity.this);
                 }
 
                 @Override
@@ -90,7 +113,9 @@ public class WelcomeActivity extends BaseActivity {
     }
 
     private void next() {
-        startActivity(new Intent(this, ThemeIntroActivity.class));
-        finish();
+        if (continuing) return;
+        continuing = true;
+        AdsManager.showFullscreen(this, RemoteConfig.SCREEN_WELCOME,
+                () -> OnboardingFlow.continueFrom(this, OnboardingFlow.Step.WELCOME));
     }
 }

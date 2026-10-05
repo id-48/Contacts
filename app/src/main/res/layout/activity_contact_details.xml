@@ -123,6 +123,15 @@
                         layout="@layout/include_quick_action" />
                 </LinearLayout>
 
+                <FrameLayout
+                    android:id="@+id/nativeBigContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screen_padding"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:layout_marginEnd="@dimen/screen_padding"
+                    android:visibility="gone" />
+
                 <TextView
                     android:id="@+id/infoTitle"
                     android:layout_width="match_parent"
@@ -221,4 +230,10 @@
             android:id="@+id/actionDelete"
             layout="@layout/include_bottom_action" />
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </LinearLayout>

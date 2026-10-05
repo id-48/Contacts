@@ -279,7 +279,7 @@
     <string name="widget">Widget</string>
     <string name="widget_manual_hint">Appuyez longuement sur l\'écran d\'accueil, touchez Widgets et ajoutez le widget Actions rapides.</string>
     <string name="share_app">Partager l\'application</string>
-    <string name="share_app_text">J\'utilise cette application Téléphone et Contacts simple et sans publicité : %1$s</string>
+    <string name="share_app_text">J\'utilise cette application simple de téléphone et de contacts : %1$s</string>
     <string name="rate_us">Évaluez-nous</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="about">À propos</string>
@@ -334,16 +334,16 @@
     <string name="perm_required_settings_body">L\'autorisation %1$s est requise pour que l\'application fonctionne. Ouvrez les paramètres, touchez Autorisations et accordez-la pour continuer.</string>
     <string name="perm_required_overlay_body">Autorisez \"Afficher par-dessus les autres applis\" pour continuer. C\'est nécessaire au bon fonctionnement des appels.</string>
     <string name="open_settings">Ouvrir les paramètres</string>
-    <string name="about_no_ads">Sans publicité</string>
-    <string name="about_no_ads_body">Pas de publicité, pas de traceurs, pas d\'analyses.</string>
-    <string name="about_on_device">Uniquement sur l\'appareil</string>
-    <string name="about_on_device_body">L\'application n\'a pas accès à Internet. Vos données ne quittent jamais votre téléphone.</string>
+    <string name="about_no_ads">Gratuite avec publicité</string>
+    <string name="about_no_ads_body">L\'application affiche des publicités pour rester gratuite. Vos contacts et appels ne sont jamais partagés avec les régies publicitaires.</string>
+    <string name="about_on_device">Vos données restent privées</string>
+    <string name="about_on_device_body">Les contacts, l\'historique des appels et les messages sont traités sur votre téléphone et jamais envoyés.</string>
 
-    <string name="privacy_intro">Votre vie privée compte. Cette politique explique à quoi l\'application accède et pourquoi. En bref : tout reste sur votre appareil.</string>
+    <string name="privacy_intro">Votre vie privée compte. Cette politique explique à quoi l\'application accède et pourquoi. En bref : vos contacts et appels restent sur votre appareil.</string>
     <string-array name="privacy_titles">
         <item>Données consultées</item>
         <item>Utilisation de vos données</item>
-        <item>Pas d\'Internet, pas de publicité</item>
+        <item>Publicité, paramètres et analyses</item>
         <item>Numéros bloqués</item>
         <item>Vos choix</item>
         <item>Modifications</item>
@@ -351,7 +351,7 @@
     <string-array name="privacy_bodies">
         <item>Avec votre autorisation, l\'application lit et modifie vos contacts et votre historique d\'appels, passe des appels et affiche des notifications. Les photos choisies pour un contact servent uniquement à définir son image.</item>
         <item>Vos données servent uniquement à afficher vos contacts, appels et noms d\'appelants dans l\'application. Elles sont traitées sur votre appareil et ne sont jamais envoyées, vendues ni partagées.</item>
-        <item>L\'application ne demande pas l\'accès à Internet, ne contient aucune publicité et n\'utilise aucun outil d\'analyse ou de suivi.</item>
+        <item>L\'application utilise Internet pour afficher des publicités (Google AdMob, Google Ad Manager et TradPlus avec ses partenaires), charger ses paramètres et pour des analyses d\'utilisation anonymes. Ces services peuvent utiliser l\'identifiant publicitaire de votre appareil. Vos contacts, votre historique d\'appels et vos messages ne leur sont jamais envoyés.</item>
         <item>Les numéros bloqués sont enregistrés dans la liste de blocage d\'Android afin de fonctionner avec les autres fonctions de votre téléphone.</item>
         <item>Vous pouvez révoquer une autorisation à tout moment dans les paramètres du téléphone. Vos réglages de l\'application sont stockés uniquement sur cet appareil et supprimés lors de la désinstallation.</item>
         <item>Si cette politique change, la version mise à jour sera incluse dans une mise à jour de l\'application.</item>

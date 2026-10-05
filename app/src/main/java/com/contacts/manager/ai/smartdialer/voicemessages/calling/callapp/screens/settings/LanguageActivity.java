@@ -23,12 +23,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.AppConstants;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.IntentKeys;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityLanguageBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemLanguageBinding;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.onboarding.WelcomeActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.OnboardingFlow;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
 
 import java.util.List;
@@ -97,7 +99,12 @@ public class LanguageActivity extends BaseActivity {
             binding.languageTitle.setPaddingRelative(getResources().getDimensionPixelSize(R.dimen.space_12), 0, 0, 0);
         }
         setupBack(binding.backButton);
-        binding.doneButton.setOnClickListener(v -> apply());
+        setupBackAd(AdScreens.LANGUAGE_BACK);
+        binding.doneButton.setOnClickListener(v -> {
+            HapticUtils.confirm(binding.doneButton);
+            showFullscreen(AdScreens.LANGUAGE_DONE, this::apply);
+        });
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.LANGUAGE);
         binding.languageSubtitle.setVisibility(onboarding ? View.VISIBLE : View.GONE);
 
         binding.languageCard.setClipToOutline(true);
@@ -165,12 +172,12 @@ public class LanguageActivity extends BaseActivity {
     }
 
     private void apply() {
-        HapticUtils.confirm(binding.doneButton);
         if (!selectedTag.equals(currentTag())) {
             AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(selectedTag));
         }
         if (onboarding) {
-            startActivity(new Intent(this, WelcomeActivity.class));
+            OnboardingFlow.continueFrom(this, OnboardingFlow.Step.LANGUAGE);
+            return;
         }
         finish();
     }

@@ -279,7 +279,7 @@
     <string name="widget">Tiện ích</string>
     <string name="widget_manual_hint">Nhấn giữ màn hình chính, chạm vào Tiện ích và thêm tiện ích Tác vụ nhanh.</string>
     <string name="share_app">Chia sẻ ứng dụng</string>
-    <string name="share_app_text">Mình đang dùng ứng dụng điện thoại và danh bạ đơn giản, không quảng cáo này: %1$s</string>
+    <string name="share_app_text">Mình đang dùng ứng dụng điện thoại và danh bạ đơn giản này: %1$s</string>
     <string name="rate_us">Đánh giá ứng dụng</string>
     <string name="privacy_policy">Chính sách quyền riêng tư</string>
     <string name="about">Giới thiệu</string>
@@ -334,16 +334,16 @@
     <string name="perm_required_settings_body">Ứng dụng cần quyền %1$s để hoạt động. Mở Cài đặt, chạm vào Quyền và cho phép để tiếp tục.</string>
     <string name="perm_required_overlay_body">Cho phép \"Hiển thị trên ứng dụng khác\" cho ứng dụng này để tiếp tục. Quyền này cần thiết để các tính năng cuộc gọi hoạt động chính xác.</string>
     <string name="open_settings">Mở cài đặt</string>
-    <string name="about_no_ads">Không quảng cáo</string>
-    <string name="about_no_ads_body">Không quảng cáo, không theo dõi, không phân tích.</string>
-    <string name="about_on_device">Chỉ trên thiết bị</string>
-    <string name="about_on_device_body">Ứng dụng không truy cập Internet. Dữ liệu của bạn không bao giờ rời khỏi điện thoại.</string>
+    <string name="about_no_ads">Miễn phí kèm quảng cáo</string>
+    <string name="about_no_ads_body">Ứng dụng hiển thị quảng cáo để duy trì miễn phí. Danh bạ và cuộc gọi của bạn không bao giờ được chia sẻ với mạng quảng cáo.</string>
+    <string name="about_on_device">Dữ liệu của bạn luôn riêng tư</string>
+    <string name="about_on_device_body">Danh bạ, nhật ký cuộc gọi và tin nhắn được xử lý trên điện thoại và không bao giờ được tải lên.</string>
 
-    <string name="privacy_intro">Quyền riêng tư của bạn rất quan trọng. Chính sách này giải thích ứng dụng truy cập những gì và vì sao. Tóm lại: mọi thứ đều nằm trên thiết bị của bạn.</string>
+    <string name="privacy_intro">Quyền riêng tư của bạn rất quan trọng. Chính sách này giải thích ứng dụng truy cập những gì và vì sao. Tóm lại: danh bạ và cuộc gọi của bạn luôn nằm trên thiết bị.</string>
     <string-array name="privacy_titles">
         <item>Dữ liệu chúng tôi truy cập</item>
         <item>Cách sử dụng dữ liệu của bạn</item>
-        <item>Không Internet, không quảng cáo</item>
+        <item>Quảng cáo, cài đặt và phân tích</item>
         <item>Số bị chặn</item>
         <item>Lựa chọn của bạn</item>
         <item>Thay đổi</item>
@@ -351,7 +351,7 @@
     <string-array name="privacy_bodies">
         <item>Khi được bạn cho phép, ứng dụng sẽ đọc và chỉnh sửa danh bạ, lịch sử cuộc gọi, thực hiện cuộc gọi và hiển thị thông báo. Ảnh bạn chọn cho một liên hệ chỉ được dùng để đặt ảnh cho liên hệ đó.</item>
         <item>Dữ liệu của bạn chỉ được dùng để hiển thị danh bạ, cuộc gọi và tên người gọi trong ứng dụng. Dữ liệu được xử lý trên thiết bị và không bao giờ được tải lên, bán hay chia sẻ.</item>
-        <item>Ứng dụng không yêu cầu quyền truy cập Internet, không chứa quảng cáo và không sử dụng công cụ phân tích hay theo dõi nào.</item>
+        <item>Ứng dụng dùng Internet để hiển thị quảng cáo (Google AdMob, Google Ad Manager và TradPlus cùng các đối tác), tải cài đặt ứng dụng và phân tích sử dụng ẩn danh. Các dịch vụ này có thể dùng mã nhận dạng quảng cáo của thiết bị. Danh bạ, nhật ký cuộc gọi và tin nhắn của bạn không bao giờ được gửi cho họ.</item>
         <item>Các số bị chặn được lưu trong danh sách chặn của hệ thống Android để vẫn hoạt động với các tính năng khác của điện thoại.</item>
         <item>Bạn có thể thu hồi bất kỳ quyền nào vào bất cứ lúc nào trong cài đặt điện thoại. Các cài đặt bạn chọn trong ứng dụng chỉ được lưu trên thiết bị này và sẽ bị xóa khi bạn gỡ cài đặt ứng dụng.</item>
         <item>Nếu chính sách này thay đổi, phiên bản cập nhật sẽ được đưa vào bản cập nhật ứng dụng.</item>

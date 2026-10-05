@@ -279,7 +279,7 @@
     <string name="widget">ウィジェット</string>
     <string name="widget_manual_hint">ホーム画面を長押しして［ウィジェット］をタップし、「クイック操作」ウィジェットを追加してください。</string>
     <string name="share_app">アプリを共有</string>
-    <string name="share_app_text">シンプルで広告のない電話・連絡先アプリを使っています: %1$s</string>
+    <string name="share_app_text">シンプルな電話・連絡先アプリを使っています: %1$s</string>
     <string name="rate_us">評価する</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="about">アプリについて</string>
@@ -334,16 +334,16 @@
     <string name="perm_required_settings_body">アプリの動作には%1$sの権限が必要です。［設定］を開き、［権限］をタップして許可してください。</string>
     <string name="perm_required_overlay_body">続行するには、このアプリに「他のアプリの上に重ねて表示」を許可してください。通話機能を正しく動作させるために必要です。</string>
     <string name="open_settings">設定を開く</string>
-    <string name="about_no_ads">広告なし</string>
-    <string name="about_no_ads_body">広告、トラッカー、分析ツールは一切ありません。</string>
-    <string name="about_on_device">デバイス内のみ</string>
-    <string name="about_on_device_body">このアプリはインターネットにアクセスしません。データがスマートフォンの外に出ることはありません。</string>
+    <string name="about_no_ads">広告付きで無料</string>
+    <string name="about_no_ads_body">このアプリは無料で提供するために広告を表示します。連絡先や通話が広告ネットワークと共有されることはありません。</string>
+    <string name="about_on_device">データはプライベートに保たれます</string>
+    <string name="about_on_device_body">連絡先、通話履歴、メッセージはスマートフォン内で処理され、アップロードされることはありません。</string>
 
-    <string name="privacy_intro">お客様のプライバシーは大切です。このポリシーでは、アプリがアクセスする情報とその理由について説明します。要するに、すべてのデータはデバイス内にとどまります。</string>
+    <string name="privacy_intro">お客様のプライバシーは大切です。このポリシーでは、アプリがアクセスする情報とその理由について説明します。要するに、連絡先と通話はデバイス内にとどまります。</string>
     <string-array name="privacy_titles">
         <item>アクセスするデータ</item>
         <item>データの使用方法</item>
-        <item>インターネット接続なし・広告なし</item>
+        <item>広告、設定、分析</item>
         <item>ブロックした番号</item>
         <item>お客様の選択</item>
         <item>ポリシーの変更</item>
@@ -351,7 +351,7 @@
     <string-array name="privacy_bodies">
         <item>お客様の許可を得て、アプリは連絡先と通話履歴の読み取りと編集、電話の発信、通知の表示を行います。連絡先用に選択した写真は、その連絡先の画像の設定にのみ使用されます。</item>
         <item>データは、アプリ内で連絡先、通話、発信者名を表示するためにのみ使用されます。データはデバイス上で処理され、アップロード、販売、共有されることはありません。</item>
-        <item>このアプリはインターネットへのアクセスを要求せず、広告を含まず、分析ツールやトラッキングツールも使用しません。</item>
+        <item>このアプリは、広告の表示（Google AdMob、Google Ad Manager、TradPlus とそのパートナー）、アプリ設定の読み込み、匿名の利用状況分析のためにインターネットを使用します。これらのサービスはデバイスの広告 ID を使用する場合があります。連絡先、通話履歴、メッセージが送信されることはありません。</item>
         <item>ブロックした番号は Android システムのブロックリストに保存されるため、スマートフォンの他の機能でも引き続き有効です。</item>
         <item>権限はスマートフォンの設定からいつでも取り消せます。アプリで選択した設定はこのデバイスにのみ保存され、アンインストール時に削除されます。</item>
         <item>このポリシーが変更された場合、更新版はアプリのアップデートに含まれます。</item>

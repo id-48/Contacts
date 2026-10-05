@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549750379746",
+    "project_id": "contacts-1441d",
+    "storage_bucket": "contacts-1441d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549750379746:android:17de0f8f8d0c1f533bfabb",
+        "android_client_info": {
+          "package_name": "com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHG8OCht-vf-TORD5wFfhVWnmTg9ywTsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -287,7 +287,7 @@
     <string name="widget">Widget</string>
     <string name="widget_manual_hint">Long-press your home screen, tap Widgets and add the Quick actions widget.</string>
     <string name="share_app">Share app</string>
-    <string name="share_app_text">I\'m using this simple, ad-free phone and contacts app: %1$s</string>
+    <string name="share_app_text">I\'m using this simple phone and contacts app: %1$s</string>
     <string name="rate_us">Rate us</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="about">About</string>
@@ -347,16 +347,16 @@
     <string name="theme_preview_time" translatable="false">04:10 PM</string>
     <string name="theme_preview_meta" translatable="false">%1$s • %2$s</string>
     <string name="splash_progress" translatable="false">%1$d %%</string>
-    <string name="about_no_ads">No ads</string>
-    <string name="about_no_ads_body">No ads, no trackers, no analytics.</string>
-    <string name="about_on_device">On-device only</string>
-    <string name="about_on_device_body">The app has no internet access. Your data never leaves your phone.</string>
+    <string name="about_no_ads">Free with ads</string>
+    <string name="about_no_ads_body">The app shows ads to stay free. Your contacts and calls are never shared with ad networks.</string>
+    <string name="about_on_device">Your data stays private</string>
+    <string name="about_on_device_body">Contacts, call history and messages are processed on your phone and never uploaded.</string>
 
-    <string name="privacy_intro">Your privacy matters. This policy explains what the app accesses and why. In short: everything stays on your device.</string>
+    <string name="privacy_intro">Your privacy matters. This policy explains what the app accesses and why. In short: your contacts and calls stay on your device.</string>
     <string-array name="privacy_titles">
         <item>Data we access</item>
         <item>How your data is used</item>
-        <item>No internet, no ads</item>
+        <item>Ads, settings and analytics</item>
         <item>Blocked numbers</item>
         <item>Your choices</item>
         <item>Changes</item>
@@ -364,7 +364,7 @@
     <string-array name="privacy_bodies">
         <item>With your permission, the app reads and edits your contacts and call history, places calls, and shows notifications. Photos you pick for a contact are only used to set that contact\'s picture.</item>
         <item>Your data is used only to show your contacts, calls and caller names inside the app. It is processed on your device and is never uploaded, sold or shared.</item>
-        <item>The app does not request internet access, contains no ads and uses no analytics or tracking tools.</item>
+        <item>The app uses the internet to show ads (Google AdMob, Google Ad Manager and TradPlus with its partners), to load app settings, and for anonymous usage analytics. These services may use your device\'s advertising ID. Your contacts, call history and messages are never sent to them.</item>
         <item>Blocked numbers are stored in Android\'s system block list so they keep working with your phone\'s other features.</item>
         <item>You can revoke any permission at any time in your phone\'s settings. Settings you choose in the app are stored only on this device and are removed when you uninstall it.</item>
         <item>If this policy changes, the updated version will be included in an app update.</item>

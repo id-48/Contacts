@@ -13,10 +13,12 @@ import android.view.WindowManager;
 import android.view.animation.OvershootInterpolator;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.DialogConfirmBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
 
@@ -38,6 +40,12 @@ public final class ConfirmDialog {
     public static Dialog show(Activity activity, CharSequence title, CharSequence message,
                               @StringRes int action, boolean destructive, @DrawableRes int icon,
                               @StringRes int cancel, Runnable onConfirm) {
+        return show(activity, title, message, action, destructive, icon, cancel, onConfirm, null);
+    }
+
+    public static Dialog show(Activity activity, CharSequence title, CharSequence message,
+                              @StringRes int action, boolean destructive, @DrawableRes int icon,
+                              @StringRes int cancel, Runnable onConfirm, @Nullable Runnable onCancel) {
         DialogConfirmBinding binding = DialogConfirmBinding.inflate(activity.getLayoutInflater());
         Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -73,6 +81,9 @@ public final class ConfirmDialog {
         binding.confirmCancel.setOnClickListener(v -> {
             HapticUtils.tap(v);
             dialog.dismiss();
+            if (onCancel != null) {
+                onCancel.run();
+            }
         });
         binding.confirmAction.setOnClickListener(v -> {
             HapticUtils.confirm(v);
@@ -93,6 +104,7 @@ public final class ConfirmDialog {
             window.setDimAmount(0.45f);
             window.setWindowAnimations(R.style.Animation_App_Rise);
         }
+        Analytics.trackDialog(dialog, "confirm_dialog");
         dialog.show();
         return dialog;
     }

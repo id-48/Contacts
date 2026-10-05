@@ -279,7 +279,7 @@
     <string name="widget">小组件</string>
     <string name="widget_manual_hint">长按主屏幕，点按“小组件”，然后添加“快捷操作”小组件。</string>
     <string name="share_app">分享应用</string>
-    <string name="share_app_text">我正在使用这款简洁、无广告的电话和通讯录应用：%1$s</string>
+    <string name="share_app_text">我正在使用这款简洁的电话和通讯录应用：%1$s</string>
     <string name="rate_us">给我们评分</string>
     <string name="privacy_policy">隐私政策</string>
     <string name="about">关于</string>
@@ -334,16 +334,16 @@
     <string name="perm_required_settings_body">应用需要%1$s权限才能运行。请打开“设置”，点按“权限”并允许，以继续。</string>
     <string name="perm_required_overlay_body">请允许本应用“显示在其他应用上层”以继续。通话功能需要此权限才能正常运行。</string>
     <string name="open_settings">打开设置</string>
-    <string name="about_no_ads">无广告</string>
-    <string name="about_no_ads_body">无广告、无跟踪器、无数据分析。</string>
-    <string name="about_on_device">仅在设备上运行</string>
-    <string name="about_on_device_body">本应用无法访问互联网。您的数据绝不会离开您的手机。</string>
+    <string name="about_no_ads">免费（含广告）</string>
+    <string name="about_no_ads_body">本应用通过展示广告保持免费。您的联系人和通话绝不会与广告网络共享。</string>
+    <string name="about_on_device">您的数据保持私密</string>
+    <string name="about_on_device_body">联系人、通话记录和短信均在您的手机上处理，绝不会上传。</string>
 
-    <string name="privacy_intro">您的隐私很重要。本政策说明了应用会访问哪些内容以及原因。简而言之：所有数据都保留在您的设备上。</string>
+    <string name="privacy_intro">您的隐私很重要。本政策说明了应用会访问哪些内容以及原因。简而言之：您的联系人和通话都保留在您的设备上。</string>
     <string-array name="privacy_titles">
         <item>我们访问的数据</item>
         <item>您的数据如何使用</item>
-        <item>无网络，无广告</item>
+        <item>广告、设置与分析</item>
         <item>已拦截的号码</item>
         <item>您的选择</item>
         <item>政策变更</item>
@@ -351,7 +351,7 @@
     <string-array name="privacy_bodies">
         <item>在您授权后，应用会读取和编辑您的联系人和通话记录、拨打电话并显示通知。您为联系人选择的照片仅用于设置该联系人的头像。</item>
         <item>您的数据仅用于在应用内显示联系人、通话和来电者姓名。数据在您的设备上处理，绝不会被上传、出售或共享。</item>
-        <item>本应用不请求互联网访问权限，不含广告，也不使用任何分析或跟踪工具。</item>
+        <item>本应用使用互联网来展示广告（Google AdMob、Google Ad Manager 以及 TradPlus 及其合作伙伴）、加载应用设置，并进行匿名使用情况分析。这些服务可能会使用您设备的广告 ID。您的联系人、通话记录和短信绝不会发送给它们。</item>
         <item>已拦截的号码存储在 Android 系统拦截列表中，因此可与手机的其他功能配合使用。</item>
         <item>您可以随时在手机设置中撤销任何权限。您在应用中选择的设置仅存储在此设备上，并会在卸载应用时删除。</item>
         <item>如果本政策有变更，更新后的版本将随应用更新一起提供。</item>

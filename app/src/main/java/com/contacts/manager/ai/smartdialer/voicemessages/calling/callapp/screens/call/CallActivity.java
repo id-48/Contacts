@@ -30,6 +30,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppBottomSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.QuickResponseDialog;
@@ -39,6 +41,7 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databin
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.IncludeCallOptionBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.models.ContactModel;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.dialer.DialerActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.telecom.CallManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.DateUtils;
@@ -89,6 +92,7 @@ public class CallActivity extends BaseActivity implements CallManager.Listener {
         binding = ActivityCallBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         applyInsets(binding.root);
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.CALL);
 
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         if (powerManager != null && powerManager.isWakeLockLevelSupported(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK)) {
@@ -483,7 +487,8 @@ public class CallActivity extends BaseActivity implements CallManager.Listener {
         binding.endButton.setEnabled(false);
         binding.endButton.setAlpha(0.4f);
         handler.removeCallbacks(closer);
-        handler.postDelayed(closer, StorageService.isAfterCallEnabled() ? 300L : CLOSE_DELAY_MS);
+        boolean afterCall = StorageService.isAfterCallEnabled() && RemoteConfigManager.isAfterCallScreenEnabled();
+        handler.postDelayed(closer, afterCall ? 300L : CLOSE_DELAY_MS);
     }
 
     private void onSpeaker() {

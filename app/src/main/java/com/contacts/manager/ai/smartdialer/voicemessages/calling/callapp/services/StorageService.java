@@ -2,7 +2,9 @@ package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.servic
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.provider.Settings;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
@@ -14,16 +16,25 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 public final class StorageService {
 
+    private static final String BROKEN_ANDROID_ID = "9774d56d682e549c";
+
     private static SharedPreferences prefs;
+    private static Context appContext;
 
     private StorageService() {
     }
 
     public static void init(Context context) {
+        appContext = context.getApplicationContext();
         prefs = context.getApplicationContext().getSharedPreferences(AppConstants.PREFS_NAME, Context.MODE_PRIVATE);
     }
 
@@ -41,6 +52,47 @@ public final class StorageService {
 
     public static void setOnboardingDone(boolean done) {
         prefs.edit().putBoolean(PrefKeys.ONBOARDING_DONE, done).apply();
+    }
+
+    public static int getMainOpenCount() {
+        return prefs.getInt(PrefKeys.MAIN_OPEN_COUNT, 0);
+    }
+
+    public static void incrementMainOpenCount() {
+        prefs.edit().putInt(PrefKeys.MAIN_OPEN_COUNT, getMainOpenCount() + 1).apply();
+    }
+
+    public static boolean isReviewPrompted() {
+        return prefs.getBoolean(PrefKeys.REVIEW_PROMPTED, false);
+    }
+
+    public static void setReviewPrompted() {
+        prefs.edit().putBoolean(PrefKeys.REVIEW_PROMPTED, true).apply();
+    }
+
+    public static Set<String> getOnboardingStepsDone() {
+        return new HashSet<>(prefs.getStringSet(PrefKeys.ONBOARDING_STEPS_DONE, Collections.emptySet()));
+    }
+
+    public static void markOnboardingStepDone(String step) {
+        Set<String> done = getOnboardingStepsDone();
+        done.add(step);
+        prefs.edit().putStringSet(PrefKeys.ONBOARDING_STEPS_DONE, done).apply();
+    }
+
+    public static int nextLocalNotificationIndex(int count) {
+        int index = Math.floorMod(prefs.getInt(PrefKeys.LOCAL_NOTIFICATION_INDEX, 0), count);
+        prefs.edit().putInt(PrefKeys.LOCAL_NOTIFICATION_INDEX, (index + 1) % count).apply();
+        return index;
+    }
+
+    @Nullable
+    public static String getRegisteredPushToken() {
+        return prefs.getString(PrefKeys.PUSH_TOKEN_REGISTERED, null);
+    }
+
+    public static void setRegisteredPushToken(String token) {
+        prefs.edit().putString(PrefKeys.PUSH_TOKEN_REGISTERED, token).apply();
     }
 
     public static boolean isAfterCallEnabled() {
@@ -81,6 +133,102 @@ public final class StorageService {
 
     public static void markPermissionRequested(String key) {
         prefs.edit().putBoolean(PrefKeys.PERMISSION_REQUESTED_PREFIX + key, true).apply();
+    }
+
+    public static String getAnalyticsUserId() {
+        String id = prefs.getString(PrefKeys.ANALYTICS_USER_ID, null);
+        if (id == null) {
+            id = UUID.randomUUID().toString();
+            prefs.edit().putString(PrefKeys.ANALYTICS_USER_ID, id).apply();
+        }
+        return id;
+    }
+
+    /** Stays the same across reinstalls on the same device, so one device is counted as one user. */
+    public static String getDeviceId() {
+        String androidId = Settings.Secure.getString(appContext.getContentResolver(), Settings.Secure.ANDROID_ID);
+        if (androidId == null || androidId.length() < 8 || BROKEN_ANDROID_ID.equals(androidId)) {
+            return getAnalyticsUserId();
+        }
+        return androidId;
+    }
+
+    @Nullable
+    public static String getRegisteredDeviceId() {
+        return prefs.getString(PrefKeys.REGISTERED_DEVICE_ID, null);
+    }
+
+    public static void setRegisteredDeviceId(String deviceId) {
+        prefs.edit().putString(PrefKeys.REGISTERED_DEVICE_ID, deviceId).apply();
+    }
+
+    public static long getAfterCallOpenCount() {
+        return prefs.getLong(PrefKeys.AFTER_CALL_OPEN_COUNT, 0);
+    }
+
+    public static long getAfterCallOpenCountToday() {
+        return prefs.getInt(PrefKeys.AFTER_CALL_OPEN_DAY, 0) == today()
+                ? prefs.getLong(PrefKeys.AFTER_CALL_OPEN_DAY_COUNT, 0) : 0;
+    }
+
+    public static void incrementAfterCallOpenCount() {
+        prefs.edit()
+                .putLong(PrefKeys.AFTER_CALL_OPEN_COUNT, getAfterCallOpenCount() + 1)
+                .putInt(PrefKeys.AFTER_CALL_OPEN_DAY, today())
+                .putLong(PrefKeys.AFTER_CALL_OPEN_DAY_COUNT, getAfterCallOpenCountToday() + 1)
+                .apply();
+    }
+
+    public static String getRemoteConfigJson() {
+        return prefs.getString(PrefKeys.REMOTE_CONFIG_JSON, null);
+    }
+
+    public static void setRemoteConfigJson(String json) {
+        prefs.edit().putString(PrefKeys.REMOTE_CONFIG_JSON, json).apply();
+    }
+
+    public static String getUserSource() {
+        return prefs.getString(PrefKeys.USER_SOURCE, AppConstants.SOURCE_ORGANIC);
+    }
+
+    public static boolean isUserSourceResolved() {
+        return prefs.getBoolean(PrefKeys.USER_SOURCE_RESOLVED, false);
+    }
+
+    public static void setUserSource(String source) {
+        prefs.edit()
+                .putString(PrefKeys.USER_SOURCE, source)
+                .putBoolean(PrefKeys.USER_SOURCE_RESOLVED, true)
+                .apply();
+    }
+
+    public static String getRegisteredUserSource() {
+        return prefs.getString(PrefKeys.USER_SOURCE_REGISTERED, null);
+    }
+
+    public static void setRegisteredUserSource(String source) {
+        prefs.edit().putString(PrefKeys.USER_SOURCE_REGISTERED, source).apply();
+    }
+
+    public static int getFullscreenSequenceIndex() {
+        return prefs.getInt(PrefKeys.FULLSCREEN_SEQUENCE_INDEX, 0);
+    }
+
+    public static void setFullscreenSequenceIndex(int index) {
+        prefs.edit().putInt(PrefKeys.FULLSCREEN_SEQUENCE_INDEX, index).apply();
+    }
+
+    public static int getPriorityPosition(String key) {
+        return prefs.getInt(PrefKeys.PRIORITY_POSITION_PREFIX + key, 0);
+    }
+
+    public static void setPriorityPosition(String key, int position) {
+        prefs.edit().putInt(PrefKeys.PRIORITY_POSITION_PREFIX + key, position).apply();
+    }
+
+    private static int today() {
+        Calendar now = Calendar.getInstance();
+        return now.get(Calendar.YEAR) * 10000 + (now.get(Calendar.MONTH) + 1) * 100 + now.get(Calendar.DAY_OF_MONTH);
     }
 
     public static List<String> getQuickResponses(Context context) {

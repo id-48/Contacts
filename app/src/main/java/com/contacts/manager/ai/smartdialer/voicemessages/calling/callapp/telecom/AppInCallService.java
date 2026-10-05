@@ -5,6 +5,7 @@ import android.telecom.Call;
 import android.telecom.CallAudioState;
 import android.telecom.InCallService;
 
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.aftercall.AfterCallActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.call.CallActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.NotificationService;
@@ -58,7 +59,7 @@ public class AppInCallService extends InCallService {
         CallManager.EndedCall ended = CallManager.onCallRemoved(call);
         if (!CallManager.hasCalls()) {
             NotificationService.cancelCallNotification(this);
-            if (StorageService.isAfterCallEnabled()) {
+            if (StorageService.isAfterCallEnabled() && RemoteConfigManager.isAfterCallScreenEnabled()) {
                 openAfterCall(ended);
             }
         }

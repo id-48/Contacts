@@ -8,6 +8,7 @@ import android.provider.CallLog;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.aftercall.AfterCallActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PhoneService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
@@ -61,7 +62,8 @@ public class PhoneStateReceiver extends BroadcastReceiver {
             long start = prefs.getLong(KEY_START, now);
             String stored = TextUtils.isEmpty(number) ? prefs.getString(KEY_NUMBER, null) : number;
             editor.clear().putString(KEY_STATE, state).apply();
-            if (StorageService.isAfterCallEnabled() && !PhoneService.isDefaultDialer(context)) {
+            if (StorageService.isAfterCallEnabled() && RemoteConfigManager.isAfterCallScreenEnabled()
+                    && !PhoneService.isDefaultDialer(context)) {
                 int type = !rang ? CallLog.Calls.OUTGOING_TYPE
                         : offhook > 0 ? CallLog.Calls.INCOMING_TYPE : CallLog.Calls.MISSED_TYPE;
                 long duration = offhook > 0 ? Math.max(0, (now - offhook) / 1000) : 0;

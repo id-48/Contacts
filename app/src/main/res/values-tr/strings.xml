@@ -279,7 +279,7 @@
     <string name="widget">Widget</string>
     <string name="widget_manual_hint">Ana ekranınıza uzun basın, Widget\'lar\'a dokunun ve Hızlı işlemler widget\'ını ekleyin.</string>
     <string name="share_app">Uygulamayı paylaş</string>
-    <string name="share_app_text">Bu basit, reklamsız telefon ve kişiler uygulamasını kullanıyorum: %1$s</string>
+    <string name="share_app_text">Bu basit telefon ve kişiler uygulamasını kullanıyorum: %1$s</string>
     <string name="rate_us">Bizi değerlendirin</string>
     <string name="privacy_policy">Gizlilik Politikası</string>
     <string name="about">Hakkında</string>
@@ -334,16 +334,16 @@
     <string name="perm_required_settings_body">Uygulamanın çalışması için %1$s izni gereklidir. Ayarlar\'ı açın, İzinler\'e dokunun ve devam etmek için izin verin.</string>
     <string name="perm_required_overlay_body">Devam etmek için bu uygulamaya \"Diğer uygulamaların üzerinde göster\" izni verin. Arama özelliklerinin doğru çalışması için gereklidir.</string>
     <string name="open_settings">Ayarları aç</string>
-    <string name="about_no_ads">Reklam yok</string>
-    <string name="about_no_ads_body">Reklam yok, izleyici yok, analiz yok.</string>
-    <string name="about_on_device">Yalnızca cihazda</string>
-    <string name="about_on_device_body">Uygulamanın internet erişimi yok. Verileriniz telefonunuzdan asla çıkmaz.</string>
+    <string name="about_no_ads">Reklamlarla ücretsiz</string>
+    <string name="about_no_ads_body">Uygulama ücretsiz kalabilmek için reklam gösterir. Kişileriniz ve aramalarınız asla reklam ağlarıyla paylaşılmaz.</string>
+    <string name="about_on_device">Verileriniz gizli kalır</string>
+    <string name="about_on_device_body">Kişiler, arama geçmişi ve mesajlar telefonunuzda işlenir ve asla yüklenmez.</string>
 
-    <string name="privacy_intro">Gizliliğiniz önemlidir. Bu politika, uygulamanın nelere ve neden eriştiğini açıklar. Kısacası: her şey cihazınızda kalır.</string>
+    <string name="privacy_intro">Gizliliğiniz önemlidir. Bu politika, uygulamanın nelere ve neden eriştiğini açıklar. Kısacası: kişileriniz ve aramalarınız cihazınızda kalır.</string>
     <string-array name="privacy_titles">
         <item>Eriştiğimiz veriler</item>
         <item>Verilerinizin kullanımı</item>
-        <item>İnternet yok, reklam yok</item>
+        <item>Reklamlar, ayarlar ve analiz</item>
         <item>Engellenen numaralar</item>
         <item>Seçimleriniz</item>
         <item>Değişiklikler</item>
@@ -351,7 +351,7 @@
     <string-array name="privacy_bodies">
         <item>İzninizle uygulama, kişilerinizi ve arama geçmişinizi okur ve düzenler, arama yapar ve bildirim gösterir. Bir kişi için seçtiğiniz fotoğraflar yalnızca o kişinin resmini ayarlamak için kullanılır.</item>
         <item>Verileriniz yalnızca kişilerinizi, aramalarınızı ve arayan adlarını uygulama içinde göstermek için kullanılır. Cihazınızda işlenir ve asla yüklenmez, satılmaz veya paylaşılmaz.</item>
-        <item>Uygulama internet erişimi istemez, reklam içermez ve hiçbir analiz veya izleme aracı kullanmaz.</item>
+        <item>Uygulama interneti reklam göstermek (Google AdMob, Google Ad Manager ve iş ortaklarıyla TradPlus), uygulama ayarlarını yüklemek ve anonim kullanım analizi için kullanır. Bu hizmetler cihazınızın reklam kimliğini kullanabilir. Kişileriniz, arama geçmişiniz ve mesajlarınız onlara asla gönderilmez.</item>
         <item>Engellenen numaralar, telefonunuzun diğer özellikleriyle çalışmaya devam etmeleri için Android\'in sistem engelleme listesinde saklanır.</item>
         <item>Herhangi bir izni istediğiniz zaman telefonunuzun ayarlarından iptal edebilirsiniz. Uygulamada seçtiğiniz ayarlar yalnızca bu cihazda saklanır ve uygulamayı kaldırdığınızda silinir.</item>
         <item>Bu politika değişirse güncellenmiş sürüm bir uygulama güncellemesine dahil edilecektir.</item>

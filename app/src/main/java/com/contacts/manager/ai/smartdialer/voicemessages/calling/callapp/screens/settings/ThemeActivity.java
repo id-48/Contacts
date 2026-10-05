@@ -25,6 +25,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.ViewCompat;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ThemePreview;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.IntentKeys;
@@ -74,6 +76,7 @@ public class ThemeActivity extends BaseActivity {
         shownMode = StorageService.getThemeMode();
         previousMode = shownMode;
         nightMask = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        setupBackAd(AdScreens.THEME_BACK);
         buildContent(savedInstanceState == null, shownMode);
     }
 
@@ -120,6 +123,7 @@ public class ThemeActivity extends BaseActivity {
         applyInsets(binding.root);
 
         setupBack(binding.backButton);
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.THEME);
         if (onboarding) {
             binding.backButton.setVisibility(View.GONE);
             binding.themeTitle.setPaddingRelative(getResources().getDimensionPixelSize(R.dimen.space_12), 0, 0, 0);

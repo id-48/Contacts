@@ -73,6 +73,8 @@ public final class NotificationService {
         manager.createNotificationChannel(ongoing);
         manager.createNotificationChannel(missed);
         manager.createNotificationChannel(reminders);
+        manager.createNotificationChannel(new NotificationChannel(AppConstants.CHANNEL_CUSTOM,
+                context.getString(R.string.channel_custom), NotificationManager.IMPORTANCE_DEFAULT));
     }
 
     public static boolean canPost(Context context) {

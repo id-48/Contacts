@@ -41,6 +41,7 @@ import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppBottomSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
@@ -775,12 +776,16 @@ public class EditContactActivity extends BaseActivity {
 
     private void attemptClose() {
         if (!bound || signature().equals(viewModel.getInitialSignature())) {
-            finish();
+            closeWithAd();
             return;
         }
         hideKeyboard();
         ConfirmDialog.show(this, getString(R.string.discard_changes_title), getString(R.string.discard_changes_body),
-                R.string.discard, true, R.drawable.ic_edit, R.string.keep_editing, this::finish);
+                R.string.discard, true, R.drawable.ic_edit, R.string.keep_editing, this::closeWithAd);
+    }
+
+    private void closeWithAd() {
+        showFullscreen(AdScreens.EDIT_CONTACT_CLOSE, this::finish);
     }
 
     private void save() {
@@ -810,9 +815,11 @@ public class EditContactActivity extends BaseActivity {
         }
         new File(getCacheDir(), "photos/pending.jpg").delete();
         Toast.makeText(this, R.string.contact_saved, Toast.LENGTH_SHORT).show();
-        if (getIntent().getLongExtra(IntentKeys.EXTRA_CONTACT_ID, -1) <= 0) {
-            startActivity(ContactDetailsActivity.intent(this, id, null));
-        }
-        finish();
+        showFullscreen(AdScreens.EDIT_CONTACT_DONE, () -> {
+            if (getIntent().getLongExtra(IntentKeys.EXTRA_CONTACT_ID, -1) <= 0) {
+                startActivity(ContactDetailsActivity.intent(this, id, null));
+            }
+            finish();
+        });
     }
 }

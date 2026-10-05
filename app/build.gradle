@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
 }
 
 android {
@@ -18,6 +20,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Override in gradle.properties / -P: contactsApiBaseUrl, admobAppId
+        buildConfigField "String", "API_BASE_URL", "\"${project.findProperty('contactsApiBaseUrl') ?: 'https://contacts.anthemknight.tech/'}\""
+        manifestPlaceholders = [admobAppId: project.findProperty('admobAppId') ?: 'ca-app-pub-3940256099942544~3347511713']
     }
 
     androidResources {
@@ -50,7 +56,23 @@ dependencies {
     implementation libs.recyclerview
     implementation libs.core.splashscreen
     implementation libs.glide
+    implementation libs.browser
+    implementation libs.play.review
+    implementation libs.work.runtime
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.analytics
+    implementation libs.firebase.crashlytics
+    implementation libs.firebase.messaging
+    implementation libs.lifecycle.process
+    implementation libs.play.services.ads
+    implementation libs.install.referrer
+    implementation libs.facebook.core
+    implementation libs.audience.network
+    implementation libs.tradplus
+    implementation libs.tradplus.google
+    implementation libs.tradplus.facebook
     testImplementation libs.junit
+    testImplementation libs.json
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 }

@@ -73,26 +73,4 @@
             tools:ignore="ContentDescription" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/contactActions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/space_4"
-        android:paddingEnd="@dimen/space_4"
-        android:paddingBottom="@dimen/space_8"
-        android:visibility="gone">
-
-        <include
-            android:id="@+id/actionFirst"
-            layout="@layout/include_row_action" />
-
-        <include
-            android:id="@+id/actionSecond"
-            layout="@layout/include_row_action" />
-
-        <include
-            android:id="@+id/actionThird"
-            layout="@layout/include_row_action" />
-    </LinearLayout>
 </LinearLayout>

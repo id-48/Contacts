@@ -10,8 +10,11 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppDialogs;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.IntentKeys;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityCallHistoryBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.IncludeBottomActionBinding;
@@ -66,7 +69,9 @@ public class CallHistoryActivity extends BaseActivity implements CallEntryAdapte
         binding.historyList.setLayoutManager(new LinearLayoutManager(this));
         binding.historyList.setAdapter(adapter);
         setupBack(binding.backButton);
+        setupBackAd(AdScreens.CALL_HISTORY_BACK);
         bindHeader();
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.CALL_HISTORY);
     }
 
     @Override
@@ -182,9 +187,12 @@ public class CallHistoryActivity extends BaseActivity implements CallEntryAdapte
             return;
         }
         List<CallModel> toDelete = new ArrayList<>(calls);
-        AppDialogs.confirm(this, getString(R.string.delete_history_title),
+        ConfirmDialog.show(this, getString(R.string.delete_history_title),
                 getResources().getQuantityString(R.plurals.delete_calls_body, toDelete.size(), toDelete.size()),
-                R.string.delete, true, () -> delete(toDelete, true));
+                R.string.delete, true, R.drawable.ic_delete, R.string.cancel,
+                () -> showFullscreen(AdScreens.CALL_HISTORY_DELETE, () -> delete(toDelete, true)),
+                () -> showFullscreen(AdScreens.CALL_HISTORY_DELETE_CANCEL, () -> {
+                }));
     }
 
     @Override

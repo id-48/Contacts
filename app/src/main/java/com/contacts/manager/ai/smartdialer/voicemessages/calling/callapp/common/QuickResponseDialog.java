@@ -21,6 +21,7 @@ import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.DialogQuickResponseBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
 
@@ -152,6 +153,7 @@ public final class QuickResponseDialog {
                     | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         }
         dialog.setOnShowListener(d -> binding.responseField.requestFocus());
+        Analytics.trackDialog(dialog, "quick_response_dialog");
         dialog.show();
         return dialog;
     }

@@ -23,6 +23,8 @@ import androidx.core.graphics.drawable.IconCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppBottomSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
@@ -81,6 +83,7 @@ public class ContactDetailsActivity extends BaseActivity {
         viewModel.init(contactId, lookupKey);
 
         setupBack(binding.backButton);
+        setupBackAd(AdScreens.CONTACT_DETAILS_BACK);
         binding.editButton.setOnClickListener(v -> {
             if (state != null && state.contact != null) {
                 startActivity(EditContactActivity.editIntent(this, state.contact.id));
@@ -89,9 +92,11 @@ public class ContactDetailsActivity extends BaseActivity {
         binding.moreButton.setOnClickListener(v -> showMoreMenu());
         binding.showMoreButton.setOnClickListener(v -> {
             if (state != null && state.contact != null) {
-                startActivity(CallHistoryActivity.contactIntent(this, state.contact.id, state.contact.lookupKey));
+                openCallHistory(state.contact, AdScreens.CONTACT_DETAILS_SHOW_MORE);
             }
         });
+        AdsManager.showNativeBig(this, binding.nativeBigContainer, AdScreens.CONTACT_DETAILS);
+        AdsManager.showBanner(this, binding.bannerContainer, AdScreens.CONTACT_DETAILS);
         binding.scrollView.setOnScrollChangeListener((androidx.core.widget.NestedScrollView.OnScrollChangeListener)
                 (v, scrollX, scrollY, oldScrollX, oldScrollY) -> updateTitle(scrollY));
 
@@ -433,7 +438,8 @@ public class ContactDetailsActivity extends BaseActivity {
         int title = unblock ? R.string.unblock_contact_title : R.string.block_contact_title;
         int body = unblock ? R.string.unblock_contact_body : R.string.block_contact_body;
         ConfirmDialog.show(this, getString(title, contact.getDisplayName()), getString(body),
-                unblock ? R.string.unblock : R.string.block, !unblock, R.drawable.ic_block, R.string.cancel, () -> {
+                unblock ? R.string.unblock : R.string.block, !unblock, R.drawable.ic_block, R.string.cancel,
+                () -> showFullscreen(AdScreens.CONTACT_DETAILS_BLOCK, () -> {
                     busy = true;
                     Context app = getApplicationContext();
                     AppExecutors.io(() -> {
@@ -457,7 +463,7 @@ public class ContactDetailsActivity extends BaseActivity {
                             viewModel.reload();
                         });
                     });
-                });
+                }));
     }
 
     private void confirmDelete() {
@@ -468,7 +474,8 @@ public class ContactDetailsActivity extends BaseActivity {
         ContactModel contact = state.contact;
         ConfirmDialog.show(this, getString(R.string.delete_contact_title),
                 getString(R.string.delete_contact_body, contact.getDisplayName()), R.string.delete, true,
-                R.drawable.ic_delete, R.string.cancel, () -> {
+                R.drawable.ic_delete, R.string.cancel,
+                () -> showFullscreen(AdScreens.CONTACT_DETAILS_DELETE, () -> {
                     Context app = getApplicationContext();
                     AppExecutors.io(() -> {
                         boolean ok = ContactsService.deleteContact(app, contact.id);
@@ -480,7 +487,13 @@ public class ContactDetailsActivity extends BaseActivity {
                             }
                         });
                     });
-                });
+                }),
+                () -> showFullscreen(AdScreens.CONTACT_DETAILS_DELETE_CANCEL, () -> {
+                }));
+    }
+
+    private void openCallHistory(ContactModel contact, String screenKey) {
+        showFullscreen(screenKey, () -> startActivity(CallHistoryActivity.contactIntent(this, contact.id, contact.lookupKey)));
     }
 
     private void showMoreMenu() {
@@ -496,8 +509,9 @@ public class ContactDetailsActivity extends BaseActivity {
             options.add(new AppBottomSheet.Option(R.drawable.ic_share, getString(R.string.share_contact),
                     this::shareContact));
         }
+        ContactModel contact = state.contact;
         options.add(new AppBottomSheet.Option(R.drawable.ic_history, getString(R.string.call_history),
-                () -> startActivity(CallHistoryActivity.contactIntent(this, state.contact.id, state.contact.lookupKey))));
+                () -> openCallHistory(contact, AdScreens.CONTACT_DETAILS_CALL_HISTORY)));
         AppBottomSheet.showOptions(this, state.contact.getDisplayName(), options);
     }
 

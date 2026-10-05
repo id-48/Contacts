@@ -279,7 +279,7 @@
     <string name="widget">Widget</string>
     <string name="widget_manual_hint">Tieni premuta la schermata Home, tocca Widget e aggiungi il widget Azioni rapide.</string>
     <string name="share_app">Condividi app</string>
-    <string name="share_app_text">Uso questa app per telefono e contatti semplice e senza pubblicità: %1$s</string>
+    <string name="share_app_text">Sto usando questa semplice app per telefono e contatti: %1$s</string>
     <string name="rate_us">Valutaci</string>
     <string name="privacy_policy">Informativa sulla privacy</string>
     <string name="about">Informazioni</string>
@@ -334,16 +334,16 @@
     <string name="perm_required_settings_body">L\'autorizzazione %1$s è necessaria per il funzionamento dell\'app. Apri Impostazioni, tocca Autorizzazioni e consentila per continuare.</string>
     <string name="perm_required_overlay_body">Consenti \"Mostra sopra altre app\" per questa app per continuare. È necessaria per il corretto funzionamento delle chiamate.</string>
     <string name="open_settings">Apri impostazioni</string>
-    <string name="about_no_ads">Nessuna pubblicità</string>
-    <string name="about_no_ads_body">Niente pubblicità, tracker o analisi.</string>
-    <string name="about_on_device">Solo sul dispositivo</string>
-    <string name="about_on_device_body">L\'app non ha accesso a Internet. I tuoi dati non lasciano mai il telefono.</string>
+    <string name="about_no_ads">Gratis con pubblicità</string>
+    <string name="about_no_ads_body">L\'app mostra pubblicità per restare gratuita. I tuoi contatti e le tue chiamate non vengono mai condivisi con le reti pubblicitarie.</string>
+    <string name="about_on_device">I tuoi dati restano privati</string>
+    <string name="about_on_device_body">Contatti, cronologia chiamate e messaggi vengono elaborati sul telefono e non vengono mai caricati.</string>
 
-    <string name="privacy_intro">La tua privacy è importante. Questa informativa spiega a cosa accede l\'app e perché. In breve: tutto resta sul tuo dispositivo.</string>
+    <string name="privacy_intro">La tua privacy è importante. Questa informativa spiega a cosa accede l\'app e perché. In breve: contatti e chiamate restano sul tuo dispositivo.</string>
     <string-array name="privacy_titles">
         <item>Dati a cui accediamo</item>
         <item>Come vengono usati i tuoi dati</item>
-        <item>Niente Internet, niente pubblicità</item>
+        <item>Pubblicità, impostazioni e analisi</item>
         <item>Numeri bloccati</item>
         <item>Le tue scelte</item>
         <item>Modifiche</item>
@@ -351,7 +351,7 @@
     <string-array name="privacy_bodies">
         <item>Con la tua autorizzazione, l\'app legge e modifica i contatti e la cronologia chiamate, effettua chiamate e mostra notifiche. Le foto scelte per un contatto vengono usate solo come immagine di quel contatto.</item>
         <item>I tuoi dati vengono usati solo per mostrare contatti, chiamate e nomi dei chiamanti nell\'app. Vengono elaborati sul dispositivo e non vengono mai caricati, venduti o condivisi.</item>
-        <item>L\'app non richiede l\'accesso a Internet, non contiene pubblicità e non usa strumenti di analisi o tracciamento.</item>
+        <item>L\'app usa Internet per mostrare pubblicità (Google AdMob, Google Ad Manager e TradPlus con i suoi partner), caricare le impostazioni dell\'app e per analisi d\'uso anonime. Questi servizi possono usare l\'ID pubblicità del dispositivo. Contatti, cronologia chiamate e messaggi non vengono mai inviati a loro.</item>
         <item>I numeri bloccati vengono salvati nell\'elenco di blocco di sistema di Android, così continuano a funzionare con le altre funzioni del telefono.</item>
         <item>Puoi revocare qualsiasi autorizzazione in qualsiasi momento dalle impostazioni del telefono. Le impostazioni scelte nell\'app vengono salvate solo su questo dispositivo e rimosse quando la disinstalli.</item>
         <item>Se questa informativa cambia, la versione aggiornata sarà inclusa in un aggiornamento dell\'app.</item>

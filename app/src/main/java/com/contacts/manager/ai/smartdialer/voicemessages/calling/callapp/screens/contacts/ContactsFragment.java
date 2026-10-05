@@ -2,8 +2,6 @@ package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screen
 
 import android.content.Context;
 import android.os.Bundle;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppBottomSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppDialogs;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.PermissionRequester;
@@ -28,7 +28,6 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.ContactsService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PermissionManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PhoneService;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.WhatsAppService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.AppExecutors;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.IntentUtils;
@@ -75,7 +74,6 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(ContactsViewModel.class);
         adapter = new ContactsAdapter(this);
-        adapter.setVideoSupported(WhatsAppService.isInstalled(requireContext()));
         layoutManager = new LinearLayoutManager(requireContext());
         binding.contactsList.setLayoutManager(layoutManager);
         binding.contactsList.setAdapter(adapter);
@@ -103,14 +101,6 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
     public void onResume() {
         super.onResume();
         refreshState();
-    }
-
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if (hidden && adapter != null) {
-            adapter.collapse();
-        }
     }
 
     @Override
@@ -214,13 +204,20 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
 
     @Override
     public void onCreateContact() {
-        startActivity(EditContactActivity.createIntent(requireContext(), null));
+        showFullscreen(AdScreens.CONTACTS_CREATE, () -> startActivity(EditContactActivity.createIntent(requireContext(), null)));
     }
 
-    @Override
-    public void onExpand(int position) {
-        TransitionManager.beginDelayedTransition(binding.contactsList, new AutoTransition().setDuration(180));
-        adapter.toggleExpanded(position);
+    private void openInfo(ContactModel contact) {
+        showFullscreen(AdScreens.CONTACTS_INFO,
+                () -> startActivity(ContactDetailsActivity.intent(requireContext(), contact.id, contact.lookupKey)));
+    }
+
+    private void showFullscreen(String screenKey, Runnable onDone) {
+        AdsManager.showFullscreen(requireActivity(), screenKey, () -> {
+            if (isAdded()) {
+                onDone.run();
+            }
+        });
     }
 
     @Override
@@ -229,22 +226,8 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
     }
 
     @Override
-    public void onAction(ContactModel contact, ContactsAdapter.Action action) {
-        Context context = requireContext();
-        switch (action) {
-            case MESSAGE:
-                IntentUtils.openSms(context, contact.primaryNumber);
-                break;
-            case VIDEO:
-                WhatsAppService.videoCall(requireActivity(), contact.primaryNumber);
-                break;
-            case EDIT:
-                startActivity(EditContactActivity.editIntent(context, contact.id));
-                break;
-            default:
-                startActivity(ContactDetailsActivity.intent(context, contact.id, contact.lookupKey));
-                break;
-        }
+    public void onOpen(ContactModel contact) {
+        openInfo(contact);
     }
 
     @Override
@@ -259,7 +242,7 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
                     () -> IntentUtils.openSms(context, contact.primaryNumber)));
         }
         options.add(new AppBottomSheet.Option(R.drawable.ic_info, getString(R.string.contact_info),
-                () -> startActivity(ContactDetailsActivity.intent(context, contact.id, contact.lookupKey))));
+                () -> openInfo(contact)));
         if (ContactsService.canWrite(context)) {
             options.add(new AppBottomSheet.Option(contact.starred ? R.drawable.ic_star_filled : R.drawable.ic_star,
                     getString(contact.starred ? R.string.remove_favorite : R.string.add_favorite),

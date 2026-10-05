@@ -3,25 +3,29 @@ package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screen
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
 import androidx.core.splashscreen.SplashScreen;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivitySplashBinding;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.main.MainActivity;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.onboarding.WelcomeActivity;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.ForceUpdateHelper;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.OnboardingFlow;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 
 public class SplashActivity extends BaseActivity {
 
     private static final long PROGRESS_DURATION = 2500L;
+    private static final long CONFIG_WAIT_MS = 4000L;
 
     private ActivitySplashBinding binding;
     private ValueAnimator progressAnimator;
+    private boolean progressDone;
+    private boolean configReady;
+    private boolean routed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,10 @@ public class SplashActivity extends BaseActivity {
 
         showProgress(0);
         startProgress();
+        RemoteConfigManager.whenReady(CONFIG_WAIT_MS, config -> {
+            configReady = true;
+            continueIfReady();
+        });
     }
 
     private void startProgress() {
@@ -66,11 +74,20 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void openNext() {
-        if (isFinishing()) return;
-        Intent next = StorageService.isOnboardingDone()
-                ? new Intent(this, MainActivity.class)
-                : new Intent(this, WelcomeActivity.class);
-        startActivity(next);
+        progressDone = true;
+        continueIfReady();
+    }
+
+    private void continueIfReady() {
+        if (!progressDone || !configReady || routed || isFinishing()) return;
+        routed = true;
+        if (ForceUpdateHelper.blockIfRequired(this)) return;
+        AdsManager.showSplashFullscreen(this, this::navigate);
+    }
+
+    private void navigate() {
+        if (isFinishing() || isDestroyed()) return;
+        startActivity(OnboardingFlow.startIntent(this));
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }

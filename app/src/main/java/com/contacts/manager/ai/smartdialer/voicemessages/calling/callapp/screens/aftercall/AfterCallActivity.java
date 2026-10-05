@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.CalendarContract;
+import android.provider.CallLog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -26,6 +27,9 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.IntentKeys;
@@ -87,12 +91,15 @@ public class AfterCallActivity extends BaseActivity {
     private static final class Tile {
         final int icon;
         final CharSequence label;
+        final String clickName;
         final boolean destructive;
         final View.OnClickListener listener;
 
-        Tile(@DrawableRes int icon, CharSequence label, boolean destructive, View.OnClickListener listener) {
+        Tile(@DrawableRes int icon, CharSequence label, String clickName, boolean destructive,
+             View.OnClickListener listener) {
             this.icon = icon;
             this.label = label;
+            this.clickName = clickName;
             this.destructive = destructive;
             this.listener = listener;
         }
@@ -140,7 +147,8 @@ public class AfterCallActivity extends BaseActivity {
             }
         });
 
-        binding.closeButton.setOnClickListener(v -> finish());
+        binding.closeButton.setOnClickListener(v -> showFullscreen(AdScreens.AFTER_CALL_CLOSE, this::finish));
+        AdsManager.showNativeBig(this, binding.nativeBigContainer, AdScreens.AFTER_CALL);
         binding.callBackButton.setOnClickListener(v -> {
             HapticUtils.confirm(v);
             if (isDialable()) {
@@ -158,6 +166,7 @@ public class AfterCallActivity extends BaseActivity {
         selectTab(TAB_ACTIONS, false);
         if (savedInstanceState == null) {
             animateIn();
+            trackOpen();
         }
         load();
         refineFromCallLog();
@@ -175,6 +184,7 @@ public class AfterCallActivity extends BaseActivity {
         selectTab(TAB_ACTIONS, false);
         load();
         refineFromCallLog();
+        trackOpen();
     }
 
     @Override
@@ -199,6 +209,39 @@ public class AfterCallActivity extends BaseActivity {
         }
         blocked = false;
         canBlock = false;
+    }
+
+    private void trackOpen() {
+        StorageService.incrementAfterCallOpenCount();
+        long total = StorageService.getAfterCallOpenCount();
+        Bundle params = new Bundle();
+        params.putString(Analytics.PARAM_SCREEN, screenName());
+        params.putLong("open_count", total);
+        params.putLong("opens_today", StorageService.getAfterCallOpenCountToday());
+        params.putString("call_type", callTypeName(callType));
+        params.putLong("call_duration_sec", duration);
+        params.putLong("saved_contact", isSaved() ? 1 : 0);
+        Analytics.logEvent("after_call_open", params);
+        Analytics.setUserProperty("after_call_opens", String.valueOf(total));
+    }
+
+    private static String callTypeName(int type) {
+        switch (type) {
+            case CallLog.Calls.INCOMING_TYPE:
+                return "incoming";
+            case CallLog.Calls.OUTGOING_TYPE:
+                return "outgoing";
+            case CallLog.Calls.MISSED_TYPE:
+                return "missed";
+            case CallLog.Calls.VOICEMAIL_TYPE:
+                return "voicemail";
+            case CallLog.Calls.REJECTED_TYPE:
+                return "rejected";
+            case CallLog.Calls.BLOCKED_TYPE:
+                return "blocked";
+            default:
+                return "unknown";
+        }
     }
 
     private void load() {
@@ -311,24 +354,24 @@ public class AfterCallActivity extends BaseActivity {
         List<Tile> tiles = new ArrayList<>();
         if (isDialable()) {
             if (isSaved()) {
-                tiles.add(new Tile(R.drawable.ic_person, getString(R.string.view_contact), false, v -> {
+                tiles.add(new Tile(R.drawable.ic_person, getString(R.string.view_contact), "view_contact", false, v -> {
                     startActivity(ContactDetailsActivity.intent(this, contact.id, contact.lookupKey));
                     finish();
                 }));
             } else if (ContactsService.canWrite(this)) {
-                tiles.add(new Tile(R.drawable.ic_person_add, getString(R.string.save_contact), false, v -> {
+                tiles.add(new Tile(R.drawable.ic_person_add, getString(R.string.save_contact), "save_contact", false, v -> {
                     startActivity(EditContactActivity.createIntent(this, number));
                     finish();
                 }));
             }
         }
-        tiles.add(new Tile(R.drawable.ic_history, getString(R.string.after_call_recent), false,
+        tiles.add(new Tile(R.drawable.ic_history, getString(R.string.after_call_recent), "open_recent", false,
                 v -> openMain(MainActivity.TAB_RECENT)));
-        tiles.add(new Tile(R.drawable.ic_contacts, getString(R.string.after_call_contacts), false,
+        tiles.add(new Tile(R.drawable.ic_contacts, getString(R.string.after_call_contacts), "open_contacts", false,
                 v -> openMain(MainActivity.TAB_CONTACTS)));
         if (isDialable() && canBlock) {
-            tiles.add(new Tile(R.drawable.ic_block, getString(blocked ? R.string.unblock : R.string.block), !blocked,
-                    v -> toggleBlock()));
+            tiles.add(new Tile(R.drawable.ic_block, getString(blocked ? R.string.unblock : R.string.block),
+                    blocked ? "unblock" : "block", !blocked, v -> toggleBlock()));
         }
         fillGrid(binding.pageActions, tiles);
         if (pageAnimated[TAB_ACTIONS] && currentTab == TAB_ACTIONS) {
@@ -339,16 +382,16 @@ public class AfterCallActivity extends BaseActivity {
 
     private void buildMore() {
         List<Tile> tiles = new ArrayList<>();
-        tiles.add(new Tile(R.drawable.ic_chat, getString(R.string.after_call_messages), false,
+        tiles.add(new Tile(R.drawable.ic_chat, getString(R.string.after_call_messages), "open_messages", false,
                 v -> launch(IntentUtils.smsIntent(isDialable() ? number : "", null))));
-        tiles.add(new Tile(R.drawable.ic_mail, getString(R.string.send_mail), false,
+        tiles.add(new Tile(R.drawable.ic_mail, getString(R.string.send_mail), "send_mail", false,
                 v -> launch(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:")))));
-        tiles.add(new Tile(R.drawable.ic_calendar, getString(R.string.calendar), false,
+        tiles.add(new Tile(R.drawable.ic_calendar, getString(R.string.calendar), "calendar", false,
                 v -> launch(new Intent(Intent.ACTION_INSERT)
                         .setData(CalendarContract.Events.CONTENT_URI)
                         .putExtra(CalendarContract.Events.TITLE,
                                 getString(R.string.calendar_event_title, displayName())))));
-        tiles.add(new Tile(R.drawable.ic_language, getString(R.string.web), false, v -> {
+        tiles.add(new Tile(R.drawable.ic_language, getString(R.string.web), "web_search", false, v -> {
             String url = isDialable()
                     ? "https://www.google.com/search?q=" + Uri.encode(number)
                     : "https://www.google.com";
@@ -372,6 +415,7 @@ public class AfterCallActivity extends BaseActivity {
             item.tileIcon.setImageResource(tile.icon);
             item.tileLabel.setText(tile.label);
             item.tileRoot.setContentDescription(tile.label);
+            Analytics.setClickName(item.tileRoot, tile.clickName);
             if (tile.destructive) {
                 item.tileIconBg.setBackgroundResource(R.drawable.bg_circle_error_soft);
                 item.tileIcon.setImageTintList(getColorStateList(R.color.error));
@@ -413,8 +457,11 @@ public class AfterCallActivity extends BaseActivity {
     private void buildMessages() {
         ChipGroup group = binding.messageChips;
         group.removeAllViews();
-        for (String response : StorageService.getQuickResponses(this)) {
+        List<String> responses = StorageService.getQuickResponses(this);
+        for (int i = 0; i < responses.size(); i++) {
+            String response = responses.get(i);
             Chip chip = makeChip(response, 0);
+            Analytics.setClickName(chip, "quick_reply_" + (i + 1));
             chip.setOnClickListener(v -> {
                 HapticUtils.tap(v);
                 sendMessage(response);
@@ -427,17 +474,19 @@ public class AfterCallActivity extends BaseActivity {
         ChipGroup group = binding.reminderChips;
         group.removeAllViews();
         addReminderChip(group, getString(R.string.reminder_in_minutes, 15), R.drawable.ic_schedule,
-                () -> saveReminder(System.currentTimeMillis() + 15 * 60_000L));
+                "reminder_15_min", () -> saveReminder(System.currentTimeMillis() + 15 * 60_000L));
         addReminderChip(group, getString(R.string.reminder_in_minutes, 30), R.drawable.ic_schedule,
-                () -> saveReminder(System.currentTimeMillis() + 30 * 60_000L));
+                "reminder_30_min", () -> saveReminder(System.currentTimeMillis() + 30 * 60_000L));
         addReminderChip(group, getString(R.string.reminder_in_hour), R.drawable.ic_schedule,
-                () -> saveReminder(System.currentTimeMillis() + 60 * 60_000L));
+                "reminder_1_hour", () -> saveReminder(System.currentTimeMillis() + 60 * 60_000L));
         addReminderChip(group, getString(R.string.reminder_pick_time), R.drawable.ic_calendar,
-                this::pickReminderTime);
+                "reminder_pick_time", this::pickReminderTime);
     }
 
-    private void addReminderChip(ChipGroup group, CharSequence text, @DrawableRes int icon, Runnable action) {
+    private void addReminderChip(ChipGroup group, CharSequence text, @DrawableRes int icon, String clickName,
+                                 Runnable action) {
         Chip chip = makeChip(text, icon);
+        Analytics.setClickName(chip, clickName);
         chip.setOnClickListener(v -> {
             HapticUtils.tap(v);
             action.run();
@@ -666,6 +715,7 @@ public class AfterCallActivity extends BaseActivity {
                 .setTitleText(R.string.reminder_pick_time)
                 .build();
         picker.addOnPositiveButtonClickListener(v -> {
+            Analytics.logEvent("after_call_reminder_time_set");
             Calendar time = Calendar.getInstance();
             time.set(Calendar.HOUR_OF_DAY, picker.getHour());
             time.set(Calendar.MINUTE, picker.getMinute());

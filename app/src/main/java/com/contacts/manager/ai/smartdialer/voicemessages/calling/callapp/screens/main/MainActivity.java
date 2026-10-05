@@ -11,7 +11,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.InAppReview;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.IntentKeys;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityMainBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.IncludeNavItemBinding;
@@ -39,6 +43,7 @@ public class MainActivity extends BaseActivity {
     private static final int[] ICONS = {R.drawable.ic_schedule, R.drawable.ic_account_circle, R.drawable.ic_star};
     private static final int[] ICONS_SELECTED = {R.drawable.ic_schedule_filled, R.drawable.ic_account_circle_filled,
             R.drawable.ic_star_filled};
+    private static final String[] TAB_SCREENS = {"recent", "contacts", "favorites"};
 
     private ActivityMainBinding binding;
     private IncludeNavItemBinding[] navItems;
@@ -57,18 +62,21 @@ public class MainActivity extends BaseActivity {
             navItems[i].navLabel.setText(TITLES[i]);
             navItems[i].navIcon.setImageResource(ICONS[i]);
             navItems[i].navItem.setContentDescription(getString(TITLES[i]));
+            Analytics.setClickName(navItems[i].navItem, "nav_" + TAB_SCREENS[i]);
             navItems[i].navItem.setOnClickListener(v -> {
                 HapticUtils.tick(v);
                 selectTab(tab);
             });
         }
 
-        binding.searchButton.setOnClickListener(v -> startActivity(new Intent(this, SearchActivity.class)));
-        binding.settingsButton.setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
+        binding.searchButton.setOnClickListener(v -> showFullscreen(AdScreens.MAIN_SEARCH,
+                () -> startActivity(new Intent(this, SearchActivity.class))));
+        binding.settingsButton.setOnClickListener(v -> showFullscreen(AdScreens.MAIN_SETTINGS,
+                () -> startActivity(new Intent(this, SettingsActivity.class))));
         binding.fab.setOnClickListener(v -> {
             HapticUtils.tap(v);
             if (currentTab == TAB_CONTACTS) {
-                startActivity(EditContactActivity.createIntent(this, null));
+                showFullscreen(AdScreens.CONTACTS_ADD, () -> startActivity(EditContactActivity.createIntent(this, null)));
             } else {
                 startActivity(new Intent(this, DialerActivity.class));
                 overridePendingTransition(R.anim.sheet_enter, R.anim.hold);
@@ -82,6 +90,8 @@ public class MainActivity extends BaseActivity {
             tab = getIntent().getIntExtra(IntentKeys.EXTRA_TAB, TAB_RECENT);
         }
         selectTab(tab);
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.MAIN);
+        if (savedInstanceState == null) InAppReview.onMainOpened(this);
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -150,6 +160,12 @@ public class MainActivity extends BaseActivity {
             navItems[i].navIcon.setImageResource(selected ? ICONS_SELECTED[i] : ICONS[i]);
         }
         updateFab(fabChanged);
+        onScreenChanged();
+    }
+
+    @Override
+    protected String screenName() {
+        return TAB_SCREENS[currentTab < 0 ? TAB_RECENT : currentTab];
     }
 
     private void updateFab(boolean animate) {

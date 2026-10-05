@@ -12,9 +12,12 @@ public final class AppConstants {
     public static final String CHANNEL_ONGOING = "ongoing_calls";
     public static final String CHANNEL_MISSED = "missed_calls";
     public static final String CHANNEL_REMINDERS = "call_reminders";
+    public static final String CHANNEL_CUSTOM = "custom_notifications";
 
     public static final int NOTIFICATION_CALL_ID = 1001;
     public static final int NOTIFICATION_MISSED_SUMMARY_ID = 2000;
+    public static final int NOTIFICATION_LOCAL_ID = 3000;
+    public static final int NOTIFICATION_PUSH_BASE_ID = 4000;
     public static final String NOTIFICATION_MISSED_GROUP = "missed_calls_group";
 
     public static final String[] LANGUAGE_TAGS = {
@@ -28,6 +31,11 @@ public final class AppConstants {
 
     public static final String PLAY_STORE_WEB = "https://play.google.com/store/apps/details?id=";
     public static final String PLAY_STORE_MARKET = "market://details?id=";
+
+    public static final String SOURCE_ORGANIC = "organic";
+    public static final String SOURCE_MARKETING = "marketing";
+
+    public static final String TRADPLUS_APP_ID = "C074B047B05C9C090781397238D3DD11";
 
     private AppConstants() {
     }

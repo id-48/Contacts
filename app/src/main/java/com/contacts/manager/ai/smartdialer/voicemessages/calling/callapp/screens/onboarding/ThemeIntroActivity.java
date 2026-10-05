@@ -2,7 +2,6 @@ package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screen
 
 import android.animation.ArgbEvaluator;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -22,10 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ThemePreview;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityThemeIntroBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ViewThemePreviewBinding;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.OnboardingFlow;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfig;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
 
@@ -60,7 +62,7 @@ public class ThemeIntroActivity extends BaseActivity {
         binding.topBar.topTitle.setText(R.string.theme);
         binding.topBar.backButton.setImageResource(R.drawable.ic_chevron_left);
         binding.topBar.backButton.setOnClickListener(v -> finishIntro());
-        binding.doneButton.setOnClickListener(v -> finishIntro());
+        binding.doneButton.setOnClickListener(v -> onDone());
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -77,6 +79,10 @@ public class ThemeIntroActivity extends BaseActivity {
         binding.themePager.setCurrentItem(startPage, false);
         applyFraction(startPage);
         bindDots(startPage, false);
+
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, RemoteConfig.SCREEN_THEME_SELECTION);
+        AdsManager.showNativeBig(this, binding.nativeBigContainer, RemoteConfig.SCREEN_THEME_SELECTION);
+        AdsManager.showBanner(this, binding.bannerContainer, RemoteConfig.SCREEN_THEME_SELECTION);
     }
 
     @Override
@@ -185,17 +191,27 @@ public class ThemeIntroActivity extends BaseActivity {
         }
     }
 
+    private void onDone() {
+        if (leaving) {
+            return;
+        }
+        leaving = true;
+        AdsManager.showFullscreen(this, RemoteConfig.SCREEN_THEME_SELECTION, this::leave);
+    }
+
     private void finishIntro() {
         if (leaving) {
             return;
         }
         leaving = true;
+        leave();
+    }
+
+    private void leave() {
         int mode = binding.themePager.getCurrentItem() == PAGE_DARK
                 ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO;
         StorageService.setThemeMode(mode);
-        startActivity(new Intent(this, DefaultPhoneActivity.class));
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-        finish();
+        OnboardingFlow.continueFrom(this, OnboardingFlow.Step.THEME);
         AppCompatDelegate.setDefaultNightMode(mode);
     }
 

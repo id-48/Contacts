@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.AppConstants;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivitySearchBinding;
@@ -65,6 +67,8 @@ public class SearchActivity extends BaseActivity implements SearchAdapter.Listen
         });
 
         setupBack(binding.backButton);
+        setupBackAd(AdScreens.SEARCH_BACK);
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.SEARCH);
         binding.searchBar.setOnClickListener(v -> showKeyboard());
         binding.clearButton.setOnClickListener(v -> {
             binding.searchField.setText("");

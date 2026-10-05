@@ -104,4 +104,10 @@
         android:layout_marginBottom="@dimen/space_16"
         android:text="@string/done"
         android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/nativeSmallContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </LinearLayout>

@@ -1,49 +1,43 @@
 package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.onboarding;
 
-import android.Manifest;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.PermissionSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityDefaultPhoneBinding;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.main.MainActivity;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PermissionManager;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.OnboardingFlow;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfig;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.launcher.LauncherMode;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PhoneService;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-
 public class DefaultPhoneActivity extends BaseActivity {
-
-    private enum Requirement { CALL_LOG, CONTACTS, OVERLAY }
 
     private static final int MAX_ROLE_PROMPTS = 2;
     private static final long AUTO_DENIED_WINDOW_MS = 500L;
 
     private ActivityDefaultPhoneBinding binding;
-    private final EnumSet<Requirement> asked = EnumSet.noneOf(Requirement.class);
-    private AlertDialog settingsDialog;
-    private Requirement settingsDialogFor;
+    private final OnboardingPermissions permissions = new OnboardingPermissions(this, true, this::leave);
     private AlertDialog defaultDialog;
+    private AlertDialog homeDialog;
     private int rolePrompts;
+    private int homePrompts;
     private long roleLaunchTime;
-    private boolean awaitingResult;
+    private long homeLaunchTime;
+    private boolean homeUnavailable;
     private boolean finishing;
-    private boolean notificationAsked;
+    private boolean cancelAdShowing;
 
     private final ActivityResultLauncher<Intent> roleLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -56,17 +50,16 @@ public class DefaultPhoneActivity extends BaseActivity {
     private final ActivityResultLauncher<Intent> defaultAppsLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> onRoleResult());
 
-    private final ActivityResultLauncher<String[]> permissionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> onReturned());
-
-    private final ActivityResultLauncher<String> notificationLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
-                awaitingResult = false;
-                openMain();
+    private final ActivityResultLauncher<Intent> homeLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (SystemClock.elapsedRealtime() - homeLaunchTime < AUTO_DENIED_WINDOW_MS) {
+                    homePrompts = MAX_ROLE_PROMPTS;
+                }
+                onHomeResult();
             });
 
-    private final ActivityResultLauncher<Intent> settingsLauncher =
-            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> onReturned());
+    private final ActivityResultLauncher<Intent> homeSettingsLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> onHomeResult());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +69,9 @@ public class DefaultPhoneActivity extends BaseActivity {
         applyInsets(binding.root);
 
         if (savedInstanceState != null) {
-            awaitingResult = savedInstanceState.getBoolean("awaiting_result");
             rolePrompts = savedInstanceState.getInt("role_prompts");
-            notificationAsked = savedInstanceState.getBoolean("notification_asked");
-            int[] steps = savedInstanceState.getIntArray("asked");
-            if (steps != null) {
-                for (int step : steps) {
-                    asked.add(Requirement.values()[step]);
-                }
-            }
+            homePrompts = savedInstanceState.getInt("home_prompts");
+            permissions.restore(savedInstanceState);
         }
 
         binding.defaultIllustration.setScaleX(0.9f);
@@ -93,16 +80,42 @@ public class DefaultPhoneActivity extends BaseActivity {
         binding.defaultIllustration.animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(380).start();
 
         binding.setDefaultButton.setOnClickListener(v -> requestRole());
-        binding.skipButton.setOnClickListener(v -> {
-            if (isDefaultSatisfied()) {
-                showPermissions();
-            } else {
-                showDefaultRequiredDialog();
+        binding.skipButton.setOnClickListener(v -> onCancel());
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (!cancelAdShowing) insist();
             }
         });
 
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, RemoteConfig.SCREEN_DEFAULT_PHONE);
+        AdsManager.showNativeBig(this, binding.nativeBigContainer, RemoteConfig.SCREEN_DEFAULT_PHONE);
+        AdsManager.showBanner(this, binding.bannerContainer, RemoteConfig.SCREEN_DEFAULT_PHONE);
+
         if (savedInstanceState == null && PhoneService.isDefaultDialer(this)) {
             binding.getRoot().post(this::showPermissions);
+        }
+    }
+
+    private void onCancel() {
+        if (cancelAdShowing) {
+            return;
+        }
+        cancelAdShowing = true;
+        AdsManager.showFullscreen(this, RemoteConfig.SCREEN_DEFAULT_PHONE, () -> {
+            cancelAdShowing = false;
+            insist();
+        });
+    }
+
+    private void insist() {
+        if (isFinishing() || finishing) {
+            return;
+        }
+        if (isDefaultSatisfied()) {
+            showPermissions();
+        } else {
+            showDefaultRequiredDialog();
         }
     }
 
@@ -113,28 +126,27 @@ public class DefaultPhoneActivity extends BaseActivity {
             defaultDialog.dismiss();
             showPermissions();
         }
-        if (settingsDialog != null && settingsDialog.isShowing() && isSatisfied(settingsDialogFor)) {
-            settingsDialog.dismiss();
-            continueFlow();
+        if (homeDialog != null && homeDialog.isShowing() && isHomeSatisfied()) {
+            homeDialog.dismiss();
+            showPermissions();
         }
+        permissions.onResume();
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        int[] steps = new int[asked.size()];
-        int i = 0;
-        for (Requirement requirement : asked) {
-            steps[i++] = requirement.ordinal();
-        }
-        outState.putIntArray("asked", steps);
-        outState.putBoolean("awaiting_result", awaitingResult);
         outState.putInt("role_prompts", rolePrompts);
-        outState.putBoolean("notification_asked", notificationAsked);
+        outState.putInt("home_prompts", homePrompts);
+        permissions.save(outState);
     }
 
     private boolean isDefaultSatisfied() {
-        return PhoneService.isDefaultDialer(this) || PhoneService.createDefaultDialerIntent(this) == null;
+        return PhoneService.isDefaultDialerSatisfied(this);
+    }
+
+    private boolean isHomeSatisfied() {
+        return homeUnavailable || LauncherMode.isSatisfied(this);
     }
 
     private void requestRole() {
@@ -188,7 +200,9 @@ public class DefaultPhoneActivity extends BaseActivity {
                 .setCancelable(false)
                 .setPositiveButton(viaSettings ? R.string.open_settings : R.string.set_as_default,
                         (d, w) -> requestRole())
-                .show();
+                .create();
+        Analytics.trackDialog(defaultDialog, "default_required_dialog");
+        defaultDialog.show();
     }
 
     private void showPermissions() {
@@ -199,173 +213,86 @@ public class DefaultPhoneActivity extends BaseActivity {
             showDefaultRequiredDialog();
             return;
         }
-        List<PermissionSheet.Item> items = new ArrayList<>();
-        if (!isSatisfied(Requirement.CALL_LOG)) {
-            items.add(new PermissionSheet.Item(R.drawable.ic_phone_in_talk,
-                    R.string.perm_sheet_call_history_title, R.string.perm_sheet_call_history_body));
-        }
-        if (!isSatisfied(Requirement.CONTACTS)) {
-            items.add(new PermissionSheet.Item(R.drawable.ic_person,
-                    R.string.perm_sheet_contacts_title, R.string.perm_sheet_contacts_body));
-        }
-        if (!isSatisfied(Requirement.OVERLAY)) {
-            items.add(new PermissionSheet.Item(R.drawable.ic_layers,
-                    R.string.perm_sheet_overlay_title, R.string.perm_sheet_overlay_body));
-        }
-        if (items.isEmpty()) {
-            complete();
+        if (!isHomeSatisfied()) {
+            requestHome();
             return;
         }
-        PermissionSheet.show(this, items, this::continueFlow, null);
+        LauncherMode.releaseApp();
+        permissions.start();
     }
 
-    private void onReturned() {
-        awaitingResult = false;
-        continueFlow();
-    }
-
-    private void continueFlow() {
-        if (isFinishing() || finishing || awaitingResult) {
+    private void requestHome() {
+        if (isHomeSatisfied()) {
+            showPermissions();
             return;
         }
-        Requirement next = firstMissing();
-        if (next == null) {
-            complete();
+        LauncherMode.sync(this);
+        LauncherMode.holdApp();
+        Intent roleIntent = LauncherMode.createRoleIntent(this);
+        if (roleIntent == null || homePrompts >= MAX_ROLE_PROMPTS) {
+            openHomeSettings();
             return;
         }
-        if (asked.add(next)) {
-            request(next);
-        } else {
-            showSettingsDialog(next);
-        }
-    }
-
-    private Requirement firstMissing() {
-        for (Requirement requirement : Requirement.values()) {
-            if (!isSatisfied(requirement)) {
-                return requirement;
-            }
-        }
-        return null;
-    }
-
-    private boolean isSatisfied(Requirement requirement) {
-        if (requirement == null) {
-            return true;
-        }
-        switch (requirement) {
-            case CALL_LOG:
-                return PermissionManager.isGranted(this, PermissionManager.Group.CALL_LOG);
-            case CONTACTS:
-                return PermissionManager.isGranted(this, PermissionManager.Group.CONTACTS);
-            default:
-                return Settings.canDrawOverlays(this);
-        }
-    }
-
-    private PermissionManager.Group groupFor(Requirement requirement) {
-        return requirement == Requirement.CALL_LOG
-                ? PermissionManager.Group.CALL_LOG : PermissionManager.Group.CONTACTS;
-    }
-
-    private void request(Requirement requirement) {
-        if (requirement == Requirement.OVERLAY) {
-            openOverlaySettings();
-            return;
-        }
-        PermissionManager.Group group = groupFor(requirement);
-        if (PermissionManager.getStatus(this, group) == PermissionManager.Status.PERMANENTLY_DENIED) {
-            showSettingsDialog(requirement);
-            return;
-        }
-        PermissionManager.markRequested(group);
-        awaitingResult = true;
-        permissionLauncher.launch(group.permissions);
-    }
-
-    private void showSettingsDialog(Requirement requirement) {
-        if (settingsDialog != null && settingsDialog.isShowing()) {
-            settingsDialog.dismiss();
-        }
-        boolean overlay = requirement == Requirement.OVERLAY;
-        String message;
-        if (overlay) {
-            message = getString(R.string.perm_required_overlay_body);
-        } else {
-            int title = requirement == Requirement.CALL_LOG
-                    ? R.string.perm_sheet_call_history_title : R.string.perm_sheet_contacts_title;
-            message = getString(R.string.perm_required_settings_body, getString(title));
-        }
-        settingsDialogFor = requirement;
-        settingsDialog = new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_Dialog)
-                .setTitle(R.string.perm_required_title)
-                .setMessage(message)
-                .setCancelable(false)
-                .setPositiveButton(overlay ? R.string.allow : R.string.open_settings, (d, w) -> {
-                    if (overlay) {
-                        openOverlaySettings();
-                    } else {
-                        openAppSettings();
-                    }
-                })
-                .show();
-    }
-
-    private void openAppSettings() {
-        launchSettings(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                Uri.fromParts("package", getPackageName(), null)));
-    }
-
-    private void openOverlaySettings() {
-        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                Uri.parse("package:" + getPackageName()));
-        if (!launchSettings(intent)) {
-            openAppSettings();
-        }
-    }
-
-    private boolean launchSettings(Intent intent) {
+        homePrompts++;
         try {
-            awaitingResult = true;
-            settingsLauncher.launch(intent);
-            return true;
+            homeLaunchTime = SystemClock.elapsedRealtime();
+            homeLauncher.launch(roleIntent);
         } catch (Exception e) {
-            awaitingResult = false;
-            return false;
+            openHomeSettings();
         }
     }
 
-    private void complete() {
-        if (finishing || awaitingResult) {
+    private void openHomeSettings() {
+        try {
+            homeSettingsLauncher.launch(LauncherMode.createSettingsIntent());
+        } catch (Exception e) {
+            homeUnavailable = true;
+            LauncherMode.releaseApp();
+            showPermissions();
+        }
+    }
+
+    private void onHomeResult() {
+        if (isFinishing() || finishing) {
             return;
         }
-        if (shouldAskNotifications()) {
-            notificationAsked = true;
-            PermissionManager.markRequested(PermissionManager.Group.NOTIFICATIONS);
-            awaitingResult = true;
-            notificationLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+        if (isHomeSatisfied()) {
+            if (homeDialog != null && homeDialog.isShowing()) {
+                homeDialog.dismiss();
+            }
+            showPermissions();
+        } else {
+            showHomeRequiredDialog();
+        }
+    }
+
+    private void showHomeRequiredDialog() {
+        if (homeDialog != null && homeDialog.isShowing()) {
             return;
         }
-        openMain();
+        boolean viaSettings = homePrompts >= MAX_ROLE_PROMPTS || LauncherMode.createRoleIntent(this) == null;
+        homeDialog = new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_Dialog)
+                .setTitle(R.string.launcher_required_title)
+                .setMessage(viaSettings ? R.string.launcher_required_settings_body : R.string.launcher_required_body)
+                .setCancelable(false)
+                .setPositiveButton(viaSettings ? R.string.open_settings : R.string.set_as_default,
+                        (d, w) -> requestHome())
+                .create();
+        Analytics.trackDialog(homeDialog, "launcher_required_dialog");
+        homeDialog.show();
     }
 
-    private boolean shouldAskNotifications() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-                && !notificationAsked
-                && !PermissionManager.isGranted(this, PermissionManager.Group.NOTIFICATIONS)
-                && PermissionManager.getStatus(this, PermissionManager.Group.NOTIFICATIONS)
-                != PermissionManager.Status.PERMANENTLY_DENIED;
+    @Override
+    protected void onDestroy() {
+        if (isFinishing()) LauncherMode.releaseApp();
+        super.onDestroy();
     }
 
-    private void openMain() {
+    private void leave() {
         if (finishing) {
             return;
         }
         finishing = true;
-        StorageService.setOnboardingDone(true);
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+        OnboardingFlow.continueFrom(this, OnboardingFlow.Step.DEFAULT_PHONE);
     }
 }

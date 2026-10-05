@@ -71,4 +71,11 @@
     <style name="Theme.Contacts.Crop" parent="Theme.Contacts">
         <item name="android:windowLightStatusBar">false</item>
     </style>
+
+    <style name="Theme.Contacts.CustomTabAd" parent="Theme.Contacts">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
 </resources>

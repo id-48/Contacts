@@ -279,7 +279,7 @@
     <string name="widget">Widget</string>
     <string name="widget_manual_hint">Toque e segure a tela inicial, toque em Widgets e adicione o widget Ações rápidas.</string>
     <string name="share_app">Compartilhar app</string>
-    <string name="share_app_text">Estou usando este app de telefone e contatos simples e sem anúncios: %1$s</string>
+    <string name="share_app_text">Estou usando este app simples de telefone e contatos: %1$s</string>
     <string name="rate_us">Avalie-nos</string>
     <string name="privacy_policy">Política de Privacidade</string>
     <string name="about">Sobre</string>
@@ -334,16 +334,16 @@
     <string name="perm_required_settings_body">A permissão %1$s é necessária para o app funcionar. Abra as Configurações, toque em Permissões e permita o acesso para continuar.</string>
     <string name="perm_required_overlay_body">Permita \"Sobrepor a outros apps\" para este app para continuar. Isso é necessário para que os recursos de chamada funcionem corretamente.</string>
     <string name="open_settings">Abrir configurações</string>
-    <string name="about_no_ads">Sem anúncios</string>
-    <string name="about_no_ads_body">Sem anúncios, sem rastreadores, sem análises.</string>
-    <string name="about_on_device">Somente no dispositivo</string>
-    <string name="about_on_device_body">O app não tem acesso à internet. Seus dados nunca saem do seu telefone.</string>
+    <string name="about_no_ads">Grátis com anúncios</string>
+    <string name="about_no_ads_body">O app mostra anúncios para continuar gratuito. Seus contatos e chamadas nunca são compartilhados com redes de anúncios.</string>
+    <string name="about_on_device">Seus dados continuam privados</string>
+    <string name="about_on_device_body">Contatos, histórico de chamadas e mensagens são processados no seu telefone e nunca são enviados.</string>
 
-    <string name="privacy_intro">Sua privacidade é importante. Esta política explica o que o app acessa e por quê. Resumindo: tudo fica no seu dispositivo.</string>
+    <string name="privacy_intro">Sua privacidade é importante. Esta política explica o que o app acessa e por quê. Resumindo: seus contatos e chamadas ficam no seu dispositivo.</string>
     <string-array name="privacy_titles">
         <item>Dados que acessamos</item>
         <item>Como seus dados são usados</item>
-        <item>Sem internet, sem anúncios</item>
+        <item>Anúncios, configurações e análises</item>
         <item>Números bloqueados</item>
         <item>Suas escolhas</item>
         <item>Alterações</item>
@@ -351,7 +351,7 @@
     <string-array name="privacy_bodies">
         <item>Com a sua permissão, o app lê e edita seus contatos e o histórico de chamadas, faz chamadas e mostra notificações. As fotos que você escolhe para um contato são usadas apenas como a foto desse contato.</item>
         <item>Seus dados são usados apenas para mostrar seus contatos, chamadas e nomes de quem liga dentro do app. Eles são processados no seu dispositivo e nunca são enviados, vendidos ou compartilhados.</item>
-        <item>O app não solicita acesso à internet, não contém anúncios e não usa ferramentas de análise ou rastreamento.</item>
+        <item>O app usa a internet para mostrar anúncios (Google AdMob, Google Ad Manager e TradPlus com seus parceiros), carregar as configurações do app e para análises de uso anônimas. Esses serviços podem usar o ID de publicidade do seu dispositivo. Seus contatos, histórico de chamadas e mensagens nunca são enviados a eles.</item>
         <item>Os números bloqueados são armazenados na lista de bloqueio do sistema Android para continuarem funcionando com os outros recursos do seu telefone.</item>
         <item>Você pode revogar qualquer permissão a qualquer momento nas configurações do telefone. As configurações que você escolhe no app são armazenadas apenas neste dispositivo e são removidas quando você o desinstala.</item>
         <item>Se esta política mudar, a versão atualizada será incluída em uma atualização do app.</item>

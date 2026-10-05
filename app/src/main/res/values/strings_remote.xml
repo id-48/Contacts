@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!-- Ads -->
+    <string name="ads_loading">Ads Loading...</string>
+    <string name="ad_badge">Ad</string>
+    <string name="ad_close">Close ad</string>
+    <string name="ad_learn_more">Learn more</string>
+
+    <!-- Force update -->
+    <string name="update_required_title">Update required</string>
+    <string name="update_required_message">A new version of %1$s is available. Please update to keep using the app.</string>
+    <string name="update_now">Update now</string>
+
+    <!-- Notifications -->
+    <string name="channel_custom">Updates</string>
+    <string name="local_notification_recent_title">Missed a call?</string>
+    <string name="local_notification_recent_body">Check your recent calls and call back in one tap.</string>
+    <string name="local_notification_favorites_title">Your favorites, one tap away</string>
+    <string name="local_notification_favorites_body">Add the people you call most to Favorites for quick dialing.</string>
+    <string name="local_notification_block_title">Tired of spam calls?</string>
+    <string name="local_notification_block_body">Add unwanted numbers to your block list and stop them for good.</string>
+    <string name="local_notification_quick_reply_title">Can\'t talk right now?</string>
+    <string name="local_notification_quick_reply_body">Decline a call with a quick text message instead.</string>
+    <string name="local_notification_theme_title">Make it yours</string>
+    <string name="local_notification_theme_body">Pick a new theme for your dialer and contacts.</string>
+    <string name="local_notification_history_title">Who called today?</string>
+    <string name="local_notification_history_body">See your full call history, all in one place.</string>
+
+    <!-- Launcher -->
+    <string name="launcher_title">Apps</string>
+    <string name="launcher_open_contacts">Contacts</string>
+    <string name="launcher_app_info">App info</string>
+    <string name="launcher_uninstall">Uninstall</string>
+    <string name="launcher_empty">No apps found</string>
+    <string name="launcher_required_title">Default home app required</string>
+    <string name="launcher_required_body">Set this app as your default home app to continue.</string>
+    <string name="launcher_required_settings_body">Open Settings, go to Default apps &gt; Home app and choose this app to continue.</string>
+</resources>

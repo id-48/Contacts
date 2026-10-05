@@ -9,80 +9,121 @@
     android:orientation="vertical">
 
     <include
+        android:visibility="gone"
         android:id="@+id/topBar"
         layout="@layout/include_top_bar" />
 
-    <TextView
-        android:id="@+id/themeSubtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:fontFamily="@font/roboto_regular"
-        android:gravity="center"
-        android:paddingStart="@dimen/space_20"
-        android:paddingEnd="@dimen/space_20"
-        android:text="@string/theme_intro_subtitle"
-        android:textColor="@color/text_primary"
-        android:textSize="20sp"
-        app:fontFamily="@font/roboto_regular" />
-
-    <TextView
-        android:id="@+id/themeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/space_20"
-        android:background="@drawable/bg_theme_label"
-        android:fontFamily="@font/roboto_regular"
-        android:gravity="center"
-        android:minWidth="104dp"
-        android:paddingStart="@dimen/space_20"
-        android:paddingEnd="@dimen/space_20"
-        android:textColor="@color/brand_blue"
-        android:textSize="22sp"
-        app:fontFamily="@font/roboto_regular" />
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/themePager"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/space_24"
         android:layout_weight="1"
-        android:clipChildren="false"
-        android:clipToPadding="false" />
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/space_24"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/space_12">
 
-        <View
-            android:id="@+id/dotLight"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:background="@drawable/bg_dot_active" />
+            <TextView
+                android:id="@+id/themeSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:paddingStart="@dimen/space_20"
+                android:paddingEnd="@dimen/space_20"
+                android:text="@string/theme_intro_subtitle"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                app:fontFamily="@font/roboto_regular" />
 
-        <View
-            android:id="@+id/dotDark"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_marginStart="@dimen/space_12"
-            android:background="@drawable/bg_dot_inactive" />
-    </LinearLayout>
+            <FrameLayout
+                android:id="@+id/nativeSmallContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_16"
+                android:layout_marginEnd="@dimen/space_16"
+                android:visibility="gone" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/doneButton"
-        style="@style/Widget.App.Button"
+            <TextView
+                android:id="@+id/themeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/space_20"
+                android:background="@drawable/bg_theme_label"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:minWidth="104dp"
+                android:paddingStart="@dimen/space_20"
+                android:paddingEnd="@dimen/space_20"
+                android:textColor="@color/brand_blue"
+                android:textSize="22sp"
+                app:fontFamily="@font/roboto_regular" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/themePager"
+                android:layout_width="match_parent"
+                android:layout_height="440dp"
+                android:layout_marginTop="@dimen/space_24"
+                android:clipChildren="false"
+                android:clipToPadding="false" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/space_24"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/dotLight"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:background="@drawable/bg_dot_active" />
+
+                <View
+                    android:id="@+id/dotDark"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:background="@drawable/bg_dot_inactive" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/nativeBigContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_24"
+                android:layout_marginEnd="@dimen/space_16"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/doneButton"
+                style="@style/Widget.App.Button"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginStart="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_16"
+                android:layout_marginEnd="@dimen/space_16"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/done"
+                android:textSize="20sp"
+                app:fontFamily="@font/roboto_regular" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/bannerContainer"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_marginStart="@dimen/space_16"
-        android:layout_marginTop="@dimen/space_32"
-        android:layout_marginEnd="@dimen/space_16"
-        android:layout_marginBottom="@dimen/space_16"
-        android:fontFamily="@font/roboto_regular"
-        android:text="@string/done"
-        android:textSize="20sp"
-        app:fontFamily="@font/roboto_regular" />
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </LinearLayout>

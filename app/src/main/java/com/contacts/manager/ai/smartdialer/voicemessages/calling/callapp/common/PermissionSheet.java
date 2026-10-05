@@ -8,6 +8,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemWelcomeFeatureBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.SheetPermissionsBinding;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -62,6 +63,7 @@ public final class PermissionSheet {
         dialog.setContentView(binding.getRoot());
         dialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
         dialog.getBehavior().setSkipCollapsed(true);
+        Analytics.trackDialog(dialog, "permission_sheet");
         dialog.show();
         return dialog;
     }

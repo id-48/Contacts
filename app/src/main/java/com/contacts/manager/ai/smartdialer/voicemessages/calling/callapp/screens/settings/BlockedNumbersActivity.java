@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BlockNumberDialog;
@@ -62,6 +64,8 @@ public class BlockedNumbersActivity extends BaseActivity {
         setContentView(binding.getRoot());
         applyInsets(binding.root);
         setupBack(binding.backButton);
+        setupBackAd(AdScreens.BLOCKED_NUMBERS_BACK);
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.BLOCKED_NUMBERS);
         if (savedInstanceState != null) {
             pendingNumber = savedInstanceState.getString("pending_number");
         }
@@ -72,7 +76,9 @@ public class BlockedNumbersActivity extends BaseActivity {
         binding.emptyState.setContent(R.drawable.ic_block, R.string.empty_blocked_title, R.string.empty_blocked_body);
 
         binding.blockUnknownRow.setOnCheckedListener(this::onBlockUnknown);
-        binding.addButton.setOnClickListener(v -> BlockNumberDialog.show(this, this::onNumberEntered));
+        binding.addButton.setOnClickListener(v -> showFullscreen(AdScreens.BLOCKED_NUMBERS_ADD,
+                () -> BlockNumberDialog.show(this,
+                        number -> showFullscreen(AdScreens.BLOCKED_NUMBERS_BLOCK, () -> onNumberEntered(number)))));
 
         binding.banner.bannerIcon.setImageResource(R.drawable.ic_phone_in_talk);
         binding.banner.bannerTitle.setText(R.string.blocking_requires_default_title);

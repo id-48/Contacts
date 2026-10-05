@@ -1,5 +1,9 @@
 package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.settings;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -9,8 +13,22 @@ import androidx.core.view.ViewCompat;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityPrivacyPolicyBinding;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 
 public class PrivacyPolicyActivity extends BaseActivity {
+
+    /** Opens the admin-configured privacy policy URL, falling back to the bundled policy screen. */
+    public static void open(Context context) {
+        String url = RemoteConfigManager.get().privacyPolicyUrl;
+        if (!url.isEmpty()) {
+            try {
+                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                return;
+            } catch (ActivityNotFoundException ignored) {
+            }
+        }
+        context.startActivity(new Intent(context, PrivacyPolicyActivity.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

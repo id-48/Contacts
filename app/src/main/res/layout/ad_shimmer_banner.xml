@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.ui.ShimmerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:importantForAccessibility="noHideDescendants">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/space_12"
+        android:layout_marginTop="@dimen/space_4"
+        android:layout_marginEnd="@dimen/space_12"
+        android:layout_marginBottom="@dimen/space_4"
+        android:background="@drawable/bg_shimmer_block" />
+</com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.ui.ShimmerLayout>

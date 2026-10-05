@@ -16,6 +16,7 @@ import android.view.inputmethod.EditorInfo;
 import androidx.core.content.ContextCompat;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.DialogBlockNumberBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.PhoneUtils;
@@ -108,6 +109,7 @@ public final class BlockNumberDialog {
                     | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         }
         dialog.setOnShowListener(d -> binding.numberField.requestFocus());
+        Analytics.trackDialog(dialog, "block_number_dialog");
         dialog.show();
         return dialog;
     }

@@ -9,6 +9,7 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.DialogInputBinding;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -31,7 +32,10 @@ public final class AppDialogs {
         if (!TextUtils.isEmpty(message)) {
             builder.setMessage(message);
         }
-        return builder.show();
+        AlertDialog dialog = builder.create();
+        Analytics.trackDialog(dialog, "alert_dialog");
+        dialog.show();
+        return dialog;
     }
 
     public static AlertDialog input(Context context, CharSequence title, String initial, @StringRes int hint,
@@ -73,6 +77,7 @@ public final class AppDialogs {
         if (dialog.getWindow() != null) {
             dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }
+        Analytics.trackDialog(dialog, "input_dialog");
         dialog.show();
         return dialog;
     }

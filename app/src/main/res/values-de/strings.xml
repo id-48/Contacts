@@ -279,7 +279,7 @@
     <string name="widget">Widget</string>
     <string name="widget_manual_hint">Halte den Startbildschirm gedrückt, tippe auf Widgets und füge das Widget Schnellaktionen hinzu.</string>
     <string name="share_app">App teilen</string>
-    <string name="share_app_text">Ich nutze diese einfache, werbefreie Telefon- und Kontakte-App: %1$s</string>
+    <string name="share_app_text">Ich nutze diese einfache Telefon- und Kontakte-App: %1$s</string>
     <string name="rate_us">Bewerte uns</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
     <string name="about">Über</string>
@@ -334,16 +334,16 @@
     <string name="perm_required_settings_body">Die Berechtigung %1$s ist für die App erforderlich. Öffne die Einstellungen, tippe auf Berechtigungen und erlaube sie, um fortzufahren.</string>
     <string name="perm_required_overlay_body">Erlaube \"Über anderen Apps einblenden\", um fortzufahren. Das ist für die Anruffunktionen erforderlich.</string>
     <string name="open_settings">Einstellungen öffnen</string>
-    <string name="about_no_ads">Keine Werbung</string>
-    <string name="about_no_ads_body">Keine Werbung, keine Tracker, keine Analysen.</string>
-    <string name="about_on_device">Nur auf dem Gerät</string>
-    <string name="about_on_device_body">Die App hat keinen Internetzugriff. Deine Daten verlassen nie dein Telefon.</string>
+    <string name="about_no_ads">Kostenlos mit Werbung</string>
+    <string name="about_no_ads_body">Die App zeigt Werbung, um kostenlos zu bleiben. Deine Kontakte und Anrufe werden nie mit Werbenetzwerken geteilt.</string>
+    <string name="about_on_device">Deine Daten bleiben privat</string>
+    <string name="about_on_device_body">Kontakte, Anrufliste und Nachrichten werden auf deinem Telefon verarbeitet und nie hochgeladen.</string>
 
-    <string name="privacy_intro">Deine Privatsphäre ist uns wichtig. Diese Erklärung beschreibt, worauf die App zugreift und warum. Kurz gesagt: Alles bleibt auf deinem Gerät.</string>
+    <string name="privacy_intro">Deine Privatsphäre ist uns wichtig. Diese Erklärung beschreibt, worauf die App zugreift und warum. Kurz gesagt: Deine Kontakte und Anrufe bleiben auf deinem Gerät.</string>
     <string-array name="privacy_titles">
         <item>Daten, auf die wir zugreifen</item>
         <item>Wie deine Daten verwendet werden</item>
-        <item>Kein Internet, keine Werbung</item>
+        <item>Werbung, Einstellungen und Analysen</item>
         <item>Blockierte Nummern</item>
         <item>Deine Wahl</item>
         <item>Änderungen</item>
@@ -351,7 +351,7 @@
     <string-array name="privacy_bodies">
         <item>Mit deiner Erlaubnis liest und bearbeitet die App deine Kontakte und deinen Anrufverlauf, tätigt Anrufe und zeigt Benachrichtigungen an. Fotos, die du für einen Kontakt auswählst, werden nur als dessen Bild verwendet.</item>
         <item>Deine Daten werden nur verwendet, um Kontakte, Anrufe und Anrufernamen in der App anzuzeigen. Sie werden auf deinem Gerät verarbeitet und niemals hochgeladen, verkauft oder geteilt.</item>
-        <item>Die App fordert keinen Internetzugriff an, enthält keine Werbung und nutzt keine Analyse- oder Tracking-Tools.</item>
+        <item>Die App nutzt das Internet, um Werbung anzuzeigen (Google AdMob, Google Ad Manager sowie TradPlus und seine Partner), App-Einstellungen zu laden und für anonyme Nutzungsanalysen. Diese Dienste können die Werbe-ID deines Geräts verwenden. Deine Kontakte, Anrufliste und Nachrichten werden nie an sie gesendet.</item>
         <item>Blockierte Nummern werden in der Sperrliste von Android gespeichert, damit sie auch mit anderen Funktionen deines Telefons funktionieren.</item>
         <item>Du kannst jede Berechtigung jederzeit in den Einstellungen deines Telefons widerrufen. Deine App-Einstellungen werden nur auf diesem Gerät gespeichert und beim Deinstallieren entfernt.</item>
         <item>Wenn sich diese Erklärung ändert, ist die aktualisierte Fassung in einem App-Update enthalten.</item>

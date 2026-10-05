@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppBottomSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.DialPadView;
@@ -91,6 +92,7 @@ public class DialerActivity extends BaseActivity implements DialPadView.Listener
         });
 
         setupBack(binding.backButton);
+        setupBackAd(AdScreens.DIALER_BACK);
         binding.dialPad.setListener(this);
         binding.callButton.setOnClickListener(v -> placeCall());
         binding.backspaceButton.setOnClickListener(v -> {

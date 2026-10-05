@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.QuickResponseDialog;
@@ -39,6 +41,8 @@ public class QuickResponseActivity extends BaseActivity {
         setContentView(binding.getRoot());
         applyInsets(binding.root);
         setupBack(binding.backButton);
+        setupBackAd(AdScreens.QUICK_RESPONSE_BACK);
+        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.QUICK_RESPONSE);
 
         defaults.addAll(StorageService.getDefaultQuickResponses(this));
         customResponses.addAll(StorageService.getCustomQuickResponses(this));
@@ -87,7 +91,7 @@ public class QuickResponseActivity extends BaseActivity {
             return;
         }
         QuickResponseDialog.show(this, R.string.add_response, null, R.string.add,
-                value -> isDuplicate(value, -1), value -> {
+                value -> isDuplicate(value, -1), value -> showFullscreen(AdScreens.QUICK_RESPONSE_ADD, () -> {
                     customResponses.add(value);
                     persist();
                     int position = customResponses.size() - 1;
@@ -97,7 +101,7 @@ public class QuickResponseActivity extends BaseActivity {
                     }
                     updateCustomSection(true);
                     binding.scroll.post(() -> binding.scroll.smoothScrollTo(0, binding.content.getHeight()));
-                });
+                }));
     }
 
     private void edit(int position) {
