@@ -1,12 +1,16 @@
 package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.favorites;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,22 +35,24 @@ public class FavoritesAdapter extends ListAdapter<FavoritesAdapter.Item, Recycle
         void onAddFavorite();
     }
 
-    private static final int TYPE_CONTACT = 0;
-    private static final int TYPE_ADD = 1;
+    static final int TYPE_CONTACT = 0;
+    static final int TYPE_ADD = 1;
 
     public static class Item {
         final ContactModel contact;
+        final int type;
 
-        private Item(ContactModel contact) {
+        private Item(ContactModel contact, int type) {
             this.contact = contact;
+            this.type = type;
         }
 
         public static Item contact(ContactModel contact) {
-            return new Item(contact);
+            return new Item(contact, TYPE_CONTACT);
         }
 
         public static Item add() {
-            return new Item(null);
+            return new Item(null, TYPE_ADD);
         }
 
         long id() {
@@ -62,6 +68,9 @@ public class FavoritesAdapter extends ListAdapter<FavoritesAdapter.Item, Recycle
 
         @Override
         public boolean areContentsTheSame(@NonNull Item oldItem, @NonNull Item newItem) {
+            if (oldItem.type != newItem.type) {
+                return false;
+            }
             if (oldItem.contact == null || newItem.contact == null) {
                 return oldItem.contact == newItem.contact;
             }
@@ -87,7 +96,7 @@ public class FavoritesAdapter extends ListAdapter<FavoritesAdapter.Item, Recycle
 
     @Override
     public int getItemViewType(int position) {
-        return getItem(position).contact == null ? TYPE_ADD : TYPE_CONTACT;
+        return getItem(position).type;
     }
 
     @NonNull
@@ -104,8 +113,9 @@ public class FavoritesAdapter extends ListAdapter<FavoritesAdapter.Item, Recycle
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        Item item = getItem(position);
         if (holder instanceof Holder) {
-            ((Holder) holder).bind(getItem(position).contact);
+            ((Holder) holder).bind(item.contact);
         }
     }
 
@@ -133,6 +143,7 @@ public class FavoritesAdapter extends ListAdapter<FavoritesAdapter.Item, Recycle
         Holder(ItemFavoriteBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+            binding.favoriteTile.setClipToOutline(true);
         }
 
         void bind(ContactModel contact) {
@@ -142,11 +153,21 @@ public class FavoritesAdapter extends ListAdapter<FavoritesAdapter.Item, Recycle
             boolean named = hasLetter(contact.name);
             String name = named || formatted == null ? contact.getDisplayName() : formatted;
 
+            int accent = ContextCompat.getColor(context, R.color.primary);
+            GradientDrawable glow = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,
+                    new int[]{ColorUtils.setAlphaComponent(accent, 0x40), Color.TRANSPARENT});
+            binding.favoriteGlow.setBackground(glow);
+            GradientDrawable ring = new GradientDrawable();
+            ring.setShape(GradientDrawable.OVAL);
+            ring.setColor(ColorUtils.setAlphaComponent(accent, 0x1F));
+            ring.setStroke(Math.round(2.5f * context.getResources().getDisplayMetrics().density), accent);
+            binding.favoriteRing.setBackground(ring);
+
             binding.favoriteName.setText(name);
             binding.favoriteNumber.setText(named ? formatted : null);
             binding.favoriteNumber.setVisibility(named && formatted != null ? View.VISIBLE : View.INVISIBLE);
             binding.favoriteAvatar.bind(contact.name, contact.photoUri);
-            binding.favoriteCall.setVisibility(callable ? View.VISIBLE : View.INVISIBLE);
+            binding.favoriteCall.setVisibility(callable ? View.VISIBLE : View.GONE);
             binding.favoriteCall.setContentDescription(context.getString(R.string.call_name, name));
             binding.favoriteCall.setOnClickListener(v -> listener.onCall(contact));
             binding.favoriteTile.setContentDescription(formatted != null && named ? name + ", " + formatted : name);

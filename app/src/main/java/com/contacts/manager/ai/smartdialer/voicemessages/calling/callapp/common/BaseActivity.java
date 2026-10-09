@@ -3,6 +3,7 @@ package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -104,5 +105,18 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void showFullscreen(String screenKey, Runnable onDone) {
         AdsManager.showFullscreen(this, screenKey, onDone);
+    }
+
+    protected void showNativeAds(ViewGroup bigContainer, ViewGroup smallContainer, String screenKey) {
+        AdsManager.showNativeBig(this, bigContainer, screenKey);
+        AdsManager.showNativeSmall(this, smallContainer, screenKey);
+    }
+
+    protected void showNativeBig(ViewGroup container, String screenKey) {
+        AdsManager.showNativeBig(this, container, screenKey);
+    }
+
+    protected void showNativeSmall(ViewGroup container, String screenKey) {
+        AdsManager.showNativeSmall(this, container, screenKey);
     }
 }

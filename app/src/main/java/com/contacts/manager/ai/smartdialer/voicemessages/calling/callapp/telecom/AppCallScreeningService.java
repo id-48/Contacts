@@ -14,7 +14,8 @@ public class AppCallScreeningService extends CallScreeningService {
     @Override
     public void onScreenCall(Call.Details details) {
         CallResponse.Builder response = new CallResponse.Builder();
-        if (isIncoming(details) && StorageService.isBlockUnknownEnabled() && isUnknownCaller(details)) {
+        if (isIncoming(details) && ((StorageService.isBlockUnknownEnabled() && isUnknownCaller(details))
+                || (StorageService.isSpamShieldEnabled() && isSpam(details)))) {
             response.setDisallowCall(true)
                     .setRejectCall(true)
                     .setSkipNotification(true)
@@ -26,6 +27,16 @@ public class AppCallScreeningService extends CallScreeningService {
     private boolean isIncoming(Call.Details details) {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
                 || details.getCallDirection() == Call.Details.DIRECTION_INCOMING;
+    }
+
+    private boolean isSpam(Call.Details details) {
+        Uri handle = details.getHandle();
+        String number = handle == null ? null : handle.getSchemeSpecificPart();
+        if (!SpamShield.shouldBlock(number)) {
+            return false;
+        }
+        return PhoneUtils.isPrivate(number) || !ContactsService.canRead(this)
+                || ContactsService.lookupNumber(this, number) == null;
     }
 
     private boolean isUnknownCaller(Call.Details details) {

@@ -8,6 +8,12 @@
 -keepnames class com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.** extends androidx.fragment.app.Fragment
 -keepnames class com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.** extends android.view.View
 
+# WorkManager creates its Room database and workers by reflection
+-keep class * extends androidx.room.RoomDatabase { <init>(); }
+-keep class * extends androidx.work.ListenableWorker {
+    public <init>(android.content.Context, androidx.work.WorkerParameters);
+}
+
 -repackageclasses ''
 -allowaccessmodification
 

@@ -39,11 +39,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/space_12"
-        android:maxWidth="160dp"
-        android:maxLines="1"
+        android:background="@drawable/bg_value_chip"
         android:ellipsize="end"
+        android:fontFamily="@font/roboto_medium"
+        android:maxWidth="150dp"
+        android:maxLines="1"
+        android:paddingStart="@dimen/space_12"
+        android:paddingTop="5dp"
+        android:paddingEnd="@dimen/space_12"
+        android:paddingBottom="5dp"
         android:textAppearance="@style/TextAppearance.App.BodySmall"
-        android:textColor="@color/primary"
+        android:textColor="@color/on_primary_container"
+        android:textSize="13sp"
         android:visibility="gone" />
 
     <com.google.android.material.materialswitch.MaterialSwitch

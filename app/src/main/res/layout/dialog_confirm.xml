@@ -75,6 +75,7 @@
             app:fontFamily="@font/roboto_medium" />
 
         <Space
+            android:id="@+id/confirmSpace"
             android:layout_width="@dimen/space_16"
             android:layout_height="0dp" />
 

@@ -37,6 +37,9 @@
     <color name="control_active">#FFF2F3F5</color>
     <color name="on_control_active">#FF000000</color>
 
+    <color name="surface_card">#FF17181C</color>
+    <color name="surface_stroke">#FF24262C</color>
+
     <color name="ad_small_background">#FF1C1D21</color>
     <color name="ad_small_title">#FFF2F3F5</color>
     <color name="ad_small_body">#FF9A9EAA</color>

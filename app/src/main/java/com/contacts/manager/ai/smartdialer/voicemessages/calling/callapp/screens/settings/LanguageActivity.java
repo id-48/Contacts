@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LayoutAnimationController;
+import android.view.animation.OvershootInterpolator;
 import android.view.animation.TranslateAnimation;
 
 import androidx.annotation.NonNull;
@@ -40,6 +41,8 @@ public class LanguageActivity extends BaseActivity {
 
     private static final String DEFAULT_TAG = "en";
     private static final Object PAYLOAD_SELECTION = new Object();
+    private static final String[] LANGUAGE_FLAGS = {
+            "🇺🇸", "🇮🇳", "🇫🇷", "🇪🇸", "🇩🇪", "🇹🇷", "🇨🇳", "🇧🇷", "🇧🇩", "🇮🇹", "🇯🇵", "🇷🇺", "🇻🇳"};
 
     private ActivityLanguageBinding binding;
     private boolean onboarding;
@@ -105,9 +108,6 @@ public class LanguageActivity extends BaseActivity {
             showFullscreen(AdScreens.LANGUAGE_DONE, this::apply);
         });
         AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.LANGUAGE);
-        binding.languageSubtitle.setVisibility(onboarding ? View.VISIBLE : View.GONE);
-
-        binding.languageCard.setClipToOutline(true);
         adapter = new LanguageAdapter();
         binding.languageList.setLayoutManager(new LinearLayoutManager(this));
         binding.languageList.setAdapter(adapter);
@@ -128,18 +128,12 @@ public class LanguageActivity extends BaseActivity {
     }
 
     private void animateIn() {
-        float offset = getResources().getDimension(R.dimen.space_24);
         DecelerateInterpolator interpolator = new DecelerateInterpolator(1.6f);
 
         binding.doneButton.setAlpha(0f);
         binding.doneButton.setScaleX(0.85f);
         binding.doneButton.setScaleY(0.85f);
         binding.doneButton.animate().alpha(1f).scaleX(1f).scaleY(1f).setStartDelay(120).setDuration(260)
-                .setInterpolator(interpolator).start();
-
-        binding.languageCard.setAlpha(0f);
-        binding.languageCard.setTranslationY(offset);
-        binding.languageCard.animate().alpha(1f).translationY(0f).setStartDelay(60).setDuration(320)
                 .setInterpolator(interpolator).start();
 
         AnimationSet row = new AnimationSet(true);
@@ -212,9 +206,10 @@ public class LanguageActivity extends BaseActivity {
         public void onBindViewHolder(@NonNull Holder holder, int position) {
             String nativeName = AppConstants.LANGUAGE_NATIVE_NAMES[position];
             String englishName = AppConstants.LANGUAGE_ENGLISH_NAMES[position];
-            holder.binding.languageNative.setText(getString(R.string.language_native_format, nativeName));
+            holder.binding.languageFlag.setText(LANGUAGE_FLAGS[position]);
+            holder.binding.languageNative.setText(nativeName);
             holder.binding.languageEnglish.setText(englishName);
-            holder.binding.languageDivider.setVisibility(position == getItemCount() - 1 ? View.GONE : View.VISIBLE);
+            holder.binding.languageEnglish.setVisibility(nativeName.equals(englishName) ? View.GONE : View.VISIBLE);
             holder.itemView.setContentDescription(nativeName + ", " + englishName);
             holder.itemView.setOnClickListener(v -> {
                 int adapterPosition = holder.getBindingAdapterPosition();
@@ -240,9 +235,14 @@ public class LanguageActivity extends BaseActivity {
 
             void bindSelection(int position, boolean animate) {
                 boolean checked = AppConstants.LANGUAGE_TAGS[position].equals(selectedTag);
-                binding.languageRadio.setChecked(checked);
-                if (!animate) {
-                    binding.languageRadio.jumpDrawablesToCurrentState();
+                itemView.setSelected(checked);
+                binding.languageCheck.setSelected(checked);
+                binding.languageCheck.setImageResource(checked ? R.drawable.ic_check : 0);
+                if (animate && checked) {
+                    binding.languageCheck.setScaleX(0.6f);
+                    binding.languageCheck.setScaleY(0.6f);
+                    binding.languageCheck.animate().scaleX(1f).scaleY(1f).setDuration(260)
+                            .setInterpolator(new OvershootInterpolator(2.5f)).start();
                 }
                 ViewCompat.setStateDescription(itemView, checked ? getString(R.string.selected) : null);
             }

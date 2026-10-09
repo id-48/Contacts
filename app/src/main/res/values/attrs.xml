@@ -8,5 +8,6 @@
         <attr name="rowShowSwitch" format="boolean" />
         <attr name="rowShowChevron" format="boolean" />
         <attr name="rowIconTint" format="color" />
+        <attr name="rowAccent" format="color" />
     </declare-styleable>
 </resources>

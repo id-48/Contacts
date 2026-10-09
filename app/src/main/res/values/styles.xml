@@ -78,6 +78,11 @@
         <item name="cornerSize">@dimen/radius_16</item>
     </style>
 
+    <style name="ShapeAppearance.App.Icon" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25%</item>
+    </style>
+
     <style name="ShapeAppearance.App.Large" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/radius_24</item>
@@ -216,18 +221,22 @@
     <style name="Widget.App.SettingsSection" parent="">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingStart">@dimen/space_4</item>
-        <item name="android:paddingTop">@dimen/space_16</item>
+        <item name="android:paddingStart">@dimen/space_8</item>
+        <item name="android:paddingTop">@dimen/space_20</item>
         <item name="android:paddingBottom">@dimen/space_8</item>
         <item name="android:accessibilityHeading" tools:targetApi="28">true</item>
-        <item name="android:textAppearance">@style/TextAppearance.App.Body</item>
-        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.Label</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textColor">@color/primary</item>
     </style>
 
     <style name="Widget.App.SettingsGroup" parent="">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/bg_card_large</item>
+        <item name="android:background">@drawable/bg_settings_group</item>
         <item name="android:orientation">vertical</item>
         <item name="android:paddingTop">@dimen/space_4</item>
         <item name="android:paddingBottom">@dimen/space_4</item>
@@ -240,23 +249,16 @@
 
     <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Widget.App.BottomSheet</item>
+        <item name="elevationOverlayEnabled">false</item>
         <item name="android:navigationBarColor">@color/surface_elevated</item>
     </style>
 
     <style name="ThemeOverlay.App.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.Large</item>
         <item name="backgroundTint">@color/surface_elevated</item>
+        <item name="elevationOverlayEnabled">false</item>
         <item name="android:backgroundDimAmount">0.4</item>
         <item name="android:windowAnimationStyle">@style/Animation.App.Dialog</item>
-    </style>
-
-    <style name="ThemeOverlay.App.Dialog.Destructive">
-        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.DialogButton.Destructive</item>
-    </style>
-
-    <style name="Widget.App.DialogButton.Destructive" parent="Widget.Material3.Button.TextButton.Dialog">
-        <item name="android:textColor">@color/error</item>
-        <item name="android:textAppearance">@style/TextAppearance.App.Button</item>
     </style>
 
     <style name="Animation.App.Activity" parent="@android:style/Animation.Activity">

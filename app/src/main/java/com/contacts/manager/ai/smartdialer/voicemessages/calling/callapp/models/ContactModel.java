@@ -12,6 +12,7 @@ public class ContactModel {
     public long id;
     public String lookupKey;
     public String name;
+    public String sortName;
     public String photoUri;
     public String fullPhotoUri;
     public String primaryNumber;
@@ -50,8 +51,12 @@ public class ContactModel {
         return "";
     }
 
+    public String getSortName() {
+        return !TextUtils.isEmpty(sortName) ? sortName : getDisplayName();
+    }
+
     public String getSectionLetter() {
-        String display = getDisplayName();
+        String display = getSortName();
         if (display.isEmpty()) {
             return "#";
         }

@@ -16,9 +16,13 @@ public class AppInCallService extends InCallService {
 
     private Call lastPrimary;
     private int lastPrimaryState = -1;
+    private CallAlerts alerts;
 
     private final CallManager.Listener listener = () -> {
         NotificationService.updateCallNotification(this);
+        if (alerts != null) {
+            alerts.update();
+        }
         Call primary = CallManager.getPrimaryCall();
         int state = primary == null ? -1 : CallManager.getState(primary);
         if (primary != null && primary == lastPrimary
@@ -32,6 +36,7 @@ public class AppInCallService extends InCallService {
     @Override
     public void onCreate() {
         super.onCreate();
+        alerts = new CallAlerts(this);
         CallManager.setService(this);
         CallManager.addListener(listener);
     }
@@ -39,6 +44,10 @@ public class AppInCallService extends InCallService {
     @Override
     public void onDestroy() {
         CallManager.removeListener(listener);
+        if (alerts != null) {
+            alerts.release();
+            alerts = null;
+        }
         if (CallManager.getService() == this) {
             CallManager.setService(null);
         }

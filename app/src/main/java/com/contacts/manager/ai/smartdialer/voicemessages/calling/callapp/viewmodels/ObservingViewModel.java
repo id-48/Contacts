@@ -23,8 +23,14 @@ public abstract class ObservingViewModel extends AndroidViewModel {
             scheduleReload();
         }
     };
+    private static volatile int displayVersion;
     private boolean observing;
     private boolean loaded;
+    private int loadedVersion;
+
+    public static void invalidateAll() {
+        displayVersion++;
+    }
 
     protected ObservingViewModel(@NonNull Application application) {
         super(application);
@@ -45,13 +51,14 @@ public abstract class ObservingViewModel extends AndroidViewModel {
     }
 
     public void loadIfNeeded() {
-        if (!loaded) {
+        if (!loaded || loadedVersion != displayVersion) {
             reload();
         }
     }
 
     public void reload() {
         loaded = true;
+        loadedVersion = displayVersion;
         AppExecutors.mainHandler().removeCallbacks(reloadRunnable);
         if (loading.getValue() == null || !loading.getValue()) {
             loading.setValue(true);

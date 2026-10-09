@@ -14,6 +14,7 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.models.
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.models.ContactModel;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.CallLogService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.ContactsService;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.AppExecutors;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.PhoneUtils;
 
@@ -75,6 +76,10 @@ public class SearchViewModel extends ObservingViewModel {
     @Override
     protected void load() {
         List<ContactModel> loaded = new ArrayList<>(ContactsService.getNumberIndex(getApplication()).values());
+        Set<String> hidden = StorageService.getVaultKeys();
+        if (!hidden.isEmpty()) {
+            loaded.removeIf(contact -> contact.lookupKey != null && hidden.contains(contact.lookupKey));
+        }
         java.text.Collator collator = java.text.Collator.getInstance(Locale.getDefault());
         collator.setStrength(java.text.Collator.PRIMARY);
         Collections.sort(loaded, (a, b) -> collator.compare(a.getDisplayName(), b.getDisplayName()));

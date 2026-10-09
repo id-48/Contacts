@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
-
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ViewSettingRowBinding;
 
@@ -53,6 +52,9 @@ public class SettingRowView extends LinearLayout {
                 binding.rowIcon.setImageTintList(ColorStateList.valueOf(
                         a.getColor(R.styleable.SettingRowView_rowIconTint, 0)));
             }
+            if (a.hasValue(R.styleable.SettingRowView_rowAccent)) {
+                applyIconChip();
+            }
             binding.rowTitle.setText(a.getString(R.styleable.SettingRowView_rowTitle));
             setSubtitle(a.getString(R.styleable.SettingRowView_rowSubtitle));
             setValue(a.getString(R.styleable.SettingRowView_rowValue));
@@ -71,6 +73,18 @@ public class SettingRowView extends LinearLayout {
                 });
             }
         }
+    }
+
+    private void applyIconChip() {
+        int size = getResources().getDimensionPixelSize(R.dimen.setting_icon_chip);
+        int padding = getResources().getDimensionPixelSize(R.dimen.space_8);
+        LayoutParams params = (LayoutParams) binding.rowIcon.getLayoutParams();
+        params.width = size;
+        params.height = size;
+        params.setMarginEnd(getResources().getDimensionPixelSize(R.dimen.space_16));
+        binding.rowIcon.setLayoutParams(params);
+        binding.rowIcon.setPadding(padding, padding, padding, padding);
+        Accent.icon(binding.rowIcon);
     }
 
     public void setTitle(CharSequence title) {

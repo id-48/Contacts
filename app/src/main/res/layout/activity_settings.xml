@@ -12,6 +12,7 @@
         layout="@layout/include_top_bar" />
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -29,7 +30,160 @@
 
             <TextView
                 style="@style/Widget.App.SettingsSection"
-                android:text="@string/settings_appearance" />
+                android:paddingTop="@dimen/space_8"
+                android:text="@string/section_call_management" />
+
+            <LinearLayout style="@style/Widget.App.SettingsGroup">
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/simRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_sim_card"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/sim_preference" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/speedDialRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_dialpad"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/speed_dial_subtitle"
+                    app:rowTitle="@string/speed_dial" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/voicemailRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_voicemail"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/voicemail_messages" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/flashRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_flash"
+                    app:rowShowSwitch="true"
+                    app:rowSubtitle="@string/flash_on_call_subtitle"
+                    app:rowTitle="@string/flash_on_call" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/answerPositionRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_swap_calls"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/answer_position" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/callStyleRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_wallpaper"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/call_style" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/announcerRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_record_voice"
+                    app:rowShowSwitch="true"
+                    app:rowSubtitle="@string/call_announcer_subtitle"
+                    app:rowTitle="@string/call_announcer" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/blockedRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_block"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/blocked_contacts" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/quickResponseRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_chat"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/quick_response" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/nativeSmallContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/Widget.App.SettingsSection"
+                android:text="@string/section_fake_call" />
+
+            <LinearLayout style="@style/Widget.App.SettingsGroup">
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/fakeCallRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_phone_in_talk"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/fake_call_subtitle"
+                    app:rowTitle="@string/fake_call_manager" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/Widget.App.SettingsSection"
+                android:text="@string/section_privacy_security" />
+
+            <LinearLayout style="@style/Widget.App.SettingsGroup">
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/vaultRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_lock"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/private_vault_subtitle"
+                    app:rowTitle="@string/private_vault" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/appLockRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_password"
+                    app:rowShowSwitch="true"
+                    app:rowSubtitle="@string/app_lock_subtitle"
+                    app:rowTitle="@string/app_lock" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/spamRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_shield"
+                    app:rowShowSwitch="true"
+                    app:rowSubtitle="@string/spam_shield_subtitle"
+                    app:rowTitle="@string/spam_shield" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/Widget.App.SettingsSection"
+                android:text="@string/section_appearance_display" />
 
             <LinearLayout style="@style/Widget.App.SettingsGroup">
 
@@ -37,79 +191,182 @@
                     android:id="@+id/languageRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
                     app:rowIcon="@drawable/ic_translate"
+                    app:rowShowChevron="true"
                     app:rowTitle="@string/language" />
 
                 <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
                     android:id="@+id/themeRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
                     app:rowIcon="@drawable/ic_contrast"
+                    app:rowShowChevron="true"
                     app:rowTitle="@string/theme_mode" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/sortRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_sort"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/contact_sort_order" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/nameFormatRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_text_format"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/name_format" />
             </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/nativeBigContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:visibility="gone" />
 
             <TextView
                 style="@style/Widget.App.SettingsSection"
-                android:text="@string/settings_general" />
+                android:text="@string/section_sound_vibration" />
 
             <LinearLayout style="@style/Widget.App.SettingsGroup">
 
                 <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
-                    android:id="@+id/blockedRow"
+                    android:id="@+id/ringtoneRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:rowIcon="@drawable/ic_block"
-                    app:rowTitle="@string/blocked_numbers" />
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_music_note"
+                    app:rowShowChevron="true"
+                    app:rowTitle="@string/ringtones" />
 
                 <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
-                    android:id="@+id/quickResponseRow"
+                    android:id="@+id/dialpadSoundRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:rowIcon="@drawable/ic_chat"
-                    app:rowTitle="@string/quick_response" />
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_dialpad"
+                    app:rowShowSwitch="true"
+                    app:rowSubtitle="@string/dialpad_sound_subtitle"
+                    app:rowTitle="@string/dialpad_sound" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/vibrateRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_vibration"
+                    app:rowShowSwitch="true"
+                    app:rowSubtitle="@string/vibrate_on_answer_subtitle"
+                    app:rowTitle="@string/vibrate_on_answer" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/Widget.App.SettingsSection"
+                android:text="@string/section_tools_accessibility" />
+
+            <LinearLayout style="@style/Widget.App.SettingsGroup">
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/accessibilityRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_accessibility"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/accessibility_subtitle"
+                    app:rowTitle="@string/accessibility" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/mergeRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_merge"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/merge_duplicates_subtitle"
+                    app:rowTitle="@string/merge_duplicates" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/importExportRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_import_export"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/import_export_subtitle"
+                    app:rowTitle="@string/import_export" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/syncRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_sync"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/sync_accounts_subtitle"
+                    app:rowTitle="@string/sync_accounts" />
 
                 <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
                     android:id="@+id/widgetRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
                     app:rowIcon="@drawable/ic_widgets"
+                    app:rowShowChevron="true"
                     app:rowTitle="@string/widget" />
             </LinearLayout>
 
             <TextView
                 style="@style/Widget.App.SettingsSection"
-                android:text="@string/settings_others" />
+                android:text="@string/section_system_support" />
 
             <LinearLayout style="@style/Widget.App.SettingsGroup">
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/permissionsRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_verified_user"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/permissions_subtitle_short"
+                    app:rowTitle="@string/permissions" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/privacyRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_shield"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/privacy_policy_subtitle"
+                    app:rowTitle="@string/privacy_policy" />
 
                 <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
                     android:id="@+id/shareRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
                     app:rowIcon="@drawable/ic_share"
+                    app:rowShowChevron="true"
                     app:rowTitle="@string/share_app" />
 
                 <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
                     android:id="@+id/rateRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:rowAccent="@color/primary"
                     app:rowIcon="@drawable/ic_thumb_up"
+                    app:rowShowChevron="true"
                     app:rowTitle="@string/rate_us" />
-
-                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
-                    android:id="@+id/privacyRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:rowIcon="@drawable/ic_shield"
-                    app:rowTitle="@string/privacy_policy" />
-
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <FrameLayout
-        android:id="@+id/nativeSmallContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
 </LinearLayout>

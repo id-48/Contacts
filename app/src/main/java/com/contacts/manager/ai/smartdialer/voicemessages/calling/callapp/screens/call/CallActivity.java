@@ -2,6 +2,7 @@ package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screen
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,13 +43,16 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databin
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.models.ContactModel;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.dialer.DialerActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.settings.CallStyleActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.telecom.CallManager;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.telecom.SpamShield;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.DateUtils;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.IntentUtils;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.PhoneUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,6 +79,7 @@ public class CallActivity extends BaseActivity implements CallManager.Listener {
     private String lastLayoutState;
     private boolean ended;
     private String avatarKey;
+    private boolean wallpaperShown;
     private final StringBuilder dtmf = new StringBuilder();
 
     public static Intent intent(Context context) {
@@ -130,13 +135,16 @@ public class CallActivity extends BaseActivity implements CallManager.Listener {
             HapticUtils.confirm(v);
             CallManager.hangup(CallManager.getPrimaryCall());
         });
-        binding.answerButton.setOnClickListener(v -> {
-            HapticUtils.confirm(v);
-            CallManager.answer(ringingCall());
-        });
-        binding.declineButton.setOnClickListener(v -> {
-            HapticUtils.confirm(v);
-            CallManager.reject(ringingCall());
+        binding.incomingControl.setListener(new IncomingCallControlView.Listener() {
+            @Override
+            public void onAnswer() {
+                CallManager.answer(ringingCall());
+            }
+
+            @Override
+            public void onDecline() {
+                CallManager.reject(ringingCall());
+            }
         });
         binding.messageButton.setOnClickListener(v -> showQuickResponses());
         binding.dialPad.setListener(key -> {
@@ -360,9 +368,12 @@ public class CallActivity extends BaseActivity implements CallManager.Listener {
         }
         lastLayoutState = layoutState;
 
+        applyRingingTheme(ringing);
         bindIdentity(primary);
         binding.callStatus.setText(statusText(primary, state));
-        binding.callStatus.setTextColor(getColor(ringing ? R.color.primary : R.color.text_secondary));
+        binding.callStatus.setTextColor(getColor(wallpaperShown ? R.color.white
+                : ringing ? R.color.primary : R.color.text_secondary));
+        bindSpamWarning(primary, ringing);
         binding.callStatus.setVisibility(active ? View.GONE : View.VISIBLE);
 
         binding.incomingPanel.setVisibility(ringing ? View.VISIBLE : View.GONE);
@@ -428,6 +439,35 @@ public class CallActivity extends BaseActivity implements CallManager.Listener {
         }
     }
 
+    private void applyRingingTheme(boolean ringing) {
+        File file = ringing ? CallStyleActivity.wallpaperFile(this) : null;
+        boolean show = file != null;
+        boolean night = (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)
+                == Configuration.UI_MODE_NIGHT_YES;
+        binding.incomingControl.configure(StorageService.getCallStyle(), StorageService.isAnswerOnLeft(), show || night);
+        if (show == wallpaperShown) {
+            return;
+        }
+        wallpaperShown = show;
+        binding.wallpaper.setVisibility(show ? View.VISIBLE : View.GONE);
+        binding.scrim.setVisibility(show ? View.VISIBLE : View.GONE);
+        if (show) {
+            CallStyleActivity.loadWallpaper(binding.wallpaper, file);
+        }
+        int primaryText = getColor(show ? R.color.white : R.color.text_primary);
+        binding.callName.setTextColor(primaryText);
+        binding.callTimer.setTextColor(primaryText);
+        binding.callNumber.setTextColor(primaryText);
+    }
+
+    private void bindSpamWarning(Call call, boolean ringing) {
+        boolean suspicious = false;
+        if (ringing && StorageService.isSpamShieldEnabled() && !CallManager.isConference(call)) {
+            suspicious = SpamShield.isSuspicious(this, CallManager.getNumber(call), CallManager.getContact(call) != null);
+        }
+        binding.spamWarning.setVisibility(suspicious ? View.VISIBLE : View.GONE);
+    }
+
     private String statusText(Call call, int state) {
         switch (state) {
             case Call.STATE_RINGING:
@@ -473,6 +513,8 @@ public class CallActivity extends BaseActivity implements CallManager.Listener {
             beginLayoutTransition();
         }
         lastLayoutState = "ended";
+        applyRingingTheme(false);
+        binding.spamWarning.setVisibility(View.GONE);
         binding.callStatus.setVisibility(View.VISIBLE);
         binding.callStatus.setText(R.string.call_ended);
         binding.callStatus.setTextColor(getColor(R.color.call_missed));

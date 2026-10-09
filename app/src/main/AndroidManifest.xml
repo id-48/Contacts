@@ -27,6 +27,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
 
     <queries>
         <package android:name="com.whatsapp" />
@@ -54,6 +59,9 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
     </queries>
 
     <application
@@ -61,7 +69,7 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Contacts"
         tools:targetApi="34">
@@ -199,6 +207,46 @@
         <activity
             android:name=".screens.settings.PrivacyPolicyActivity"
             android:exported="false" />
+        <activity
+            android:name=".screens.settings.OptionPickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.settings.SpeedDialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.settings.VoicemailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.settings.CallStyleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.settings.FakeCallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.settings.VaultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.settings.MergeDuplicatesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.settings.ImportExportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.settings.SyncAccountsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.lock.PasscodeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".screens.call.FakeIncomingCallActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:showWhenLocked="true"
+            android:taskAffinity=".fakecall"
+            android:theme="@style/Theme.Contacts.Call"
+            android:turnScreenOn="true" />
 
         <activity
             android:name=".screens.launcher.LauncherActivity"
@@ -267,6 +315,10 @@
 
         <receiver
             android:name=".telecom.ReminderReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".telecom.FakeCallReceiver"
             android:exported="false" />
 
         <receiver

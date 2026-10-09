@@ -17,6 +17,9 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.aftercall.AfterCallActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.call.CallActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.call.FakeIncomingCallActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.lock.PasscodeActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.AppLockManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.launcher.LauncherActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.onboarding.DefaultPhoneActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.onboarding.WelcomeActivity;
@@ -62,6 +65,7 @@ final class AppOpenAdManager implements Application.ActivityLifecycleCallbacks, 
         if (!RemoteConfigManager.get().appOpenOnResume) return;
         Activity activity = current.get();
         if (activity == null || activity.isFinishing() || activity.isDestroyed() || isExcluded(activity)) return;
+        if (AppLockManager.isReturningFromExternal()) return;
         if (FullscreenAdManager.isBusy()) return;
         long lastFullscreen = FullscreenAdManager.lastDismissedAt();
         if (lastFullscreen > 0 && SystemClock.elapsedRealtime() - lastFullscreen < AFTER_FULLSCREEN_GAP_MS) {
@@ -76,6 +80,8 @@ final class AppOpenAdManager implements Application.ActivityLifecycleCallbacks, 
         return !(activity instanceof BaseActivity)
                 || activity instanceof SplashActivity
                 || activity instanceof CallActivity
+                || activity instanceof FakeIncomingCallActivity
+                || activity instanceof PasscodeActivity
                 || activity instanceof AfterCallActivity
                 || activity instanceof ForceUpdateActivity
                 || activity instanceof WelcomeActivity

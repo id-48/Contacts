@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <ImageView
+        android:id="@+id/wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/call_screen_dim"
+        android:visibility="gone" />
+
+<LinearLayout
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     android:orientation="vertical">
 
     <LinearLayout
@@ -103,6 +123,26 @@
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.App.Body"
             android:textColor="@color/primary" />
+
+        <TextView
+            android:id="@+id/spamWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:background="@drawable/bg_spam_chip"
+            android:drawablePadding="@dimen/space_8"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/space_12"
+            android:paddingTop="6dp"
+            android:paddingEnd="@dimen/space_16"
+            android:paddingBottom="6dp"
+            android:text="@string/possible_spam"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_warning"
+            app:drawableTint="@color/white" />
     </LinearLayout>
 
     <FrameLayout
@@ -263,38 +303,10 @@
                 app:strokeColor="@color/divider"
                 app:strokeWidth="1dp" />
 
-            <LinearLayout
+            <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.call.IncomingCallControlView
+                android:id="@+id/incomingControl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/space_40"
-                android:paddingEnd="@dimen/space_40">
-
-                <ImageButton
-                    android:id="@+id/answerButton"
-                    android:layout_width="@dimen/call_button_size"
-                    android:layout_height="@dimen/call_button_size"
-                    android:background="@drawable/bg_circle_answer"
-                    android:contentDescription="@string/answer"
-                    android:src="@drawable/ic_call_filled"
-                    android:stateListAnimator="@animator/press_scale"
-                    app:tint="@color/white" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <ImageButton
-                    android:id="@+id/declineButton"
-                    android:layout_width="@dimen/call_button_size"
-                    android:layout_height="@dimen/call_button_size"
-                    android:background="@drawable/bg_circle_decline"
-                    android:contentDescription="@string/decline"
-                    android:src="@drawable/ic_call_end_filled"
-                    android:stateListAnimator="@animator/press_scale"
-                    app:tint="@color/white" />
-            </LinearLayout>
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </FrameLayout>
 
@@ -304,3 +316,4 @@
         android:layout_height="wrap_content"
         android:visibility="gone" />
 </LinearLayout>
+</FrameLayout>

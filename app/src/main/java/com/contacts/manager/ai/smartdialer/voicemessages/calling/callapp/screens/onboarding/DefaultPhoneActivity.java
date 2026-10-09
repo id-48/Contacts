@@ -1,5 +1,6 @@
 package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.onboarding;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -9,19 +10,16 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityDefaultPhoneBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.OnboardingFlow;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfig;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.launcher.LauncherMode;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PhoneService;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
 public class DefaultPhoneActivity extends BaseActivity {
 
     private static final int MAX_ROLE_PROMPTS = 2;
@@ -29,8 +27,8 @@ public class DefaultPhoneActivity extends BaseActivity {
 
     private ActivityDefaultPhoneBinding binding;
     private final OnboardingPermissions permissions = new OnboardingPermissions(this, true, this::leave);
-    private AlertDialog defaultDialog;
-    private AlertDialog homeDialog;
+    private Dialog defaultDialog;
+    private Dialog homeDialog;
     private int rolePrompts;
     private int homePrompts;
     private long roleLaunchTime;
@@ -194,15 +192,10 @@ public class DefaultPhoneActivity extends BaseActivity {
             return;
         }
         boolean viaSettings = rolePrompts >= MAX_ROLE_PROMPTS;
-        defaultDialog = new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_Dialog)
-                .setTitle(R.string.default_required_title)
-                .setMessage(viaSettings ? R.string.default_required_settings_body : R.string.default_required_body)
-                .setCancelable(false)
-                .setPositiveButton(viaSettings ? R.string.open_settings : R.string.set_as_default,
-                        (d, w) -> requestRole())
-                .create();
-        Analytics.trackDialog(defaultDialog, "default_required_dialog");
-        defaultDialog.show();
+        defaultDialog = ConfirmDialog.required(this, getString(R.string.default_required_title),
+                getString(viaSettings ? R.string.default_required_settings_body : R.string.default_required_body),
+                viaSettings ? R.string.open_settings : R.string.set_as_default, this::requestRole,
+                "default_required_dialog");
     }
 
     private void showPermissions() {
@@ -271,15 +264,10 @@ public class DefaultPhoneActivity extends BaseActivity {
             return;
         }
         boolean viaSettings = homePrompts >= MAX_ROLE_PROMPTS || LauncherMode.createRoleIntent(this) == null;
-        homeDialog = new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_Dialog)
-                .setTitle(R.string.launcher_required_title)
-                .setMessage(viaSettings ? R.string.launcher_required_settings_body : R.string.launcher_required_body)
-                .setCancelable(false)
-                .setPositiveButton(viaSettings ? R.string.open_settings : R.string.set_as_default,
-                        (d, w) -> requestHome())
-                .create();
-        Analytics.trackDialog(homeDialog, "launcher_required_dialog");
-        homeDialog.show();
+        homeDialog = ConfirmDialog.required(this, getString(R.string.launcher_required_title),
+                getString(viaSettings ? R.string.launcher_required_settings_body : R.string.launcher_required_body),
+                viaSettings ? R.string.open_settings : R.string.set_as_default, this::requestHome,
+                "launcher_required_dialog");
     }
 
     @Override

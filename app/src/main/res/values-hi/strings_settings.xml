@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="section_call_management">कॉल प्रबंधन</string>
+    <string name="section_fake_call">फ़ेक कॉल</string>
+    <string name="section_privacy_security">गोपनीयता और सुरक्षा</string>
+    <string name="section_appearance_display">रूप और डिस्प्ले</string>
+    <string name="section_sound_vibration">ध्वनि और वाइब्रेशन</string>
+    <string name="section_tools_accessibility">टूल और सुलभता</string>
+    <string name="section_system_support">सिस्टम और सहायता</string>
+
+    <string name="sim_preference">सिम प्राथमिकता</string>
+    <string name="sim_preference_subtitle">कॉल के लिए उपयोग होने वाला सिम चुनें</string>
+    <string name="sim_always_ask">हमेशा पूछें</string>
+    <string name="sim_system_default">फ़ोन डिफ़ॉल्ट</string>
+    <string name="sim_single">इस फ़ोन में केवल एक सिम उपलब्ध है</string>
+
+    <string name="speed_dial">स्पीड डायल</string>
+    <string name="speed_dial_subtitle">कॉल करने के लिए डायल पैड पर कोई कुंजी देर तक दबाएँ</string>
+    <string name="speed_dial_key">कुंजी %1$s</string>
+    <string name="speed_dial_not_set">सेट नहीं</string>
+    <string name="speed_dial_assign">संपर्क चुनें</string>
+    <string name="speed_dial_change">संपर्क बदलें</string>
+    <string name="speed_dial_remove">हटाएँ</string>
+    <string name="speed_dial_saved">स्पीड डायल %1$s को %2$s पर सेट किया गया</string>
+    <string name="speed_dial_not_set_hint">कुंजी %1$s पर कोई संपर्क नहीं है। सेटिंग्स → स्पीड डायल में सेट करें।</string>
+
+    <string name="voicemail_messages">वॉइसमेल संदेश</string>
+    <string name="voicemail_subtitle">अपना वॉइसमेल सुनें</string>
+    <string name="voicemail_call">वॉइसमेल को कॉल करें</string>
+    <string name="voicemail_empty_title">कोई वॉइसमेल नहीं</string>
+    <string name="voicemail_empty_body">आपके कैरियर के विज़ुअल वॉइसमेल यहाँ दिखाई देंगे। आप ऊपर दिए बटन से कभी भी अपना वॉइसमेल डायल कर सकते हैं।</string>
+    <string name="voicemail_needs_default">वॉइसमेल देखने के लिए इस ऐप को डिफ़ॉल्ट फ़ोन ऐप बनाएँ।</string>
+    <string name="voicemail_unavailable">इस फ़ोन पर वॉइसमेल उपलब्ध नहीं है</string>
+    <string name="voicemail_play_failed">यह वॉइसमेल चलाया नहीं जा सका</string>
+    <string name="voicemail_delete_title">यह वॉइसमेल हटाएँ?</string>
+    <string name="voicemail_new">नया</string>
+
+    <string name="flash_on_call">कॉल पर फ़्लैश</string>
+    <string name="flash_on_call_subtitle">कॉल आने पर फ़्लैशलाइट ब्लिंक करें</string>
+    <string name="flash_unavailable">इस फ़ोन में फ़्लैशलाइट नहीं है</string>
+
+    <string name="answer_position">उत्तर बटन की स्थिति</string>
+    <string name="answer_position_header">चुनें कि इनकमिंग कॉल स्क्रीन पर उत्तर बटन किस तरफ़ दिखे।</string>
+    <string name="answer_right">दाएँ (डिफ़ॉल्ट)</string>
+    <string name="answer_right_desc">दाएँ स्वीकार करें, बाएँ अस्वीकार करें</string>
+    <string name="answer_left">बाएँ</string>
+    <string name="answer_left_desc">बाएँ स्वीकार करें, दाएँ अस्वीकार करें</string>
+    <string name="answer_position_style_link">इनकमिंग कॉल स्टाइल बदलें</string>
+
+    <string name="call_style">इनकमिंग कॉल स्टाइल और वॉलपेपर</string>
+    <string name="call_style_short">इनकमिंग कॉल स्टाइल</string>
+    <string name="call_wallpaper">कस्टम कॉल वॉलपेपर</string>
+    <string name="call_wallpaper_body">इनकमिंग कॉल स्क्रीन के पीछे दिखाने के लिए एक फ़ोटो चुनें।</string>
+    <string name="call_wallpaper_choose">गैलरी से चुनें</string>
+    <string name="call_wallpaper_remove">हटाएँ</string>
+    <string name="call_wallpaper_saved">कॉल वॉलपेपर अपडेट किया गया</string>
+    <string name="call_styles_title">उत्तर स्टाइल</string>
+    <string name="call_style_applied">%1$s लागू किया गया</string>
+    <string name="call_style_1">क्लासिक दोहरे बटन</string>
+    <string name="call_style_2">ऊपर / नीचे स्वाइप</string>
+    <string name="call_style_3">हॉरिज़ॉन्टल कैप्सूल स्लाइडर</string>
+    <string name="call_style_4">चमकते ग्लो रिंग</string>
+    <string name="call_style_5">घुमावदार आर्च वेव स्लाइडर</string>
+    <string name="call_style_6">उलटे दोहरे बटन</string>
+    <string name="call_style_7">मिनिमल आउटलाइन सर्कल</string>
+    <string name="call_style_8">One UI पिल बार</string>
+    <string name="call_style_9">ग्लास फ़्लोटिंग कार्ड</string>
+    <string name="call_style_10">नियॉन ग्रेडिएंट वेव पिल</string>
+    <string name="swipe_up_answer">उत्तर देने के लिए ऊपर स्वाइप करें</string>
+    <string name="swipe_down_decline">अस्वीकार करने के लिए नीचे स्वाइप करें</string>
+    <string name="slide_to_answer">उत्तर देने के लिए स्लाइड करें</string>
+    <string name="decline_call">कॉल अस्वीकार करें</string>
+    <string name="tap_to_answer">उत्तर देने के लिए टैप करें</string>
+    <string name="possible_spam">संभावित स्पैम</string>
+
+    <string name="call_announcer">कॉल अनाउंसर</string>
+    <string name="call_announcer_subtitle">फ़ोन बजने पर कॉलर का नाम बोलें</string>
+    <string name="announce_call">%1$s की इनकमिंग कॉल</string>
+    <string name="blocked_contacts">ब्लॉक किए गए संपर्क</string>
+
+    <string name="fake_call_manager">फ़ेक कॉल मैनेजर</string>
+    <string name="fake_call_subtitle">असली जैसी इनकमिंग कॉल शेड्यूल करें</string>
+    <string name="fake_call_upcoming">आगामी</string>
+    <string name="fake_call_completed">पूर्ण</string>
+    <string name="fake_call_empty_upcoming">कोई आगामी फ़ेक कॉल नहीं</string>
+    <string name="fake_call_empty_upcoming_body">फ़ेक इनकमिंग कॉल शेड्यूल करने के लिए + पर टैप करें। अजीब स्थितियों से निकलने के लिए यह बिल्कुल सही है।</string>
+    <string name="fake_call_empty_completed">कोई पूर्ण फ़ेक कॉल नहीं</string>
+    <string name="fake_call_empty_completed_body">आपको मिली फ़ेक कॉल यहाँ दिखाई देंगी।</string>
+    <string name="fake_call_schedule">फ़ेक कॉल शेड्यूल करें</string>
+    <string name="fake_call_name">कॉलर का नाम</string>
+    <string name="fake_call_number">फ़ोन नंबर</string>
+    <string name="fake_call_time">शेड्यूल समय</string>
+    <string name="fake_call_duration">स्वीकार करने पर कॉल की अवधि</string>
+    <string name="fake_call_pick_contact">संपर्कों से चुनें</string>
+    <string name="fake_call_scheduled">फ़ेक कॉल शेड्यूल की गई %1$s</string>
+    <string name="fake_call_name_required">कॉलर का नाम डालें</string>
+    <string name="fake_call_cancel_title">यह फ़ेक कॉल रद्द करें?</string>
+    <string name="fake_call_in">%1$s में</string>
+    <string name="fake_call_channel">फ़ेक कॉल</string>
+    <string name="fake_call_answered">उत्तर दिया</string>
+    <string name="fake_call_declined">अस्वीकार की गई</string>
+    <string name="fake_call_missed">छूटी हुई</string>
+    <string name="seconds_10">10 सेकंड में</string>
+    <string name="seconds_30">30 सेकंड में</string>
+    <string name="minute_1">1 मिनट में</string>
+    <string name="minutes_5">5 मिनट में</string>
+    <string name="minutes_10">10 मिनट में</string>
+    <string name="minutes_30">30 मिनट में</string>
+    <string name="duration_15s">15 सेकंड</string>
+    <string name="duration_30s">30 सेकंड</string>
+    <string name="duration_1m">1 मिनट</string>
+    <string name="duration_2m">2 मिनट</string>
+    <string name="duration_5m">5 मिनट</string>
+    <string name="schedule">शेड्यूल करें</string>
+    <string name="clear_all">सब साफ़ करें</string>
+
+    <string name="private_vault">प्राइवेट संपर्क वॉल्ट</string>
+    <string name="private_vault_subtitle">संपर्कों को अपने पासकोड के पीछे छिपाएँ</string>
+    <string name="vault_empty_title">आपका वॉल्ट खाली है</string>
+    <string name="vault_empty_body">वे संपर्क जोड़ें जिन्हें आप निजी रखना चाहते हैं।</string>
+    <string name="vault_add">वॉल्ट में जोड़ें</string>
+    <string name="vault_remove">वॉल्ट से हटाएँ</string>
+    <string name="vault_added">%1$s को वॉल्ट में ले जाया गया</string>
+    <string name="vault_removed">%1$s फिर से दिखाई दे रहा है</string>
+    <string name="vault_needs_passcode">अपने वॉल्ट की सुरक्षा के लिए पहले पासकोड सेट करें</string>
+    <string name="vault_pick_title">एक संपर्क चुनें</string>
+
+    <string name="app_lock">ऐप लॉक (पासकोड)</string>
+    <string name="app_lock_subtitle">ऐप खोलने के लिए 4 अंकों का पासकोड माँगें</string>
+    <string name="passcode_set">पासकोड सेट करें</string>
+    <string name="passcode_set_body">4 अंकों का पासकोड डालें</string>
+    <string name="passcode_confirm">पासकोड की पुष्टि करें</string>
+    <string name="passcode_confirm_body">वही पासकोड फिर से डालें</string>
+    <string name="passcode_enter">पासकोड डालें</string>
+    <string name="passcode_enter_body">जारी रखने के लिए अपना 4 अंकों का पासकोड डालें</string>
+    <string name="passcode_mismatch">पासकोड मेल नहीं खाते। फिर से कोशिश करें।</string>
+    <string name="passcode_wrong">गलत पासकोड</string>
+    <string name="passcode_forgot">पासकोड भूल गए?</string>
+    <string name="passcode_enabled">ऐप लॉक चालू है</string>
+    <string name="passcode_disabled">ऐप लॉक बंद है</string>
+    <string name="security_question">सुरक्षा प्रश्न</string>
+    <string name="security_question_body">पासकोड भूल जाने पर उसे रीसेट करने के लिए उपयोग होता है।</string>
+    <string name="security_answer">आपका उत्तर</string>
+    <string name="security_save_finish">सहेजें और पूरा करें</string>
+    <string name="security_answer_required">उत्तर डालें</string>
+    <string name="security_wrong_answer">यह उत्तर मेल नहीं खाता</string>
+    <string name="security_verify">सत्यापित करें</string>
+    <string-array name="security_questions">
+        <item>आपके पहले पालतू जानवर का नाम क्या था?</item>
+        <item>आपका जन्म किस शहर में हुआ था?</item>
+        <item>आपका पसंदीदा खाना क्या है?</item>
+        <item>आपके पहले स्कूल का नाम क्या था?</item>
+        <item>आपकी माँ का विवाह से पहले का उपनाम क्या है?</item>
+    </string-array>
+
+    <string name="spam_shield">ऑफ़लाइन स्पैम और स्कैम शील्ड</string>
+    <string name="spam_shield_subtitle">टेलीमार्केटर और स्कैम कॉल पर चेतावनी दें और ब्लॉक करें</string>
+    <string name="spam_shield_on">टेलीमार्केटर (140) और छिपे नंबर ब्लॉक किए जाएँगे</string>
+
+    <string name="contact_sort_order">संपर्क क्रम</string>
+    <string name="sort_order_header">चुनें कि सूची में आपके संपर्क किस क्रम में हों।</string>
+    <string name="sort_first_name">पहला नाम</string>
+    <string name="sort_first_name_desc">John Smith, J के अंतर्गत दिखेगा</string>
+    <string name="sort_last_name">उपनाम</string>
+    <string name="sort_last_name_desc">John Smith, S के अंतर्गत दिखेगा</string>
+    <string name="name_format">नाम का प्रारूप</string>
+    <string name="name_format_header">चुनें कि संपर्कों के नाम कैसे दिखें।</string>
+    <string name="name_first_last">पहला, अंतिम</string>
+    <string name="name_last_first">अंतिम, पहला</string>
+    <string name="option_saved">सहेजा गया</string>
+
+    <string name="ringtones">रिंगटोन</string>
+    <string name="ringtone_saved">रिंगटोन अपडेट की गई</string>
+    <string name="ringtone_needs_permission">रिंगटोन बदलने के लिए \"सिस्टम सेटिंग बदलें\" की अनुमति दें</string>
+    <string name="ringtone_silent">साइलेंट</string>
+    <string name="dialpad_sound">डायल पैड ध्वनि</string>
+    <string name="dialpad_sound_subtitle">डायल पैड टैप करने पर टोन बजाएँ</string>
+    <string name="vibrate_on_answer">उत्तर पर वाइब्रेशन</string>
+    <string name="vibrate_on_answer_subtitle">कॉल कनेक्ट होने पर छोटा वाइब्रेशन</string>
+
+    <string name="accessibility">सुलभता</string>
+    <string name="accessibility_subtitle">सुनने, देखने और इंटरैक्शन की सेटिंग</string>
+    <string name="merge_duplicates">डुप्लिकेट मर्ज करें</string>
+    <string name="merge_duplicates_subtitle">डुप्लिकेट संपर्क ढूँढें और जोड़ें</string>
+    <string name="merge_select_all">सभी चुनें</string>
+    <string name="merge_selected">चुने हुए मर्ज करें (%1$d)</string>
+    <string name="merge_group_title">%1$s (%2$d संपर्क)</string>
+    <string name="merge_reason_name">मिलता-जुलता नाम</string>
+    <string name="merge_reason_number">मिलता-जुलता नंबर</string>
+    <string name="merge_empty_title">कोई डुप्लिकेट नहीं मिला</string>
+    <string name="merge_empty_body">आपके संपर्क साफ़-सुथरे हैं।</string>
+    <string name="merge_done">%1$d समूह मर्ज किए गए</string>
+    <string name="merge_failed">इन संपर्कों को मर्ज नहीं किया जा सका</string>
+    <string name="import_export">इम्पोर्ट / एक्सपोर्ट</string>
+    <string name="import_export_subtitle">संपर्कों का .vcf के रूप में बैकअप लें या रीस्टोर करें</string>
+    <string name="import_tab">इम्पोर्ट</string>
+    <string name="export_tab">एक्सपोर्ट</string>
+    <string name="import_body">इस फ़ोन में संपर्क जोड़ने के लिए एक .vcf फ़ाइल चुनें।</string>
+    <string name="import_choose">.vcf फ़ाइल चुनें</string>
+    <string name="import_contacts">संपर्क इम्पोर्ट करें</string>
+    <string name="import_save_to">इम्पोर्ट किए गए संपर्क यहाँ सहेजें</string>
+    <string name="import_device">फ़ोन</string>
+    <string name="import_done">%1$d संपर्क इम्पोर्ट किए गए</string>
+    <string name="import_failed">यह फ़ाइल पढ़ी नहीं जा सकी</string>
+    <string name="import_no_file">पहले एक .vcf फ़ाइल चुनें</string>
+    <string name="export_all">सभी संपर्क</string>
+    <string name="export_contacts">.vcf फ़ाइल में एक्सपोर्ट करें</string>
+    <string name="export_done">%1$d संपर्क एक्सपोर्ट किए गए</string>
+    <string name="export_failed">संपर्क एक्सपोर्ट नहीं किए जा सके</string>
+    <string name="export_empty">एक्सपोर्ट करने के लिए कोई संपर्क नहीं</string>
+    <string name="sync_accounts">अकाउंट सिंक</string>
+    <string name="sync_accounts_subtitle">अपने अकाउंट के लिए संपर्क सिंक प्रबंधित करें</string>
+    <string name="sync_master">मास्टर ऑटो-सिंक</string>
+    <string name="sync_master_body">सभी अकाउंट का डेटा अपने आप सिंक करें</string>
+    <string name="sync_connected">जुड़े हुए अकाउंट</string>
+    <string name="sync_now">सिंक</string>
+    <string name="sync_started">सिंक शुरू हुआ</string>
+    <string name="sync_empty">इस फ़ोन पर कोई सिंक अकाउंट नहीं</string>
+    <string name="sync_failed">इस अकाउंट को यहाँ से सिंक नहीं किया जा सकता</string>
+    <string name="permissions_subtitle_short">देखें कि ऐप किन चीज़ों तक पहुँच सकता है</string>
+    <string name="privacy_policy_subtitle">हम आपका डेटा कैसे संभालते हैं</string>
+    <string name="processing">काम जारी है…</string>
+    <string name="something_went_wrong">कुछ गलत हो गया। कृपया फिर से कोशिश करें।</string>
+</resources>

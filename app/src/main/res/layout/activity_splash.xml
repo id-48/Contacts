@@ -19,12 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/splashLogo"
             android:layout_width="124dp"
             android:layout_height="124dp"
             android:importantForAccessibility="no"
-            android:src="@drawable/ic_splash_logo" />
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Icon" />
+
 
         <TextView
             android:id="@+id/splashTitle"

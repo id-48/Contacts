@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog_card"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_24"
+        android:paddingTop="28dp"
+        android:paddingEnd="@dimen/space_24"
+        android:paddingBottom="@dimen/space_24">
+
+        <TextView
+            android:id="@+id/dialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityHeading="true"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/security_question"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            app:fontFamily="@font/roboto_bold" />
+
+        <TextView
+            android:id="@+id/securityBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/security_question_body"
+            android:textColor="@color/text_muted"
+            android:textSize="15sp"
+            app:fontFamily="@font/roboto_regular" />
+
+        <LinearLayout
+            android:id="@+id/questionGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_20"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/security_question"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                app:fontFamily="@font/roboto_medium" />
+
+            <AutoCompleteTextView
+                android:id="@+id/questionField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:drawablePadding="@dimen/space_8"
+                android:dropDownVerticalOffset="@dimen/space_4"
+                android:focusable="false"
+                android:fontFamily="@font/roboto_regular"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:lineSpacingExtra="2dp"
+                android:maxLines="3"
+                android:minHeight="52dp"
+                android:paddingStart="2dp"
+                android:paddingTop="@dimen/space_12"
+                android:paddingEnd="2dp"
+                android:paddingBottom="@dimen/space_12"
+                android:popupBackground="@drawable/bg_dropdown_popup"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/ic_expand_more"
+                app:drawableTint="@color/text_secondary"
+                app:fontFamily="@font/roboto_regular" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/answerField"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="@dimen/space_12"
+            android:background="@null"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/security_answer"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="60"
+            android:maxLines="1"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_tertiary"
+            android:textSize="18sp"
+            app:fontFamily="@font/roboto_regular" />
+
+        <View
+            android:id="@+id/answerUnderline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider" />
+
+        <TextView
+            android:id="@+id/answerError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/error"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:fontFamily="@font/roboto_regular" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_24"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cancelButton"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_dialog_button_neutral"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                app:fontFamily="@font/roboto_medium" />
+
+            <Space
+                android:id="@+id/buttonSpace"
+                android:layout_width="@dimen/space_16"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/actionButton"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_dialog_button_primary"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:paddingStart="@dimen/space_8"
+                android:paddingEnd="@dimen/space_8"
+                android:textColor="@color/on_primary"
+                android:textSize="15sp"
+                app:fontFamily="@font/roboto_medium" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

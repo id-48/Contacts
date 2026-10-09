@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/styleCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_12"
+    android:background="@drawable/bg_selectable_card"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:padding="@dimen/space_12">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_4"
+        android:paddingEnd="@dimen/space_4"
+        android:paddingBottom="@dimen/space_12">
+
+        <TextView
+            android:id="@+id/styleNumber"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_setting_icon"
+            android:backgroundTint="@color/primary_container"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.App.Label"
+            android:textColor="@color/primary" />
+
+        <TextView
+            android:id="@+id/styleName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_marginEnd="@dimen/space_12"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.App.TitleSmall" />
+
+        <ImageView
+            android:id="@+id/styleCheck"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/bg_option_check"
+            android:importantForAccessibility="no"
+            android:padding="4dp"
+            android:src="@drawable/ic_check"
+            app:tint="@color/on_primary" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/stylePreview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/call_style_preview_height"
+        android:background="@drawable/bg_call_style_preview"
+        android:clipChildren="false">
+
+        <ImageView
+            android:id="@+id/styleWallpaper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/styleScrim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/call_screen_dim"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/styleCaller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:gravity="center"
+            android:text="@string/call_style_preview_name"
+            android:textAppearance="@style/TextAppearance.App.TitleSmall"
+            android:textColor="@color/white" />
+
+        <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.call.IncomingCallControlView
+            android:id="@+id/styleControl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/space_8" />
+
+        <View
+            android:id="@+id/styleTouchShield"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:focusable="false" />
+    </FrameLayout>
+</LinearLayout>

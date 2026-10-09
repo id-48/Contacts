@@ -77,13 +77,7 @@
         android:id="@+id/languageCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/screen_padding"
-        android:layout_marginTop="@dimen/space_8"
-        android:layout_marginEnd="@dimen/screen_padding"
-        android:layout_marginBottom="@dimen/space_16"
-        android:layout_weight="1"
-        android:background="@drawable/bg_language_card"
-        android:padding="1dp">
+        android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/languageList"
@@ -91,8 +85,10 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:overScrollMode="never"
+            android:paddingStart="@dimen/screen_padding"
             android:paddingTop="@dimen/space_4"
-            android:paddingBottom="@dimen/space_4"
+            android:paddingEnd="@dimen/screen_padding"
+            android:paddingBottom="@dimen/space_16"
             android:scrollbars="none" />
     </FrameLayout>
 

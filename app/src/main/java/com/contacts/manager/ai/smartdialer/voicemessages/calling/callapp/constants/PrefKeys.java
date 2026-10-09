@@ -27,6 +27,25 @@ public final class PrefKeys {
     public static final String MAIN_OPEN_COUNT = "main_open_count";
     public static final String REVIEW_PROMPTED = "review_prompted";
     public static final String PRIORITY_POSITION_PREFIX = "priority_position_";
+    public static final String SIM_PREFERENCE = "sim_preference";
+    public static final String SPEED_DIAL_PREFIX = "speed_dial_";
+    public static final String FLASH_ON_CALL = "flash_on_call";
+    public static final String ANSWER_POSITION = "answer_position";
+    public static final String CALL_STYLE = "call_style";
+    public static final String CALL_WALLPAPER = "call_wallpaper";
+    public static final String CALL_ANNOUNCER = "call_announcer";
+    public static final String FAKE_CALLS = "fake_calls";
+    public static final String APP_LOCK_ENABLED = "app_lock_enabled";
+    public static final String PASSCODE_HASH = "passcode_hash";
+    public static final String PASSCODE_SALT = "passcode_salt";
+    public static final String SECURITY_QUESTION = "security_question";
+    public static final String SECURITY_ANSWER_HASH = "security_answer_hash";
+    public static final String VAULT_KEYS = "vault_keys";
+    public static final String SPAM_SHIELD = "spam_shield";
+    public static final String SORT_ORDER = "contact_sort_order";
+    public static final String NAME_FORMAT = "contact_name_format";
+    public static final String DIALPAD_SOUND = "dialpad_sound";
+    public static final String VIBRATE_ON_ANSWER = "vibrate_on_answer";
 
     private PrefKeys() {
     }

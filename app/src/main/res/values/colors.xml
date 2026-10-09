@@ -54,6 +54,11 @@
     <color name="preview_dark_bg">#FF0B0B0D</color>
     <color name="preview_dark_card">#FF222328</color>
 
+    <color name="call_screen_dim">#99000000</color>
+
+    <color name="surface_card">#FFFFFFFF</color>
+    <color name="surface_stroke">#FFE9ECF4</color>
+
     <color name="ad_small_background">#FFEEF0F5</color>
     <color name="ad_small_title">#FF3A3F4D</color>
     <color name="ad_small_body">#FF8A90A0</color>

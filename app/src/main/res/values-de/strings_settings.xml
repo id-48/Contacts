@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="section_call_management">Anrufverwaltung</string>
+    <string name="section_fake_call">Fake-Anruf</string>
+    <string name="section_privacy_security">Datenschutz &amp; Sicherheit</string>
+    <string name="section_appearance_display">Darstellung &amp; Anzeige</string>
+    <string name="section_sound_vibration">Ton &amp; Vibration</string>
+    <string name="section_tools_accessibility">Tools &amp; Bedienungshilfen</string>
+    <string name="section_system_support">System &amp; Support</string>
+
+    <string name="sim_preference">SIM-Einstellung</string>
+    <string name="sim_preference_subtitle">SIM für Anrufe auswählen</string>
+    <string name="sim_always_ask">Immer fragen</string>
+    <string name="sim_system_default">Telefonstandard</string>
+    <string name="sim_single">Auf diesem Telefon ist nur eine SIM verfügbar</string>
+
+    <string name="speed_dial">Kurzwahl</string>
+    <string name="speed_dial_subtitle">Taste auf dem Wählfeld lange drücken, um anzurufen</string>
+    <string name="speed_dial_key">Taste %1$s</string>
+    <string name="speed_dial_not_set">Nicht festgelegt</string>
+    <string name="speed_dial_assign">Kontakt zuweisen</string>
+    <string name="speed_dial_change">Kontakt ändern</string>
+    <string name="speed_dial_remove">Entfernen</string>
+    <string name="speed_dial_saved">Kurzwahl %1$s auf %2$s festgelegt</string>
+    <string name="speed_dial_not_set_hint">Kein Kontakt auf Taste %1$s. Lege einen unter Einstellungen → Kurzwahl fest.</string>
+
+    <string name="voicemail_messages">Mailbox-Nachrichten</string>
+    <string name="voicemail_subtitle">Mailbox abhören</string>
+    <string name="voicemail_call">Mailbox anrufen</string>
+    <string name="voicemail_empty_title">Keine Mailbox-Nachrichten</string>
+    <string name="voicemail_empty_body">Visuelle Mailbox-Nachrichten deines Anbieters erscheinen hier. Mit der Schaltfläche oben kannst du deine Mailbox jederzeit anrufen.</string>
+    <string name="voicemail_needs_default">Lege diese App als Standard-Telefon-App fest, um Mailbox-Nachrichten zu sehen.</string>
+    <string name="voicemail_unavailable">Mailbox ist auf diesem Telefon nicht verfügbar</string>
+    <string name="voicemail_play_failed">Diese Nachricht konnte nicht abgespielt werden</string>
+    <string name="voicemail_delete_title">Diese Mailbox-Nachricht löschen?</string>
+    <string name="voicemail_new">Neu</string>
+
+    <string name="flash_on_call">Blitz bei Anruf</string>
+    <string name="flash_on_call_subtitle">Taschenlampe bei eingehendem Anruf blinken lassen</string>
+    <string name="flash_unavailable">Dieses Telefon hat keine Taschenlampe</string>
+
+    <string name="answer_position">Position der Annehmen-Taste</string>
+    <string name="answer_position_header">Wähle, auf welcher Seite die Annehmen-Taste auf dem Anrufbildschirm erscheint.</string>
+    <string name="answer_right">Rechts (Standard)</string>
+    <string name="answer_right_desc">Rechts annehmen, links ablehnen</string>
+    <string name="answer_left">Links</string>
+    <string name="answer_left_desc">Links annehmen, rechts ablehnen</string>
+    <string name="answer_position_style_link">Anrufstil ändern</string>
+
+    <string name="call_style">Anrufstil &amp; Hintergrund</string>
+    <string name="call_style_short">Anrufstil</string>
+    <string name="call_wallpaper">Eigener Anrufhintergrund</string>
+    <string name="call_wallpaper_body">Wähle ein Foto für den Hintergrund des Anrufbildschirms.</string>
+    <string name="call_wallpaper_choose">Aus Galerie wählen</string>
+    <string name="call_wallpaper_remove">Entfernen</string>
+    <string name="call_wallpaper_saved">Anrufhintergrund aktualisiert</string>
+    <string name="call_styles_title">Annahmestile</string>
+    <string name="call_style_applied">%1$s angewendet</string>
+    <string name="call_style_1">Klassische Doppeltasten</string>
+    <string name="call_style_2">Vertikal nach oben / unten wischen</string>
+    <string name="call_style_3">Horizontaler Kapsel-Schieberegler</string>
+    <string name="call_style_4">Pulsierende Leuchtringe</string>
+    <string name="call_style_5">Geschwungener Wellen-Schieberegler</string>
+    <string name="call_style_6">Umgekehrte Doppeltasten</string>
+    <string name="call_style_7">Minimalistische Kreise</string>
+    <string name="call_style_8">One UI Pillenleiste</string>
+    <string name="call_style_9">Schwebende Glaskarten</string>
+    <string name="call_style_10">Neon-Verlaufswelle</string>
+    <string name="swipe_up_answer">Nach oben wischen zum Annehmen</string>
+    <string name="swipe_down_decline">Nach unten wischen zum Ablehnen</string>
+    <string name="slide_to_answer">zum Annehmen schieben</string>
+    <string name="decline_call">Anruf ablehnen</string>
+    <string name="tap_to_answer">Tippen zum Annehmen</string>
+    <string name="possible_spam">Möglicher Spam</string>
+
+    <string name="call_announcer">Anrufansage</string>
+    <string name="call_announcer_subtitle">Namen des Anrufers beim Klingeln ansagen</string>
+    <string name="announce_call">Eingehender Anruf von %1$s</string>
+    <string name="blocked_contacts">Blockierte Kontakte</string>
+
+    <string name="fake_call_manager">Fake-Anruf-Manager</string>
+    <string name="fake_call_subtitle">Einen realistischen eingehenden Anruf planen</string>
+    <string name="fake_call_upcoming">Geplant</string>
+    <string name="fake_call_completed">Abgeschlossen</string>
+    <string name="fake_call_empty_upcoming">Keine geplanten Fake-Anrufe</string>
+    <string name="fake_call_empty_upcoming_body">Tippe auf +, um einen Fake-Anruf zu planen. Perfekt, um unangenehmen Situationen zu entkommen.</string>
+    <string name="fake_call_empty_completed">Keine abgeschlossenen Fake-Anrufe</string>
+    <string name="fake_call_empty_completed_body">Erhaltene Fake-Anrufe werden hier angezeigt.</string>
+    <string name="fake_call_schedule">Fake-Anruf planen</string>
+    <string name="fake_call_name">Name des Anrufers</string>
+    <string name="fake_call_number">Telefonnummer</string>
+    <string name="fake_call_time">Zeitpunkt</string>
+    <string name="fake_call_duration">Anrufdauer nach Annahme</string>
+    <string name="fake_call_pick_contact">Aus Kontakten wählen</string>
+    <string name="fake_call_scheduled">Fake-Anruf geplant %1$s</string>
+    <string name="fake_call_name_required">Namen des Anrufers eingeben</string>
+    <string name="fake_call_cancel_title">Diesen Fake-Anruf abbrechen?</string>
+    <string name="fake_call_in">in %1$s</string>
+    <string name="fake_call_channel">Fake-Anrufe</string>
+    <string name="fake_call_answered">Angenommen</string>
+    <string name="fake_call_declined">Abgelehnt</string>
+    <string name="fake_call_missed">Verpasst</string>
+    <string name="seconds_10">In 10 Sekunden</string>
+    <string name="seconds_30">In 30 Sekunden</string>
+    <string name="minute_1">In 1 Minute</string>
+    <string name="minutes_5">In 5 Minuten</string>
+    <string name="minutes_10">In 10 Minuten</string>
+    <string name="minutes_30">In 30 Minuten</string>
+    <string name="duration_15s">15 Sekunden</string>
+    <string name="duration_30s">30 Sekunden</string>
+    <string name="duration_1m">1 Minute</string>
+    <string name="duration_2m">2 Minuten</string>
+    <string name="duration_5m">5 Minuten</string>
+    <string name="schedule">Planen</string>
+    <string name="clear_all">Alle löschen</string>
+
+    <string name="private_vault">Privater Kontakt-Tresor</string>
+    <string name="private_vault_subtitle">Kontakte hinter deinem Passcode verbergen</string>
+    <string name="vault_empty_title">Dein Tresor ist leer</string>
+    <string name="vault_empty_body">Füge Kontakte hinzu, die privat bleiben sollen.</string>
+    <string name="vault_add">Zum Tresor hinzufügen</string>
+    <string name="vault_remove">Aus Tresor entfernen</string>
+    <string name="vault_added">%1$s in den Tresor verschoben</string>
+    <string name="vault_removed">%1$s ist wieder sichtbar</string>
+    <string name="vault_needs_passcode">Lege zuerst einen Passcode fest, um deinen Tresor zu schützen</string>
+    <string name="vault_pick_title">Kontakt auswählen</string>
+
+    <string name="app_lock">App-Sperre (Passcode)</string>
+    <string name="app_lock_subtitle">4-stelligen Passcode zum Öffnen der App verlangen</string>
+    <string name="passcode_set">Passcode festlegen</string>
+    <string name="passcode_set_body">Gib einen 4-stelligen Passcode ein</string>
+    <string name="passcode_confirm">Passcode bestätigen</string>
+    <string name="passcode_confirm_body">Gib denselben Passcode erneut ein</string>
+    <string name="passcode_enter">Passcode eingeben</string>
+    <string name="passcode_enter_body">Gib deinen 4-stelligen Passcode ein, um fortzufahren</string>
+    <string name="passcode_mismatch">Passcodes stimmen nicht überein. Versuche es erneut.</string>
+    <string name="passcode_wrong">Falscher Passcode</string>
+    <string name="passcode_forgot">Passcode vergessen?</string>
+    <string name="passcode_enabled">App-Sperre ist an</string>
+    <string name="passcode_disabled">App-Sperre ist aus</string>
+    <string name="security_question">Sicherheitsfrage</string>
+    <string name="security_question_body">Wird verwendet, um deinen Passcode zurückzusetzen, falls du ihn vergisst.</string>
+    <string name="security_answer">Deine Antwort</string>
+    <string name="security_save_finish">Speichern &amp; abschließen</string>
+    <string name="security_answer_required">Antwort eingeben</string>
+    <string name="security_wrong_answer">Diese Antwort stimmt nicht</string>
+    <string name="security_verify">Bestätigen</string>
+    <string-array name="security_questions">
+        <item>Wie hieß dein erstes Haustier?</item>
+        <item>In welcher Stadt wurdest du geboren?</item>
+        <item>Was ist dein Lieblingsessen?</item>
+        <item>Wie hieß deine erste Schule?</item>
+        <item>Wie lautet der Mädchenname deiner Mutter?</item>
+    </string-array>
+
+    <string name="spam_shield">Offline-Spam- &amp; Betrugsschutz</string>
+    <string name="spam_shield_subtitle">Telefonwerbung &amp; Betrugsanrufe warnen und blockieren</string>
+    <string name="spam_shield_on">Werbeanrufe (140) und unterdrückte Nummern werden blockiert</string>
+
+    <string name="contact_sort_order">Kontaktsortierung</string>
+    <string name="sort_order_header">Wähle, wie deine Kontakte in der Liste sortiert werden.</string>
+    <string name="sort_first_name">Vorname</string>
+    <string name="sort_first_name_desc">John Smith erscheint unter J</string>
+    <string name="sort_last_name">Nachname</string>
+    <string name="sort_last_name_desc">John Smith erscheint unter S</string>
+    <string name="name_format">Namensformat</string>
+    <string name="name_format_header">Wähle, wie Kontaktnamen angezeigt werden.</string>
+    <string name="name_first_last">Vorname, Nachname</string>
+    <string name="name_last_first">Nachname, Vorname</string>
+    <string name="option_saved">Gespeichert</string>
+
+    <string name="ringtones">Klingeltöne</string>
+    <string name="ringtone_saved">Klingelton aktualisiert</string>
+    <string name="ringtone_needs_permission">Erlaube \"Systemeinstellungen ändern\", um den Klingelton zu ändern</string>
+    <string name="ringtone_silent">Lautlos</string>
+    <string name="dialpad_sound">Wähltastentöne</string>
+    <string name="dialpad_sound_subtitle">Töne beim Tippen auf das Wählfeld abspielen</string>
+    <string name="vibrate_on_answer">Vibration bei Annahme</string>
+    <string name="vibrate_on_answer_subtitle">Kurze Vibration, wenn ein Anruf verbunden wird</string>
+
+    <string name="accessibility">Bedienungshilfen</string>
+    <string name="accessibility_subtitle">Einstellungen für Hören, Sehen und Interaktion</string>
+    <string name="merge_duplicates">Duplikate zusammenführen</string>
+    <string name="merge_duplicates_subtitle">Doppelte Kontakte finden und zusammenführen</string>
+    <string name="merge_select_all">Alle auswählen</string>
+    <string name="merge_selected">Auswahl zusammenführen (%1$d)</string>
+    <string name="merge_group_title">%1$s (%2$d Kontakte)</string>
+    <string name="merge_reason_name">Gleicher Name</string>
+    <string name="merge_reason_number">Gleiche Nummer</string>
+    <string name="merge_empty_title">Keine Duplikate gefunden</string>
+    <string name="merge_empty_body">Deine Kontakte sind sauber.</string>
+    <string name="merge_done">%1$d Gruppen zusammengeführt</string>
+    <string name="merge_failed">Diese Kontakte konnten nicht zusammengeführt werden</string>
+    <string name="import_export">Import / Export</string>
+    <string name="import_export_subtitle">Kontakte als .vcf sichern oder wiederherstellen</string>
+    <string name="import_tab">Import</string>
+    <string name="export_tab">Export</string>
+    <string name="import_body">Wähle eine .vcf-Datei, um ihre Kontakte zu diesem Telefon hinzuzufügen.</string>
+    <string name="import_choose">.vcf-Datei wählen</string>
+    <string name="import_contacts">Kontakte importieren</string>
+    <string name="import_save_to">Importierte Kontakte speichern in</string>
+    <string name="import_device">Telefon</string>
+    <string name="import_done">%1$d Kontakte importiert</string>
+    <string name="import_failed">Diese Datei konnte nicht gelesen werden</string>
+    <string name="import_no_file">Wähle zuerst eine .vcf-Datei</string>
+    <string name="export_all">Alle Kontakte</string>
+    <string name="export_contacts">In .vcf-Datei exportieren</string>
+    <string name="export_done">%1$d Kontakte exportiert</string>
+    <string name="export_failed">Kontakte konnten nicht exportiert werden</string>
+    <string name="export_empty">Keine Kontakte zum Exportieren</string>
+    <string name="sync_accounts">Konten synchronisieren</string>
+    <string name="sync_accounts_subtitle">Kontaktsynchronisierung deiner Konten verwalten</string>
+    <string name="sync_master">Automatische Synchronisierung</string>
+    <string name="sync_master_body">Daten aller Konten automatisch synchronisieren</string>
+    <string name="sync_connected">Verbundene Konten</string>
+    <string name="sync_now">Sync</string>
+    <string name="sync_started">Synchronisierung gestartet</string>
+    <string name="sync_empty">Keine synchronisierten Konten auf diesem Telefon</string>
+    <string name="sync_failed">Dieses Konto kann hier nicht synchronisiert werden</string>
+    <string name="permissions_subtitle_short">Prüfen, worauf die App zugreifen kann</string>
+    <string name="privacy_policy_subtitle">Wie wir mit deinen Daten umgehen</string>
+    <string name="processing">Wird bearbeitet…</string>
+    <string name="something_went_wrong">Etwas ist schiefgelaufen. Bitte versuche es erneut.</string>
+</resources>

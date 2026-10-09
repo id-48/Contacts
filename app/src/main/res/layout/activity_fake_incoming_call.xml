@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <ImageView
+        android:id="@+id/wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/call_screen_dim"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/callTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:minHeight="28dp"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/identityBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_16"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/onboarding_padding"
+            android:paddingEnd="@dimen/onboarding_padding">
+
+            <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ContactAvatarView
+                android:id="@+id/avatar"
+                android:layout_width="128dp"
+                android:layout_height="128dp" />
+
+            <TextView
+                android:id="@+id/callName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.App.Headline"
+                android:textSize="@dimen/text_display" />
+
+            <TextView
+                android:id="@+id/callNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.App.Body"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/callStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                android:accessibilityLiveRegion="polite"
+                android:gravity="center"
+                android:text="@string/incoming_call"
+                android:textAppearance="@style/TextAppearance.App.Body"
+                android:textColor="@color/primary" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/activePanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/space_8"
+            android:paddingEnd="@dimen/space_8"
+            android:visibility="gone">
+
+            <include
+                android:id="@+id/muteControl"
+                layout="@layout/include_call_control" />
+
+            <include
+                android:id="@+id/keypadControl"
+                layout="@layout/include_call_control" />
+
+            <include
+                android:id="@+id/speakerControl"
+                layout="@layout/include_call_control" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_24"
+            android:layout_marginBottom="@dimen/space_32"
+            android:clipChildren="false"
+            android:minHeight="@dimen/call_button_size">
+
+            <ImageButton
+                android:id="@+id/endButton"
+                android:layout_width="@dimen/call_button_size"
+                android:layout_height="@dimen/call_button_size"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_circle_decline"
+                android:contentDescription="@string/end_call"
+                android:src="@drawable/ic_call_end_filled"
+                android:stateListAnimator="@animator/press_scale"
+                android:visibility="gone"
+                app:tint="@color/white" />
+
+            <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.call.IncomingCallControlView
+                android:id="@+id/incomingControl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

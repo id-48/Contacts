@@ -10,6 +10,7 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.UserSourceManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.launcher.LauncherMode;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.AppLockManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.LocalNotificationWorker;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.NotificationService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PushTokenManager;
@@ -24,6 +25,7 @@ public class App extends Application {
         Analytics.init(this);
         AppCompatDelegate.setDefaultNightMode(StorageService.getThemeMode());
         NotificationService.createChannels(this);
+        AppLockManager.register(this);
 
         FacebookInitializer.initAudienceNetwork(this);
         RemoteConfigManager.init(config -> {

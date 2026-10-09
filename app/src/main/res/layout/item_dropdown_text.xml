@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:fontFamily="@font/roboto_regular"
+    android:gravity="center_vertical"
+    android:lineSpacingExtra="2dp"
+    android:minHeight="48dp"
+    android:paddingStart="@dimen/space_16"
+    android:paddingTop="@dimen/space_12"
+    android:paddingEnd="@dimen/space_16"
+    android:paddingBottom="@dimen/space_12"
+    android:textColor="@color/text_primary"
+    android:textSize="15sp"
+    app:fontFamily="@font/roboto_regular" />

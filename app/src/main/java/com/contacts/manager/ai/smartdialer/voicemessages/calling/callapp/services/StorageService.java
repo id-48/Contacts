@@ -226,6 +226,161 @@ public final class StorageService {
         prefs.edit().putInt(PrefKeys.PRIORITY_POSITION_PREFIX + key, position).apply();
     }
 
+    public static String getSimPreference() {
+        return prefs.getString(PrefKeys.SIM_PREFERENCE, "");
+    }
+
+    public static void setSimPreference(String accountId) {
+        prefs.edit().putString(PrefKeys.SIM_PREFERENCE, accountId == null ? "" : accountId).apply();
+    }
+
+    @Nullable
+    public static String getSpeedDial(int digit) {
+        return prefs.getString(PrefKeys.SPEED_DIAL_PREFIX + digit, null);
+    }
+
+    public static void setSpeedDial(int digit, @Nullable String json) {
+        if (json == null) {
+            prefs.edit().remove(PrefKeys.SPEED_DIAL_PREFIX + digit).apply();
+        } else {
+            prefs.edit().putString(PrefKeys.SPEED_DIAL_PREFIX + digit, json).apply();
+        }
+    }
+
+    public static boolean isFlashOnCall() {
+        return prefs.getBoolean(PrefKeys.FLASH_ON_CALL, false);
+    }
+
+    public static void setFlashOnCall(boolean enabled) {
+        prefs.edit().putBoolean(PrefKeys.FLASH_ON_CALL, enabled).apply();
+    }
+
+    public static boolean isAnswerOnLeft() {
+        return prefs.getInt(PrefKeys.ANSWER_POSITION, 0) == 1;
+    }
+
+    public static void setAnswerOnLeft(boolean left) {
+        prefs.edit().putInt(PrefKeys.ANSWER_POSITION, left ? 1 : 0).apply();
+    }
+
+    public static int getCallStyle() {
+        return prefs.getInt(PrefKeys.CALL_STYLE, 1);
+    }
+
+    public static void setCallStyle(int style) {
+        prefs.edit().putInt(PrefKeys.CALL_STYLE, style).apply();
+    }
+
+    @Nullable
+    public static String getCallWallpaper() {
+        return prefs.getString(PrefKeys.CALL_WALLPAPER, null);
+    }
+
+    public static void setCallWallpaper(@Nullable String path) {
+        prefs.edit().putString(PrefKeys.CALL_WALLPAPER, path).apply();
+    }
+
+    public static boolean isCallAnnouncer() {
+        return prefs.getBoolean(PrefKeys.CALL_ANNOUNCER, false);
+    }
+
+    public static void setCallAnnouncer(boolean enabled) {
+        prefs.edit().putBoolean(PrefKeys.CALL_ANNOUNCER, enabled).apply();
+    }
+
+    public static String getFakeCallsJson() {
+        return prefs.getString(PrefKeys.FAKE_CALLS, "[]");
+    }
+
+    public static void setFakeCallsJson(String json) {
+        prefs.edit().putString(PrefKeys.FAKE_CALLS, json).commit();
+    }
+
+    public static boolean isAppLockEnabled() {
+        return prefs.getBoolean(PrefKeys.APP_LOCK_ENABLED, false) && getPasscodeHash() != null;
+    }
+
+    public static void setAppLockEnabled(boolean enabled) {
+        prefs.edit().putBoolean(PrefKeys.APP_LOCK_ENABLED, enabled).apply();
+    }
+
+    @Nullable
+    public static String getPasscodeHash() {
+        return prefs.getString(PrefKeys.PASSCODE_HASH, null);
+    }
+
+    @Nullable
+    public static String getPasscodeSalt() {
+        return prefs.getString(PrefKeys.PASSCODE_SALT, null);
+    }
+
+    public static void setPasscode(String salt, String hash) {
+        prefs.edit().putString(PrefKeys.PASSCODE_SALT, salt).putString(PrefKeys.PASSCODE_HASH, hash).apply();
+    }
+
+    @Nullable
+    public static String getSecurityQuestion() {
+        return prefs.getString(PrefKeys.SECURITY_QUESTION, null);
+    }
+
+    @Nullable
+    public static String getSecurityAnswerHash() {
+        return prefs.getString(PrefKeys.SECURITY_ANSWER_HASH, null);
+    }
+
+    public static void setSecurityQuestion(String question, String answerHash) {
+        prefs.edit().putString(PrefKeys.SECURITY_QUESTION, question)
+                .putString(PrefKeys.SECURITY_ANSWER_HASH, answerHash).apply();
+    }
+
+    public static Set<String> getVaultKeys() {
+        return new HashSet<>(prefs.getStringSet(PrefKeys.VAULT_KEYS, Collections.emptySet()));
+    }
+
+    public static void setVaultKeys(Set<String> keys) {
+        prefs.edit().putStringSet(PrefKeys.VAULT_KEYS, new HashSet<>(keys)).apply();
+    }
+
+    public static boolean isSpamShieldEnabled() {
+        return prefs.getBoolean(PrefKeys.SPAM_SHIELD, false);
+    }
+
+    public static void setSpamShieldEnabled(boolean enabled) {
+        prefs.edit().putBoolean(PrefKeys.SPAM_SHIELD, enabled).apply();
+    }
+
+    public static boolean isSortByLastName() {
+        return prefs.getInt(PrefKeys.SORT_ORDER, 0) == 1;
+    }
+
+    public static void setSortByLastName(boolean lastName) {
+        prefs.edit().putInt(PrefKeys.SORT_ORDER, lastName ? 1 : 0).apply();
+    }
+
+    public static boolean isLastNameFirst() {
+        return prefs.getInt(PrefKeys.NAME_FORMAT, 0) == 1;
+    }
+
+    public static void setLastNameFirst(boolean lastFirst) {
+        prefs.edit().putInt(PrefKeys.NAME_FORMAT, lastFirst ? 1 : 0).apply();
+    }
+
+    public static boolean isDialpadSoundEnabled() {
+        return prefs.getBoolean(PrefKeys.DIALPAD_SOUND, true);
+    }
+
+    public static void setDialpadSoundEnabled(boolean enabled) {
+        prefs.edit().putBoolean(PrefKeys.DIALPAD_SOUND, enabled).apply();
+    }
+
+    public static boolean isVibrateOnAnswer() {
+        return prefs.getBoolean(PrefKeys.VIBRATE_ON_ANSWER, true);
+    }
+
+    public static void setVibrateOnAnswer(boolean enabled) {
+        prefs.edit().putBoolean(PrefKeys.VIBRATE_ON_ANSWER, enabled).apply();
+    }
+
     private static int today() {
         Calendar now = Calendar.getInstance();
         return now.get(Calendar.YEAR) * 10000 + (now.get(Calendar.MONTH) + 1) * 100 + now.get(Calendar.DAY_OF_MONTH);

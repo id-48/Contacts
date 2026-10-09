@@ -30,12 +30,14 @@
                 android:paddingStart="@dimen/space_16"
                 android:paddingEnd="@dimen/space_4">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/appIcon"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:importantForAccessibility="no"
-                    android:src="@mipmap/ic_launcher_round" />
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Icon" />
 
                 <TextView
                     android:id="@+id/appName"

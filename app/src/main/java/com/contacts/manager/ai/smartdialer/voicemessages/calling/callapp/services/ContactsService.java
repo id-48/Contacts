@@ -40,6 +40,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 public final class ContactsService {
 
@@ -72,21 +73,37 @@ public final class ContactsService {
     }
 
     public static List<ContactModel> getContacts(Context context) {
+        return getContacts(context, false);
+    }
+
+    public static List<ContactModel> getContacts(Context context, boolean includeHidden) {
         List<ContactModel> contacts = new ArrayList<>();
         if (!canRead(context)) {
             return contacts;
         }
         ContentResolver resolver = context.getContentResolver();
         Map<Long, String> numbers = loadPrimaryNumbers(resolver);
+        Set<String> hidden = includeHidden ? Collections.emptySet() : StorageService.getVaultKeys();
+        boolean lastFirst = StorageService.isLastNameFirst();
+        boolean sortByLast = StorageService.isSortByLastName();
         String[] projection = {Contacts._ID, Contacts.LOOKUP_KEY, Contacts.DISPLAY_NAME_PRIMARY,
-                Contacts.PHOTO_THUMBNAIL_URI, Contacts.STARRED};
+                Contacts.PHOTO_THUMBNAIL_URI, Contacts.STARRED, Contacts.DISPLAY_NAME_ALTERNATIVE};
         try (Cursor cursor = resolver.query(Contacts.CONTENT_URI, projection, null, null, null)) {
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     ContactModel contact = new ContactModel();
                     contact.id = cursor.getLong(0);
                     contact.lookupKey = cursor.getString(1);
-                    contact.name = cursor.getString(2);
+                    if (contact.lookupKey != null && hidden.contains(contact.lookupKey)) {
+                        continue;
+                    }
+                    String primary = cursor.getString(2);
+                    String alternative = cursor.getString(5);
+                    if (TextUtils.isEmpty(alternative)) {
+                        alternative = primary;
+                    }
+                    contact.name = lastFirst ? alternative : primary;
+                    contact.sortName = sortByLast ? alternative : primary;
                     contact.photoUri = cursor.getString(3);
                     contact.starred = cursor.getInt(4) == 1;
                     contact.primaryNumber = numbers.get(contact.id);
@@ -139,7 +156,7 @@ public final class ContactsService {
             if (aSymbol != bSymbol) {
                 return aSymbol ? -1 : 1;
             }
-            return collator.compare(a.getDisplayName(), b.getDisplayName());
+            return collator.compare(a.getSortName(), b.getSortName());
         });
     }
 

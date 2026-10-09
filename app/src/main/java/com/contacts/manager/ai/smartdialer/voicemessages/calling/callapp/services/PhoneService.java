@@ -101,12 +101,61 @@ public final class PhoneService {
             return;
         }
         List<PhoneAccountHandle> accounts = getCallAccounts(activity);
-        PhoneAccountHandle defaultAccount = getDefaultAccount(activity);
-        if (accounts.size() > 1 && defaultAccount == null) {
+        if (accounts.size() <= 1) {
+            placeCall(activity, number, null, video);
+            return;
+        }
+        PhoneAccountHandle preferred = getPreferredAccount(activity, accounts);
+        if (preferred == null) {
             showSimChooser(activity, number, accounts, video);
         } else {
-            placeCall(activity, number, null, video);
+            placeCall(activity, number, preferred, video);
         }
+    }
+
+    public static final String SIM_ASK = "ask";
+
+    private static PhoneAccountHandle getPreferredAccount(Context context, List<PhoneAccountHandle> accounts) {
+        String preference = StorageService.getSimPreference();
+        if (SIM_ASK.equals(preference)) {
+            return null;
+        }
+        if (!preference.isEmpty()) {
+            for (PhoneAccountHandle handle : accounts) {
+                if (preference.equals(handle.getId())) {
+                    return handle;
+                }
+            }
+        }
+        return getDefaultAccount(context);
+    }
+
+    public static CharSequence accountLabel(Context context, PhoneAccountHandle handle) {
+        CharSequence label = handle.getId();
+        TelecomManager telecom = telecom(context);
+        try {
+            PhoneAccount account = telecom == null ? null : telecom.getPhoneAccount(handle);
+            if (account != null && !TextUtils.isEmpty(account.getLabel())) {
+                label = account.getLabel();
+            }
+        } catch (SecurityException ignored) {
+        }
+        return label;
+    }
+
+    public static CharSequence simPreferenceLabel(Context context) {
+        String preference = StorageService.getSimPreference();
+        if (SIM_ASK.equals(preference)) {
+            return context.getString(R.string.sim_always_ask);
+        }
+        if (!preference.isEmpty()) {
+            for (PhoneAccountHandle handle : getCallAccounts(context)) {
+                if (preference.equals(handle.getId())) {
+                    return accountLabel(context, handle);
+                }
+            }
+        }
+        return context.getString(R.string.sim_system_default);
     }
 
     private static void requestCallPermission(Activity activity) {
@@ -122,18 +171,9 @@ public final class PhoneService {
 
     private static void showSimChooser(Activity activity, String number, List<PhoneAccountHandle> accounts,
                                        boolean video) {
-        TelecomManager telecom = telecom(activity);
         List<AppBottomSheet.Option> options = new ArrayList<>();
         for (PhoneAccountHandle handle : accounts) {
-            CharSequence label = handle.getId();
-            try {
-                PhoneAccount account = telecom.getPhoneAccount(handle);
-                if (account != null && !TextUtils.isEmpty(account.getLabel())) {
-                    label = account.getLabel();
-                }
-            } catch (SecurityException ignored) {
-            }
-            options.add(new AppBottomSheet.Option(R.drawable.ic_sim_card, label,
+            options.add(new AppBottomSheet.Option(R.drawable.ic_sim_card, accountLabel(activity, handle),
                     () -> placeCall(activity, number, handle, video)));
         }
         AppBottomSheet.showOptions(activity, activity.getString(R.string.sim_choose), options);
@@ -179,6 +219,22 @@ public final class PhoneService {
             }
         }
         return false;
+    }
+
+    public static void callVoicemail(Activity activity) {
+        if (!canPlaceCalls(activity)) {
+            requestCallPermission(activity);
+            return;
+        }
+        TelecomManager telecom = telecom(activity);
+        try {
+            if (telecom == null) {
+                throw new SecurityException();
+            }
+            telecom.placeCall(Uri.fromParts(PhoneAccount.SCHEME_VOICEMAIL, "", null), new Bundle());
+        } catch (SecurityException e) {
+            Toast.makeText(activity, R.string.voicemail_unavailable, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public static void placeCall(Context context, String number, PhoneAccountHandle handle, boolean video) {

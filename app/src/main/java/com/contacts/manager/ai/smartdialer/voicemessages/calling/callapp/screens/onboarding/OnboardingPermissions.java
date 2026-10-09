@@ -1,5 +1,6 @@
 package com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.onboarding;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,14 +11,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.PermissionSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PermissionManager;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -41,7 +40,7 @@ final class OnboardingPermissions {
     private final ActivityResultLauncher<String[]> permissionLauncher;
     private final ActivityResultLauncher<Intent> settingsLauncher;
     @Nullable
-    private AlertDialog settingsDialog;
+    private Dialog settingsDialog;
     @Nullable
     private Requirement settingsDialogFor;
     private boolean awaitingResult;
@@ -197,17 +196,11 @@ final class OnboardingPermissions {
                 ? activity.getString(R.string.perm_required_overlay_body)
                 : activity.getString(R.string.perm_required_settings_body, activity.getString(titleRes(requirement)));
         settingsDialogFor = requirement;
-        settingsDialog = new MaterialAlertDialogBuilder(activity, R.style.ThemeOverlay_App_Dialog)
-                .setTitle(R.string.perm_required_title)
-                .setMessage(message)
-                .setCancelable(false)
-                .setPositiveButton(overlay ? R.string.allow : R.string.open_settings, (d, w) -> {
+        settingsDialog = ConfirmDialog.required(activity, activity.getString(R.string.perm_required_title), message,
+                overlay ? R.string.allow : R.string.open_settings, () -> {
                     if (overlay) openOverlaySettings();
                     else openAppSettings();
-                })
-                .create();
-        Analytics.trackDialog(settingsDialog, "permission_required_dialog");
-        settingsDialog.show();
+                }, "permission_required_dialog");
     }
 
     private void openAppSettings() {

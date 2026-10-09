@@ -11,7 +11,7 @@ verify_csrf();
 
 const MAX_ADX_IDS_PER_TYPE = 20;
 const MAX_SEQUENCE_ITEMS = 50;
-const MAX_SCREENS = 100;
+const MAX_SCREENS = 300;
 
 $body = read_json_body();
 $errors = [];

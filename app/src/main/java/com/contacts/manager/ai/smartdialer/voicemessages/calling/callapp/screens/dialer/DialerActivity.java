@@ -8,8 +8,8 @@ import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.TextUtils;
+import android.widget.Toast;
 import android.transition.ChangeBounds;
 import android.transition.Slide;
 import android.transition.TransitionManager;
@@ -41,6 +41,8 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.CallLogService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.ContactsService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PhoneService;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.SpeedDialService;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.WhatsAppService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.IntentUtils;
@@ -155,7 +157,7 @@ public class DialerActivity extends BaseActivity implements DialPadView.Listener
     @Override
     protected void onResume() {
         super.onResume();
-        boolean tones = Settings.System.getInt(getContentResolver(), Settings.System.DTMF_TONE_WHEN_DIALING, 1) == 1;
+        boolean tones = StorageService.isDialpadSoundEnabled();
         if (tones && toneGenerator == null) {
             try {
                 toneGenerator = new ToneGenerator(AudioManager.STREAM_DTMF, 70);
@@ -198,6 +200,16 @@ public class DialerActivity extends BaseActivity implements DialPadView.Listener
         if (key == '0') {
             number.append('+');
             onNumberChanged();
+            return true;
+        }
+        if (number.length() == 0 && key >= '1' && key <= '9') {
+            SpeedDialService.Entry entry = SpeedDialService.get(key - '0');
+            if (entry != null) {
+                PhoneService.call(this, entry.number);
+            } else {
+                Toast.makeText(this, getString(R.string.speed_dial_not_set_hint, String.valueOf(key)),
+                        Toast.LENGTH_LONG).show();
+            }
             return true;
         }
         return false;

@@ -22,6 +22,8 @@
     <dimen name="button_height">56dp</dimen>
     <dimen name="row_min_height">72dp</dimen>
     <dimen name="setting_row_height">60dp</dimen>
+    <dimen name="setting_icon_chip">38dp</dimen>
+    <dimen name="call_style_preview_height">250dp</dimen>
     <dimen name="avatar_medium">48dp</dimen>
     <dimen name="avatar_large">72dp</dimen>
     <dimen name="avatar_hero">112dp</dimen>

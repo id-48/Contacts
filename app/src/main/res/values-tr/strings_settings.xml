@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="section_call_management">Arama yönetimi</string>
+    <string name="section_fake_call">Sahte arama</string>
+    <string name="section_privacy_security">Gizlilik ve güvenlik</string>
+    <string name="section_appearance_display">Görünüm ve ekran</string>
+    <string name="section_sound_vibration">Ses ve titreşim</string>
+    <string name="section_tools_accessibility">Araçlar ve erişilebilirlik</string>
+    <string name="section_system_support">Sistem ve destek</string>
+
+    <string name="sim_preference">SIM tercihi</string>
+    <string name="sim_preference_subtitle">Aramalar için kullanılacak SIM\'i seçin</string>
+    <string name="sim_always_ask">Her zaman sor</string>
+    <string name="sim_system_default">Telefon varsayılanı</string>
+    <string name="sim_single">Bu telefonda yalnızca bir SIM var</string>
+
+    <string name="speed_dial">Hızlı arama</string>
+    <string name="speed_dial_subtitle">Aramak için tuş takımında bir tuşa uzun basın</string>
+    <string name="speed_dial_key">Tuş %1$s</string>
+    <string name="speed_dial_not_set">Ayarlanmadı</string>
+    <string name="speed_dial_assign">Kişi ata</string>
+    <string name="speed_dial_change">Kişiyi değiştir</string>
+    <string name="speed_dial_remove">Kaldır</string>
+    <string name="speed_dial_saved">Hızlı arama %1$s, %2$s olarak ayarlandı</string>
+    <string name="speed_dial_not_set_hint">%1$s tuşunda kişi yok. Ayarlar → Hızlı arama bölümünden ayarlayın.</string>
+
+    <string name="voicemail_messages">Sesli mesajlar</string>
+    <string name="voicemail_subtitle">Sesli mesajlarınızı dinleyin</string>
+    <string name="voicemail_call">Sesli mesajı ara</string>
+    <string name="voicemail_empty_title">Sesli mesaj yok</string>
+    <string name="voicemail_empty_body">Operatörünüzün görsel sesli mesajları burada görünür. Yukarıdaki düğmeyle sesli mesajınızı her zaman arayabilirsiniz.</string>
+    <string name="voicemail_needs_default">Sesli mesajları görmek için bu uygulamayı varsayılan telefon uygulaması yapın.</string>
+    <string name="voicemail_unavailable">Bu telefonda sesli mesaj kullanılamıyor</string>
+    <string name="voicemail_play_failed">Bu sesli mesaj oynatılamadı</string>
+    <string name="voicemail_delete_title">Bu sesli mesaj silinsin mi?</string>
+    <string name="voicemail_new">Yeni</string>
+
+    <string name="flash_on_call">Aramada flaş</string>
+    <string name="flash_on_call_subtitle">Arama geldiğinde el fenerini yakıp söndür</string>
+    <string name="flash_unavailable">Bu telefonda el feneri yok</string>
+
+    <string name="answer_position">Yanıtla düğmesinin konumu</string>
+    <string name="answer_position_header">Gelen arama ekranında yanıtla düğmesinin hangi tarafta görüneceğini seçin.</string>
+    <string name="answer_right">Sağ (varsayılan)</string>
+    <string name="answer_right_desc">Sağda kabul et, solda reddet</string>
+    <string name="answer_left">Sol</string>
+    <string name="answer_left_desc">Solda kabul et, sağda reddet</string>
+    <string name="answer_position_style_link">Gelen arama stilini değiştir</string>
+
+    <string name="call_style">Gelen arama stili ve duvar kağıdı</string>
+    <string name="call_style_short">Gelen arama stili</string>
+    <string name="call_wallpaper">Özel arama duvar kağıdı</string>
+    <string name="call_wallpaper_body">Gelen arama ekranının arkasında gösterilecek bir fotoğraf seçin.</string>
+    <string name="call_wallpaper_choose">Galeriden seç</string>
+    <string name="call_wallpaper_remove">Kaldır</string>
+    <string name="call_wallpaper_saved">Arama duvar kağıdı güncellendi</string>
+    <string name="call_styles_title">Yanıtlama stilleri</string>
+    <string name="call_style_applied">%1$s uygulandı</string>
+    <string name="call_style_1">Klasik çift düğme</string>
+    <string name="call_style_2">Yukarı / aşağı kaydır</string>
+    <string name="call_style_3">Yatay kapsül kaydırıcı</string>
+    <string name="call_style_4">Parlayan halkalar</string>
+    <string name="call_style_5">Kavisli dalga kaydırıcı</string>
+    <string name="call_style_6">Ters çift düğme</string>
+    <string name="call_style_7">Minimal çerçeve daireler</string>
+    <string name="call_style_8">One UI hap çubuğu</string>
+    <string name="call_style_9">Cam yüzen kartlar</string>
+    <string name="call_style_10">Neon gradyan dalga</string>
+    <string name="swipe_up_answer">Yanıtlamak için yukarı kaydırın</string>
+    <string name="swipe_down_decline">Reddetmek için aşağı kaydırın</string>
+    <string name="slide_to_answer">yanıtlamak için kaydırın</string>
+    <string name="decline_call">Aramayı reddet</string>
+    <string name="tap_to_answer">Yanıtlamak için dokunun</string>
+    <string name="possible_spam">Olası spam</string>
+
+    <string name="call_announcer">Arayanı seslendir</string>
+    <string name="call_announcer_subtitle">Telefon çaldığında arayanın adını söyle</string>
+    <string name="announce_call">%1$s arıyor</string>
+    <string name="blocked_contacts">Engellenen kişiler</string>
+
+    <string name="fake_call_manager">Sahte arama yöneticisi</string>
+    <string name="fake_call_subtitle">Gerçekçi bir gelen arama planlayın</string>
+    <string name="fake_call_upcoming">Yaklaşan</string>
+    <string name="fake_call_completed">Tamamlanan</string>
+    <string name="fake_call_empty_upcoming">Yaklaşan sahte arama yok</string>
+    <string name="fake_call_empty_upcoming_body">Sahte arama planlamak için + simgesine dokunun. Garip durumlardan kurtulmak için ideal.</string>
+    <string name="fake_call_empty_completed">Tamamlanan sahte arama yok</string>
+    <string name="fake_call_empty_completed_body">Aldığınız sahte aramalar burada görünür.</string>
+    <string name="fake_call_schedule">Sahte arama planla</string>
+    <string name="fake_call_name">Arayan adı</string>
+    <string name="fake_call_number">Telefon numarası</string>
+    <string name="fake_call_time">Planlanan zaman</string>
+    <string name="fake_call_duration">Kabul edildiğinde arama süresi</string>
+    <string name="fake_call_pick_contact">Kişilerden seç</string>
+    <string name="fake_call_scheduled">Sahte arama planlandı %1$s</string>
+    <string name="fake_call_name_required">Arayan adını girin</string>
+    <string name="fake_call_cancel_title">Bu sahte arama iptal edilsin mi?</string>
+    <string name="fake_call_in">%1$s içinde</string>
+    <string name="fake_call_channel">Sahte aramalar</string>
+    <string name="fake_call_answered">Yanıtlandı</string>
+    <string name="fake_call_declined">Reddedildi</string>
+    <string name="fake_call_missed">Cevapsız</string>
+    <string name="seconds_10">10 saniye içinde</string>
+    <string name="seconds_30">30 saniye içinde</string>
+    <string name="minute_1">1 dakika içinde</string>
+    <string name="minutes_5">5 dakika içinde</string>
+    <string name="minutes_10">10 dakika içinde</string>
+    <string name="minutes_30">30 dakika içinde</string>
+    <string name="duration_15s">15 saniye</string>
+    <string name="duration_30s">30 saniye</string>
+    <string name="duration_1m">1 dakika</string>
+    <string name="duration_2m">2 dakika</string>
+    <string name="duration_5m">5 dakika</string>
+    <string name="schedule">Planla</string>
+    <string name="clear_all">Tümünü temizle</string>
+
+    <string name="private_vault">Gizli kişi kasası</string>
+    <string name="private_vault_subtitle">Kişileri şifrenizin arkasına gizleyin</string>
+    <string name="vault_empty_title">Kasanız boş</string>
+    <string name="vault_empty_body">Gizli tutmak istediğiniz kişileri ekleyin.</string>
+    <string name="vault_add">Kasaya ekle</string>
+    <string name="vault_remove">Kasadan çıkar</string>
+    <string name="vault_added">%1$s kasaya taşındı</string>
+    <string name="vault_removed">%1$s yeniden görünür</string>
+    <string name="vault_needs_passcode">Kasanızı korumak için önce bir şifre belirleyin</string>
+    <string name="vault_pick_title">Bir kişi seçin</string>
+
+    <string name="app_lock">Uygulama kilidi (şifre)</string>
+    <string name="app_lock_subtitle">Uygulamayı açmak için 4 haneli şifre iste</string>
+    <string name="passcode_set">Şifre belirle</string>
+    <string name="passcode_set_body">4 haneli bir şifre girin</string>
+    <string name="passcode_confirm">Şifreyi onayla</string>
+    <string name="passcode_confirm_body">Aynı şifreyi tekrar girin</string>
+    <string name="passcode_enter">Şifreyi girin</string>
+    <string name="passcode_enter_body">Devam etmek için 4 haneli şifrenizi girin</string>
+    <string name="passcode_mismatch">Şifreler eşleşmiyor. Tekrar deneyin.</string>
+    <string name="passcode_wrong">Yanlış şifre</string>
+    <string name="passcode_forgot">Şifrenizi mi unuttunuz?</string>
+    <string name="passcode_enabled">Uygulama kilidi açık</string>
+    <string name="passcode_disabled">Uygulama kilidi kapalı</string>
+    <string name="security_question">Güvenlik sorusu</string>
+    <string name="security_question_body">Şifrenizi unutursanız sıfırlamak için kullanılır.</string>
+    <string name="security_answer">Cevabınız</string>
+    <string name="security_save_finish">Kaydet ve bitir</string>
+    <string name="security_answer_required">Bir cevap girin</string>
+    <string name="security_wrong_answer">Bu cevap eşleşmiyor</string>
+    <string name="security_verify">Doğrula</string>
+    <string-array name="security_questions">
+        <item>İlk evcil hayvanınızın adı neydi?</item>
+        <item>Hangi şehirde doğdunuz?</item>
+        <item>En sevdiğiniz yemek nedir?</item>
+        <item>İlk okulunuzun adı neydi?</item>
+        <item>Annenizin kızlık soyadı nedir?</item>
+    </string-array>
+
+    <string name="spam_shield">Çevrimdışı spam ve dolandırıcılık kalkanı</string>
+    <string name="spam_shield_subtitle">Tele pazarlama ve dolandırıcılık aramalarını uyar ve engelle</string>
+    <string name="spam_shield_on">Tele pazarlama (140) ve gizli numaralar engellenecek</string>
+
+    <string name="contact_sort_order">Kişi sıralaması</string>
+    <string name="sort_order_header">Kişilerinizin listede nasıl sıralanacağını seçin.</string>
+    <string name="sort_first_name">Ad</string>
+    <string name="sort_first_name_desc">John Smith, J altında görünür</string>
+    <string name="sort_last_name">Soyad</string>
+    <string name="sort_last_name_desc">John Smith, S altında görünür</string>
+    <string name="name_format">Ad biçimi</string>
+    <string name="name_format_header">Kişi adlarının nasıl gösterileceğini seçin.</string>
+    <string name="name_first_last">Ad, soyad</string>
+    <string name="name_last_first">Soyad, ad</string>
+    <string name="option_saved">Kaydedildi</string>
+
+    <string name="ringtones">Zil sesleri</string>
+    <string name="ringtone_saved">Zil sesi güncellendi</string>
+    <string name="ringtone_needs_permission">Zil sesini değiştirmek için \"Sistem ayarlarını değiştir\" iznini verin</string>
+    <string name="ringtone_silent">Sessiz</string>
+    <string name="dialpad_sound">Tuş takımı sesi</string>
+    <string name="dialpad_sound_subtitle">Tuş takımına dokunduğunuzda ton çal</string>
+    <string name="vibrate_on_answer">Yanıtta titreşim</string>
+    <string name="vibrate_on_answer_subtitle">Arama bağlandığında kısa titreşim</string>
+
+    <string name="accessibility">Erişilebilirlik</string>
+    <string name="accessibility_subtitle">İşitme, görme ve etkileşim ayarları</string>
+    <string name="merge_duplicates">Kopyaları birleştir</string>
+    <string name="merge_duplicates_subtitle">Yinelenen kişileri bulun ve birleştirin</string>
+    <string name="merge_select_all">Tümünü seç</string>
+    <string name="merge_selected">Seçilenleri birleştir (%1$d)</string>
+    <string name="merge_group_title">%1$s (%2$d kişi)</string>
+    <string name="merge_reason_name">Aynı ad</string>
+    <string name="merge_reason_number">Aynı numara</string>
+    <string name="merge_empty_title">Kopya bulunamadı</string>
+    <string name="merge_empty_body">Kişileriniz düzenli görünüyor.</string>
+    <string name="merge_done">%1$d grup birleştirildi</string>
+    <string name="merge_failed">Bu kişiler birleştirilemedi</string>
+    <string name="import_export">İçe / dışa aktar</string>
+    <string name="import_export_subtitle">Kişileri .vcf olarak yedekleyin veya geri yükleyin</string>
+    <string name="import_tab">İçe aktar</string>
+    <string name="export_tab">Dışa aktar</string>
+    <string name="import_body">Kişilerini bu telefona eklemek için bir .vcf dosyası seçin.</string>
+    <string name="import_choose">.vcf dosyası seç</string>
+    <string name="import_contacts">Kişileri içe aktar</string>
+    <string name="import_save_to">İçe aktarılan kişileri şuraya kaydet</string>
+    <string name="import_device">Telefon</string>
+    <string name="import_done">%1$d kişi içe aktarıldı</string>
+    <string name="import_failed">Bu dosya okunamadı</string>
+    <string name="import_no_file">Önce bir .vcf dosyası seçin</string>
+    <string name="export_all">Tüm kişiler</string>
+    <string name="export_contacts">.vcf dosyasına aktar</string>
+    <string name="export_done">%1$d kişi dışa aktarıldı</string>
+    <string name="export_failed">Kişiler dışa aktarılamadı</string>
+    <string name="export_empty">Dışa aktarılacak kişi yok</string>
+    <string name="sync_accounts">Hesapları senkronize et</string>
+    <string name="sync_accounts_subtitle">Hesaplarınızın kişi senkronizasyonunu yönetin</string>
+    <string name="sync_master">Genel otomatik senkronizasyon</string>
+    <string name="sync_master_body">Tüm hesapların verilerini otomatik senkronize et</string>
+    <string name="sync_connected">Bağlı hesaplar</string>
+    <string name="sync_now">Senkronize et</string>
+    <string name="sync_started">Senkronizasyon başladı</string>
+    <string name="sync_empty">Bu telefonda senkronize hesap yok</string>
+    <string name="sync_failed">Bu hesap buradan senkronize edilemez</string>
+    <string name="permissions_subtitle_short">Uygulamanın nelere erişebildiğini inceleyin</string>
+    <string name="privacy_policy_subtitle">Verilerinizi nasıl işliyoruz</string>
+    <string name="processing">İşleniyor…</string>
+    <string name="something_went_wrong">Bir şeyler ters gitti. Lütfen tekrar deneyin.</string>
+</resources>
