@@ -124,6 +124,18 @@ foreach (USER_SOURCES as $source) {
         $order++;
         $screen = $byKey[$key] ?? [];
         $enabled = static fn(string $flag): bool => in_array($flag, $flags, true) && to_bool($screen[$flag] ?? false);
+        $interval = 0;
+        if (in_array('list_interval', $flags, true)) {
+            $intervalRaw = trim((string) ($screen['list_interval'] ?? '0'));
+            if ($intervalRaw === '') {
+                $intervalRaw = '0';
+            }
+            if (!preg_match('/^\d+$/', $intervalRaw) || (int) $intervalRaw > LIST_INTERVAL_MAX) {
+                $errors["$source.screen_ads"] = "$label: enter a whole number from 0 to " . LIST_INTERVAL_MAX;
+            } else {
+                $interval = (int) $intervalRaw;
+            }
+        }
         $screenRows[] = [
             $source,
             $key,
@@ -132,6 +144,7 @@ foreach (USER_SOURCES as $source) {
             $enabled('native_small'),
             $enabled('banner'),
             $enabled('fullscreen'),
+            $interval,
             $order,
         ];
     }
@@ -177,16 +190,16 @@ foreach ($sequenceRows as [$source, $type, $order]) {
 }
 
 $screenStmt = $pdo->prepare(
-    'INSERT INTO screen_ad_config (source, screen_key, label, native_big_enabled, native_small_enabled, banner_enabled, fullscreen_enabled, sort_order)
-     VALUES (:s, :k, :l, :nb, :ns, :b, :f, :o)
+    'INSERT INTO screen_ad_config (source, screen_key, label, native_big_enabled, native_small_enabled, banner_enabled, fullscreen_enabled, list_interval, sort_order)
+     VALUES (:s, :k, :l, :nb, :ns, :b, :f, :li, :o)
      ON DUPLICATE KEY UPDATE label = VALUES(label), native_big_enabled = VALUES(native_big_enabled),
         native_small_enabled = VALUES(native_small_enabled), banner_enabled = VALUES(banner_enabled),
-        fullscreen_enabled = VALUES(fullscreen_enabled), sort_order = VALUES(sort_order)'
+        fullscreen_enabled = VALUES(fullscreen_enabled), list_interval = VALUES(list_interval), sort_order = VALUES(sort_order)'
 );
-foreach ($screenRows as [$source, $key, $label, $nb, $ns, $b, $f, $order]) {
+foreach ($screenRows as [$source, $key, $label, $nb, $ns, $b, $f, $interval, $order]) {
     $screenStmt->execute([
         ':s' => $source, ':k' => $key, ':l' => $label, ':nb' => (int) $nb, ':ns' => (int) $ns,
-        ':b' => (int) $b, ':f' => (int) $f, ':o' => $order,
+        ':b' => (int) $b, ':f' => (int) $f, ':li' => $interval, ':o' => $order,
     ]);
 }
 $keys = array_keys(DEFAULT_SCREENS);

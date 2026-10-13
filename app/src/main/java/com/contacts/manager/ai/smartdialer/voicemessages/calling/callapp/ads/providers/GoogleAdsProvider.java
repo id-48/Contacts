@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdType;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsConfig;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.NativeStyle;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.ui.GoogleNativeBinder;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdListener;
@@ -79,7 +80,7 @@ abstract class GoogleAdsProvider implements AdProvider {
     }
 
     @Override
-    public void loadNative(Activity activity, ViewGroup container, boolean big, AdsConfig config,
+    public void loadNative(Activity activity, ViewGroup container, NativeStyle style, AdsConfig config,
                            LoadCallback<InlineAd> callback) {
         String unitId = pickUnitId(AdType.NATIVE, config);
         if (unitId == null) {
@@ -94,7 +95,7 @@ abstract class GoogleAdsProvider implements AdProvider {
                         callback.onFailed("activity gone");
                         return;
                     }
-                    View view = GoogleNativeBinder.bind(activity, nativeAd, big);
+                    View view = GoogleNativeBinder.bind(activity, nativeAd, style);
                     loaded[0] = new SimpleInlineAd(view, nativeAd::destroy);
                     callback.onLoaded(loaded[0]);
                 })

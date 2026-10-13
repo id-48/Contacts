@@ -108,7 +108,7 @@ require __DIR__ . '/includes/header.php';
             <section class="card">
                 <div class="card-head">
                     <h2>Per-screen ads <span class="source-badge source-<?= e($source) ?>"><?= e($sourceLabel) ?></span></h2>
-                    <p class="muted">Choose which ad formats appear on each screen. "Back" rows also apply to the phone's system back on that screen.</p>
+                    <p class="muted">Choose which ad formats appear on each screen. "Back" rows also apply to the phone's system back on that screen. List rows show one ad at the top, then one after every "List ad gap" items (0 = only the top ad).</p>
                 </div>
                 <div class="table-wrap">
                     <table class="table screen-table">
@@ -119,6 +119,7 @@ require __DIR__ . '/includes/header.php';
                             <th>Native Small</th>
                             <th>Banner</th>
                             <th>Fullscreen</th>
+                            <th>List ad gap</th>
                         </tr>
                         </thead>
                         <tbody data-screen-rows></tbody>

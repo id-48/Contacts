@@ -17,7 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Remote config: cached JSON first, then one background refresh per process (re-fetched at most every
+ * Remote config: cached JSON first, refreshed in the background whenever the backend's refreshes-per-day
+ * interval has passed, and once per process when the UI waits for it (re-fetched at most every
  * {@link #REFRESH_INTERVAL_MS}). If the backend is down the last valid cache, or safe defaults, are used.
  */
 @MainThread
@@ -30,6 +31,7 @@ public final class RemoteConfigManager {
     private static final String TAG = "AdsConfig";
     private static final String CONFIG_PATH = "api/app/config.php";
     private static final long REFRESH_INTERVAL_MS = 30 * 60 * 1000L;
+    private static final long DAY_MS = 24 * 60 * 60 * 1000L;
 
     private static final Handler MAIN = new Handler(Looper.getMainLooper());
     private static final List<Listener> waiting = new ArrayList<>();
@@ -58,7 +60,7 @@ public final class RemoteConfigManager {
                 AdsLog.d(TAG, "Cached config unreadable, using defaults");
             }
         }
-        refresh();
+        refreshIfDue(null);
     }
 
     public static RemoteConfig get() {
@@ -82,12 +84,38 @@ public final class RemoteConfigManager {
     public static void refreshIfOlderThan(long maxAgeMs) {
         boolean stale = lastFetchAt == 0 || SystemClock.elapsedRealtime() - lastFetchAt > maxAgeMs;
         if (fetching || !stale) return;
+        fetch(null);
+    }
+
+    public static long refreshIntervalMs() {
+        return DAY_MS / current.configRefreshPerDay;
+    }
+
+    public static void refreshIfDue(@Nullable Listener done) {
+        if (fetching) {
+            if (done != null) waiting.add(done);
+            return;
+        }
+        long fetchedAt = StorageService.getRemoteConfigFetchedAt();
+        long now = System.currentTimeMillis();
+        long interval = refreshIntervalMs();
+        boolean due = fetchedAt <= 0 || fetchedAt > now || now - fetchedAt >= interval - interval / 10;
+        if (!due) {
+            if (done != null) done.onConfig(current);
+            return;
+        }
+        fetch(done);
+    }
+
+    private static void fetch(@Nullable Listener done) {
         fetching = true;
+        if (done != null) waiting.add(done);
         AdsLog.d(TAG, "Fetching remote config");
         ApiClient.get(CONFIG_PATH, new ApiClient.Callback() {
             @Override
             public void onSuccess(JSONObject data) {
                 finishFetch();
+                StorageService.setRemoteConfigFetchedAt(System.currentTimeMillis());
                 apply(data);
                 notifyWaiting();
             }
@@ -150,7 +178,9 @@ public final class RemoteConfigManager {
     }
 
     private static void notifyWaiting() {
-        for (Listener listener : new ArrayList<>(waiting)) {
+        List<Listener> listeners = new ArrayList<>(waiting);
+        waiting.clear();
+        for (Listener listener : listeners) {
             listener.onConfig(current);
         }
     }

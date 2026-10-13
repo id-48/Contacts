@@ -584,9 +584,17 @@
                         <span class="slider"></span>
                     </label>
                 </td>` : `<td data-label="${label}" class="muted">&mdash;</td>`).join('');
+            const gapLabel = 'List ad gap';
+            const gap = supported.includes('list_interval') ? `
+                <td data-label="${gapLabel}">
+                    <input class="list-gap-input" type="number" min="0" max="500" step="1" data-list-interval
+                        value="${esc(String(screen.list_interval ?? 0))}" aria-label="${esc(screen.label)} ${gapLabel}"
+                        title="First ad is at the top, then one after every N items (0 = only the top ad)">
+                </td>` : `<td data-label="${gapLabel}" class="muted">&mdash;</td>`;
             return `<tr data-screen-key="${esc(screen.screen_key)}" data-screen-flags="${esc(supported.join(','))}">
                 <td data-label="Screen"><strong>${esc(screen.label)}</strong><span class="screen-key">${esc(screen.screen_key)}</span></td>
                 ${toggles}
+                ${gap}
             </tr>`;
         }
 
@@ -598,6 +606,8 @@
             return $$('tr', screenRows(source)).map((tr) => {
                 const screen = { screen_key: tr.dataset.screenKey, flags: tr.dataset.screenFlags.split(',') };
                 $$('[data-flag]', tr).forEach((input) => { screen[input.dataset.flag] = input.checked; });
+                const gap = $('[data-list-interval]', tr);
+                if (gap) screen.list_interval = gap.value.trim();
                 return screen;
             });
         }

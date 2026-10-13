@@ -21,6 +21,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.ListNativeAds;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppBottomSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppDialogs;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.PermissionRequester;
@@ -56,6 +58,7 @@ public class RecentFragment extends Fragment implements MainActivity.Tab, Recent
     private RecentViewModel viewModel;
     private RecentAdapter adapter;
     private PermissionRequester permissionRequester;
+    private ListNativeAds listAds;
     private boolean missedOnly;
     private List<CallModel> latestCalls;
 
@@ -66,6 +69,7 @@ public class RecentFragment extends Fragment implements MainActivity.Tab, Recent
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         permissionRequester = new PermissionRequester(this, this::refreshState);
+        listAds = new ListNativeAds(requireActivity(), AdScreens.RECENT_LIST);
         if (savedInstanceState != null) {
             missedOnly = savedInstanceState.getBoolean(STATE_MISSED);
         }
@@ -82,7 +86,7 @@ public class RecentFragment extends Fragment implements MainActivity.Tab, Recent
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(RecentViewModel.class);
-        adapter = new RecentAdapter(this);
+        adapter = new RecentAdapter(this, listAds);
         adapter.setVideoSupported(WhatsAppService.isInstalled(requireContext()));
         binding.recentList.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recentList.setAdapter(adapter);
@@ -259,7 +263,13 @@ public class RecentFragment extends Fragment implements MainActivity.Tab, Recent
         }
         List<CallGroupModel> groups = CallLogService.group(latestCalls, missedOnly);
         List<RecentAdapter.Item> items = new ArrayList<>();
+        int interval = groups.isEmpty() ? -1 : listAds.interval();
+        int slot = 0;
+        if (interval >= 0) {
+            items.add(RecentAdapter.Item.ad(slot++));
+        }
         String lastSection = null;
+        int shown = 0;
         for (CallGroupModel group : groups) {
             String section = DateUtils.sectionTitle(context, group.getLatest().date);
             if (!section.equals(lastSection)) {
@@ -267,6 +277,9 @@ public class RecentFragment extends Fragment implements MainActivity.Tab, Recent
                 lastSection = section;
             }
             items.add(RecentAdapter.Item.group(group));
+            if (ListNativeAds.adAfter(interval, ++shown, groups.size())) {
+                items.add(RecentAdapter.Item.ad(slot++));
+            }
         }
         adapter.submitList(items, onCommitted);
         if (items.isEmpty()) {

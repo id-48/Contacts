@@ -12,9 +12,11 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.ListNativeAds;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemContactBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemContactCreateBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemContactFooterBinding;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemListNativeAdBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemRecentHeaderBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.models.ContactModel;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.PhoneUtils;
@@ -37,18 +39,29 @@ public class ContactsAdapter extends ListAdapter<ContactsAdapter.Item, RecyclerV
     private static final int TYPE_HEADER = 1;
     private static final int TYPE_CONTACT = 2;
     private static final int TYPE_FOOTER = 3;
+    private static final int TYPE_AD = 4;
 
     public static class Item {
         final int type;
         final String text;
         final ContactModel contact;
         final long id;
+        final int slot;
 
         private Item(int type, String text, ContactModel contact, long id) {
+            this(type, text, contact, id, 0);
+        }
+
+        private Item(int type, String text, ContactModel contact, long id, int slot) {
             this.type = type;
             this.text = text;
             this.contact = contact;
             this.id = id;
+            this.slot = slot;
+        }
+
+        public static Item ad(int slot) {
+            return new Item(TYPE_AD, null, null, Long.MIN_VALUE + slot, slot);
         }
 
         public static Item create() {
@@ -87,10 +100,12 @@ public class ContactsAdapter extends ListAdapter<ContactsAdapter.Item, RecyclerV
     };
 
     private final Listener listener;
+    private final ListNativeAds listAds;
 
-    public ContactsAdapter(Listener listener) {
+    public ContactsAdapter(Listener listener, ListNativeAds listAds) {
         super(DIFF);
         this.listener = listener;
+        this.listAds = listAds;
         setHasStableIds(true);
     }
 
@@ -137,15 +152,30 @@ public class ContactsAdapter extends ListAdapter<ContactsAdapter.Item, RecyclerV
                 return new HeaderHolder(ItemRecentHeaderBinding.inflate(inflater, parent, false));
             case TYPE_FOOTER:
                 return new FooterHolder(ItemContactFooterBinding.inflate(inflater, parent, false));
+            case TYPE_AD:
+                return new AdHolder(ItemListNativeAdBinding.inflate(inflater, parent, false));
             default:
                 return new ContactHolder(ItemContactBinding.inflate(inflater, parent, false));
         }
     }
 
     @Override
+    public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        if (holder instanceof AdHolder) {
+            AdHolder ad = (AdHolder) holder;
+            listAds.attach(ad.slot, ad.binding.adHost);
+        }
+    }
+
+    @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Item item = getItem(position);
-        if (holder instanceof HeaderHolder) {
+        if (holder instanceof AdHolder) {
+            AdHolder ad = (AdHolder) holder;
+            ad.slot = item.slot;
+            if (ad.itemView.isAttachedToWindow()) listAds.attach(ad.slot, ad.binding.adHost);
+        } else if (holder instanceof HeaderHolder) {
             ((HeaderHolder) holder).binding.sectionTitle.setText(item.text);
         } else if (holder instanceof FooterHolder) {
             ((FooterHolder) holder).binding.footerText.setText(item.text);
@@ -176,6 +206,16 @@ public class ContactsAdapter extends ListAdapter<ContactsAdapter.Item, RecyclerV
         final ItemRecentHeaderBinding binding;
 
         HeaderHolder(ItemRecentHeaderBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+    }
+
+    static class AdHolder extends RecyclerView.ViewHolder {
+        final ItemListNativeAdBinding binding;
+        int slot;
+
+        AdHolder(ItemListNativeAdBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

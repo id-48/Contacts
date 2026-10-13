@@ -18,18 +18,20 @@ import java.util.Map;
 public final class AdsConfig {
 
     public static final class ScreenAds {
-        static final ScreenAds NONE = new ScreenAds(false, false, false, false);
+        static final ScreenAds NONE = new ScreenAds(false, false, false, false, 0);
 
         public final boolean nativeBig;
         public final boolean nativeSmall;
         public final boolean banner;
         public final boolean fullscreen;
+        public final int listInterval;
 
-        ScreenAds(boolean nativeBig, boolean nativeSmall, boolean banner, boolean fullscreen) {
+        ScreenAds(boolean nativeBig, boolean nativeSmall, boolean banner, boolean fullscreen, int listInterval) {
             this.nativeBig = nativeBig;
             this.nativeSmall = nativeSmall;
             this.banner = banner;
             this.fullscreen = fullscreen;
+            this.listInterval = Math.max(0, listInterval);
         }
     }
 
@@ -150,7 +152,7 @@ public final class AdsConfig {
             String key = keys.next();
             JSONObject s = screensJson.getJSONObject(key);
             screens.put(key, new ScreenAds(s.optBoolean("native_big"), s.optBoolean("native_small"),
-                    s.optBoolean("banner"), s.optBoolean("fullscreen")));
+                    s.optBoolean("banner"), s.optBoolean("fullscreen"), s.optInt("list_interval", 0)));
         }
         return screens;
     }

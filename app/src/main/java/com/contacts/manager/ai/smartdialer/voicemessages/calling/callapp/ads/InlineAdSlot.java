@@ -26,7 +26,8 @@ final class InlineAdSlot {
     enum Shape {
         BANNER(R.layout.ad_shimmer_banner),
         NATIVE_BIG(R.layout.ad_shimmer_native_big),
-        NATIVE_SMALL(R.layout.ad_shimmer_native_small);
+        NATIVE_SMALL(R.layout.ad_shimmer_native_small),
+        NATIVE_SMALL_2(R.layout.ad_shimmer_native_small2);
 
         @LayoutRes
         final int shimmerLayout;

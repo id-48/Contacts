@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="76dp"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginStart="@dimen/space_8"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="@dimen/space_8"
+        android:layout_marginBottom="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_12"
+        android:paddingEnd="@dimen/space_12">
+
+        <FrameLayout
+            android:id="@+id/tp_native_main_image"
+            android:layout_width="@dimen/avatar_medium"
+            android:layout_height="@dimen/avatar_medium">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tp_mopub_native_main_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/primary_container"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Pill" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/tp_native_icon_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Pill" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_8"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tp_native_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_medium"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                app:fontFamily="@font/roboto_medium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/space_4"
+                    android:background="@drawable/bg_ad_badge2"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingHorizontal="4dp"
+                    android:text="@string/ad_badge"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    app:fontFamily="@font/roboto_bold" />
+
+                <TextView
+                    android:id="@+id/tp_native_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/text_muted"
+                    android:textSize="14sp"
+                    app:fontFamily="@font/roboto_regular" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tp_native_advertiser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/tp_native_cta_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_btn_create_pill"
+            android:elevation="0dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_medium"
+            android:maxWidth="110dp"
+            android:maxLines="1"
+            android:minWidth="72dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="@dimen/space_12"
+            android:stateListAnimator="@null"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:backgroundTint="@null"
+            app:fontFamily="@font/roboto_medium" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/tp_ad_choices_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/space_2" />
+
+    <LinearLayout
+        android:id="@+id/tp_layout_ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/tp_native_ad_choice"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
+</RelativeLayout>

@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdProviderType;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdType;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsConfig;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.NativeStyle;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.ui.CustomTabAdActivity;
 
 /** Fullscreen-only house ad: the admin's Custom Ads URL opened in a Chrome Custom Tab. */
@@ -27,7 +28,7 @@ public final class CustomAdProvider implements AdProvider {
     }
 
     @Override
-    public void loadNative(Activity activity, ViewGroup container, boolean big, AdsConfig config,
+    public void loadNative(Activity activity, ViewGroup container, NativeStyle style, AdsConfig config,
                            LoadCallback<InlineAd> callback) {
         callback.onFailed("fullscreen only");
     }

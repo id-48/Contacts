@@ -53,6 +53,7 @@ public final class RemoteConfig {
     public final boolean appOpenOnResume;
     public final boolean launcherEnabled;
     public final boolean inAppReviewEnabled;
+    public final int configRefreshPerDay;
     public final String facebookAppId;
     public final String facebookClientToken;
     public final AdsConfig ads;
@@ -90,6 +91,7 @@ public final class RemoteConfig {
         appOpenOnResume = features.optBoolean("app_open_on_resume", false);
         launcherEnabled = features.optBoolean("launcher_enabled", false);
         inAppReviewEnabled = features.optBoolean("in_app_review", true);
+        configRefreshPerDay = Math.max(1, Math.min(24, features.optInt("config_refresh_per_day", 2)));
 
         JSONObject marketing = section(root, "marketing");
         facebookAppId = marketing.optString("facebook_app_id", "").trim();

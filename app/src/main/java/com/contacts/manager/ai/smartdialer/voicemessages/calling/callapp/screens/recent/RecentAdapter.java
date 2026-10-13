@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.ListNativeAds;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.IncludeRowActionBinding;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemListNativeAdBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemRecentBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ItemRecentHeaderBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.models.CallGroupModel;
@@ -46,11 +48,20 @@ public class RecentAdapter extends ListAdapter<RecentAdapter.Item, RecyclerView.
         final String header;
         final CallGroupModel group;
         final long id;
+        final int slot;
 
         private Item(String header, CallGroupModel group) {
             this.header = header;
             this.group = group;
             this.id = group != null ? group.getStableId() : -1L - Math.abs((long) header.hashCode());
+            this.slot = -1;
+        }
+
+        private Item(int slot) {
+            this.header = null;
+            this.group = null;
+            this.id = Long.MIN_VALUE + slot;
+            this.slot = slot;
         }
 
         public static Item header(String title) {
@@ -60,10 +71,15 @@ public class RecentAdapter extends ListAdapter<RecentAdapter.Item, RecyclerView.
         public static Item group(CallGroupModel group) {
             return new Item(null, group);
         }
+
+        public static Item ad(int slot) {
+            return new Item(slot);
+        }
     }
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_GROUP = 1;
+    private static final int TYPE_AD = 2;
     private static final Object PAYLOAD_EXPAND = new Object();
 
     private static final DiffUtil.ItemCallback<Item> DIFF = new DiffUtil.ItemCallback<Item>() {
@@ -85,12 +101,14 @@ public class RecentAdapter extends ListAdapter<RecentAdapter.Item, RecyclerView.
     };
 
     private final Listener listener;
+    private final ListNativeAds listAds;
     private boolean videoSupported;
     private long expandedId = -1;
 
-    public RecentAdapter(Listener listener) {
+    public RecentAdapter(Listener listener, ListNativeAds listAds) {
         super(DIFF);
         this.listener = listener;
+        this.listAds = listAds;
         setHasStableIds(true);
     }
 
@@ -105,7 +123,9 @@ public class RecentAdapter extends ListAdapter<RecentAdapter.Item, RecyclerView.
 
     @Override
     public int getItemViewType(int position) {
-        return getItem(position).group == null ? TYPE_HEADER : TYPE_GROUP;
+        Item item = getItem(position);
+        if (item.slot >= 0) return TYPE_AD;
+        return item.group == null ? TYPE_HEADER : TYPE_GROUP;
     }
 
     public void toggleExpanded(int position) {
@@ -150,13 +170,29 @@ public class RecentAdapter extends ListAdapter<RecentAdapter.Item, RecyclerView.
         if (viewType == TYPE_HEADER) {
             return new HeaderHolder(ItemRecentHeaderBinding.inflate(inflater, parent, false));
         }
+        if (viewType == TYPE_AD) {
+            return new AdHolder(ItemListNativeAdBinding.inflate(inflater, parent, false));
+        }
         return new GroupHolder(ItemRecentBinding.inflate(inflater, parent, false));
+    }
+
+    @Override
+    public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        if (holder instanceof AdHolder) {
+            AdHolder ad = (AdHolder) holder;
+            listAds.attach(ad.slot, ad.binding.adHost);
+        }
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Item item = getItem(position);
-        if (holder instanceof HeaderHolder) {
+        if (holder instanceof AdHolder) {
+            AdHolder ad = (AdHolder) holder;
+            ad.slot = item.slot;
+            if (ad.itemView.isAttachedToWindow()) listAds.attach(ad.slot, ad.binding.adHost);
+        } else if (holder instanceof HeaderHolder) {
             ((HeaderHolder) holder).binding.sectionTitle.setText(item.header);
         } else {
             ((GroupHolder) holder).bind(item);
@@ -184,6 +220,16 @@ public class RecentAdapter extends ListAdapter<RecentAdapter.Item, RecyclerView.
                     android.text.format.DateUtils.MINUTE_IN_MILLIS).toString();
         }
         return DateUtils.clockTime(context, time);
+    }
+
+    static class AdHolder extends RecyclerView.ViewHolder {
+        final ItemListNativeAdBinding binding;
+        int slot;
+
+        AdHolder(ItemListNativeAdBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
     }
 
     static class HeaderHolder extends RecyclerView.ViewHolder {

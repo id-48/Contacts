@@ -18,6 +18,7 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdP
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdType;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsConfig;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsLog;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.NativeStyle;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.AppConstants;
 import com.facebook.ads.AdSettings;
 import com.facebook.ads.NativeAd;
@@ -188,13 +189,17 @@ public final class TradPlusProvider implements AdProvider {
     }
 
     @LayoutRes
-    private static int nativeLayout(@Nullable TPBaseAd baseAd, boolean big) {
+    private static int nativeLayout(@Nullable TPBaseAd baseAd, NativeStyle style) {
         Object networkAd = baseAd == null ? null : baseAd.getNetworkObj();
-        if (networkAd instanceof NativeAd) {
-            return big ? R.layout.ad_native_big_tradplus_meta : R.layout.ad_native_small_tradplus_meta;
+        boolean meta = networkAd instanceof NativeAd || (networkAd instanceof NativeBannerAd && style == NativeStyle.BIG);
+        switch (style) {
+            case BIG:
+                return meta ? R.layout.ad_native_big_tradplus_meta : R.layout.ad_native_big_tradplus;
+            case SMALL_2:
+                return meta ? R.layout.ad_small_native_tradpluse_meta2 : R.layout.ad_small_native_tradpluse2;
+            default:
+                return meta ? R.layout.ad_native_small_tradplus_meta : R.layout.ad_native_small_tradplus;
         }
-        if (networkAd instanceof NativeBannerAd && big) return R.layout.ad_native_big_tradplus_meta;
-        return big ? R.layout.ad_native_big_tradplus : R.layout.ad_native_small_tradplus;
     }
 
     @Override
@@ -256,7 +261,7 @@ public final class TradPlusProvider implements AdProvider {
     }
 
     @Override
-    public void loadNative(Activity activity, ViewGroup container, boolean big, AdsConfig config,
+    public void loadNative(Activity activity, ViewGroup container, NativeStyle style, AdsConfig config,
                            LoadCallback<InlineAd> callback) {
         String unitId = config.unitId(AdProviderType.TRADPLUS, AdType.NATIVE);
         if (unitId == null) {
@@ -269,7 +274,7 @@ public final class TradPlusProvider implements AdProvider {
                 nativeDone(unitId);
                 return;
             }
-            String format = big ? "native_big" : "native_small";
+            String format = style.key;
             TPNative tpNative = new TPNative(activity, unitId);
             var listener = new NativeAdListener() {
                 private boolean delivered;
@@ -306,11 +311,12 @@ public final class TradPlusProvider implements AdProvider {
                         if (cached != null) cached.onDestroy();
                         tpNative.onDestroy();
                     });
-                    int layout = nativeLayout(baseAd, big);
+                    int layout = nativeLayout(baseAd, style);
                     if (cached != null) cached.showAd(holder, layout, "");
                     else tpNative.showAd(holder, layout, "");
                     if (baseAd != null && baseAd.getNetworkObj() instanceof NativeBannerAd) {
-                        View media = holder.findViewById(R.id.tp_native_main_image);
+                        View media = holder.findViewById(style == NativeStyle.SMALL_2
+                                ? R.id.tp_mopub_native_main_image : R.id.tp_native_main_image);
                         if (media != null) media.setVisibility(View.GONE);
                     }
                     callback.onLoaded(ad);

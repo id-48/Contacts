@@ -187,6 +187,22 @@ public final class StorageService {
         prefs.edit().putString(PrefKeys.REMOTE_CONFIG_JSON, json).apply();
     }
 
+    public static long getRemoteConfigFetchedAt() {
+        return prefs.getLong(PrefKeys.REMOTE_CONFIG_FETCHED_AT, 0L);
+    }
+
+    public static void setRemoteConfigFetchedAt(long time) {
+        prefs.edit().putLong(PrefKeys.REMOTE_CONFIG_FETCHED_AT, time).apply();
+    }
+
+    public static int getConfigRefreshScheduled() {
+        return prefs.getInt(PrefKeys.CONFIG_REFRESH_SCHEDULED, 0);
+    }
+
+    public static void setConfigRefreshScheduled(int timesPerDay) {
+        prefs.edit().putInt(PrefKeys.CONFIG_REFRESH_SCHEDULED, timesPerDay).apply();
+    }
+
     public static String getUserSource() {
         return prefs.getString(PrefKeys.USER_SOURCE, AppConstants.SOURCE_ORGANIC);
     }

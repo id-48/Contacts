@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.ConfigRefreshWorker;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.FacebookInitializer;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.UserSourceManager;
@@ -31,9 +32,11 @@ public class App extends Application {
         RemoteConfigManager.init(config -> {
             FacebookInitializer.init(this, config);
             LauncherMode.sync(this);
+            ConfigRefreshWorker.schedule(this, config.configRefreshPerDay);
         });
         FacebookInitializer.init(this, RemoteConfigManager.get());
         LauncherMode.sync(this);
+        ConfigRefreshWorker.schedule(this, RemoteConfigManager.get().configRefreshPerDay);
         LocalNotificationWorker.schedule(this);
         PushTokenManager.sync();
         AdsManager.initialize(this);

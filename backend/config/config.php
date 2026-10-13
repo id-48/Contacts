@@ -6,6 +6,7 @@ define('APP_ENV', getenv('APP_ENV') ?: 'production');
 define('APP_NAME', 'Contacts Admin');
 
 const SCREEN_AD_FLAGS = ['native_big', 'native_small', 'banner', 'fullscreen'];
+const LIST_INTERVAL_MAX = 500;
 const DEFAULT_SCREENS = [
     'welcome' => ['Welcome', SCREEN_AD_FLAGS],
     'theme_selection' => ['Theme Selection', SCREEN_AD_FLAGS],
@@ -18,6 +19,8 @@ const DEFAULT_SCREENS = [
     'main' => ['Main', ['native_small']],
     'main_search' => ['Main - Search icon', ['fullscreen']],
     'main_settings' => ['Main - Settings icon', ['fullscreen']],
+    'recent_list' => ['Recent - List (All & Missed)', ['native_small', 'list_interval']],
+    'contacts_list' => ['Contacts - List', ['native_small', 'list_interval']],
     'contacts_create' => ['Contacts - Create contact', ['fullscreen']],
     'contacts_add' => ['Contacts - + button', ['fullscreen']],
     'contacts_info' => ['Contacts - Contact info', ['fullscreen']],

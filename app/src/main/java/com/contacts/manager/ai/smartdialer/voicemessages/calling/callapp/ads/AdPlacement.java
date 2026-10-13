@@ -13,8 +13,12 @@ final class AdPlacement {
         return screenKey + ":banner";
     }
 
-    static String nativeAd(String screenKey, boolean big) {
-        return screenKey + (big ? ":native_big" : ":native_small");
+    static String nativeAd(String screenKey, NativeStyle style) {
+        return screenKey + ":" + style.key;
+    }
+
+    static String listNative(String screenKey, int slot) {
+        return screenKey + ":" + NativeStyle.SMALL_2.key + ":" + slot;
     }
 
     static String fullscreen(String screenKey) {

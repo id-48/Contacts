@@ -7,7 +7,6 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/space_8"
     android:layout_marginTop="2dp"
-    android:layout_marginEnd="@dimen/space_8"
     android:layout_marginBottom="2dp"
     android:orientation="vertical">
 
@@ -21,7 +20,7 @@
         android:orientation="horizontal"
         android:paddingStart="@dimen/space_12"
         android:paddingTop="@dimen/space_8"
-        android:paddingEnd="@dimen/space_8"
+        android:paddingEnd="0dp"
         android:paddingBottom="@dimen/space_8">
 
         <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ContactAvatarView

@@ -68,23 +68,52 @@ public final class AdsManager {
 
     public static void showNativeBig(Activity activity, ViewGroup container, String screenKey) {
         AdsConfig config = config();
-        showNative(activity, container, screenKey, true, config.screen(screenKey).nativeBig, config);
+        showNative(activity, container, AdPlacement.nativeAd(screenKey, NativeStyle.BIG), NativeStyle.BIG,
+                config.screen(screenKey).nativeBig, config);
     }
 
     public static void showNativeSmall(Activity activity, ViewGroup container, String screenKey) {
         AdsConfig config = config();
-        showNative(activity, container, screenKey, false, config.screen(screenKey).nativeSmall, config);
+        showNative(activity, container, AdPlacement.nativeAd(screenKey, NativeStyle.SMALL), NativeStyle.SMALL,
+                config.screen(screenKey).nativeSmall, config);
     }
 
-    private static void showNative(Activity activity, ViewGroup container, String screenKey, boolean big,
+    public static void showNativeSmall2(Activity activity, ViewGroup container, String screenKey) {
+        AdsConfig config = config();
+        showNative(activity, container, AdPlacement.nativeAd(screenKey, NativeStyle.SMALL_2), NativeStyle.SMALL_2,
+                config.screen(screenKey).nativeSmall, config);
+    }
+
+    public static int listAdInterval(String screenKey) {
+        AdsConfig.ScreenAds screen = config().screen(screenKey);
+        return screen.nativeSmall ? screen.listInterval : -1;
+    }
+
+    static void showListNative(Activity activity, ViewGroup container, String screenKey, int slot) {
+        AdsConfig config = config();
+        showNative(activity, container, AdPlacement.listNative(screenKey, slot), NativeStyle.SMALL_2,
+                config.screen(screenKey).nativeSmall, config);
+    }
+
+    private static void showNative(Activity activity, ViewGroup container, String placement, NativeStyle style,
                                    boolean enabled, AdsConfig config) {
         if (!enabled) {
             container.setVisibility(View.GONE);
             return;
         }
-        InlineAdSlot.load(activity, container, AdPlacement.nativeAd(screenKey, big), providersFor(AdType.NATIVE, config),
-                big ? InlineAdSlot.Shape.NATIVE_BIG : InlineAdSlot.Shape.NATIVE_SMALL,
-                (provider, callback) -> provider.loadNative(activity, container, big, config, callback));
+        InlineAdSlot.load(activity, container, placement, providersFor(AdType.NATIVE, config), shape(style),
+                (provider, callback) -> provider.loadNative(activity, container, style, config, callback));
+    }
+
+    private static InlineAdSlot.Shape shape(NativeStyle style) {
+        switch (style) {
+            case BIG:
+                return InlineAdSlot.Shape.NATIVE_BIG;
+            case SMALL_2:
+                return InlineAdSlot.Shape.NATIVE_SMALL_2;
+            default:
+                return InlineAdSlot.Shape.NATIVE_SMALL;
+        }
     }
 
     /**

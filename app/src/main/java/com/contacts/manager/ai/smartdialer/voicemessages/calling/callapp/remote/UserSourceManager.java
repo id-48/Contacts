@@ -93,7 +93,7 @@ public final class UserSourceManager {
     }
 
     /**
-     * Marketing when the referrer carries an ad click ID, a paid medium, a non-organic utm_source or a
+     * Marketing when the referrer carries an ad click ID (with or without a value), a paid medium, a non-organic utm_source or a
      * Meta campaign token; organic otherwise (including a missing referrer).
      */
     public static String classify(@Nullable String referrer) {
@@ -115,7 +115,7 @@ public final class UserSourceManager {
             String key = (eq >= 0 ? pair.substring(0, eq) : pair).trim();
             String value = eq >= 0 ? pair.substring(eq + 1).trim() : "";
             for (String clickId : CLICK_ID_PARAMS) {
-                if (clickId.equals(key) && !value.isEmpty()) return AppConstants.SOURCE_MARKETING;
+                if (clickId.equals(key)) return AppConstants.SOURCE_MARKETING;
             }
             if ("utm_source".equals(key)) source = value;
             if ("utm_medium".equals(key)) medium = value;

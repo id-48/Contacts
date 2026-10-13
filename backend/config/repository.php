@@ -30,6 +30,8 @@ const STRING_SETTING_KEYS = [
     'intro_flow_marketing' => 20,
 ];
 
+const INT_SETTING_KEYS = ['config_refresh_per_day' => [1, 24]];
+
 const URL_SETTING_KEYS = ['privacy_policy_url', 'app_link', 'custom_ads_url'];
 const INTRO_FLOW_KEYS = ['organic' => 'intro_flow_organic', 'marketing' => 'intro_flow_marketing'];
 
@@ -44,6 +46,7 @@ function ensure_settings_schema(): void
         'intro_flow_organic' => "VARCHAR(20) NOT NULL DEFAULT ''",
         'intro_flow_marketing' => "VARCHAR(20) NOT NULL DEFAULT ''",
         'in_app_review_enabled' => 'TINYINT(1) NOT NULL DEFAULT 1',
+        'config_refresh_per_day' => 'TINYINT UNSIGNED NOT NULL DEFAULT 2',
     ];
     foreach ($columns as $column => $definition) {
         if (!has_column('app_settings', $column)) {
@@ -100,6 +103,9 @@ function get_settings(): array
     }
     foreach (BOOL_SETTING_KEYS as $key) {
         $row[$key] = (bool) $row[$key];
+    }
+    foreach (INT_SETTING_KEYS as $key => [$min, $max]) {
+        $row[$key] = max($min, min($max, (int) $row[$key]));
     }
     foreach (INTRO_FLOW_KEYS as $source => $column) {
         $row[$column] = implode(',', intro_flow($row, $source));
@@ -230,6 +236,7 @@ function get_screen_configs(string $source): array
             'native_small' => in_array('native_small', $flags, true) && !empty($r['native_small_enabled']),
             'banner' => in_array('banner', $flags, true) && !empty($r['banner_enabled']),
             'fullscreen' => in_array('fullscreen', $flags, true) && !empty($r['fullscreen_enabled']),
+            'list_interval' => in_array('list_interval', $flags, true) ? (int) ($r['list_interval'] ?? 0) : 0,
         ];
     }
     return $screens;
@@ -315,13 +322,19 @@ function ensure_ads_schema(): void
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci"
     );
     $tables = ['ad_priority', 'adx_weighted_ids', 'fullscreen_sequence', 'screen_ad_config'];
-    if (count(array_filter($tables, static fn(string $t): bool => has_column($t, 'source'))) === count($tables)) {
+    $migrated = count(array_filter($tables, static fn(string $t): bool => has_column($t, 'source'))) === count($tables);
+    if ($migrated && has_column('screen_ad_config', 'list_interval')) {
         $ready = true;
         return;
     }
     $pdo->query("SELECT GET_LOCK('contacts_ads_schema', 30)")->fetchColumn();
     try {
-        migrate_ads_schema($sourceEnum);
+        if (!$migrated) {
+            migrate_ads_schema($sourceEnum);
+        }
+        if (!has_column('screen_ad_config', 'list_interval')) {
+            $pdo->exec('ALTER TABLE screen_ad_config ADD COLUMN list_interval INT UNSIGNED NOT NULL DEFAULT 0 AFTER fullscreen_enabled');
+        }
     } finally {
         $pdo->query("SELECT RELEASE_LOCK('contacts_ads_schema')")->fetchColumn();
     }
@@ -441,6 +454,9 @@ function get_public_source_ads(string $source): array
             'banner' => $screen['banner'],
             'fullscreen' => $screen['fullscreen'],
         ];
+        if (in_array('list_interval', $screen['flags'], true)) {
+            $screenAds[$screen['screen_key']]['list_interval'] = $screen['list_interval'];
+        }
     }
     return [
         'priority' => $priority,
@@ -492,6 +508,7 @@ function build_public_config(): array
             'app_open_on_resume' => $s['app_open_on_resume'],
             'launcher_enabled' => $s['launcher_enabled'],
             'in_app_review' => $s['in_app_review_enabled'],
+            'config_refresh_per_day' => $s['config_refresh_per_day'],
         ],
         'marketing' => [
             'facebook_app_id' => $s['facebook_app_id'],

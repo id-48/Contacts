@@ -9,18 +9,20 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:paddingTop="@dimen/space_4"
-        android:paddingEnd="20dp"
+        android:paddingEnd="0dp"
         android:paddingBottom="@dimen/list_bottom_inset"
         android:scrollbars="none" />
 
     <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AlphabetIndexView
         android:id="@+id/alphabetIndex"
-        android:layout_width="28dp"
+        android:layout_width="24dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        android:layout_marginTop="@dimen/space_8"
+        android:layout_marginEnd="@dimen/space_4"
         android:layout_marginBottom="@dimen/list_bottom_inset"
-        android:paddingTop="@dimen/space_16"
-        android:paddingBottom="@dimen/space_8"
+        android:paddingTop="@dimen/space_12"
+        android:paddingBottom="@dimen/space_12"
         android:visibility="gone" />
 
     <TextView

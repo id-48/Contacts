@@ -60,6 +60,7 @@ public class AppInCallService extends InCallService {
         CallManager.setService(this);
         CallManager.onCallAdded(this, call);
         openCallScreen();
+        RemoteConfigManager.refreshIfDue(null);
     }
 
     @Override

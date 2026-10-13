@@ -7,7 +7,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.LayoutRes;
+
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.NativeStyle;
 import com.google.android.gms.ads.nativead.MediaView;
 import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdView;
@@ -18,9 +21,8 @@ public final class GoogleNativeBinder {
     private GoogleNativeBinder() {
     }
 
-    public static NativeAdView bind(Activity activity, NativeAd ad, boolean big) {
-        NativeAdView view = (NativeAdView) LayoutInflater.from(activity).inflate(
-                big ? R.layout.ad_native_big_google : R.layout.ad_native_small_google, null, false);
+    public static NativeAdView bind(Activity activity, NativeAd ad, NativeStyle style) {
+        NativeAdView view = (NativeAdView) LayoutInflater.from(activity).inflate(layout(style), null, false);
 
         TextView headline = view.findViewById(R.id.ad_headline);
         headline.setText(ad.getHeadline());
@@ -48,12 +50,24 @@ public final class GoogleNativeBinder {
         MediaView media = view.findViewById(R.id.ad_media);
         if (media != null) {
             if (ad.getMediaContent() != null) media.setMediaContent(ad.getMediaContent());
-            media.setImageScaleType(big ? ImageView.ScaleType.FIT_CENTER : ImageView.ScaleType.CENTER_CROP);
+            media.setImageScaleType(style == NativeStyle.BIG ? ImageView.ScaleType.FIT_CENTER : ImageView.ScaleType.CENTER_CROP);
             view.setMediaView(media);
         }
 
         view.setNativeAd(ad);
         return view;
+    }
+
+    @LayoutRes
+    private static int layout(NativeStyle style) {
+        switch (style) {
+            case BIG:
+                return R.layout.ad_native_big_google;
+            case SMALL_2:
+                return R.layout.ad_small_native_google2;
+            default:
+                return R.layout.ad_native_small_google;
+        }
     }
 
     private static void setText(TextView view, CharSequence text) {

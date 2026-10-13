@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdProviderType;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdType;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsConfig;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.NativeStyle;
 
 /**
  * One ad network. Every load must end in exactly one {@link LoadCallback} call; the fallback chain
@@ -54,7 +55,7 @@ public interface AdProvider {
      */
     void loadBanner(Activity activity, ViewGroup container, AdsConfig config, LoadCallback<InlineAd> callback);
 
-    void loadNative(Activity activity, ViewGroup container, boolean big, AdsConfig config,
+    void loadNative(Activity activity, ViewGroup container, NativeStyle style, AdsConfig config,
                     LoadCallback<InlineAd> callback);
 
     void loadFullscreen(Activity activity, AdType type, AdsConfig config, LoadCallback<FullscreenAd> callback);

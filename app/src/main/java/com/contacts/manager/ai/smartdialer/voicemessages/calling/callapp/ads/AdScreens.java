@@ -8,6 +8,8 @@ public final class AdScreens {
     public static final String MAIN = "main";
     public static final String MAIN_SEARCH = "main_search";
     public static final String MAIN_SETTINGS = "main_settings";
+    public static final String RECENT_LIST = "recent_list";
+    public static final String CONTACTS_LIST = "contacts_list";
     public static final String CONTACTS_CREATE = "contacts_create";
     public static final String CONTACTS_ADD = "contacts_add";
     public static final String CONTACTS_INFO = "contacts_info";

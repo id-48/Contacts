@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.ListNativeAds;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppBottomSheet;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.AppDialogs;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.PermissionRequester;
@@ -35,7 +36,9 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.P
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.viewmodels.ContactsViewModel;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactsFragment extends Fragment implements MainActivity.Tab, ContactsAdapter.Listener {
 
@@ -44,6 +47,7 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
     private ContactsAdapter adapter;
     private LinearLayoutManager layoutManager;
     private PermissionRequester permissionRequester;
+    private ListNativeAds listAds;
     private List<ContactModel> latest;
     private final Runnable hideBubble = () -> {
         if (binding != null) {
@@ -60,6 +64,7 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         permissionRequester = new PermissionRequester(this, this::refreshState);
+        listAds = new ListNativeAds(requireActivity(), AdScreens.CONTACTS_LIST);
     }
 
     @Nullable
@@ -73,7 +78,7 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(ContactsViewModel.class);
-        adapter = new ContactsAdapter(this);
+        adapter = new ContactsAdapter(this, listAds);
         layoutManager = new LinearLayoutManager(requireContext());
         binding.contactsList.setLayoutManager(layoutManager);
         binding.contactsList.setAdapter(adapter);
@@ -150,21 +155,47 @@ public class ContactsFragment extends Fragment implements MainActivity.Tab, Cont
             return;
         }
         List<ContactsAdapter.Item> items = new ArrayList<>();
+        Set<String> letters = new HashSet<>();
+        int interval = listAds.interval();
+        int slot = 0;
+        if (interval >= 0) {
+            items.add(ContactsAdapter.Item.ad(slot++));
+        }
         items.add(ContactsAdapter.Item.create());
         String section = null;
+        int shown = 0;
         for (ContactModel contact : latest) {
             String letter = contact.getSectionLetter();
             if (!letter.equals(section)) {
                 items.add(ContactsAdapter.Item.header(letter));
+                letters.add(letter);
                 section = letter;
             }
             items.add(ContactsAdapter.Item.contact(contact));
+            if (ListNativeAds.adAfter(interval, ++shown, latest.size())) {
+                items.add(ContactsAdapter.Item.ad(slot++));
+            }
         }
         items.add(ContactsAdapter.Item.footer(
                 getResources().getQuantityString(R.plurals.contacts_count, latest.size(), latest.size())));
         adapter.submitList(items);
-        binding.alphabetIndex.setVisibility(latest.size() > 12 ? View.VISIBLE : View.GONE);
+        binding.alphabetIndex.setAvailableLetters(letters);
+        boolean showIndex = latest.size() > 12;
+        binding.alphabetIndex.setVisibility(showIndex ? View.VISIBLE : View.GONE);
+        updateListEndPadding(showIndex);
         binding.emptyState.show(false);
+    }
+
+    private void updateListEndPadding(boolean indexVisible) {
+        RecyclerView list = binding.contactsList;
+        int end = 0;
+        if (indexVisible) {
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) binding.alphabetIndex.getLayoutParams();
+            end = params.width + params.getMarginEnd();
+        }
+        if (list.getPaddingEnd() != end) {
+            list.setPaddingRelative(list.getPaddingStart(), list.getPaddingTop(), end, list.getPaddingBottom());
+        }
     }
 
     private void jumpTo(String letter) {

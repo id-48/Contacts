@@ -93,6 +93,19 @@ require __DIR__ . '/includes/header.php';
 
     <section class="card">
         <div class="card-head">
+            <h2>Config refresh</h2>
+            <p class="muted">How many times a day the app downloads this configuration (ads, screens, settings) in the background, even when the user never opens the app. The After Call screen always uses the latest downloaded copy. Opening the app also downloads it.</p>
+        </div>
+        <div class="form-grid">
+            <div class="field">
+                <label for="config_refresh_per_day">Refreshes per day (1-24)</label>
+                <input id="config_refresh_per_day" type="number" min="1" max="24" step="1" data-key="config_refresh_per_day" placeholder="2">
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="card-head">
             <h2>Force Update</h2>
             <p class="muted">Users on a version lower than the minimum version must update. The App Link above is used.</p>
         </div>

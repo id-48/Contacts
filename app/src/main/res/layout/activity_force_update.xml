@@ -10,11 +10,13 @@
     android:paddingStart="@dimen/space_24"
     android:paddingEnd="@dimen/space_24">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:importantForAccessibility="no"
-        android:src="@mipmap/ic_launcher" />
+        android:importantForAccessibility="no"        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Icon" />
+
 
     <TextView
         android:layout_width="match_parent"

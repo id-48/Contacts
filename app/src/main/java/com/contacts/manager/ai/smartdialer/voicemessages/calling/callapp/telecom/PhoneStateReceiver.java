@@ -43,6 +43,9 @@ public class PhoneStateReceiver extends BroadcastReceiver {
         }
         String previous = prefs.getString(KEY_STATE, TelephonyManager.EXTRA_STATE_IDLE);
         long now = System.currentTimeMillis();
+        if (!TelephonyManager.EXTRA_STATE_IDLE.equals(state)) {
+            RemoteConfigManager.refreshIfDue(null);
+        }
         if (TelephonyManager.EXTRA_STATE_RINGING.equals(state)) {
             if (TelephonyManager.EXTRA_STATE_IDLE.equals(previous)) {
                 editor.putLong(KEY_START, now);

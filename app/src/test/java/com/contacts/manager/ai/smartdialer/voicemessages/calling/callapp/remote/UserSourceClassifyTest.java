@@ -29,6 +29,11 @@ public class UserSourceClassifyTest {
     public void adClickIdsAreMarketing() {
         marketing("gclid=Cj0KCQ&utm_source=google-play");
         marketing("utm_source=google-play&fbclid=IwAR0");
+        marketing("gclid");
+        marketing("gbraid=&utm_source=google-play");
+        marketing("utm_source=google-play&wbraid");
+        marketing("fbclid=");
+        marketing("ttclid");
     }
 
     @Test

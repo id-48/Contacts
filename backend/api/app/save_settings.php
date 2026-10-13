@@ -26,14 +26,25 @@ foreach (STRING_SETTING_KEYS as $key => $maxLength) {
         $updates[$key] = clean_string($body[$key], $maxLength);
     }
 }
+$errors = [];
+foreach (INT_SETTING_KEYS as $key => [$min, $max]) {
+    if (!array_key_exists($key, $body)) {
+        continue;
+    }
+    $raw = trim((string) $body[$key]);
+    if (!preg_match('/^\d+$/', $raw) || (int) $raw < $min || (int) $raw > $max) {
+        $errors[$key] = "Enter a whole number from $min to $max";
+        continue;
+    }
+    $updates[$key] = (int) $raw;
+}
 
-if (!$updates) {
+if (!$updates && !$errors) {
     json_response(false, 'Nothing to save', null, 400);
 }
 
 // Validate against the merged state so cross-field rules hold.
 $merged = array_merge($current, $updates);
-$errors = [];
 
 foreach (URL_SETTING_KEYS as $key) {
     if (array_key_exists($key, $updates) && $merged[$key] !== '' && !is_valid_url($merged[$key])) {

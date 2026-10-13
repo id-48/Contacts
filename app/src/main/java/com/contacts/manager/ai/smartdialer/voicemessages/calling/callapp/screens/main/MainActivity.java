@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity {
             tab = getIntent().getIntExtra(IntentKeys.EXTRA_TAB, TAB_RECENT);
         }
         selectTab(tab);
-        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, AdScreens.MAIN);
+        AdsManager.showNativeSmall2(this, binding.nativeSmallContainer, AdScreens.MAIN);
         if (savedInstanceState == null) InAppReview.onMainOpened(this);
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {

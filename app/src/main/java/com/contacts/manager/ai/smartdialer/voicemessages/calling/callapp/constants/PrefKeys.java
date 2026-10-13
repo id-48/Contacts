@@ -16,6 +16,8 @@ public final class PrefKeys {
     public static final String AFTER_CALL_OPEN_DAY = "after_call_open_day";
     public static final String AFTER_CALL_OPEN_DAY_COUNT = "after_call_open_day_count";
     public static final String REMOTE_CONFIG_JSON = "remote_config_json";
+    public static final String REMOTE_CONFIG_FETCHED_AT = "remote_config_fetched_at";
+    public static final String CONFIG_REFRESH_SCHEDULED = "config_refresh_scheduled";
     public static final String USER_SOURCE = "user_source";
     public static final String USER_SOURCE_RESOLVED = "user_source_resolved";
     public static final String USER_SOURCE_REGISTERED = "user_source_registered";
