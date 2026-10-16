@@ -14,11 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:fillViewport="true"
         android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
             android:orientation="vertical"
             android:paddingStart="@dimen/screen_padding"
             android:paddingEnd="@dimen/screen_padding"
@@ -33,6 +36,13 @@
                 android:text="@string/permissions_subtitle"
                 android:textAppearance="@style/TextAppearance.App.BodySecondary" />
 
+            <FrameLayout
+                android:id="@+id/nativeBigContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_16"
+                android:visibility="gone" />
+
             <LinearLayout
                 android:id="@+id/roleGroup"
                 style="@style/Widget.App.SettingsGroup" />
@@ -45,6 +55,13 @@
                 android:id="@+id/permissionGroup"
                 style="@style/Widget.App.SettingsGroup" />
 
+            <FrameLayout
+                android:id="@+id/nativeSmallContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:visibility="gone" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/systemSettingsButton"
                 style="@style/Widget.App.Button.Text"
@@ -55,4 +72,10 @@
                 android:text="@string/open_system_settings" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </LinearLayout>

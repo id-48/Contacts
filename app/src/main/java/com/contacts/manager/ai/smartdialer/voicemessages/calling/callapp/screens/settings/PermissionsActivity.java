@@ -9,6 +9,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.R;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdScreens;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.PermissionRequester;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityPermissionsBinding;
@@ -34,6 +36,9 @@ public class PermissionsActivity extends BaseActivity {
         setupBack(binding.topBar.backButton);
         requester = new PermissionRequester(this, this::render);
         binding.systemSettingsButton.setOnClickListener(v -> PermissionManager.openAppSettings(this));
+        AdsManager.showNativeBig(this, binding.nativeBigContainer, AdScreens.SETTINGS_PERMISSIONS);
+        AdsManager.showNativeThemeSmall(this, binding.nativeSmallContainer, AdScreens.SETTINGS_PERMISSIONS);
+        AdsManager.showBanner(this, binding.bannerContainer, AdScreens.SETTINGS_PERMISSIONS);
     }
 
     @Override
