@@ -88,6 +88,7 @@ require __DIR__ . '/includes/header.php';
         toggle_row('app_open_on_resume', 'App Open Ad On Resume', 'Show an App Open ad when the user returns to the app.');
         toggle_row('in_app_review_enabled', 'In-App Review', 'Ask for a Play Store review once, the second time the user opens the app after onboarding.');
         toggle_row('launcher_enabled', 'Launcher Mode', 'The Default Phone screen also requires setting the app as the default home app; the Home button then opens the Launcher screen (installed apps).');
+        toggle_row('whatsapp_after_call_enabled', 'WhatsApp After Call', 'Show the After Call screen when a WhatsApp voice or video call ends. The user must also allow Notification access for this app.');
         ?>
     </section>
 
@@ -107,13 +108,13 @@ require __DIR__ . '/includes/header.php';
     <section class="card">
         <div class="card-head">
             <h2>Force Update</h2>
-            <p class="muted">Users on a version lower than the minimum version must update. The App Link above is used.</p>
+            <p class="muted">When off, the app never checks. When on, enter the Android <strong>versionCode</strong> (whole number). If it matches the installed versionCode the user continues; if it is different the force-update screen is shown. The App Link above is used for the update button.</p>
         </div>
         <?php toggle_row('force_update', 'Force Update'); ?>
         <div class="form-grid">
             <div class="field">
-                <label for="minimum_version">Minimum Version</label>
-                <input id="minimum_version" type="text" data-key="minimum_version" placeholder="1.0.0">
+                <label for="minimum_version">Minimum Version Code</label>
+                <input id="minimum_version" type="number" min="1" step="1" data-key="minimum_version" placeholder="3">
             </div>
             <div class="field field-full">
                 <label for="force_update_message">Update Message</label>

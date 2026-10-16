@@ -58,8 +58,8 @@ if ($merged['force_update']) {
     if ($merged['app_version'] === '') {
         $errors['app_version'] = 'App version is required when force update is enabled';
     }
-    if ($merged['minimum_version'] === '' || !is_valid_version($merged['minimum_version'])) {
-        $errors['minimum_version'] = 'A valid minimum version (e.g. 1.2.0) is required';
+    if ($merged['minimum_version'] === '' || !is_valid_version_code($merged['minimum_version'])) {
+        $errors['minimum_version'] = 'Enter the Android versionCode as a whole number (e.g. 3)';
     }
     if ($merged['force_update_message'] === '') {
         $errors['force_update_message'] = 'Update message is required when force update is enabled';
@@ -67,8 +67,8 @@ if ($merged['force_update']) {
     if ($merged['app_link'] === '') {
         $errors['app_link'] = 'App link is required when force update is enabled';
     }
-} elseif ($merged['minimum_version'] !== '' && !is_valid_version($merged['minimum_version'])) {
-    $errors['minimum_version'] = 'Use a version like 1.0.0';
+} elseif ($merged['minimum_version'] !== '' && !is_valid_version_code($merged['minimum_version'])) {
+    $errors['minimum_version'] = 'Enter the Android versionCode as a whole number (e.g. 3)';
 }
 if ($merged['custom_ads_enabled'] && $merged['custom_ads_url'] === '') {
     $errors['custom_ads_url'] = 'Custom Ads URL is required when Custom Ads is enabled';

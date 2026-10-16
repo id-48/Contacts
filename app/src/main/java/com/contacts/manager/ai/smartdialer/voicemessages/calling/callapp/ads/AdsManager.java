@@ -67,8 +67,13 @@ public final class AdsManager {
     }
 
     public static void showNativeBig(Activity activity, ViewGroup container, String screenKey) {
+        showNativeBig(activity, container, screenKey, screenKey);
+    }
+
+    public static void showNativeBig(Activity activity, ViewGroup container, String screenKey,
+                                     String placementKey) {
         AdsConfig config = config();
-        showNative(activity, container, AdPlacement.nativeAd(screenKey, NativeStyle.BIG), NativeStyle.BIG,
+        showNative(activity, container, AdPlacement.nativeAd(placementKey, NativeStyle.BIG), NativeStyle.BIG,
                 config.screen(screenKey).nativeBig, config);
     }
 
@@ -82,6 +87,12 @@ public final class AdsManager {
         AdsConfig config = config();
         showNative(activity, container, AdPlacement.nativeAd(screenKey, NativeStyle.SMALL_2), NativeStyle.SMALL_2,
                 config.screen(screenKey).nativeSmall, config);
+    }
+
+    public static void showNativeThemeSmall(Activity activity, ViewGroup container, String screenKey) {
+        AdsConfig config = config();
+        showNative(activity, container, AdPlacement.nativeAd(screenKey, NativeStyle.THEME_SMALL),
+                NativeStyle.THEME_SMALL, config.screen(screenKey).nativeSmall, config);
     }
 
     public static int listAdInterval(String screenKey) {
@@ -111,6 +122,8 @@ public final class AdsManager {
                 return InlineAdSlot.Shape.NATIVE_BIG;
             case SMALL_2:
                 return InlineAdSlot.Shape.NATIVE_SMALL_2;
+            case THEME_SMALL:
+                return InlineAdSlot.Shape.NATIVE_THEME_SMALL;
             default:
                 return InlineAdSlot.Shape.NATIVE_SMALL;
         }

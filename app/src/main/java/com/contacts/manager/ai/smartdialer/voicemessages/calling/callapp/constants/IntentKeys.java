@@ -9,6 +9,7 @@ public final class IntentKeys {
     public static final String EXTRA_CALL_TYPE = "extra_call_type";
     public static final String EXTRA_DURATION = "extra_duration";
     public static final String EXTRA_CALL_TIME = "extra_call_time";
+    public static final String EXTRA_FROM_WHATSAPP = "extra_from_whatsapp";
     public static final String EXTRA_ONBOARDING = "extra_onboarding";
     public static final String EXTRA_TAB = "extra_tab";
     public static final String EXTRA_IMAGE_URI = "extra_image_uri";

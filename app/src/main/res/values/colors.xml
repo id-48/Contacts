@@ -23,6 +23,8 @@
     <color name="text_tertiary">#FFA0A4AE</color>
     <color name="divider">#FFE6E8EC</color>
     <color name="splash_track">#FFB4B6BC</color>
+    <color name="switch_track_off">#FFC5C9D2</color>
+    <color name="switch_thumb_off">#FFFFFFFF</color>
     <color name="text_muted">#FF4F5258</color>
     <color name="theme_label_bg">#FFEAF1FE</color>
     <color name="illustration_blob">#FFEDF1F9</color>

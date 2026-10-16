@@ -27,6 +27,8 @@ public interface AdProvider {
 
         void setImpressionListener(Runnable listener);
 
+        void setClickListener(Runnable listener);
+
         void destroy();
     }
 
@@ -36,6 +38,9 @@ public interface AdProvider {
         void onDismissed();
 
         void onFailedToShow(String reason);
+
+        default void onClicked() {
+        }
     }
 
     interface FullscreenAd {

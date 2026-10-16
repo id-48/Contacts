@@ -157,6 +157,11 @@ public final class FullscreenAdManager {
                 }
 
                 @Override
+                public void onClicked() {
+                    AdsLog.adClick(placement, provider);
+                }
+
+                @Override
                 public void onDismissed() {
                     AdsLog.d(TAG, "Dismissed " + placement);
                     lastDismissedAt = SystemClock.elapsedRealtime();

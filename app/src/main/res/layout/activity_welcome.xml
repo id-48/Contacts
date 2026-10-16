@@ -61,7 +61,7 @@
                 android:layout_weight="1" />
 
             <FrameLayout
-                android:id="@+id/nativeSmallContainer"
+                android:id="@+id/nativeBigContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_24"
@@ -80,7 +80,7 @@
                 android:layout_weight="1" />
 
             <FrameLayout
-                android:id="@+id/nativeBigContainer"
+                android:id="@+id/nativeSmallContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_16"

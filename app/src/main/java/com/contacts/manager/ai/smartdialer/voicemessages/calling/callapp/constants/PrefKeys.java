@@ -5,6 +5,7 @@ public final class PrefKeys {
     public static final String THEME_MODE = "theme_mode";
     public static final String ONBOARDING_DONE = "onboarding_done";
     public static final String AFTER_CALL_ENABLED = "after_call_enabled";
+    public static final String WHATSAPP_NOTIF_ACCESS_PROMPTED = "whatsapp_notif_access_prompted";
     public static final String SMART_NOTIFICATIONS_ENABLED = "smart_notifications_enabled";
     public static final String BLOCK_UNKNOWN = "block_unknown";
     public static final String QUICK_RESPONSES = "quick_responses";

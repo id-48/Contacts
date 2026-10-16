@@ -44,6 +44,7 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.BlockService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.CallLogService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.ContactsService;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.NotificationService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PhoneService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.ReminderService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
@@ -81,12 +82,14 @@ public class AfterCallActivity extends BaseActivity {
     private String actionsKey;
 
     private String number;
+    private String fallbackName;
     private int callType;
     private long duration;
     private long callTime;
     private ContactModel contact;
     private boolean blocked;
     private boolean canBlock;
+    private boolean fromWhatsApp;
 
     private static final class Tile {
         final int icon;
@@ -130,6 +133,7 @@ public class AfterCallActivity extends BaseActivity {
         binding = ActivityAfterCallBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         applyInsets(binding.root);
+        NotificationService.cancelAfterCallLaunch(this);
         readIntent(getIntent());
 
         tabs = new View[]{binding.tabActions, binding.tabMessages, binding.tabReminders, binding.tabMore};
@@ -148,7 +152,8 @@ public class AfterCallActivity extends BaseActivity {
         });
 
         binding.closeButton.setOnClickListener(v -> showFullscreen(AdScreens.AFTER_CALL_CLOSE, this::finish));
-        AdsManager.showNativeBig(this, binding.nativeBigContainer, AdScreens.AFTER_CALL);
+        AdsManager.showNativeBig(this, binding.nativeBigContainer, AdScreens.AFTER_CALL,
+                fromWhatsApp ? AdScreens.WP_CALL_END_SCREEN : AdScreens.AFTER_CALL);
         binding.callBackButton.setOnClickListener(v -> {
             HapticUtils.confirm(v);
             if (isDialable()) {
@@ -195,14 +200,16 @@ public class AfterCallActivity extends BaseActivity {
 
     private void readIntent(Intent intent) {
         number = intent.getStringExtra(IntentKeys.EXTRA_NUMBER);
+        fallbackName = intent.getStringExtra(IntentKeys.EXTRA_NAME);
         callType = intent.getIntExtra(IntentKeys.EXTRA_CALL_TYPE, 0);
         duration = intent.getLongExtra(IntentKeys.EXTRA_DURATION, 0);
         callTime = intent.getLongExtra(IntentKeys.EXTRA_CALL_TIME, System.currentTimeMillis() - duration * 1000L);
+        fromWhatsApp = intent.getBooleanExtra(IntentKeys.EXTRA_FROM_WHATSAPP, false);
         long contactId = intent.getLongExtra(IntentKeys.EXTRA_CONTACT_ID, 0);
         if (contactId > 0) {
             contact = new ContactModel();
             contact.id = contactId;
-            contact.name = intent.getStringExtra(IntentKeys.EXTRA_NAME);
+            contact.name = fallbackName;
             contact.lookupKey = intent.getStringExtra(IntentKeys.EXTRA_LOOKUP_KEY);
         } else {
             contact = null;
@@ -222,6 +229,9 @@ public class AfterCallActivity extends BaseActivity {
         params.putLong("call_duration_sec", duration);
         params.putLong("saved_contact", isSaved() ? 1 : 0);
         Analytics.logEvent("after_call_open", params);
+        if (fromWhatsApp) {
+            Analytics.logEvent("wp_call_end_screen", params);
+        }
         Analytics.setUserProperty("after_call_opens", String.valueOf(total));
     }
 
@@ -312,6 +322,9 @@ public class AfterCallActivity extends BaseActivity {
         if (isSaved() && !TextUtils.isEmpty(contact.name)) {
             return contact.name;
         }
+        if (!TextUtils.isEmpty(fallbackName)) {
+            return fallbackName;
+        }
         return isDialable() ? PhoneUtils.format(this, number) : getString(R.string.private_number);
     }
 
@@ -324,7 +337,7 @@ public class AfterCallActivity extends BaseActivity {
         if (blocked) {
             binding.avatar.bindBlocked();
         } else {
-            binding.avatar.bind(saved ? contact.name : null, saved ? contact.photoUri : null);
+            binding.avatar.bind(saved ? contact.name : fallbackName, saved ? contact.photoUri : null);
         }
 
         List<String> details = new ArrayList<>();

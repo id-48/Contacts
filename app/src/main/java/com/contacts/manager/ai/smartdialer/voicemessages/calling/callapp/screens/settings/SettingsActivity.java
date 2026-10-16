@@ -24,9 +24,11 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivitySettingsBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.call.IncomingCallControlView;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.lock.PasscodeActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.AppLockManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PhoneService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.WhatsAppCallListenerService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.AppExecutors;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.IntentUtils;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.widget.QuickActionsWidgetProvider;
@@ -96,6 +98,8 @@ public class SettingsActivity extends BaseActivity {
                 () -> startActivity(OptionPickerActivity.intent(this, OptionPickerActivity.MODE_ANSWER_POSITION))));
         binding.callStyleRow.setOnClickListener(v -> open(AdScreens.SETTINGS_CALL_STYLE, CallStyleActivity.class));
         binding.announcerRow.setOnCheckedListener(StorageService::setCallAnnouncer);
+        binding.whatsappAfterCallRow.setOnClickListener(v -> IntentUtils.safeStart(this,
+                WhatsAppCallListenerService.settingsIntent(this)));
         binding.blockedRow.setOnClickListener(v -> open(AdScreens.SETTINGS_BLOCKED, BlockedNumbersActivity.class));
         binding.quickResponseRow.setOnClickListener(v -> open(AdScreens.SETTINGS_QUICK_RESPONSE,
                 QuickResponseActivity.class));
@@ -161,6 +165,14 @@ public class SettingsActivity extends BaseActivity {
         binding.answerPositionRow.setValue(OptionPickerActivity.label(this, OptionPickerActivity.MODE_ANSWER_POSITION));
         binding.callStyleRow.setSubtitle(getString(IncomingCallControlView.styleName(StorageService.getCallStyle())));
         binding.announcerRow.setChecked(StorageService.isCallAnnouncer());
+        boolean whatsappAfterCall = RemoteConfigManager.get().whatsappAfterCallEnabled;
+        binding.whatsappAfterCallRow.setVisibility(whatsappAfterCall ? android.view.View.VISIBLE : android.view.View.GONE);
+        if (whatsappAfterCall) {
+            boolean access = WhatsAppCallListenerService.isEnabled(this);
+            binding.whatsappAfterCallRow.setSubtitle(getString(access
+                    ? R.string.whatsapp_after_call_access_on
+                    : R.string.whatsapp_after_call_access_off));
+        }
         binding.appLockRow.setChecked(StorageService.isAppLockEnabled());
         binding.spamRow.setChecked(StorageService.isSpamShieldEnabled());
         binding.languageRow.setValue(LanguageActivity.currentLabel(this));

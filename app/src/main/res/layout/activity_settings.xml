@@ -102,6 +102,17 @@
                     app:rowTitle="@string/call_announcer" />
 
                 <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
+                    android:id="@+id/whatsappAfterCallRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:rowAccent="@color/primary"
+                    app:rowIcon="@drawable/ic_chat"
+                    app:rowShowChevron="true"
+                    app:rowSubtitle="@string/whatsapp_after_call_subtitle"
+                    app:rowTitle="@string/whatsapp_after_call" />
+
+                <com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.SettingRowView
                     android:id="@+id/blockedRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

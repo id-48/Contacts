@@ -27,7 +27,8 @@ final class InlineAdSlot {
         BANNER(R.layout.ad_shimmer_banner),
         NATIVE_BIG(R.layout.ad_shimmer_native_big),
         NATIVE_SMALL(R.layout.ad_shimmer_native_small),
-        NATIVE_SMALL_2(R.layout.ad_shimmer_native_small2);
+        NATIVE_SMALL_2(R.layout.ad_shimmer_native_small2),
+        NATIVE_THEME_SMALL(R.layout.ad_shimmer_native_theme_small);
 
         @LayoutRes
         final int shimmerLayout;
@@ -89,6 +90,7 @@ final class InlineAdSlot {
                 }
                 shown[0] = ad;
                 ad.setImpressionListener(() -> AdsLog.adImpression(placement, provider));
+                ad.setClickListener(() -> AdsLog.adClick(placement, provider));
                 View view = ad.view();
                 for (int i = container.getChildCount() - 1; i >= 0; i--) {
                     if (container.getChildAt(i) != view) container.removeViewAt(i);

@@ -10,6 +10,7 @@ const BOOL_SETTING_KEYS = [
     'app_open_on_resume',
     'launcher_enabled',
     'in_app_review_enabled',
+    'whatsapp_after_call_enabled',
     'welcome_enabled',
     'theme_selection_enabled',
     'language_selection_enabled',
@@ -46,6 +47,7 @@ function ensure_settings_schema(): void
         'intro_flow_organic' => "VARCHAR(20) NOT NULL DEFAULT ''",
         'intro_flow_marketing' => "VARCHAR(20) NOT NULL DEFAULT ''",
         'in_app_review_enabled' => 'TINYINT(1) NOT NULL DEFAULT 1',
+        'whatsapp_after_call_enabled' => 'TINYINT(1) NOT NULL DEFAULT 0',
         'config_refresh_per_day' => 'TINYINT UNSIGNED NOT NULL DEFAULT 2',
     ];
     foreach ($columns as $column => $definition) {
@@ -508,6 +510,7 @@ function build_public_config(): array
             'app_open_on_resume' => $s['app_open_on_resume'],
             'launcher_enabled' => $s['launcher_enabled'],
             'in_app_review' => $s['in_app_review_enabled'],
+            'whatsapp_after_call' => $s['whatsapp_after_call_enabled'],
             'config_refresh_per_day' => $s['config_refresh_per_day'],
         ],
         'marketing' => [

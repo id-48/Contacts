@@ -13,11 +13,13 @@ public final class AppConstants {
     public static final String CHANNEL_MISSED = "missed_calls";
     public static final String CHANNEL_REMINDERS = "call_reminders";
     public static final String CHANNEL_CUSTOM = "custom_notifications";
+    public static final String CHANNEL_AFTER_CALL = "after_call";
 
     public static final int NOTIFICATION_CALL_ID = 1001;
     public static final int NOTIFICATION_MISSED_SUMMARY_ID = 2000;
     public static final int NOTIFICATION_LOCAL_ID = 3000;
     public static final int NOTIFICATION_PUSH_BASE_ID = 4000;
+    public static final int NOTIFICATION_AFTER_CALL_ID = 5001;
     public static final String NOTIFICATION_MISSED_GROUP = "missed_calls_group";
 
     public static final String[] LANGUAGE_TAGS = {

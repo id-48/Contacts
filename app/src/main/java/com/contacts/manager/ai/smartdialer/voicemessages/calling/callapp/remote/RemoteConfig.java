@@ -53,6 +53,7 @@ public final class RemoteConfig {
     public final boolean appOpenOnResume;
     public final boolean launcherEnabled;
     public final boolean inAppReviewEnabled;
+    public final boolean whatsappAfterCallEnabled;
     public final int configRefreshPerDay;
     public final String facebookAppId;
     public final String facebookClientToken;
@@ -91,6 +92,7 @@ public final class RemoteConfig {
         appOpenOnResume = features.optBoolean("app_open_on_resume", false);
         launcherEnabled = features.optBoolean("launcher_enabled", false);
         inAppReviewEnabled = features.optBoolean("in_app_review", true);
+        whatsappAfterCallEnabled = features.optBoolean("whatsapp_after_call", false);
         configRefreshPerDay = Math.max(1, Math.min(24, features.optInt("config_refresh_per_day", 2)));
 
         JSONObject marketing = section(root, "marketing");

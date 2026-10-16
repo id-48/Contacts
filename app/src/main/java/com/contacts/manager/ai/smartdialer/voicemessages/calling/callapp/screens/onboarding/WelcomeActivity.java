@@ -61,7 +61,7 @@ public class WelcomeActivity extends BaseActivity {
         binding.agreeButton.setOnClickListener(v -> permissions.start());
 
         AdsManager.showNativeBig(this, binding.nativeBigContainer, RemoteConfig.SCREEN_WELCOME);
-        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, RemoteConfig.SCREEN_WELCOME);
+        AdsManager.showNativeThemeSmall(this, binding.nativeSmallContainer, RemoteConfig.SCREEN_WELCOME);
         AdsManager.showBanner(this, binding.bannerContainer, RemoteConfig.SCREEN_WELCOME);
     }
 

@@ -71,6 +71,7 @@ CREATE TABLE IF NOT EXISTS app_settings (
     app_open_on_resume TINYINT(1) NOT NULL DEFAULT 0,
     launcher_enabled TINYINT(1) NOT NULL DEFAULT 0,
     in_app_review_enabled TINYINT(1) NOT NULL DEFAULT 1,
+    whatsapp_after_call_enabled TINYINT(1) NOT NULL DEFAULT 0,
     config_refresh_per_day TINYINT UNSIGNED NOT NULL DEFAULT 2,
     welcome_enabled TINYINT(1) NOT NULL DEFAULT 1,
     theme_selection_enabled TINYINT(1) NOT NULL DEFAULT 1,

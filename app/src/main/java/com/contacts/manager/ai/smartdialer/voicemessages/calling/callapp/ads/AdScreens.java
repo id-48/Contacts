@@ -87,6 +87,7 @@ public final class AdScreens {
     public static final String QUICK_RESPONSE_ADD = "quick_response_add";
     public static final String AFTER_CALL = "after_call";
     public static final String AFTER_CALL_CLOSE = "after_call_close";
+    public static final String WP_CALL_END_SCREEN = "wp_call_end_screen";
     public static final String DIALER_BACK = "dialer_back";
     public static final String CALL = "call";
     public static final String LAUNCHER = "launcher";

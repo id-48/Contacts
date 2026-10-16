@@ -44,7 +44,7 @@
                 app:fontFamily="@font/roboto_regular" />
 
             <FrameLayout
-                android:id="@+id/nativeSmallContainer"
+                android:id="@+id/nativeBigContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_16"
@@ -98,11 +98,11 @@
             </LinearLayout>
 
             <FrameLayout
-                android:id="@+id/nativeBigContainer"
+                android:id="@+id/nativeSmallContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_16"
-                android:layout_marginTop="@dimen/space_24"
+                android:layout_marginTop="@dimen/space_16"
                 android:layout_marginEnd="@dimen/space_16"
                 android:visibility="gone" />
 

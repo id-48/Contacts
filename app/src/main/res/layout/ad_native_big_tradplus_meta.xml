@@ -3,7 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_ad_native_big">
+    android:background="@drawable/bg_ad_native_big"
+    android:tag="theme_ad_surface">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -94,7 +95,8 @@
             style="@style/Widget.App.AdCta.Big"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="@dimen/space_12" />
+            android:layout_marginTop="@dimen/space_12"
+            android:tag="theme_ad_cta" />
 
     </LinearLayout>
 

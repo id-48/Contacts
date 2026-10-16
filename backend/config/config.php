@@ -204,6 +204,11 @@ function is_valid_version(string $version): bool
     return (bool) preg_match('/^\d+(\.\d+){0,3}$/', $version);
 }
 
+function is_valid_version_code(string $version): bool
+{
+    return (bool) preg_match('/^\d{1,9}$/', $version);
+}
+
 function is_valid_ad_unit_id(string $id): bool
 {
     return $id === '' || (bool) preg_match('/^\S{1,191}$/', $id);

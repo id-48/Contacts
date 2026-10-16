@@ -15,10 +15,12 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdS
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.ads.AdsManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.analytics.Analytics;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.BaseActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.ConfirmDialog;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.common.InAppReview;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.constants.IntentKeys;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.ActivityMainBinding;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.databinding.IncludeNavItemBinding;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.contacts.ContactsFragment;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.dialer.DialerActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.editcontact.EditContactActivity;
@@ -26,7 +28,10 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.recent.RecentFragment;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.search.SearchActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.settings.SettingsActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.WhatsAppCallListenerService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.IntentUtils;
 
 public class MainActivity extends BaseActivity {
 
@@ -108,12 +113,34 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        maybePromptWhatsAppAccess();
+    }
+
+    @Override
     protected void onNewIntent(@NonNull Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
         if (intent.hasExtra(IntentKeys.EXTRA_TAB)) {
             selectTab(intent.getIntExtra(IntentKeys.EXTRA_TAB, TAB_RECENT));
         }
+    }
+
+    private void maybePromptWhatsAppAccess() {
+        if (!RemoteConfigManager.get().whatsappAfterCallEnabled) return;
+        if (!StorageService.isAfterCallEnabled()) return;
+        if (WhatsAppCallListenerService.isEnabled(this)) return;
+        if (StorageService.wasWhatsAppNotifAccessPrompted()) return;
+        StorageService.setWhatsAppNotifAccessPrompted(true);
+        ConfirmDialog.show(this,
+                getString(R.string.whatsapp_after_call_prompt_title),
+                getString(R.string.whatsapp_after_call_prompt_body),
+                R.string.allow_access,
+                false,
+                R.drawable.ic_notifications,
+                R.string.cancel,
+                () -> IntentUtils.safeStart(this, WhatsAppCallListenerService.settingsIntent(this)));
     }
 
     @Override

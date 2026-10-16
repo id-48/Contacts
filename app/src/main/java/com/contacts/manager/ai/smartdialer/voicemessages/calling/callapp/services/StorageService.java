@@ -103,6 +103,14 @@ public final class StorageService {
         prefs.edit().putBoolean(PrefKeys.AFTER_CALL_ENABLED, enabled).apply();
     }
 
+    public static boolean wasWhatsAppNotifAccessPrompted() {
+        return prefs.getBoolean(PrefKeys.WHATSAPP_NOTIF_ACCESS_PROMPTED, false);
+    }
+
+    public static void setWhatsAppNotifAccessPrompted(boolean prompted) {
+        prefs.edit().putBoolean(PrefKeys.WHATSAPP_NOTIF_ACCESS_PROMPTED, prompted).apply();
+    }
+
     public static boolean isSmartNotificationsEnabled() {
         return prefs.getBoolean(PrefKeys.SMART_NOTIFICATIONS_ENABLED, true);
     }

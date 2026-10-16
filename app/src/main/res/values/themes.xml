@@ -36,6 +36,7 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowAnimationStyle">@style/Animation.App.Activity</item>
+        <item name="materialSwitchStyle">@style/Widget.App.MaterialSwitch</item>
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.Dialog</item>
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>

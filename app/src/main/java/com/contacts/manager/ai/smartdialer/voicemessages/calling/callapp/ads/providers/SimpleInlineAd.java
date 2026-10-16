@@ -12,7 +12,10 @@ final class SimpleInlineAd implements AdProvider.InlineAd {
     private final Runnable destroy;
     @Nullable
     private Runnable impressionListener;
+    @Nullable
+    private Runnable clickListener;
     private int pendingImpressions;
+    private int pendingClicks;
 
     SimpleInlineAd(View view, Runnable destroy) {
         this.view = view;
@@ -22,6 +25,11 @@ final class SimpleInlineAd implements AdProvider.InlineAd {
     void impression() {
         if (impressionListener != null) impressionListener.run();
         else pendingImpressions++;
+    }
+
+    void click() {
+        if (clickListener != null) clickListener.run();
+        else pendingClicks++;
     }
 
     @Override
@@ -36,8 +44,15 @@ final class SimpleInlineAd implements AdProvider.InlineAd {
     }
 
     @Override
+    public void setClickListener(Runnable listener) {
+        clickListener = listener;
+        for (; pendingClicks > 0; pendingClicks--) listener.run();
+    }
+
+    @Override
     public void destroy() {
         impressionListener = null;
+        clickListener = null;
         destroy.run();
     }
 }

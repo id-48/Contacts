@@ -197,6 +197,9 @@ public final class TradPlusProvider implements AdProvider {
                 return meta ? R.layout.ad_native_big_tradplus_meta : R.layout.ad_native_big_tradplus;
             case SMALL_2:
                 return meta ? R.layout.ad_small_native_tradpluse_meta2 : R.layout.ad_small_native_tradpluse2;
+            case THEME_SMALL:
+                return meta ? R.layout.ad_native_theme_small_tradplus_meta
+                        : R.layout.ad_native_theme_small_tradplus;
             default:
                 return meta ? R.layout.ad_native_small_tradplus_meta : R.layout.ad_native_small_tradplus;
         }
@@ -244,6 +247,11 @@ public final class TradPlusProvider implements AdProvider {
                 @Override
                 public void onAdImpression(TPAdInfo info) {
                     ad.impression();
+                }
+
+                @Override
+                public void onAdClicked(TPAdInfo info) {
+                    ad.click();
                 }
 
                 @Override
@@ -315,8 +323,9 @@ public final class TradPlusProvider implements AdProvider {
                     if (cached != null) cached.showAd(holder, layout, "");
                     else tpNative.showAd(holder, layout, "");
                     if (baseAd != null && baseAd.getNetworkObj() instanceof NativeBannerAd) {
-                        View media = holder.findViewById(style == NativeStyle.SMALL_2
-                                ? R.id.tp_mopub_native_main_image : R.id.tp_native_main_image);
+                        View media = holder.findViewById(
+                                style == NativeStyle.SMALL_2 || style == NativeStyle.THEME_SMALL
+                                        ? R.id.tp_mopub_native_main_image : R.id.tp_native_main_image);
                         if (media != null) media.setVisibility(View.GONE);
                     }
                     callback.onLoaded(ad);
@@ -325,6 +334,11 @@ public final class TradPlusProvider implements AdProvider {
                 @Override
                 public void onAdImpression(TPAdInfo info) {
                     if (ad != null) ad.impression();
+                }
+
+                @Override
+                public void onAdClicked(TPAdInfo info) {
+                    if (ad != null) ad.click();
                 }
 
                 @Override
@@ -403,6 +417,10 @@ public final class TradPlusProvider implements AdProvider {
             if (show != null) show.onShown();
         }
 
+        void clicked() {
+            if (show != null) show.onClicked();
+        }
+
         void dismissed() {
             removeOverlay();
             ShowCallback callback = show;
@@ -466,6 +484,7 @@ public final class TradPlusProvider implements AdProvider {
 
             @Override
             public void onAdClicked(TPAdInfo info) {
+                state.clicked();
             }
 
             @Override
@@ -525,6 +544,7 @@ public final class TradPlusProvider implements AdProvider {
 
             @Override
             public void onAdClicked(TPAdInfo info) {
+                state.clicked();
             }
 
             @Override

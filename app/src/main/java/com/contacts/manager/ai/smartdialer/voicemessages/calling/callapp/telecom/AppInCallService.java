@@ -7,9 +7,9 @@ import android.telecom.InCallService;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.aftercall.AfterCallActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.aftercall.AfterCallLauncher;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.call.CallActivity;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.NotificationService;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 
 @SuppressWarnings("deprecation")
 public class AppInCallService extends InCallService {
@@ -69,9 +69,7 @@ public class AppInCallService extends InCallService {
         CallManager.EndedCall ended = CallManager.onCallRemoved(call);
         if (!CallManager.hasCalls()) {
             NotificationService.cancelCallNotification(this);
-            if (StorageService.isAfterCallEnabled() && RemoteConfigManager.isAfterCallScreenEnabled()) {
-                openAfterCall(ended);
-            }
+            openAfterCall(ended);
         }
     }
 
@@ -91,11 +89,6 @@ public class AppInCallService extends InCallService {
     }
 
     private void openAfterCall(CallManager.EndedCall ended) {
-        Intent intent = AfterCallActivity.intent(this, ended);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        try {
-            startActivity(intent);
-        } catch (Exception ignored) {
-        }
+        AfterCallLauncher.openPhone(this, AfterCallActivity.intent(this, ended));
     }
 }

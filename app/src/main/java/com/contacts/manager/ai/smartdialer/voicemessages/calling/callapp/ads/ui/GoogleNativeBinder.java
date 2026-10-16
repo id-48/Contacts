@@ -65,6 +65,8 @@ public final class GoogleNativeBinder {
                 return R.layout.ad_native_big_google;
             case SMALL_2:
                 return R.layout.ad_small_native_google2;
+            case THEME_SMALL:
+                return R.layout.ad_native_theme_small_google;
             default:
                 return R.layout.ad_native_small_google;
         }

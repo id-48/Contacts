@@ -19,6 +19,8 @@
     <color name="text_tertiary">#FF6A6E78</color>
     <color name="divider">#FF2A2C31</color>
     <color name="splash_track">#FF3A3C42</color>
+    <color name="switch_track_off">#FF5C606A</color>
+    <color name="switch_thumb_off">#FFE8EAED</color>
     <color name="text_muted">#FFB4B7BE</color>
     <color name="illustration_blob">#FF141A26</color>
     <color name="illustration_sparkle">#FF2C3547</color>

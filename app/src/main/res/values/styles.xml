@@ -101,6 +101,12 @@
         <item name="cornerSizeBottomRight">0dp</item>
     </style>
 
+    <style name="Widget.App.MaterialSwitch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbTint">@color/switch_thumb</item>
+        <item name="trackTint">@color/switch_track</item>
+        <item name="trackDecorationTint">@color/switch_track_decoration</item>
+    </style>
+
     <style name="Widget.App.Button" parent="Widget.Material3.Button">
         <item name="android:minHeight">@dimen/button_height</item>
         <item name="android:insetTop">0dp</item>

@@ -223,6 +223,9 @@
     <string name="channel_incoming">Incoming calls</string>
     <string name="channel_ongoing">Ongoing calls</string>
     <string name="channel_missed">Missed calls</string>
+    <string name="channel_after_call">After call</string>
+    <string name="after_call_ready_title">Call ended</string>
+    <string name="after_call_ready_body">Tap to open after-call actions</string>
 
     <string name="language">Language</string>
     <string name="choose_language">Choose Language</string>

@@ -37,6 +37,12 @@
 
     <string name="flash_on_call">Flash on call</string>
     <string name="flash_on_call_subtitle">Blink the flashlight when a call comes in</string>
+    <string name="whatsapp_after_call">WhatsApp after call</string>
+    <string name="whatsapp_after_call_subtitle">Show the after-call screen when a WhatsApp call ends</string>
+    <string name="whatsapp_after_call_access_on">Notification access is on</string>
+    <string name="whatsapp_after_call_access_off">Tap to allow notification access</string>
+    <string name="whatsapp_after_call_prompt_title">Allow notification access</string>
+    <string name="whatsapp_after_call_prompt_body">To open the after-call screen when a WhatsApp voice or video call ends, allow this app to read notifications.</string>
     <string name="flash_unavailable">This phone doesn\'t have a flashlight</string>
 
     <string name="answer_position">Answer button position</string>

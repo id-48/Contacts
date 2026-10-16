@@ -3,6 +3,7 @@
 
     const API = '../api/';
     const VERSION_RE = /^\d+(\.\d+){0,3}$/;
+    const VERSION_CODE_RE = /^\d{1,9}$/;
     const NO_SPACE_RE = /^\S*$/;
     const FULLSCREEN_TYPES = [
         ['interstitial', 'Interstitial'],
@@ -331,10 +332,14 @@
                     if (d[key] && !isValidUrl(d[key])) errors[key] = 'Enter a valid URL (https://...)';
                 });
                 if (d.app_version && !VERSION_RE.test(d.app_version)) errors.app_version = 'Use a version like 1.0.0';
-                if (d.minimum_version && !VERSION_RE.test(d.minimum_version)) errors.minimum_version = 'Use a version like 1.0.0';
+                if (d.minimum_version && !VERSION_CODE_RE.test(d.minimum_version)) {
+                    errors.minimum_version = 'Enter the Android versionCode as a whole number (e.g. 3)';
+                }
                 if (d.force_update) {
                     if (!d.app_version) errors.app_version = 'App version is required when force update is enabled';
-                    if (!d.minimum_version) errors.minimum_version = 'Minimum version is required when force update is enabled';
+                    if (!d.minimum_version) {
+                        errors.minimum_version = 'Version code is required when force update is enabled';
+                    }
                     if (!d.force_update_message) errors.force_update_message = 'Update message is required when force update is enabled';
                     if (!d.app_link) errors.app_link = 'App link is required when force update is enabled';
                 }

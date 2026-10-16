@@ -75,6 +75,37 @@ public final class NotificationService {
         manager.createNotificationChannel(reminders);
         manager.createNotificationChannel(new NotificationChannel(AppConstants.CHANNEL_CUSTOM,
                 context.getString(R.string.channel_custom), NotificationManager.IMPORTANCE_DEFAULT));
+
+        NotificationChannel afterCall = new NotificationChannel(AppConstants.CHANNEL_AFTER_CALL,
+                context.getString(R.string.channel_after_call), NotificationManager.IMPORTANCE_HIGH);
+        afterCall.setSound(null, null);
+        afterCall.enableVibration(false);
+        afterCall.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+        manager.createNotificationChannel(afterCall);
+    }
+
+    public static void showAfterCallLaunch(Context context, Intent screen) {
+        if (!canPost(context)) {
+            return;
+        }
+        PendingIntent content = PendingIntent.getActivity(context, AppConstants.NOTIFICATION_AFTER_CALL_ID,
+                screen, FLAGS);
+        Notification notification = new NotificationCompat.Builder(context, AppConstants.CHANNEL_AFTER_CALL)
+                .setSmallIcon(R.drawable.ic_call)
+                .setContentTitle(context.getString(R.string.after_call_ready_title))
+                .setContentText(context.getString(R.string.after_call_ready_body))
+                .setContentIntent(content)
+                .setFullScreenIntent(content, true)
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setCategory(NotificationCompat.CATEGORY_CALL)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .build();
+        NotificationManagerCompat.from(context).notify(AppConstants.NOTIFICATION_AFTER_CALL_ID, notification);
+    }
+
+    public static void cancelAfterCallLaunch(Context context) {
+        NotificationManagerCompat.from(context).cancel(AppConstants.NOTIFICATION_AFTER_CALL_ID);
     }
 
     public static boolean canPost(Context context) {

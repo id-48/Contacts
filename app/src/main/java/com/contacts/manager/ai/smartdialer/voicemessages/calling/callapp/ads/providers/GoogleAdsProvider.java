@@ -69,6 +69,11 @@ abstract class GoogleAdsProvider implements AdProvider {
             }
 
             @Override
+            public void onAdClicked() {
+                ad.click();
+            }
+
+            @Override
             public void onAdFailedToLoad(@NonNull LoadAdError error) {
                 if (delivered) return;
                 delivered = true;
@@ -108,6 +113,11 @@ abstract class GoogleAdsProvider implements AdProvider {
                     @Override
                     public void onAdImpression() {
                         if (loaded[0] != null) loaded[0].impression();
+                    }
+
+                    @Override
+                    public void onAdClicked() {
+                        if (loaded[0] != null) loaded[0].click();
                     }
                 })
                 .withNativeAdOptions(new NativeAdOptions.Builder()
@@ -190,6 +200,11 @@ abstract class GoogleAdsProvider implements AdProvider {
             @Override
             public void onAdShowedFullScreenContent() {
                 callback.onShown();
+            }
+
+            @Override
+            public void onAdClicked() {
+                callback.onClicked();
             }
 
             @Override

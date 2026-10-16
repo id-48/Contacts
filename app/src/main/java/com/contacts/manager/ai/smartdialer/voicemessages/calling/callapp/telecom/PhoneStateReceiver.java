@@ -10,8 +10,8 @@ import android.text.TextUtils;
 
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfigManager;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.aftercall.AfterCallActivity;
+import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.screens.aftercall.AfterCallLauncher;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.PhoneService;
-import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 
 /**
  * Shows the after-call screen when another app is the default dialer; as the default dialer,
@@ -65,17 +65,12 @@ public class PhoneStateReceiver extends BroadcastReceiver {
             long start = prefs.getLong(KEY_START, now);
             String stored = TextUtils.isEmpty(number) ? prefs.getString(KEY_NUMBER, null) : number;
             editor.clear().putString(KEY_STATE, state).apply();
-            if (StorageService.isAfterCallEnabled() && RemoteConfigManager.isAfterCallScreenEnabled()
-                    && !PhoneService.isDefaultDialer(context)) {
+            if (!PhoneService.isDefaultDialer(context)) {
                 int type = !rang ? CallLog.Calls.OUTGOING_TYPE
                         : offhook > 0 ? CallLog.Calls.INCOMING_TYPE : CallLog.Calls.MISSED_TYPE;
                 long duration = offhook > 0 ? Math.max(0, (now - offhook) / 1000) : 0;
-                Intent screen = AfterCallActivity.intent(context, stored, type, duration, start)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                try {
-                    context.startActivity(screen);
-                } catch (RuntimeException ignored) {
-                }
+                AfterCallLauncher.openPhone(context,
+                        AfterCallActivity.intent(context, stored, type, duration, start));
             }
             return;
         }

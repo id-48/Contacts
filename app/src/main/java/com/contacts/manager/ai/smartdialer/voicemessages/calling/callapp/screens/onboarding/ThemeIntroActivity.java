@@ -4,11 +4,14 @@ import android.animation.ArgbEvaluator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.ColorRes;
@@ -30,6 +33,7 @@ import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.remote.RemoteConfig;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.services.StorageService;
 import com.contacts.manager.ai.smartdialer.voicemessages.calling.callapp.utils.HapticUtils;
+import com.google.android.material.button.MaterialButton;
 
 public class ThemeIntroActivity extends BaseActivity {
 
@@ -80,8 +84,20 @@ public class ThemeIntroActivity extends BaseActivity {
         applyFraction(startPage);
         bindDots(startPage, false);
 
-        AdsManager.showNativeSmall(this, binding.nativeSmallContainer, RemoteConfig.SCREEN_THEME_SELECTION);
+        ViewGroup.OnHierarchyChangeListener adReady = new ViewGroup.OnHierarchyChangeListener() {
+            @Override
+            public void onChildViewAdded(View parent, View child) {
+                tintThemeAds(binding.themePager.getCurrentItem());
+            }
+
+            @Override
+            public void onChildViewRemoved(View parent, View child) {
+            }
+        };
+        binding.nativeBigContainer.setOnHierarchyChangeListener(adReady);
+        binding.nativeSmallContainer.setOnHierarchyChangeListener(adReady);
         AdsManager.showNativeBig(this, binding.nativeBigContainer, RemoteConfig.SCREEN_THEME_SELECTION);
+        AdsManager.showNativeThemeSmall(this, binding.nativeSmallContainer, RemoteConfig.SCREEN_THEME_SELECTION);
         AdsManager.showBanner(this, binding.bannerContainer, RemoteConfig.SCREEN_THEME_SELECTION);
     }
 
@@ -170,6 +186,80 @@ public class ThemeIntroActivity extends BaseActivity {
 
         insetsController.setAppearanceLightStatusBars(!dark);
         insetsController.setAppearanceLightNavigationBars(!dark);
+        tintThemeAds(f);
+    }
+
+    private void tintThemeAds(float fraction) {
+        int background = blend(fraction, R.color.background);
+        int card = blend(fraction, R.color.card_strong);
+        int text = blend(fraction, R.color.text_primary);
+        int muted = blend(fraction, R.color.text_muted);
+        int primary = blend(fraction, R.color.primary);
+        tintAdTree(binding.nativeSmallContainer, background, text, muted, primary);
+        tintAdTree(binding.nativeBigContainer, card, text, muted, primary);
+    }
+
+    private void tintAdTree(ViewGroup root, int surface, int text, int muted, int primary) {
+        if (root.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        walkViews(root, view -> {
+            Object tag = view.getTag();
+            if ("theme_ad_surface".equals(tag)) {
+                setSurfaceColor(view, surface);
+            } else if ("theme_ad_cta".equals(tag)) {
+                setCtaColor(view, primary);
+            } else if (view instanceof TextView) {
+                int id = view.getId();
+                if (id == R.id.ad_headline || id == R.id.tp_native_title) {
+                    ((TextView) view).setTextColor(text);
+                } else if (id == R.id.ad_body || id == R.id.tp_native_text
+                        || id == R.id.tp_native_advertiser) {
+                    ((TextView) view).setTextColor(muted);
+                }
+            }
+        });
+    }
+
+    private void setSurfaceColor(View view, int color) {
+        Drawable background = view.getBackground();
+        if (background instanceof GradientDrawable) {
+            ((GradientDrawable) background.mutate()).setColor(color);
+            return;
+        }
+        if (background != null) {
+            Drawable mutated = background.mutate();
+            if (mutated instanceof GradientDrawable) {
+                ((GradientDrawable) mutated).setColor(color);
+                return;
+            }
+        }
+        view.setBackgroundColor(color);
+    }
+
+    private void setCtaColor(View view, int color) {
+        if (view instanceof MaterialButton) {
+            ((MaterialButton) view).setBackgroundTintList(ColorStateList.valueOf(color));
+            return;
+        }
+        Drawable background = view.getBackground();
+        if (background != null) {
+            background.mutate().setTint(color);
+        }
+    }
+
+    private void walkViews(View view, ViewVisitor visitor) {
+        visitor.visit(view);
+        if (view instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) view;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                walkViews(group.getChildAt(i), visitor);
+            }
+        }
+    }
+
+    private interface ViewVisitor {
+        void visit(View view);
     }
 
     private int blend(float fraction, @ColorRes int color) {
